@@ -46,7 +46,7 @@ include('header.php');
 					<div class="carousel-caption">
 						<h3>The Biggest <span>Sale</span></h3>
 						<p>Special for today</p>
-						<a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+						<a class="hvr-outline-out button2" href="mens.php">Shop Now </a>
 					</div>
 				</div>
 			</div>
@@ -55,7 +55,7 @@ include('header.php');
 					<div class="carousel-caption">
 						<h3>Summer <span>Collection</span></h3>
 						<p>New Arrivals On Sale</p>
-						<a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+						<a class="hvr-outline-out button2" href="mens.php">Shop Now </a>
 					</div>
 				</div>
 			</div>
@@ -64,7 +64,7 @@ include('header.php');
 					<div class="carousel-caption">
 						<h3>The Biggest <span>Sale</span></h3>
 						<p>Special for today</p>
-						<a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+						<a class="hvr-outline-out button2" href="mens.php">Shop Now </a>
 					</div>
 				</div>
 			</div>
@@ -73,7 +73,7 @@ include('header.php');
 					<div class="carousel-caption">
 						<h3>Summer <span>Collection</span></h3>
 						<p>New Arrivals On Sale</p>
-						<a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+						<a class="hvr-outline-out button2" href="mens.php">Shop Now </a>
 					</div>
 				</div>
 			</div>
@@ -82,7 +82,7 @@ include('header.php');
 					<div class="carousel-caption">
 						<h3>The Biggest <span>Sale</span></h3>
 						<p>Special for today</p>
-						<a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+						<a class="hvr-outline-out button2" href="mens.php">Shop Now </a>
 					</div>
 				</div>
 			</div> 
@@ -139,7 +139,7 @@ include('header.php');
 		<h3 class="wthree_text_info">What's <span>Trending</span></h3>
 	
 		<div class="col-md-5 bb-grids bb-left-agileits-w3layouts">
-			<a href="womens.html">
+			<a href="womens.php">
 			   <div class="bb-left-agileits-w3layouts-inner grid">
 					<figure class="effect-roxy">
 							<img src="images/bb1.jpg" alt=" " class="img-responsive" />
@@ -152,7 +152,7 @@ include('header.php');
 			</a>
 		</div>
 		<div class="col-md-7 bb-grids bb-middle-agileits-w3layouts">
-		      <a href="mens.html">
+		      <a href="mens.php">
 		       <div class="bb-middle-agileits-w3layouts grid">
 			           <figure class="effect-roxy">
 							<img src="images/bottom3.jpg" alt=" " class="img-responsive" />
@@ -163,7 +163,7 @@ include('header.php');
 						</figure>
 		        </div>
 				</a>
-				<a href="mens.html">
+				<a href="mens.php">
 		      <div class="bb-middle-agileits-w3layouts forth grid">
 						<figure class="effect-roxy">
 							<img src="images/bottom4.jpg" alt=" " class="img-responsive">
@@ -200,14 +200,14 @@ include('header.php');
 										<img src="images/m1.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Formal Blue Shirt</a></h4>
+										<h4><a href="single.php">Formal Blue Shirt</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$45.99</span>
 											<del>$69.71</del>
@@ -239,14 +239,14 @@ include('header.php');
 										<img src="images/m2.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Gabi Full Sleeve Sweatshirt</a></h4>
+										<h4><a href="single.php">Gabi Full Sleeve Sweatshirt</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$45.99</span>
 											<del>$69.71</del>
@@ -278,14 +278,14 @@ include('header.php');
 										<img src="images/m3.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Dark Blue Track Pants</a></h4>
+										<h4><a href="single.php">Dark Blue Track Pants</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$80.99</span>
 											<del>$89.71</del>
@@ -317,14 +317,14 @@ include('header.php');
 										<img src="images/m4.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Round Neck Black T-Shirt</a></h4>
+										<h4><a href="single.php">Round Neck Black T-Shirt</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$190.99</span>
 											<del>$159.71</del>
@@ -356,14 +356,14 @@ include('header.php');
 										<img src="images/m5.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Men's Black Jeans</a></h4>
+										<h4><a href="single.php">Men's Black Jeans</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$60.99</span>
 											<del>$90.71</del>
@@ -395,14 +395,14 @@ include('header.php');
 										<img src="images/m7.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Analog Watch</a></h4>
+										<h4><a href="single.php">Analog Watch</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$160.99</span>
 											<del>$290.71</del>
@@ -434,14 +434,14 @@ include('header.php');
 										<img src="images/m6.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Reversible Belt</a></h4>
+										<h4><a href="single.php">Reversible Belt</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$30.99</span>
 											<del>$50.71</del>
@@ -473,14 +473,14 @@ include('header.php');
 										<img src="images/m8.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Party Men's Blazer</a></h4>
+										<h4><a href="single.php">Party Men's Blazer</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$260.99</span>
 											<del>$390.71</del>
@@ -517,14 +517,14 @@ include('header.php');
 										<img src="images/w1.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">A-line Black Skirt</a></h4>
+										<h4><a href="single.php">A-line Black Skirt</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$130.99</span>
 											<del>$189.71</del>
@@ -556,14 +556,14 @@ include('header.php');
 										<img src="images/w2.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Sleeveless Solid Blue Top</a></h4>
+										<h4><a href="single.php">Sleeveless Solid Blue Top</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$140.99</span>
 											<del>$189.71</del>
@@ -595,14 +595,14 @@ include('header.php');
 										<img src="images/w3.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Skinny Jeans</a></h4>
+										<h4><a href="single.php">Skinny Jeans</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$150.99</span>
 											<del>$189.71</del>
@@ -634,14 +634,14 @@ include('header.php');
 										<img src="images/w4.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Black Basic Shorts</a></h4>
+										<h4><a href="single.php">Black Basic Shorts</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$120.99</span>
 											<del>$189.71</del>
@@ -673,14 +673,14 @@ include('header.php');
 										<img src="images/w5.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Pink Track Pants</a></h4>
+										<h4><a href="single.php">Pink Track Pants</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$220.99</span>
 											<del>$389.71</del>
@@ -712,14 +712,14 @@ include('header.php');
 										<img src="images/w6.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Analog Watch</a></h4>
+										<h4><a href="single.php">Analog Watch</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$320.99</span>
 											<del>$489.71</del>
@@ -751,14 +751,14 @@ include('header.php');
 										<img src="images/w7.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Ankle Length Socks</a></h4>
+										<h4><a href="single.php">Ankle Length Socks</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$100.99</span>
 											<del>$159.71</del>
@@ -790,14 +790,14 @@ include('header.php');
 										<img src="images/w8.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Reebok Women's Tights</a></h4>
+										<h4><a href="single.php">Reebok Women's Tights</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$130.99</span>
 											<del>$169.71</del>
@@ -834,14 +834,14 @@ include('header.php');
 										<img src="images/b1.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Laptop Messenger Bag</a></h4>
+										<h4><a href="single.php">Laptop Messenger Bag</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$140.99</span>
 											<del>$169.71</del>
@@ -873,14 +873,14 @@ include('header.php');
 										<img src="images/b2.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Puma Backpack</a></h4>
+										<h4><a href="single.php">Puma Backpack</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$127.99</span>
 											<del>$169.71</del>
@@ -912,14 +912,14 @@ include('header.php');
 										<img src="images/b3.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html"> Laptop Backpack</a></h4>
+										<h4><a href="single.php"> Laptop Backpack</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$120.99</span>
 											<del>$189.71</del>
@@ -951,14 +951,14 @@ include('header.php');
 										<img src="images/b4.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Travel Duffel Bag </a></h4>
+										<h4><a href="single.php">Travel Duffel Bag </a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$190.99</span>
 											<del>$259.71</del>
@@ -990,14 +990,14 @@ include('header.php');
 										<img src="images/b5.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html"> Hand-held Bag </a></h4>
+										<h4><a href="single.php"> Hand-held Bag </a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$190.99</span>
 											<del>$259.71</del>
@@ -1029,14 +1029,14 @@ include('header.php');
 										<img src="images/b6.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Butterflies Bag </a></h4>
+										<h4><a href="single.php">Butterflies Bag </a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$190.99</span>
 											<del>$259.71</del>
@@ -1068,14 +1068,14 @@ include('header.php');
 										<img src="images/b7.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Costa Swiss Bag </a></h4>
+										<h4><a href="single.php">Costa Swiss Bag </a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$290.99</span>
 											<del>$359.71</del>
@@ -1107,14 +1107,14 @@ include('header.php');
 										<img src="images/b8.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Noble Designs Bag </a></h4>
+										<h4><a href="single.php">Noble Designs Bag </a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$120.99</span>
 											<del>$159.71</del>
@@ -1150,14 +1150,14 @@ include('header.php');
 										<img src="images/s1.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Running Shoes</a></h4>
+										<h4><a href="single.php">Running Shoes</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$80.99</span>
 											<del>$89.71</del>
@@ -1189,14 +1189,14 @@ include('header.php');
 										<img src="images/s2.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Shoetopia Lace Up</a></h4>
+										<h4><a href="single.php">Shoetopia Lace Up</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$90.99</span>
 											<del>$59.71</del>
@@ -1228,14 +1228,14 @@ include('header.php');
 										<img src="images/s3.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Steemo Casuals(Black)</a></h4>
+										<h4><a href="single.php">Steemo Casuals(Black)</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$90.99</span>
 											<del>$59.71</del>
@@ -1267,14 +1267,14 @@ include('header.php');
 										<img src="images/s4.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Benetton Flip Flops</a></h4>
+										<h4><a href="single.php">Benetton Flip Flops</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$40.99</span>
 											<del>$99.71</del>
@@ -1306,14 +1306,14 @@ include('header.php');
 										<img src="images/s5.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Moonwalk Bellies </a></h4>
+										<h4><a href="single.php">Moonwalk Bellies </a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$80.99</span>
 											<del>$99.71</del>
@@ -1345,14 +1345,14 @@ include('header.php');
 										<img src="images/s6.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Aero Canvas Loafers  </a></h4>
+										<h4><a href="single.php">Aero Canvas Loafers  </a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$120.99</span>
 											<del>$199.71</del>
@@ -1384,14 +1384,14 @@ include('header.php');
 										<img src="images/s7.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Sparx Sporty Canvas Shoes</a></h4>
+										<h4><a href="single.php">Sparx Sporty Canvas Shoes</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$160.99</span>
 											<del>$199.71</del>
@@ -1423,14 +1423,14 @@ include('header.php');
 										<img src="images/s8.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single.php" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Women BLACK Heels</a></h4>
+										<h4><a href="single.php">Women BLACK Heels</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$180.99</span>
 											<del>$199.71</del>
@@ -1467,7 +1467,7 @@ include('header.php');
 			<div class="container">
 				<h6>We Offer Flat <span>40%</span> Discount</h6>
  
-				<a class="hvr-outline-out button2" href="single.html">Shop Now </a>
+				<a class="hvr-outline-out button2" href="single.php">Shop Now </a>
 			</div>
 		</div>
 	<!-- //we-offer -->
@@ -1520,7 +1520,6 @@ include('header.php');
 
 
 <!-- php footer include -->
-
 <?php
 include('footer.php');
 ?>

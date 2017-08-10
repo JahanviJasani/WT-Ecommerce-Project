@@ -33,14 +33,14 @@ include('header.php');
        <!-- /banner_bottom_agile_info -->
 <div class="page-head_agile_info_w3l">
 		<div class="container">
-			<h3>Single <span>Page </span></h3>
+			<h3>Product <span>Page </span></h3>
 			<!--/w3_short-->
 				 <div class="services-breadcrumb">
 						<div class="agile_inner_breadcrumb">
 
 						   <ul class="w3_short">
 								<li><a href="index.php">Home</a><i>|</i></li>
-								<li>Single Page</li>
+								<li>Product Page</li>
 							</ul>
 						 </div>
 				</div>
