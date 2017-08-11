@@ -97,42 +97,7 @@ include('header.php');
 		</a>
 		<!-- The Modal -->
     </div> 
-	<!-- //banner -->
-    <div class="banner_bottom_agile_info">
-	    <div class="container-fluid">
-            <div class="banner_bottom_agile_info_inner_w3ls">
-    	           <div class="col-md-4 wthree_banner_bottom_grid_three_left1 grid">
-						<figure class="effect-roxy">
-							<img src="images/bottom1.jpg" alt=" " class="img-responsive" />
-							<figcaption>
-								<h3><span>F</span>all Ahead</h3>
-								<p>New Arrivals</p>
-							</figcaption>			
-						</figure>
-					</div>
-					 <div class="col-md-4 wthree_banner_bottom_grid_three_left1 grid">
-						<figure class="effect-roxy">
-							<img src="images/bottom2.jpg" alt=" " class="img-responsive" />
-							<figcaption>
-								<h3><span>F</span>all Ahead</h3>
-								<p>New Arrivals</p>
-							</figcaption>			
-						</figure>
-					</div>
-					 <div class="col-md-4 wthree_banner_bottom_grid_three_left1 grid">
-						<figure class="effect-roxy">
-							<img src="images/bottom2.jpg" alt=" " class="img-responsive" />
-							<figcaption>
-								<h3><span>F</span>all Ahead</h3>
-								<p>New Arrivals</p>
-							</figcaption>			
-						</figure>
-					</div>
-					<div class="clearfix"></div>
-		    </div> 
-		 </div> 
-    </div>
-	
+
   <!-- banner-bootom-w3-agileits -->
 	<div class="banner-bootom-w3-agileits">
 	<div class="container">

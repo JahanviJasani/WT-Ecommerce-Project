@@ -6,7 +6,7 @@ button {
   -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-i.fa,
+#checkout .container i.fa,
 button i.fa {
   margin: 0 5px;
 }
@@ -210,7 +210,7 @@ p.lead {
 .nav-pills > li.active > a:focus {
   color: #ffffff;
   background-color: #000000;
-  border-top: 5px solid #2fdab8;
+  border-top: 5px solid #000000;
   font-size: 1.2em;
   padding: 0.7em 0.5em;
 }
@@ -255,14 +255,14 @@ p.lead {
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active,
-.open .dropdown-toggle.btn-primary {
+.open .dropdown-toggle1.btn-primary {
   color: #ffffff;
   background-color: #3da892;
   border-color: #318675;
 }
 .btn-primary:active,
 .btn-primary.active,
-.open .dropdown-toggle.btn-primary {
+.open .dropdown-toggle11.btn-primary {
   background-image: none;
 }
 .btn-primary.disabled,
@@ -330,7 +330,6 @@ label1 {
   -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
   -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-
 }
 .form-group {
   margin-bottom: 20px;
@@ -358,31 +357,6 @@ label1 {
   }
 }
 /* type */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-family: inherit;
-  font-weight: 500;
-  line-height: 1.1;
-}
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
 ul,
 ol {
   margin: 0 0 20px;
@@ -409,4 +383,248 @@ a.text-primary:hover {
 }
 a.bg-primary:hover {
   background-color: #3aa18c;
+}
+
+/*shopping Cart Page*/
+.sc-product-image {
+  float: left;
+  width: 20%;
+}
+
+.sc-product-details {
+  float: left;
+  width: 37%;
+}
+
+.sc-product-price {
+  float: left;
+  width: 12%;
+}
+
+.sc-product-quantity {
+  float: left;
+  width: 10%;
+}
+
+.sc-product-removal {
+  float: left;
+  width: 9%;
+}
+
+.sc-product-line-price {
+  float: left;
+  width: 12%;
+  text-align: right;
+}
+
+/* This is used as the traditional .clearfix class */
+.group:before, .shopping-cart-page:before, .column-labels:before, .sc-product:before, .totals-item:before,
+.group:after,
+.shopping-cart-page:after,
+.column-labels:after,
+.sc-product:after,
+.totals-item:after {
+  content: '';
+  display: table;
+}
+
+.group:after, .shopping-cart-page:after, .column-labels:after, .sc-product:after, .totals-item:after {
+  clear: both;
+}
+
+.group, .shopping-cart-page, .column-labels, .sc-product, .totals-item {
+  zoom: 1;
+}
+
+/* Apply clearfix in a few places */
+/* Apply dollar signs */
+.sc-product .sc-product-price:before, .sc-product .sc-product-line-price:before, .totals-value:before {
+  content: '$';
+}
+
+.shopping-cart-page {
+  margin: 2em 2em 0em 2em;
+  padding: 2em 2em 2em 2em;
+}
+
+/* Column headers */
+.column-labels label {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+.column-labels .sc-product-image, .column-labels .sc-product-details, .column-labels .sc-product-removal {
+  text-indent: -9999px;
+}
+
+/* Product entries */
+.sc-product {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+.sc-product .sc-product-image {
+  text-align: center;
+}
+.sc-product .sc-product-image img {
+  width: 100px;
+}
+.sc-product .sc-product-details .sc-product-title {
+  margin-right: 20px;
+}
+.sc-product .sc-product-details .sc-product-description {
+  margin: 5px 20px 5px 0;
+  line-height: 1.4em;
+}
+.sc-product .sc-product-quantity input {
+  width: 40px;
+}
+.sc-product .remove-product {
+  border: 0;
+  padding: 4px 8px;
+  background-color: #2fdab8;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+}
+.sc-product .remove-product:hover {
+  background-color: #000;
+}
+
+/* Totals section */
+.totals .totals-item {
+  float: right;
+  clear: both;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.totals .totals-item label {
+  float: left;
+  clear: both;
+  width: 79%;
+  text-align: right;
+}
+.totals .totals-item .totals-value {
+  float: right;
+  width: 21%;
+  text-align: right;
+}
+
+/* Make adjustments for tablet */
+@media screen and (max-width: 650px) {
+  .shopping-cart-page {
+  margin: 0;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  }
+
+  .column-labels {
+  display: none;
+  }
+
+  .sc-product-image {
+  float: right;
+  width: auto;
+  }
+  .sc-product-image img {
+  margin: 0 0 10px 10px;
+  }
+
+  .sc-product-details {
+  float: none;
+  margin-bottom: 10px;
+  width: auto;
+  }
+
+  .sc-product-price {
+  clear: both;
+  width: 70px;
+  }
+
+  .sc-product-quantity {
+  width: 100px;
+  }
+  .sc-product-quantity input {
+  margin-left: 20px;
+  }
+
+  .sc-product-quantity:before {
+  content: 'x';
+  }
+
+  .sc-product-removal {
+  width: auto;
+  }
+
+  .sc-product-line-price {
+  float: right;
+  width: 70px;
+  }
+}
+/* Make more adjustments for phone */
+@media screen and (max-width: 350px) {
+  .sc-product-removal {
+  float: right;
+  }
+
+  .sc-product-line-price {
+  float: right;
+  clear: left;
+  width: auto;
+  margin-top: 10px;
+  }
+
+  .sc-product .sc-product-line-price:before {
+  content: 'Item Total: $';
+  }
+
+  .totals .totals-item label {
+  width: 60%;
+  }
+  .totals .totals-item .totals-value {
+  width: 40%;
+  }
+} 
+
+.form1 {
+  height: 5em;
+  background: #eee;
+  margin-bottom: 2em;
+}
+.form1 .pull-left {
+  margin-left: 15em;
+  padding-top: 1.5em;
+}
+.form1 .pull-right {
+  margin-right: 15em;
+  padding-top: 1.5em;
+}
+.form1 .btn {  
+  padding: 6px 10px;
+  padding-left: 8px;
+  font-size: 1em;
+  line-height: 1.42857143;
+  border-radius: 3px;
+}
+.form1 .btn-default {
+  color: #fff;
+  background-color: #000000;
+}
+.form1 .btn-primary {
+  color: #ffffff;
+  background-color: #000000;
+  border-color: #000000;
+}
+.form1 .btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle1.btn-primary {
+  color: #ffffff;
+  background-color: #3da892;
+  border-color: #318675;
+}
+.form1 .btn-primary:active,
+.btn-primary.active {
+  background-image: none;
 }
