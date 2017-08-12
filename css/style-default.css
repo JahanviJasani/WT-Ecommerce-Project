@@ -167,6 +167,7 @@ p.lead {
 .nav > li.disabled > a:hover,
 .nav > li.disabled > a:focus {
   color: #999999;
+  border-top: 5px solid #fff;
 }
 .nav > li.visited > a {
   color: #ffffff;
