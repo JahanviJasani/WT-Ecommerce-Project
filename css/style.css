@@ -1425,12 +1425,9 @@ position:relative;
 	opacity: 1 !important;
 	outline:none;
 }
-#PPMiniCart .minicart-submit {
-    display: none;
-}
 #PPMiniCart .minicart-submit:hover{
-	background:#fe9126 !important;
-	border-color: #5b951a !important;
+	background:#000000;
+	border-color: #000000;
 }
 #PPMiniCart .minicart-subtotal {
     padding-left: 25px !important;
