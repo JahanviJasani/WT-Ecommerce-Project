@@ -1,3 +1,4 @@
+
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -44,11 +45,11 @@ include('header.php');
 
   <div class="sc-product">
   <div class="sc-product-image">
-  <img src="https://s.cdpn.io/3/dingo-dog-bones.jpg">
+  <img src="https://sc01.alicdn.com/kf/HTB1FAlQLpXXXXXOXXXX760XFXXX1/Handbags-Lastest-Fancy-Ladies-Stylish-Women-Shoulder.png">
   </div>
   <div class="sc-product-details">
-  <div class="sc-product-title">Dingo Dog Bones</div>
-  <p class="sc-product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p>
+  <div class="sc-product-title">Fancy Handbag</div>
+  <p class="sc-product-description">Faux leather material burgundy colored satchel<br>Do not expose to extreme heat</p>
   </div>
   <div class="sc-product-price">12.99</div>
   <div class="sc-product-quantity">
@@ -62,13 +63,14 @@ include('header.php');
   <div class="sc-product-line-price">25.98</div>
   </div>
 
+
   <div class="sc-product">
   <div class="sc-product-image">
-  <img src="https://s.cdpn.io/3/large-NutroNaturalChoiceAdultLambMealandRiceDryDogFood.png">
+  <img src="http://g02.a.alicdn.com/kf/HTB1TqSULVXXXXcRXXXXq6xXFXXXw/-New-2016-Women-Backpacks-bow-Brand-pu-leather-Backpack-travel-hiking-Bags-high-quality-girls.jpg">
   </div>
   <div class="sc-product-details">
-  <div class="sc-product-title">Nutro™ Adult Lamb and Rice Dog Food</div>
-  <p class="sc-product-description">Who doesn't like lamb and rice? We've all hit the halal cart at 3am while quasi-blackout after a night of binge drinking in Manhattan. Now it's your dog's turn!</p>
+  <div class="sc-product-title">Backpack travel hiking Bags</div>
+  <p class="sc-product-description">Material - PU leather<br>Golden Sequin Detail, 2 in 1 combo, 1 Handbag, 1 Clutch with wrist strap</p>
   </div>
   <div class="sc-product-price">45.99</div>
   <div class="sc-product-quantity">

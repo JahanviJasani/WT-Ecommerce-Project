@@ -48,7 +48,7 @@ include('header.php');
 
 <div id="checkout">
     <div class="container">
-        <div class="col-md-9" id="checkout">
+        <div class="col-md-9">
             <div class="box">
                 <form method="post" action="checkout2.php">
                     <ul class="nav nav-pills nav-justified">

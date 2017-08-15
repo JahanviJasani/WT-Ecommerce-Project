@@ -24,11 +24,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
 </head>
+<body>
 
 <?php
 include('header.php');
 ?>
-
 <!-- /banner_bottom_agile_info -->
 <div class="page-head_agile_info_w3l">
 		<div class="container">
@@ -60,42 +60,38 @@ include('header.php');
 				</div>
 				  <div class="clearfix"></div>
 			</div>    
-            <!-- //banner -->
-		    <div class="banner_bottom_agile_info">
-			    <div class="container-fluid">
-		            <div class="banner_bottom_agile_info_inner_w3ls">
-		    	           <div class="col-md-4 wthree_banner_bottom_grid_three_left1 grid">
-								<figure class="effect-roxy">
-									<img src="images/bottom1.jpg" alt=" " class="img-responsive" />
-									<figcaption>
-										<h3><span>F</span>all Ahead</h3>
-										<p>New Arrivals</p>
-									</figcaption>			
-								</figure>
-							</div>
-							 <div class="col-md-4 wthree_banner_bottom_grid_three_left1 grid">
-								<figure class="effect-roxy">
-									<img src="images/bottom2.jpg" alt=" " class="img-responsive" />
-									<figcaption>
-										<h3><span>F</span>all Ahead</h3>
-										<p>New Arrivals</p>
-									</figcaption>			
-								</figure>
-							</div>
-							 <div class="col-md-4 wthree_banner_bottom_grid_three_left1 grid">
-								<figure class="effect-roxy">
-									<img src="images/bottom2.jpg" alt=" " class="img-responsive" />
-									<figcaption>
-										<h3><span>F</span>all Ahead</h3>
-										<p>New Arrivals</p>
-									</figcaption>			
-								</figure>
-							</div>
-							<div class="clearfix"></div>
-				    </div> 
-				 </div> 
-		    </div>
-    	</div>
+            <div class="banner_bottom_agile_info_inner_w3ls">
+    	           <div class="col-md-6 wthree_banner_bottom_grid_three_left1 grid">
+						<figure class="effect-roxy">
+							<img src="images/bottom1.jpg" alt=" " class="img-responsive" />
+							<figcaption>
+								<h3><span>F</span>all Ahead</h3>
+								<p>New Arrivals</p>
+							</figcaption>			
+						</figure>
+					</div>
+					 <div class="col-md-6 wthree_banner_bottom_grid_three_left1 grid">
+						<figure class="effect-roxy">
+							<img src="images/bottom2.jpg" alt=" " class="img-responsive" />
+							<figcaption>
+								<h3><span>F</span>all Ahead</h3>
+								<p>New Arrivals</p>
+							</figcaption>			
+						</figure>
+					</div>
+					<div class="col-md-6 wthree_banner_bottom_grid_three_left1 grid">
+						<figure class="effect-roxy">
+							<img src="images/bottom1.jpg" alt=" " class="img-responsive" />
+							<figcaption>
+								<h3><span>F</span>all Ahead</h3>
+								<p>New Arrivals</p>
+							</figcaption>			
+						</figure>
+					</div>
+					<div class="clearfix"></div>
+		    </div> 
+		 </div> 
+    </div>
 	<!-- team -->
 <div class="banner_bottom_agile_info team">
 	<div class="container">
@@ -103,35 +99,10 @@ include('header.php');
 			<div class="inner_w3l_agile_grids">
 						<div class="col-md-4 team-grids">
 						<div class="thumbnail team-w3agile">
-							<img src="images/t2.jpg" class="img-responsive" alt="">
-							<div class="social-icons team-icons right-w3l fotw33">
-							<div class="caption">
-								<h4>Anika Mollik</h4>
-								<p>Add Short Description</p>						
-							</div>
-								<ul class="social-nav model-3d-0 footer-social w3_agile_social two">
-															<li><a href="#" class="facebook">
-																  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-																  <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
-															<li><a href="#" class="twitter"> 
-																  <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-																  <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
-															<li><a href="#" class="instagram">
-																  <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-																  <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
-															<li><a href="#" class="pinterest">
-																  <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-																  <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
-														</ul>
-							          </div>
-						     </div>
-			         	</div>
-						<div class="col-md-4 team-grids">
-						<div class="thumbnail team-w3agile">
 							<img src="images/t3.jpg" class="img-responsive" alt="">
 							<div class="social-icons team-icons right-w3l fotw33">
 							<div class="caption">
-								<h4>Megali Deo</h4>
+								<h4>Vatsal Doshi</h4>
 								<p>Add Short Description</p>						
 							</div>
 								<ul class="social-nav model-3d-0 footer-social w3_agile_social two">
@@ -151,12 +122,13 @@ include('header.php');
 							          </div>
 						     </div>
 			         	</div>
+					
 						<div class="col-md-4 team-grids">
 						<div class="thumbnail team-w3agile">
-							<img src="images/t4.jpg" class="img-responsive" alt="">
+							<img src="images/t2.jpg" class="img-responsive" alt="">
 							<div class="social-icons team-icons right-w3l fotw33">
 							<div class="caption">
-								<h4>Retas Word</h4>
+								<h4>Jahanvi Jasani</h4>
 								<p>Add Short Description</p>						
 							</div>
 								<ul class="social-nav model-3d-0 footer-social w3_agile_social two">
@@ -176,6 +148,33 @@ include('header.php');
 							          </div>
 						     </div>
 			         	</div>
+
+			         	<div class="col-md-4 team-grids">
+						<div class="thumbnail team-w3agile">
+							<img src="images/t1.jpg" class="img-responsive" alt="">
+							<div class="social-icons team-icons right-w3l fotw33">
+							<div class="caption">
+								<h4>Arnav Jalui</h4>
+								<p>Add Short Description</p>						
+							</div>
+								<ul class="social-nav model-3d-0 footer-social w3_agile_social two">
+															<li><a href="#" class="facebook">
+																  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+																  <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+															<li><a href="#" class="twitter"> 
+																  <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+																  <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+															<li><a href="#" class="instagram">
+																  <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+																  <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+															<li><a href="#" class="pinterest">
+																  <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+																  <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
+														</ul>
+							          </div>
+						     </div>
+			         	</div>
+						
 					<div class="clearfix"> </div>
 				</div>
 	       </div>
@@ -189,7 +188,7 @@ include('header.php');
 		</div>
 		<div class="col-md-6 agileits_schedule_bottom_right">
 			<div class="w3ls_schedule_bottom_right_grid">
-				<h3>Save up to <span>50%</span> in this week</h3>
+				<h3>Save up to <span>40%</span> in this week</h3>
 				<p>Suspendisse varius turpis efficitur erat laoreet dapibus. 
 					Mauris sollicitudin scelerisque commodo.Nunc dapibus mauris sed metus finibus posuere.</p>
 				<div class="col-md-4 w3l_schedule_bottom_right_grid1">
@@ -254,7 +253,6 @@ include('header.php');
 	</div>
     </div>
 </div>
-
 	<!-- /we-offer -->
 		<div class="sale-w3ls">
 			<div class="container">
@@ -314,69 +312,6 @@ include('header.php');
 include('footer.php');
 ?>
 
-<!-- login -->
-			<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content modal-info">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-						</div>
-						<div class="modal-body modal-spa">
-							<div class="login-grids">
-								<div class="login">
-									<div class="login-bottom">
-										<h3>Sign up for free</h3>
-										<form>
-											<div class="sign-up">
-												<h4>Email :</h4>
-												<input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">	
-											</div>
-											<div class="sign-up">
-												<h4>Password :</h4>
-												<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
-												
-											</div>
-											<div class="sign-up">
-												<h4>Re-type Password :</h4>
-												<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
-												
-											</div>
-											<div class="sign-up">
-												<input type="submit" value="REGISTER NOW" >
-											</div>
-											
-										</form>
-									</div>
-									<div class="login-right">
-										<h3>Sign in with your account</h3>
-										<form>
-											<div class="sign-in">
-												<h4>Email :</h4>
-												<input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">	
-											</div>
-											<div class="sign-in">
-												<h4>Password :</h4>
-												<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
-												<a href="#">Forgot password?</a>
-											</div>
-											<div class="single-bottom">
-												<input type="checkbox"  id="brand" value="">
-												<label for="brand"><span></span>Remember Me.</label>
-											</div>
-											<div class="sign-in">
-												<input type="submit" value="SIGNIN" >
-											</div>
-										</form>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								<p>By logging in you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-<!-- //login -->
 <a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
