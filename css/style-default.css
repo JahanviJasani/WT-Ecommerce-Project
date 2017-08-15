@@ -58,6 +58,11 @@ p.lead {
 #checkout .box .box-footer:after {
   clear: both;
 }
+
+#checkout .content {
+  margin: 20px;
+}
+
 @media (max-width: 991px) {
   #checkout .box .box-footer .btn {
     margin-bottom: 20px;
