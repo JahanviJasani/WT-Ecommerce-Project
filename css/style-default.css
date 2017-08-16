@@ -115,9 +115,6 @@ p.lead {
 #checkout #order-summary table {
   margin-top: 20px;
 }
-#checkout #order-summary table td, th {
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
 #checkout #order-summary table td {
   color: #999999;
 }
@@ -154,6 +151,7 @@ p.lead {
   margin-bottom: 0;
   padding-left: 0;
   list-style: none;
+  border-bottom: 1px solid #2fdab8
 }
 #checkout .nav > li > a {
   padding: 10px 15px;
@@ -173,6 +171,7 @@ p.lead {
 #checkout .nav > li.disabled > a:focus {
   color: #999999;
   border-top: 5px solid #fff;
+  background-color: #fff;
 }
 #checkout .nav > li.visited > a {
   color: #ffffff;
@@ -778,6 +777,9 @@ a.bg-primary:hover {
   font-size: 18px;
   font-weight: 300;
 }
+#customer #customer-order .table > tbody > tr > th {
+  border-top: 1px solid #ddd;
+}
 #customer #customer-order .addresses {
   text-align: right;
 }
@@ -854,4 +856,10 @@ a.bg-primary:hover {
   #customer .nav-tabs-justified > .active > a:focus {
     border-bottom-color: #f0f0f0;
   }
+}
+
+/*Customer_order page*/
+.table-responsive img {
+  width: 70px;
+  height: 70px;
 }

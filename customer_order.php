@@ -51,47 +51,43 @@ include('header.php');
 
 <!-- Home | my order div end -->
 
-<div id="content">
-            <div class="container">
+<div id="customer">
+    <div class="container">
+        <div class="col-md-3">
+            <!-- *** CUSTOMER MENU ***
+_________________________________________________________ -->
+            <div class="panel panel-default sidebar-menu">
 
-                <div class="col-md-3">
-                    <!-- *** CUSTOMER MENU ***
- _________________________________________________________ -->
-                    <div class="panel panel-default sidebar-menu">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Customer section</h3>
+                </div>
 
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Customer section</h3>
-                        </div>
+                <div class="panel-body">
 
-                        <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active">
+                            <a href="customer-orders.html"><i class="fa fa-list"></i> My orders</a>
+                        </li>
+                        <li>
+                            <a href="customer-account.html"><i class="fa fa-user"></i> My account</a>
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-sign-out"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
 
-                            <ul class="nav nav-pills nav-stacked">
-                                <li class="active">
-                                    <a href="customer-orders.html"><i class="fa fa-list"></i> My orders</a>
-                                </li>
-                                <li>
-                                    <a href="customer-account.html"><i class="fa fa-user"></i> My account</a>
-                                </li>
-                                <li>
-                                    <a href="index.html"><i class="fa fa-sign-out"></i> Logout</a>
-                                </li>
-                            </ul>
-                        </div>
+            </div>
+            <!-- /.col-md-3 -->
 
-                    </div>
-                    <!-- /.col-md-3 -->
-
-                    <!-- *** CUSTOMER MENU END *** -->
+            <!-- *** CUSTOMER MENU END *** -->
                 </div>
 
                 <div class="col-md-9" id="customer-order">
                     <div class="box">
-                        <h1>Order #1735</h1>
-
+                        <h3 style="font-size: 2em; font-weight: 600;">Order #1735</h3><br>
                         <p class="lead">Order #1735 was placed on <strong>22/06/2013</strong> and is currently <strong>Being prepared</strong>.</p>
-                        <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
-
-                        <hr>
+                        <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p><br>
 
                         <div class="table-responsive">
                             <table class="table">
@@ -108,7 +104,7 @@ include('header.php');
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="img/detailsquare.jpg" alt="White Blouse Armani">
+                                                <img src="http://g02.a.alicdn.com/kf/HTB1TqSULVXXXXcRXXXXq6xXFXXXw/-New-2016-Women-Backpacks-bow-Brand-pu-leather-Backpack-travel-hiking-Bags-high-quality-girls.jpg">
                                             </a>
                                         </td>
                                         <td><a href="#">White Blouse Armani</a>
@@ -121,7 +117,7 @@ include('header.php');
                                     <tr>
                                         <td>
                                             <a href="#">
-                                                <img src="img/basketsquare.jpg" alt="Black Blouse Armani">
+                                                <img src="https://sc01.alicdn.com/kf/HTB1FAlQLpXXXXXOXXXX760XFXXX1/Handbags-Lastest-Fancy-Ladies-Stylish-Women-Shoulder.png">
                                             </a>
                                         </td>
                                         <td><a href="#">Black Blouse Armani</a>
@@ -157,7 +153,7 @@ include('header.php');
 
                         <div class="row addresses">
                             <div class="col-md-6">
-                                <h2>Invoice address</h2>
+                                <h3 style="font-size: 1.7em; font-weight: 600;">Invoice address</h3>
                                 <p>John Brown
                                     <br>13/25 New Avenue
                                     <br>New Heaven
@@ -166,7 +162,7 @@ include('header.php');
                                     <br>Great Britain</p>
                             </div>
                             <div class="col-md-6">
-                                <h2>Shipping address</h2>
+                                <h3 style="font-size: 1.7em; font-weight: 600;">Shipping address</h3>
                                 <p>John Brown
                                     <br>13/25 New Avenue
                                     <br>New Heaven

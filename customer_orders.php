@@ -85,10 +85,7 @@ _________________________________________________________ -->
         <div class="col-md-9" id="customer-orders">
             <div class="box">
                 <p class="lead">Your orders on one place.</p>
-                <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
-
-                <hr>
-
+                <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p><br>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>

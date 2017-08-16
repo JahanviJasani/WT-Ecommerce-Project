@@ -54,10 +54,10 @@ include('header.php');
                         <li class="disabled"><a href="#"><i class="fa fa-money"></i>    Payment Method</a>
                         </li>
                     </ul>
-                    <div class="content">
+                    <div class="content" style="margin-top: 3em;">
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="box shipping-method">
+                                <div class="box">
 
                                     <h4>USPS Next Day</h4>
 
