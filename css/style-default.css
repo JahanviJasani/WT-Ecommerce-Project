@@ -661,18 +661,6 @@ a.bg-primary:hover {
 #customer .panel.sidebar-menu .panel-body span.colour.white {
   background: #fff;
 }
-#customer .panel.sidebar-menu .panel-body span.colour.red {
-  background: red;
-}
-#customer .panel.sidebar-menu .panel-body span.colour.green {
-  background: green;
-}
-#customer .panel.sidebar-menu .panel-body span.colour.blue {
-  background: blue;
-}
-#customer .panel.sidebar-menu .panel-body span.colour.yellow {
-  background: yellow;
-}
 #customer .panel.sidebar-menu .panel-body label {
   color: #999999;
   font-size: 12px;
@@ -706,7 +694,6 @@ a.bg-primary:hover {
   padding: 10px 15px;
   padding-left: 30px;
   font-size: 12px;
-  color: #999999;
 }
 #customer .panel.sidebar-menu ul.nav ul li a:hover,
 #customer .panel.sidebar-menu ul.nav ul li a:focus {
@@ -721,7 +708,7 @@ a.bg-primary:hover {
   #customer .info-bar .products-showing {
     text-align: center;
   }
-}
+}+
 @media (max-width: 991px) {
   #customer .info-bar .products-number-sort {
     text-align: center;
@@ -831,12 +818,13 @@ a.bg-primary:hover {
 }
 #customer .nav-pills > li > a {
   border-radius: 0;
+  color: #2fdab8;
 }
 #customer .nav-pills > li.active > a,
 #customer .nav-pills > li.active > a:hover,
 #customer .nav-pills > li.active > a:focus {
   color: #ffffff;
-  background-color: #4fbfa8;
+  background-color: #2fdab8;
 }
 #customer .nav-tabs-justified > li > a {
   border-radius: 4px;

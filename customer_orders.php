@@ -65,13 +65,13 @@ _________________________________________________________ -->
 
                     <ul class="nav nav-pills nav-stacked">
                         <li class="active">
-                            <a href="customer-orders.html"><i class="fa fa-list"></i> My orders</a>
+                            <a href="customer-orders.php"><i class="fa fa-list"></i> My orders</a>
                         </li>
                         <li>
-                            <a href="customer-account.html"><i class="fa fa-user"></i> My account</a>
+                            <a href="customer_account.php"><i class="fa fa-user"></i> My account</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-sign-out"></i> Logout</a>
+                            <a href="index.php"><i class="fa fa-sign-out"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -85,7 +85,7 @@ _________________________________________________________ -->
         <div class="col-md-9" id="customer-orders">
             <div class="box">
                 <p class="lead">Your orders on one place.</p>
-                <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p><br>
+                <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -104,7 +104,7 @@ _________________________________________________________ -->
                                 <td>$ 150.00</td>
                                 <td><span class="label label-info">Being prepared</span>
                                 </td>
-                                <td><a href="customer-order.html" class="btn btn-primary btn-sm">View</a>
+                                <td><a href="customer_order.php" class="btn btn-primary btn-sm">View</a>
                                 </td>
                             </tr>
                             <tr>
@@ -113,7 +113,7 @@ _________________________________________________________ -->
                                 <td>$ 150.00</td>
                                 <td><span class="label label-info">Being prepared</span>
                                 </td>
-                                <td><a href="customer-order.html" class="btn btn-primary btn-sm">View</a>
+                                <td><a href="customer_order.php" class="btn btn-primary btn-sm">View</a>
                                 </td>
                             </tr>
                             <tr>
@@ -122,7 +122,7 @@ _________________________________________________________ -->
                                 <td>$ 150.00</td>
                                 <td><span class="label label-success">Received</span>
                                 </td>
-                                <td><a href="customer-order.html" class="btn btn-primary btn-sm">View</a>
+                                <td><a href="customer_order.php" class="btn btn-primary btn-sm">View</a>
                                 </td>
                             </tr>
                             <tr>
@@ -131,7 +131,7 @@ _________________________________________________________ -->
                                 <td>$ 150.00</td>
                                 <td><span class="label label-danger">Cancelled</span>
                                 </td>
-                                <td><a href="customer-order.html" class="btn btn-primary btn-sm">View</a>
+                                <td><a href="customer_order.php" class="btn btn-primary btn-sm">View</a>
                                 </td>
                             </tr>
                             <tr>
@@ -140,7 +140,7 @@ _________________________________________________________ -->
                                 <td>$ 150.00</td>
                                 <td><span class="label label-warning">On hold</span>
                                 </td>
-                                <td><a href="customer-order.html" class="btn btn-primary btn-sm">View</a>
+                                <td><a href="customer-order.php" class="btn btn-primary btn-sm">View</a>
                                 </td>
                             </tr>
                         </tbody>

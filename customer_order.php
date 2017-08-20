@@ -66,13 +66,13 @@ _________________________________________________________ -->
 
                     <ul class="nav nav-pills nav-stacked">
                         <li class="active">
-                            <a href="customer-orders.html"><i class="fa fa-list"></i> My orders</a>
+                            <a href="customer-orders.php"><i class="fa fa-list"></i> My orders</a>
                         </li>
                         <li>
-                            <a href="customer-account.html"><i class="fa fa-user"></i> My account</a>
+                            <a href="customer-account.php"><i class="fa fa-user"></i> My account</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-sign-out"></i> Logout</a>
+                            <a href="index.php"><i class="fa fa-sign-out"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -87,7 +87,7 @@ _________________________________________________________ -->
                     <div class="box">
                         <h3 style="font-size: 2em; font-weight: 600;">Order #1735</h3><br>
                         <p class="lead">Order #1735 was placed on <strong>22/06/2013</strong> and is currently <strong>Being prepared</strong>.</p>
-                        <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p><br>
+                        <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>
 
                         <div class="table-responsive">
                             <table class="table">
