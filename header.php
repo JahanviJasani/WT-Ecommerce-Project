@@ -172,7 +172,7 @@
 						<div class="modal-body modal-body-sub_agile">
 						<div class="col-md-8 modal_body_left modal_body_left1">
 						<h3 class="agileinfo_sign">Sign In <span>Now</span></h3>
-						<form action="#" method="post">
+						<form action="customer_orders.php" method="post">
 							<div class="styled-input">
 								<input type="email" name="Email" required=""> 
 								<label>Email</label>

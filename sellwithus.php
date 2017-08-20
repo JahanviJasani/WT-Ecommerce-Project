@@ -33,13 +33,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	background-size: cover;
 	position: relative;
 	padding-top: 0em;
-  	z-index: 97;
+  	z-index: 0;
 }
 .hero-image-bg {
   	position: relative;
   	padding-top: 20em;
 	background: rgba(0,0,0,0.5);
-	z-index: 98;
+	z-index: 1;
 }
 .hero-image .hero-text h2 {
 	font-size: 33px;
