@@ -884,9 +884,19 @@ a.bg-primary:hover {
 #seller {
   width: 100%;
 }
-#seller h4 {
-  font-size: 3em;
-  display: inline;
+.select {
+  background-color: #2fdab8;
+  border: 1px solid#2fdab8;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 1em;
+}
+select {
+
+}
+#seller h5 {
+  font-size: 1.3em;
+  display:block;
   font-weight: 200;
 }
 #seller img {

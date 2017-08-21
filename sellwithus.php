@@ -82,18 +82,30 @@ include('header.php');
     <div class="signup__overlay"></div>
   </div>
   <div class="container__child signup__form">
-    <form action="#">
+    <form action="#" method="POST">
       <div class="form-group">
-        <label for="name">Name</label>
-        <input class="form-control" type="text" name="name" id="name" placeholder="John Doe" required />
+        <label for="name">First Name</label>
+        <input class="form-control" type="text" name="fname" id="fname" placeholder="John" required />
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
-        <input class="form-control" type="text" name="email" id="email" placeholder="john.doe@example.com" required />
+        <label for="name">Last Name</label>
+        <input class="form-control" type="text" name="lname" id="lname" placeholder="Doe" required />
       </div>
       <div class="form-group">
-        <label for="email">RazorPay Key</label>
-        <input class="form-control" type="text" name="razorpaykey" id="razorpaykey" placeholder="Enter your RazorPay Key over here" required />
+        <label for="email">Email (This will be your username) </label>
+        <input class="form-control" type="email" name="email" id="email" placeholder="john.doe@example.com" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Bank Account Number</label>
+        <input class="form-control" type="text" name="account_num" id="account_num" placeholder="Enter your Bank Account Number over here" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Bank Name</label>
+        <input class="form-control" type="text" name="bank" id="bank" placeholder="Enter your Bank Name over here" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Bank IFSC</label>
+        <input class="form-control" type="text" name="ifsc" id="ifsc" placeholder="Enter your Bank IFSC over here" required />
       </div>
       <div class="form-group">
         <label for="password">Password</label>

@@ -40,70 +40,26 @@ include('header.php');
 
             <div class="col-md-9" id="seller">
                 <div class="box">
-                    <a href="#">
-                    <img src="http://g02.a.alicdn.com/kf/HTB1TqSULVXXXXcRXXXXq6xXFXXXw/-New-2016-Women-Backpacks-bow-Brand-pu-leather-Backpack-travel-hiking-Bags-high-quality-girls.jpg">
-                    </a>
-                    <h4>Product Id : #1735</h4>
+                    <h5><strong>Order Id: </strong></h5>
+                    <h5><strong>Customer Name: </strong></h5>
+                    <h5><strong>Shipping Address: </strong></h5>
+                    <h5><strong>Contact Number: </strong></h5>
                     <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Order Id</th>
-                                <th>Customer_Id</th>
-                                <th>Address</th>
-                                <th>Date</th>
+                                <th>Product Id</th>
+                                <th>Product Name</th>
                                 <th>Quantity</th>
-                                <th>Status</th>
+                                <th>Sub-Total</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th># 1735</th>
                                 <td>#CUST_01</td>
-                                <td></td>
-                                <td>22/06/2013</td>
                                 <td>3</td>
                                 <td>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th># 1735</th>
-                                <td>#CUST_01</td>
-                                <td></td>
-                                <td>22/06/2013</td>
-                                <td>3</td>
-                                <td>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th># 1735</th>
-                                <td>#CUST_01</td>
-                                <td></td>
-                                <td>22/06/2013</td>
-                                <td>3</td>
-                                <td>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <th># 1735</th>
-                                <td>#CUST_01</td>
-                                <td></td>
-                                <td>22/06/2013</td>
-                                <td>3</td>
-                                <td>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <th># 1735</th>
-                                <td>#CUST_01</td>
-                                <td></td>
-                                <td>22/06/2013</td>
-                                <td>3</td>
-                                <td>
-                                    
-                                </td>
                                 </td>
                             </tr>
                         </tbody>

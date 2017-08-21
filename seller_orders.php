@@ -96,7 +96,7 @@ _________________________________________________________ -->
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Product Id</th>
+                                <th>Order Id</th>
                                 <th>Date</th>
                                 <th>Total</th>
                                 <th>Status</th>
@@ -108,7 +108,13 @@ _________________________________________________________ -->
                                 <th># 1735</th>
                                 <td>22/06/2013</td>
                                 <td>$ 150.00</td>
-                                <td><span class="label label-info">Being prepared</span>
+                                <td>
+										<select class="select">
+										<option value="Processing">Processing</option>
+										<option value="Shipped">Shipped</option>
+										<option value="Delivered">Delivered</option>
+										<option value="Cancelled">Cancelled</option>
+										</select>
                                 </td>
                                 <td><a href="seller_order.php" class="btn btn-primary btn-sm">View</a>
                                 </td>
@@ -117,7 +123,13 @@ _________________________________________________________ -->
                                 <th># 1735</th>
                                 <td>22/06/2013</td>
                                 <td>$ 150.00</td>
-                                <td><span class="label label-info">Being prepared</span>
+                                <td>
+										<select class="select">
+										<option value="Processing">Processing</option>
+										<option value="Shipped">Shipped</option>
+										<option value="Delivered">Delivered</option>
+										<option value="Cancelled">Cancelled</option>
+										</select>
                                 </td>
                                 <td><a href="seller_order.php" class="btn btn-primary btn-sm">View</a>
                                 </td>
@@ -126,7 +138,13 @@ _________________________________________________________ -->
                                 <th># 1735</th>
                                 <td>22/06/2013</td>
                                 <td>$ 150.00</td>
-                                <td><span class="label label-success">Received</span>
+                                <td>
+										<select class="select">
+										<option value="Processing">Processing</option>
+										<option value="Shipped">Shipped</option>
+										<option value="Delivered">Delivered</option>
+										<option value="Cancelled">Cancelled</option>
+										</select>
                                 </td>
                                 <td><a href="seller_order.php" class="btn btn-primary btn-sm">View</a>
                                 </td>
@@ -135,7 +153,13 @@ _________________________________________________________ -->
                                 <th># 1735</th>
                                 <td>22/06/2013</td>
                                 <td>$ 150.00</td>
-                                <td><span class="label label-danger">Cancelled</span>
+                                <td>
+										<select class="select">
+										<option value="Processing">Processing</option>
+										<option value="Shipped">Shipped</option>
+										<option value="Delivered">Delivered</option>
+										<option value="Cancelled">Cancelled</option>
+										</select>
                                 </td>
                                 <td><a href="seller_order.php" class="btn btn-primary btn-sm">View</a>
                                 </td>
@@ -144,7 +168,13 @@ _________________________________________________________ -->
                                 <th># 1735</th>
                                 <td>22/06/2013</td>
                                 <td>$ 150.00</td>
-                                <td><span class="label label-warning">On hold</span>
+                                <td>
+										<select class="select">
+										<option value="Processing">Processing</option>
+										<option value="Shipped">Shipped</option>
+										<option value="Delivered">Delivered</option>
+										<option value="Cancelled">Cancelled</option>
+										</select>
                                 </td>
                                 <td><a href="seller_order.php" class="btn btn-primary btn-sm">View</a>
                                 </td>
@@ -165,6 +195,7 @@ _________________________________________________________ -->
 include('footer.php');
 ?>
 
+<script src="js/index.js"></script>
 
 <a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 

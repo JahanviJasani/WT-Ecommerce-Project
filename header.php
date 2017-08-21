@@ -227,7 +227,7 @@
 						<div class="modal-body modal-body-sub_agile">
 						<div class="col-md-8 modal_body_left modal_body_left1">
 						<h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
-						 <form action="#" method="post">
+						 <form action="usersignup.php" method="POST">
 							<div class="styled-input agile-styled-input-top">
 								<input type="text" name="Name" required="">
 								<label>Name</label>
@@ -244,11 +244,11 @@
 								<span></span>
 							</div> 
 							<div class="styled-input">
-								<input type="password" name="Confirm Password" required=""> 
+								<input type="password" name="password2" required=""> 
 								<label>Confirm Password</label>
 								<span></span>
 							</div> 
-							<input type="submit" value="Sign Up">
+							<input type="submit" name="signup_submit" value="Sign Up">
 						</form>
 						  <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
 															<li><a href="#" class="facebook">
