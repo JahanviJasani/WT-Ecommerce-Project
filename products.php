@@ -32,17 +32,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <?php
 include('header.php');
 ?>
+
 <!-- /banner_bottom_agile_info -->
 <div class="page-head_agile_info_w3l">
         <div class="container">
-            <h3>My <span>Orders </span></h3>
+            <h3>My <span>Products </span></h3>
             <!--/w3_short-->
                  <div class="services-breadcrumb">
                         <div class="agile_inner_breadcrumb">
 
                            <ul class="w3_short">
                                 <li><a href="index.php">Home</a><i>|</i></li>
-                                <li>My Orders</li>
+                                <li>My Products</li>
                             </ul>
                          </div>
                 </div>
@@ -70,7 +71,7 @@ _________________________________________________________ -->
                         <li>
                             <a href="seller_account.php"><i class="fa fa-user"></i> My account</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="products.php"><i class="fa fa-shopping-bag"></i> My products</a>
                         </li>
                         <li>
@@ -89,78 +90,58 @@ _________________________________________________________ -->
         </div>
 
         <div class="col-md-9" id="customer-orders">
+        <div class="box">
+                <p class="lead">Add a New Product</p><hr>
+                <p>Want to add a new product to your lineup? <button style="float: right;padding-left: 15px;padding-right: 15px;" class="btn btn-primary">Add</button></p>
+           </div>
             <div class="box">
-                <p class="lead">Pending Orders.</p>
-                <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>
+                <p class="lead">My products.</p>
+                <p class="text-muted"><b>The products listed for sale by you are displayed here.</b> In case of any questions <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Order Id</th>
-                                <th>Date</th>
-                                <th>Total</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>Product Id</th>
+                                <th>Brand</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Qty. in Stock</th>
+                                <th>Update Stock</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th># 1735</th>
-                                <td>22/06/2013</td>
-                                <td>$ 150.00</td>
+                                <th><a href="#"># 1735</a></th>
+                                <td>Louis Vuitton</td>
+                                <td>Hand Bag</td>
+                                <td>$ 200.00</td>
+                                <td style="text-align: center;">5</td>
                                 <td>
-                                        <select class="select">
-                                        <option value="Processing">Processing</option>
-                                        <option value="Shipped">Shipped</option>
-                                        <option value="Delivered">Delivered</option>
-                                        <option value="Cancelled">Cancelled</option>
-                                        </select>
+                                	<form>
+                                		<input type="number" name="stock_quantity" style="width: 50px;">
+                                		<button type="submit" name="qty_change_submit" class="btn btn-primary btn-sm">Update</button>
+                                	</form>
+
                                 </td>
+                                </td>
+
+                            </tr>
+							<tr>
+                                <th><a href="#"># 1735</a></th>
+                                <td>Louis Vuitton</td>
+                                <td>Hand Bag</td>
+                                <td>$ 200.00</td>
+                                <td style="text-align: center;">2</td>
                                 <td>
-                                    <form action="" method="POST">
-                                        <input type="hidden" name="product_id" value="">
-                                        <a href="seller_order.php" class="btn btn-primary btn-sm">View</a>
-                                    </form>
+                                	<form>
+                                		<input type="number" name="stock_quantity" style="width: 50px;">
+                                		<button type="submit" name="qty_change_submit" class="btn btn-primary btn-sm">Update</button>
+                                	</form>
+
+                                </td>
                                 </td>
                             </tr>
-                            <tr>
-                                <th># 1735</th>
-                                <td>22/06/2013</td>
-                                <td>$ 150.00</td>
-                                <td>
-                                        <select class="select">
-                                        <option value="Processing">Processing</option>
-                                        <option value="Shipped">Shipped</option>
-                                        <option value="Delivered">Delivered</option>
-                                        <option value="Cancelled">Cancelled</option>
-                                        </select>
-                                </td>
-                                <td>
-                                    <form action="" method="POST">
-                                        <input type="hidden" name="product_id" value="">
-                                        <a href="seller_order.php" class="btn btn-primary btn-sm">View</a>
-                                    </form>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th># 1735</th>
-                                <td>22/06/2013</td>
-                                <td>$ 150.00</td>
-                                <td>
-                                        <select class="select">
-                                        <option value="Processing">Processing</option>
-                                        <option value="Shipped">Shipped</option>
-                                        <option value="Delivered">Delivered</option>
-                                        <option value="Cancelled">Cancelled</option>
-                                        </select>
-                                </td>
-                                <td>
-                                    <form action="" method="POST">
-                                        <input type="hidden" name="product_id" value="">
-                                        <a href="seller_order.php" class="btn btn-primary btn-sm">View</a>
-                                    </form>
-                                </td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </div>
@@ -266,5 +247,3 @@ include('footer.php');
 <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 </html>
-
-
