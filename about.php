@@ -48,7 +48,7 @@ include('header.php');
 </div>
 <!-- /banner_bottom_agile_info -->
     <div class="banner_bottom_agile_info">
-	    <div class="container">
+	    <div class="container-fluid">
 			<div class="agile_ab_w3ls_info">
 				<div class="col-md-6 ab_pic_w3ls">
 				   	<img src="images/ab_pic.jpg" alt=" " class="img-responsive" />
@@ -174,8 +174,7 @@ include('header.php');
 							          </div>
 						     </div>
 			         	</div>
-						
-					<div class="clearfix"> </div>
+						<div class="clearfix"></div>
 				</div>
 	       </div>
 		</div>

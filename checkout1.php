@@ -58,7 +58,7 @@ include('header_login.php');
                         <li class="disabled"><a href="#"><i class="fa fa-money"></i>    Payment Method</a>
                         </li>
                     </ul>
-                    <div>
+                    <div style="margin-top: 2em;">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">

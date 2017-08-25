@@ -881,11 +881,12 @@ a.bg-primary:hover {
 }
 
 .select {
+  padding: 7px 7px 7px 7px;
   background-color: #2fdab8;
-  border: 1px solid#2fdab8;
+  border: 1px solid #000;
   border-radius: 3px;
   color: #fff;
-  font-size: 1em;
+  font-size: 1.1em;
 }
 select {
 
