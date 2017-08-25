@@ -30,7 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 
 <?php
-include('header.php');
+include('header_login.php');
 ?>
 <!-- /banner_bottom_agile_info -->
 <div class="page-head_agile_info_w3l">
@@ -51,8 +51,8 @@ include('header.php');
 </div>
 
 <div id="customer">
-    <div class="container">
-        <div class="col-md-3">
+    <div class="container-fluid">
+        <div class="col-md-2">
             <!-- *** SELLER MENU ***
 _________________________________________________________ -->
             <div class="panel panel-default sidebar-menu">
@@ -71,7 +71,7 @@ _________________________________________________________ -->
                             <a href="seller_account.php"><i class="fa fa-user"></i> My account</a>
                         </li>
                         <li>
-                            <a href="products.php"><i class="fa fa-shopping-bag"></i> My products</a>
+                            <a href="seller_products.php"><i class="fa fa-shopping-bag"></i> My products</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-shopping-bag"></i> Update products</a>
@@ -88,7 +88,7 @@ _________________________________________________________ -->
             <!-- *** SELLER MENU END *** -->
         </div>
 
-        <div class="col-md-9" id="customer-orders">
+        <div class="col-md-10" id="customer-orders">
             <div class="box">
                 <p class="lead">Pending Orders.</p>
                 <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>

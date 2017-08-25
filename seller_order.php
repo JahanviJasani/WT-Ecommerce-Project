@@ -30,15 +30,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 
 <?php
-include('header.php');
+include('header_login.php');
 ?>
 
 
 <div id="customer">
     <div class="container-fluid">
         
+            <div class="col-md-2">
+            <!-- *** SELLER MENU ***
+_________________________________________________________ -->
+            <div class="panel panel-default sidebar-menu">
 
-            <div class="col-md-9" id="seller">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Customer section</h3>
+                </div>
+
+                <div class="panel-body">
+
+                    <ul class="nav nav-pills nav-stacked">
+                        <li>
+                            <a href="seller_orders.php"><i class="fa fa-list"></i> My orders</a>
+                        </li>
+                        <li>
+                            <a href="seller_account.php"><i class="fa fa-user"></i> My account</a>
+                        </li>
+                        <li>
+                            <a href="seller_products.php"><i class="fa fa-shopping-bag"></i> My products</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-shopping-bag"></i> Update products</a>
+                        </li>
+                        <li>
+                            <a href="index.php"><i class="fa fa-sign-out"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- /.col-md-3 -->
+            <!-- *** SELLER MENU END *** -->
+            </div>
+
+            <div class="col-md-10" id="seller">
                 <div class="box">
                     <h5><strong>Order Id: </strong></h5>
                     <h5><strong>Customer Name: </strong></h5>

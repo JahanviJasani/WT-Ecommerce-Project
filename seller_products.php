@@ -39,10 +39,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </style>
 
 <body>
-
-           <?php
-            include('header_login.php');
-            ?>
+<?php
+include('header_login.php');
+?>
 
             <!-- /banner_bottom_agile_info -->
             <div class="page-head_agile_info_w3l">
@@ -63,8 +62,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
 
             <div id="customer">
-                <div class="container">
-                    <div class="col-md-3">
+                <div class="container-fluid">
+                    <div class="col-md-2">
                     <!-- *** SELLER MENU ***-->
                     <div class="panel panel-default sidebar-menu">
 
@@ -98,13 +97,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!-- *** SELLER MENU END *** -->
                     </div>
 
-                    <div class="col-md-9" id="customer-orders">
-                    <div class="box">
-                        <p class="lead">Add a New Product</p><hr>
-                        <p>Want to add a new product to your lineup?</p> <button style="float: right;padding-left: 15px;padding-right: 15px; margin-top: -1.7em;" class="btn btn-primary">Add</button>
-                    </div>
-                    <div class="box" style="height: 5em;">
-                    <p class="lead">Delete the existing Products</p><button id="button" style="position:absolute; margin-left: 45em; margin-top: -3em;" class="btn btn-primary" onclick="deleteitems()">Delete</button>
+                    <div class="col-md-10" id="customer-orders">
+                    <div class="box" id="hidediv">
+                        <p class="lead">Your Product List</p><hr>
+                        <p>Want to add a new product to your lineup?</p> <button style="float: right;padding-left: 15px;padding-right: 15px; margin-top: -1.7em;" class="btn btn-primary">Add</button><br><hr>
+                        <p>Want to delete any existing product?</p><button style="float: right;padding-left: 15px;padding-right: 15px; margin-top: -1.7em;" class="btn btn-primary" onclick="deleteitems()">Delete</button><br>
                     </div>
             <div class="box">
                 <p class="lead">My products.</p>
@@ -201,7 +198,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </tr>
                 </tbody>
                 </table>
-                <hr><button id="button_delete" onclick="deletiondone()" class="btn btn-primary btn-sm" style="background-color: #2fdab8; border: #2fdab8; font-size: 1em; margin-right: 2em;">Delete</button>
+                <hr><button id="button_delete" onclick="deletiondone()" class="btn btn-primary btn-sm" style="background-color: #2fdab8; border: #2fdab8; font-size: 1em; margin-right: 6.5em;">Delete</button>
             </div>
             </div>
             </div>

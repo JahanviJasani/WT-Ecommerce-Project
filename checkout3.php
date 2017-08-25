@@ -23,9 +23,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 
-<!-- php header include -->
 <?php
-include('header.php');
+include('header_login.php');
 ?>
 
 <!-- /banner_bottom_agile_info -->
@@ -45,7 +44,7 @@ include('header.php');
 
 <div id="checkout">
     <div class="container">
-        <div class="col-md-9" id="checkout">
+        <div class="col-md-9">
 
             <div class="box">
                 <form method="post" action="checkout2.php">
@@ -57,7 +56,7 @@ include('header.php');
                         <li class="active"><a href="#"><i class="fa fa-money"></i>    Payment Method</a>
                         </li>
                     </ul>
-                    <div class="content">
+                    <div class="content" style="margin-top: 3em;">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="box payment-method">
