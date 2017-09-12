@@ -39,6 +39,7 @@ CREATE TABLE product (
 	price float(10,2) NOT NULL,
 	colour varchar(250) NOT NULL,
 	seller_id int(8) NOT NULL,
+	gender varchar(10) NOT NULL,
 	FOREIGN KEY (seller_id) REFERENCES seller(seller_id) ON DELETE CASCADE ON UPDATE CASCADE
 )
 ENGINE=INNODB;
@@ -63,6 +64,7 @@ CREATE TABLE bags (
 	width float(5,2),
 	material varchar(250),
 	weigth float(5,2),
+	subcategory varchar(25) NOT NULL,
 	FOREIGN KEY (product_id) REFERENCES product(product_id) ON DELETE CASCADE ON UPDATE CASCADE
 )
 ENGINE=INNODB;
@@ -85,6 +87,7 @@ CREATE TABLE footwear (
 	product_id int(8) NOT NULL,
 	footwear_id int(8) PRIMARY KEY AUTO_INCREMENT,
 	material varchar(250),
+	subcategory varchar(25) NOT NULL,
 	FOREIGN KEY (product_id) REFERENCES product(product_id) ON DELETE CASCADE ON UPDATE CASCADE
 )
 ENGINE=INNODB;

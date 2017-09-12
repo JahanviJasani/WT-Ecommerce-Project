@@ -28,12 +28,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="js/Product.js"></script>
 <style type="text/css">
-	p {
+	select {
+		display: inline-block;
+	}
+	form p {
 		padding: 10px;
 	}
 	h3 {
 		color: #000;
 		padding-left: 10px;
+	}
+	.form-name {
+		display: inline-block;
+		width: 150px;
 	}
 </style>
 </head>
@@ -106,7 +113,7 @@ include('header.php');
 						<p><span class="form-name">Name:<span class="required">*</span></span> <input type="text" name="name" required></p>
 						<p><span class="form-name">Price(in &#8377;):<span class="required">*</span></span> <input type="number" step="0.01" min="0" name="price" required></p>
 						<p><span class="form-name">Colour:</span> <input type="text" name="colour"></p>
-						<p><span class="form-name">Product Description:</span> <br><textarea name="description"></textarea></p>
+						<p><span class="form-name">Description:</span> <textarea name="description"></textarea></p>
 						<p><span class="form-name">Material:</span> <input type="text" name="material"></p>
 						<p><span class="form-name">Size(UK):<span class="required">*</span></span> <input type="text" name="size" required></p>
 						<p><span class="form-name">Available Stock:<span class="required">*</span></span> <input type="number" min="0" name="stock" required></p>
@@ -144,7 +151,7 @@ include('header.php');
 						<p><span class="form-name">Name:<span class="required">*</span></span> <input type="text" name="name" required></p>
 						<p><span class="form-name">Price(in &#8377;):<span class="required">*</span></span> <input type="number" step="0.01" min="0" name="price" required></p>
 						<p><span class="form-name">Colour:</span> <input type="text" name="colour"></p>
-						<p><span class="form-name">Product Description:</span> <br><textarea name="description"></textarea></p>
+						<p><span class="form-name">Description:</span> <br><textarea name="description"></textarea></p>
 						<p><span class="form-name">Material:</span> <input type="text" name="material"></p>
 						<p><span class="form-name">Length(in cm):</span> <input type="number" step="0.1" min="0" name="material"></p>
 						<p><span class="form-name">Height(in cm):</span> <input type="number" step="0.1" min="0" name="material"></p>
@@ -166,7 +173,7 @@ include('header.php');
 						<p><span class="form-name">Name:<span class="required">*</span></span> <input type="text" name="name" required></p>
 						<p><span class="form-name">Price(in &#8377;):<span class="required">*</span></span> <input type="number" min="0" step="0.01" name="price" required></p>
 						<p><span class="form-name">Dial Colour:</span> <input type="text" name="dial-colour"></p>
-						<p><span class="form-name">Product Description:</span> <br><textarea name="description"></textarea></p>
+						<p><span class="form-name">Description:</span> <br><textarea name="description"></textarea></p>
 						<p><span class="form-name">Case Shape:</span> <input type="text" name="case-shape"></p>
 						<p><span class="form-name">Clasp Type:</span> <input type="text" name="clasp-type"></p>
 						<p><span class="form-name">Display Type:</span> <input type="text" name="display-type"></p>

@@ -185,6 +185,13 @@
 								<label>Password</label>
 								<span></span>
 							</div>
+
+							<div>
+								<input type="checkbox" name="remember-me" style="display: inline;">
+								<label style="color: black; text-transform: none;">Remember Me</label>
+								<br><br>
+								<span></span>
+							</div>
 							
 							<input type="submit" value="Sign In">
 						</form>
@@ -227,10 +234,15 @@
 						<div class="modal-body modal-body-sub_agile">
 						<div class="col-md-8 modal_body_left modal_body_left1">
 						<h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
-						 <form action="usersignup.php" method="POST">
+						 <?php echo '<form action='.usersignup($conn).' method="POST">'; ?>
 							<div class="styled-input agile-styled-input-top">
-								<input type="text" name="Name" required="">
-								<label>Name</label>
+								<input type="text" name="FName" required="">
+								<label>First Name</label>
+								<span></span>
+							</div>
+							<div class="styled-input">
+								<input type="text" name="LName" required="">
+								<label>Last Name</label>
 								<span></span>
 							</div>
 							<div class="styled-input">
