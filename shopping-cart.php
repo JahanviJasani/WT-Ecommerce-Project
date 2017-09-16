@@ -33,7 +33,7 @@ include('header.php');
 ?>
 
 <div class="shopping-cart-page">
-
+  <h1 style="position: block;color: #000;font-size: 2.75em;">Shopping Cart</h1>
   <div class="column-labels">
   <label class="sc-product-image">Image</label>
   <label class="sc-product-details">Product</label>

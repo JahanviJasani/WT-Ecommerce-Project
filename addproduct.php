@@ -42,6 +42,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		display: inline-block;
 		width: 150px;
 	}
+	textarea {
+		display: inline-block;
+	}
 </style>
 </head>
 <body>

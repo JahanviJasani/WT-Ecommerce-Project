@@ -234,7 +234,7 @@
 						<div class="modal-body modal-body-sub_agile">
 						<div class="col-md-8 modal_body_left modal_body_left1">
 						<h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
-						 <?php echo '<form action='.usersignup($conn).' method="POST">'; ?>
+						<form action="functions.php" method="POST">
 							<div class="styled-input agile-styled-input-top">
 								<input type="text" name="FName" required="">
 								<label>First Name</label>
@@ -251,12 +251,12 @@
 								<span></span>
 							</div> 
 							<div class="styled-input">
-								<input type="password" name="password" required=""> 
+								<input type="password" id="password" name="password" onchange="checkPassword()"> 
 								<label>Password</label>
 								<span></span>
 							</div> 
 							<div class="styled-input">
-								<input type="password" name="password2" required=""> 
+								<input type="password" id="password2" name="password2" onchange="checkPassword()"> 
 								<label>Confirm Password</label>
 								<span></span>
 							</div> 
@@ -290,3 +290,18 @@
 			</div>
 		</div>
 <!-- //Modal2 -->
+<script type="text/javascript">
+	function checkPassword(){
+		console.log("cutey")
+		var p1 = document.getElementById("password");
+		var p2 = document.getElementById("password2");
+		if (p1.value !== p2.value) {
+			console.log("tatti");
+			p1.style.backgroundColor="red";			
+		}else{
+			console.log("Sahi hai");
+			alert("Passwords Match!");
+		}
+	}
+
+</script>
