@@ -172,7 +172,7 @@
 						<div class="modal-body modal-body-sub_agile">
 						<div class="col-md-8 modal_body_left modal_body_left1">
 						<h3 class="agileinfo_sign">Sign In <span>Now</span></h3>
-						<form action="customer_orders.php" method="post">
+						<form action="functions.php" method="post">
 							<div class="styled-input">
 								<input type="email" name="Email" required=""> 
 								<label>Email</label>
@@ -187,13 +187,13 @@
 							</div>
 
 							<div>
-								<input type="checkbox" name="remember-me" style="display: inline;">
+								<input type="checkbox" name="rememberme" style="display: inline;">
 								<label style="color: black; text-transform: none;">Remember Me</label>
 								<br><br>
 								<span></span>
 							</div>
 							
-							<input type="submit" value="Sign In">
+							<input type="submit" name="login_submit" id="login_submit" value="Sign In">
 						</form>
 						  <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
 															<li><a href="#" class="facebook">
@@ -260,7 +260,7 @@
 								<label>Confirm Password</label>
 								<span></span>
 							</div> 
-							<input type="submit" name="signup_submit" value="Sign Up">
+							<input type="submit" name="signup_submit" id="signup_submit" value="Sign Up">
 						</form>
 						  <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
 															<li><a href="#" class="facebook">
@@ -290,18 +290,3 @@
 			</div>
 		</div>
 <!-- //Modal2 -->
-<script type="text/javascript">
-	function checkPassword(){
-		console.log("cutey")
-		var p1 = document.getElementById("password");
-		var p2 = document.getElementById("password2");
-		if (p1.value !== p2.value) {
-			console.log("tatti");
-			p1.style.backgroundColor="red";			
-		}else{
-			console.log("Sahi hai");
-			alert("Passwords Match!");
-		}
-	}
-
-</script>
