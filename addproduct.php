@@ -129,7 +129,7 @@ include('header.php');
 				</div>
 				<div id="bag-div">
 					<h3>Add Bag</h3>
-					<form action="#" method="POST">
+					<form action="functions.php" method="POST">
 					<p><span class="form-name">Sub-category:<span class="required">*</span></span> 
 						<select id="bag-men" name="bag-men">
 							<option value="">Select</option>
@@ -166,12 +166,12 @@ include('header.php');
 						<p><span class="form-name">Available Stock:<span class="required">*</span></span> <input type="number" min="0" name="stock" required></p>
 						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img" multiple required accept="image/*"></p>
 						<p><b>Note:</b> Fields marked with <span class="required">*</span> are mandatory</p>
-						<button class="btn btn-success add" type="submit">Add Bag</button>
+						<button name="addbag" class="btn btn-success add" type="submit">Add Bag</button>
 					</form>
 				</div>
 				<div id="watch-div">
 					<h3>Add Watch</h3>
-					<form action="#" method="POST">
+					<form action="functions.php" method="POST">
 						<input type="hidden" name="category" value="watch">
 						<input type="hidden" name="gender" id="gender-watch" value="">
 						<p><span class="form-name">Brand:<span class="required">*</span></span> <input type="text" name="brand" required></p>
@@ -187,7 +187,7 @@ include('header.php');
 						<p><span class="form-name">Available Stock:<span class="required">*</span></span> <input type="text" name="stock" required></p>
 						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img" multiple required accept="image/*"></p>
 						<p><b>Note:</b> Fields marked with <span class="required">*</span> are mandatory</p>
-						<button class="btn btn-success add" type="submit">Add Watch</button>
+						<button name="addwatch" class="btn btn-success add" type="submit">Add Watch</button>
 					</form>
 				</div>
 

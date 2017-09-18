@@ -17,10 +17,10 @@ if (isset($_POST['signup_submit'])) {
 	userlogin($conn);
 } elseif (isset($_GET['logout'])) {
 	userlogout($conn);
-} elseif (isset($_POST['addfoot'])) {
-	addfootwear($conn);
+} elseif (isset($_POST['addfoot']) || isset($_POST['addbag']) || isset($_POST['addwatch'])) {
+	addproduct($conn);
 }
-else if (isset($_POST['seller_reg'])) {
+elseif (isset($_POST['seller_reg'])) {
 	register_seller($conn);
 }
 
@@ -152,34 +152,58 @@ function register_seller($conn) {
 	}
 }
 
-function addfootwear($conn) {
-	
-	if(isset($_POST['addfoot'])) {
-		$category=mysqli_real_escape_string($conn, $_POST['category']);
-		$gender=mysqli_real_escape_string($conn, $_POST['gender']);
-		$name=mysqli_real_escape_string($conn, $_POST['name']);
-		$desc=mysqli_real_escape_string($conn, $_POST['description']);
-		$brand=mysqli_real_escape_string($conn, $_POST['brand']);
-		$price=mysqli_real_escape_string($conn, $_POST['price']);
-		$colour=mysqli_real_escape_string($conn, $_POST['colour']);
-		echo $category.$gender.$name.$brand.$price.$colour.$desc;
-		if(strcmp($gender, 'Men')) {
-			echo "Ok Happening";
-			$sub_category=$_POST['footwear-men'];
-			$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category',$price,'$colour', '$gender', 1000)";
-			$result=mysqli_query($conn, $sql);
-		} 
-		else if (strcmp($gender, 'Women')) {
-			echo "Happening";
-			$sub_category=$_POST['footwear-women'];
-			$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category','$price', '$colour', '$gender', )";
-			$result=mysqli_query($conn, $sql);
-		}
-		if($result) {
-			echo "Done";
-		}			
-		else {
-			echo "Error";
-		}
+function addproduct($conn) {
+	echo "string";
+	$category=mysqli_real_escape_string($conn, $_POST['category']);
+	$gender=mysqli_real_escape_string($conn, $_POST['gender']);
+	$name=mysqli_real_escape_string($conn, $_POST['name']);
+	$desc=mysqli_real_escape_string($conn, $_POST['description']);
+	$brand=mysqli_real_escape_string($conn, $_POST['brand']);
+	$price=mysqli_real_escape_string($conn, $_POST['price']);
+	$colour=mysqli_real_escape_string($conn, $_POST['colour']);
+	if(strcmp($gender, 'Men')) {
+		echo "Men";
+		$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category',$price,'$colour', '$gender', 1000)";
+		$result=mysqli_query($conn, $sql);
+		$sql="SELECT product_id FROM product WHERE name='$name'";
+	} 
+	else if (strcmp($gender, 'Women')) {
+		echo "Women";
+		$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category','$price', '$colour', '$gender', 1000 )";
+		$result=mysqli_query($conn, $sql);
+	}
+	$sql="SELECT product_id FROM product WHERE name='$name'";
+	$result1=mysqli_query($conn, $sql);
+	if (isset($_POST['addfoot'])) {
+		echo "Calling footwear";
+		addfootwear($conn, $gender, $result1);
+	}
+	elseif (isset($_POST['addbag'])) {
+		addbag($conn, $gender, $result1);
+	}
+	elseif (isset($_POST['addwatch'])) {
+		addwatch($conn, $gender, $result1);
 	}
 }
+
+function addfootwear($conn, $gender, $result1) {
+	echo "footwear called";
+	$material=mysqli_real_escape_string($conn, $_POST['material']);
+	if($gender=='Men') {
+		$sub_category=$_POST['footwear-men'];
+		$sql="INSERT INTO footwear(product_id, material, subcategory) VALUES ('$result1', '$material', '$sub_category')";
+		$result2=mysqli_query($conn, $sql);
+		echo "Its".$result2;
+	}
+	elseif($gender=='Women') {
+		$sub_category=$_POST['footwear-women'];
+		$sql="INSERT INTO footwear(product_id, material, subcategory) VALUES ('$result1', '$material', '$sub_category')";
+		$result2=mysqli_query($conn, $sql);
+	}
+	if($result2) {
+		echo "Done";
+	} else {
+		echo "Error";
+	}
+}
+
