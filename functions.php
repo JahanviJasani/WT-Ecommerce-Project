@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "pass1234";
@@ -11,9 +11,6 @@ if (!$conn)
 {
   die('Could not connect: ' . mysql_error());
 }
-
-
-
 if (isset($_POST['signup_submit'])) {
 	usersignup($conn);
 } elseif (isset($_POST['login_submit'])) {
@@ -22,6 +19,9 @@ if (isset($_POST['signup_submit'])) {
 	userlogout($conn);
 } elseif (isset($_POST['addfoot'])) {
 	addfootwear($conn);
+}
+else if (isset($_POST['seller_reg'])) {
+	register_seller($conn);
 }
 
 function usersignup($conn) {
@@ -44,8 +44,10 @@ function usersignup($conn) {
 				
 			} else {
 				//show error for user exists
+				header('Location: index.php?signupuserexists=true');
 			}
 		} else {
+			//Registration failed
 		}
 	}
 }
@@ -67,12 +69,14 @@ function userlogin($conn){
 		$resultCheck = mysqli_num_rows($result);
 		if ($resultCheck < 1) {
 			//USER NOT FOUND ERROR
+			header('Location: index.php?loginusernotexists=true');
 		} else if ($resultCheck==1) {
 			if ($row = mysqli_fetch_assoc($result)) {
 				//De-hashing the password
 				$hashedPwdCheck = password_verify($password, $row['password']);
 				if ($hashedPwdCheck == false) {
 							//INCORRECT PASSWORD ERROR
+					header('Location: index.php?loginerror=true');
 				} elseif ($hashedPwdCheck == true) {
 					//Log in the user here
 					$_SESSION['user_id'] = $row['user_id'];
@@ -89,6 +93,7 @@ function userlogin($conn){
 						$cookievalue = $_COOKIE['PHPSESSID'];
 						setcookie("PHPSESSID",$cookievalue,time()+(3600*24*2),"/");
 					}
+					echo $_SESSION['user_id'].$_SESSION['user_name'].$_SESSION['email'];
 					header('Location: customer_orders.php');
 				}
 			}
@@ -109,6 +114,43 @@ function userlogout($conn) {
 	}
 }
 
+function register_seller($conn) {
+	if (isset($_POST['seller_reg'])) {
+		$fname=mysqli_real_escape_string($conn, $_POST['fname']);
+		$lname=mysqli_real_escape_string($conn, $_POST['lname']);
+		$email=mysqli_real_escape_string($conn, $_POST['email']);
+		$accno=mysqli_real_escape_string($conn, $_POST['account_num']);
+		$bankname=mysqli_real_escape_string($conn, $_POST['bank']);
+		$ifsc=mysqli_real_escape_string($conn, $_POST['ifsc']);
+		$password=mysqli_real_escape_string($conn, password_hash($_POST['password'], PASSWORD_DEFAULT));
+		$sql="SELECT * FROM users WHERE users.email='$email'";
+		$result=mysqli_query($conn, $sql);
+		if($result) {
+			$num_row= mysqli_num_rows($result);
+			if ($num_row==0) {
+				$sql="INSERT INTO users (first_name, last_name,email,password,user_type) VALUES ('$fname','$lname','$email','$password',1)";
+				$result2 = mysqli_query($conn, $sql);
+				$sql="SELECT * FROM users WHERE users.email='$email' AND users.user_type=1";
+				$result3 = mysqli_query($conn, $sql);
+				$row = mysqli_fetch_assoc($result3);
+				$uid=$row['user_id'];
+				$sql="INSERT INTO seller (user_id, account_num, bank_name, ifsc) VALUES ('$uid','$accno','&bankname','$ifsc')";
+				$result4 = mysqli_query($conn, $sql);
+				if ($result2 && $result4) {
+					echo 'Ho gaya';
+				} else {
+					echo 'Ohh shit';
+				}
+			} else {
+				//show error for user exists
+				header('Location: selwithus.php?alreadyregistered=true');
+			}
+		} else {
+			//Registration failed
+			header('Location: selwithus.php?error=true');
+		}
+	}
+}
 
 function addfootwear($conn) {
 	

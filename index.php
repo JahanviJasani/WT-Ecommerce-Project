@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('functions.php');
 ?>
 <!--
@@ -1583,3 +1582,12 @@ include('footer.php');
 <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 </html>
+<?php
+if (isset($_GET['signupuserexists'])) {
+	echo '<script>alert("Email-id is already registered. Try with another email-id.")</script>';
+} elseif (isset($_GET['loginusernotexists'])) {
+	echo '<script>alert("User not recognized. Please sign up with Elite Shoppy to continue.")</script>';
+} elseif (isset($_GET['loginerror'])) {
+	echo '<script>alert("Email-id or password do not match. Please try again.")</script>';
+}
+?>

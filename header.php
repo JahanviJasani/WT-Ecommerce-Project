@@ -3,13 +3,22 @@
 <div class="header" id="home">
 
 		<ul>
-		    <li> <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a></li>
-			<li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
-			<li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
-			<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
-			<li><i class="fa fa-money"></i><a href="sellwithus.php">  Sell With Us</a></li>
+		    <?php
+		    if (!isset($_SESSION['user_id'])) {
+		    	echo '<li> <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a></li>
+				<li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
+				<li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
+				<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
+				<li><i class="fa fa-money"></i><a href="sellwithus.php">  Sell With Us</a></li>';
+		    } else {
+		    	echo '<li><i class="fa fa-user-circle-o" aria-hidden="true"></i> Welcome, '.$_SESSION['user_name'].'</li>
+	            <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
+	            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
+	            <li></li>
+            	<li><i class="fa fa-sign-out" aria-hidden="true"></i> <a href="functions.php?logout=true" name="user_logout.php">Logout</a></li>';
+		    }
+			?>
 		</ul>
-	
 </div>
 <!-- //header -->
 <!-- header-bot -->

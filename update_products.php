@@ -4,6 +4,12 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php
+include('functions.php');
+if (!(isset($_SESSION['user_id']) && $_SESSION['user_type']==1)) {
+    header('Location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>

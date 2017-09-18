@@ -56,8 +56,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 }
 
 	</style>
-
-
 </head>
 <?php
 include('header.php');
@@ -82,7 +80,7 @@ include('header.php');
     <div class="signup__overlay"></div>
   </div>
   <div class="container__child signup__form">
-    <form action="#" method="POST">
+    <form action="functions.php" method="POST">
       <div class="form-group">
         <label for="name">First Name</label>
         <input class="form-control" type="text" name="fname" id="fname" placeholder="John" required />
@@ -119,10 +117,7 @@ include('header.php');
       <div class="m-t-lg">
         <ul class="list-inline">
           <li>
-            <input class="btn btn--form" type="submit" value="Register" />
-          </li>
-          <li>
-            <a class="signup__link" href="#">I am already a member</a>
+            <input name="seller_reg"class="btn btn--form" type="submit" value="Register" />
           </li>
         </ul>
       </div>
