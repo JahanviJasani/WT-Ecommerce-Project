@@ -161,13 +161,13 @@ function addproduct($conn) {
 	$brand=mysqli_real_escape_string($conn, $_POST['brand']);
 	$price=mysqli_real_escape_string($conn, $_POST['price']);
 	$colour=mysqli_real_escape_string($conn, $_POST['colour']);
-	if(strcmp($gender, 'Men')) {
+	if(strcmp($gender, 'men')) {
 		echo "Men";
 		$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category',$price,'$colour', '$gender', 1000)";
 		$result=mysqli_query($conn, $sql);
 		$sql="SELECT product_id FROM product WHERE name='$name'";
 	} 
-	else if (strcmp($gender, 'Women')) {
+	else if (strcmp($gender, 'women')) {
 		echo "Women";
 		$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category','$price', '$colour', '$gender', 1000 )";
 		$result=mysqli_query($conn, $sql);
@@ -189,15 +189,21 @@ function addproduct($conn) {
 function addfootwear($conn, $gender, $result1) {
 	echo "footwear called";
 	$material=mysqli_real_escape_string($conn, $_POST['material']);
-	if($gender=='Men') {
-		$sub_category=$_POST['footwear-men'];
-		$sql="INSERT INTO footwear(product_id, material, subcategory) VALUES ('$result1', '$material', '$sub_category')";
+	$sub_category=$_POST['footwear-men'];
+	$row = mysqli_fetch_assoc($result1);
+	$pid = $row['product_id'];
+	echo "product id ".$pid." mateial ".$material." subcat ".$sub_category;
+	$result2 = "";
+	if($gender=='men') {
+		echo "inside men wala footwear";
+		$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sub_category')";
 		$result2=mysqli_query($conn, $sql);
 		echo "Its".$result2;
 	}
-	elseif($gender=='Women') {
+	elseif($gender=='women') {
+		echo "inside women wala footwear";
 		$sub_category=$_POST['footwear-women'];
-		$sql="INSERT INTO footwear(product_id, material, subcategory) VALUES ('$result1', '$material', '$sub_category')";
+		$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sub_category')";
 		$result2=mysqli_query($conn, $sql);
 	}
 	if($result2) {
@@ -206,4 +212,3 @@ function addfootwear($conn, $gender, $result1) {
 		echo "Error";
 	}
 }
-
