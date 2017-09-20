@@ -44,6 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	.form-name {
 		display: inline-block;
 		width: 150px;
+		font-size: 1.1em;
 	}
 	textarea {
 		display: inline-block;
@@ -64,7 +65,7 @@ include('header.php');
 				
 				<form id="select-category-form">
 					<div class="dropdown-group">
-						<p style="width: inherit;">Category</p><br>
+						<p style="width: inherit; font-size: 1.2em">Category</p><br>
 						<select id="category-dropdown" onchange="selectitem()" style="margin-left: 10px;">
 							<option value="">Select a Category</option>
 							<option value="footwear">Footwear</option>
@@ -73,7 +74,7 @@ include('header.php');
 						</select>
 					</div>
 					<div class="dropdown-group">
-						<p style="width: inherit;">Gender</p><br>
+						<p style="width: inherit; font-size: 1.2em;">Gender</p><br>
 						<select id="gender-dropdown" onchange="selectitem()" style="margin-left: 10px;">
 							<option value="">Select a Gender</option>
 							<option value="men">Men</option>
@@ -98,7 +99,7 @@ include('header.php');
 							<option value="Loafers">Loafers</option>
 							<option value="Others">Others</option>
 						</select>
-						<select id="footwear-women" name="footwear-women">
+						<select id="footwear-women" name="footwear-women" style="margin-left: 10px;">
 							<option value="">Select</option>
 							<option value="Canvas Shoes">Canvas Shoes</option>
 							<option value="Boots">Boots</option>
@@ -120,7 +121,7 @@ include('header.php');
 						<p><span class="form-name">Colour:</span> <input type="text" name="colour"></p>
 						<p><span class="form-name">Description:</span> <textarea name="description"></textarea></p>
 						<p><span class="form-name">Material:</span> <input type="text" name="material"></p>
-						<p><span class="form-name">Size(UK):<span class="required">*</span></span></p>
+						<p><span class="form-name">Size(UK):<span class="required">*</span></span><a href="#">Refer to size chart</a></p>
 							<div id="size_for_women" class="women_size">
 							<input id="size3w" class="checkbox-custom" name="size" type="checkbox">
 					        <label for="size3w" class="checkbox-custom-label">  3</label> 
@@ -145,24 +146,24 @@ include('header.php');
 					        <input id="size8w" class="checkbox-custom" name="size" type="checkbox">
 					        <label for="size8w" class="checkbox-custom-label">  8</label>
 					        <input type="number" name="stock_size" class="size-box">
-					        <br>
+					        <br><br>
 					        </div>
 					        <div id="size_for_men" class="men_size">
 							<input id="size6m" class="checkbox-custom" name="size" type="checkbox">
 					        <label for="size6m" class="checkbox-custom-label">  6</label> 
-					        <input type="number" name="stock_size" class="size-box">
+					        <input type="number" name="stock_size" class="size-box" style="margin-left: 39px;">
 					        <br>
 					        <input id="size7m" class="checkbox-custom" name="size" type="checkbox">
 					        <label for="size7m" class="checkbox-custom-label">  7</label>
-					        <input type="number" name="stock_size" class="size-box">
+					        <input type="number" name="stock_size" class="size-box" style="margin-left: 39px;">
 					        <br>
 					        <input id="size8m" class="checkbox-custom" name="size" type="checkbox">
 					        <label for="size8m" class="checkbox-custom-label">  8</label>
-					        <input type="number" name="stock_size" class="size-box">
+					        <input type="number" name="stock_size" class="size-box" style="margin-left: 39px;">
 					        <br>
 					        <input id="size9m" class="checkbox-custom" name="size" type="checkbox">
 					        <label for="size9m" class="checkbox-custom-label">  9</label>
-					        <input type="number" name="stock_size" class="size-box">
+					        <input type="number" name="stock_size" class="size-box" style="margin-left: 39px;">
 					        <br>
 					        <input id="size10m" class="checkbox-custom" name="size" type="checkbox">
 					        <label for="size10m" class="checkbox-custom-label">  10</label>
@@ -175,7 +176,7 @@ include('header.php');
 					        <input id="size12m" class="checkbox-custom" name="size" type="checkbox">
 					        <label for="size12m" class="checkbox-custom-label">  12</label>
 					        <input type="number" name="stock_size" class="size-box">
-					        <br>
+					        <br><br>
 					        </div>
 
 						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img" multiple required accept="image/*"></p>
