@@ -161,13 +161,13 @@ function addproduct($conn) {
 	$brand=mysqli_real_escape_string($conn, $_POST['brand']);
 	$price=mysqli_real_escape_string($conn, $_POST['price']);
 	$colour=mysqli_real_escape_string($conn, $_POST['colour']);
-	if(strcmp($gender, 'men')) {
+	if($gender=='men') {
 		echo "Men";
 		$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category',$price,'$colour', '$gender', 1000)";
 		$result=mysqli_query($conn, $sql);
 		$sql="SELECT product_id FROM product WHERE name='$name'";
 	} 
-	else if (strcmp($gender, 'women')) {
+	elseif ($gender=='women') {
 		echo "Women";
 		$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category','$price', '$colour', '$gender', 1000 )";
 		$result=mysqli_query($conn, $sql);

@@ -40,7 +40,7 @@
 		var men = document.getElementById("footwear-men");
 		var women = document.getElementById("footwear-women");
         var size_m = document.getElementById("size_for_men");
-        var size_w = document.getElementById("size_For_women");
+        var size_w = document.getElementById("size_for_women");
 		men.style.display="block";
 		women.style.display="none";
 		men.setAttribute("required", "");
@@ -84,7 +84,7 @@
 		var men = document.getElementById("footwear-men");
 		var women = document.getElementById("footwear-women");
         var size_m = document.getElementById("size_for_men");
-        var size_w = document.getElementById("size_For_women");
+        var size_w = document.getElementById("size_for_women");
 		women.style.display="block";
 		men.style.display="none";
 		women.setAttribute("required", "");

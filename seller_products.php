@@ -74,7 +74,7 @@ include('header.php');
                     <div class="panel panel-default sidebar-menu">
 
                     <div class="panel-heading">
-                    <h3 class="panel-title">Customer section</h3>
+                    <h3 class="panel-title">Seller section</h3>
                     </div>
 
                     <div class="panel-body">
@@ -93,7 +93,7 @@ include('header.php');
                     <a href="#"><i class="fa fa-shopping-bag"></i> Update products</a>
                     </li>
                     <li>
-                    <a href="index.php"><i class="fa fa-sign-out"></i> Logout</a>
+                    <a href="functions.php?logout=true"><i class="fa fa-sign-out"></i> Logout</a>
                     </li>
                     </ul>
                     </div>
