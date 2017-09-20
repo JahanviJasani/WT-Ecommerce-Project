@@ -129,59 +129,59 @@ include('header.php');
 						<p><span class="form-name">Material:</span> <input type="text" name="material"></p>
 						<p><span class="form-name">Size(UK):<span class="required">*</span></span><a id="gender_select" href="#"s target="_blank" onclick="select_link()">Refer to size chart</a></p>
 							<div id="size_for_women" class="women_size">
-							<input id="size3w" class="checkbox-custom" name="size" type="checkbox" onclick="checkbox_validate()">
+							<input id="size3w" class="checkbox-custom" name="size3w" type="checkbox" onclick="checkbox_validate()">
 					        <label for="size3w" class="checkbox-custom-label">  3</label> 
-					        <input type="number" id="stock_size3w" class="size-box">
+					        <input type="number" id="stock_size3w" name="stock_size3w" class="size-box">
 					        <br>
-					        <input id="size4w" class="checkbox-custom" name="size" type="checkbox" onclick="checkbox_validate()">
+					        <input id="size4w" class="checkbox-custom" name="size4w" type="checkbox" onclick="checkbox_validate()">
 					        <label for="size4w" class="checkbox-custom-label">  4</label>
-					        <input type="number" id="stock_size4w" class="size-box">
+					        <input type="number" id="stock_size4w" name="stock_size4w" class="size-box">
 					        <br>
-					        <input id="size5w" class="checkbox-custom" name="size" type="checkbox" onclick="checkbox_validate()">
+					        <input id="size5w" class="checkbox-custom" name="size5w" type="checkbox" onclick="checkbox_validate()">
 					        <label for="size5w" class="checkbox-custom-label">  5</label>
-					        <input type="number" id="stock_size5w" class="size-box">
+					        <input type="number" id="stock_size5w" name="stock_size5w" class="size-box">
 					        <br>
-					        <input id="size6w" class="checkbox-custom" name="size" type="checkbox" onclick="checkbox_validate()">
+					        <input id="size6w" class="checkbox-custom" name="size6w" type="checkbox" onclick="checkbox_validate()">
 					        <label for="size6w" class="checkbox-custom-label">  6</label>
-					        <input type="number" id="stock_size6w" class="size-box">
+					        <input type="number" id="stock_size6w" name="stock_size6w" class="size-box">
 					        <br>
-					        <input id="size7w" class="checkbox-custom" name="size" type="checkbox" onclick="checkbox_validate()">
+					        <input id="size7w" class="checkbox-custom" name="size7w" type="checkbox" onclick="checkbox_validate()">
 					        <label for="size7w" class="checkbox-custom-label">  7</label>
-					        <input type="number" id="stock_size7w" class="size-box">
+					        <input type="number" id="stock_size7w" name="stock_size7w" class="size-box">
 					        <br>
-					        <input id="size8w" class="checkbox-custom" name="size" type="checkbox" onclick="checkbox_validate()">
+					        <input id="size8w" class="checkbox-custom" name="size8w" type="checkbox" onclick="checkbox_validate()">
 					        <label for="size8w" class="checkbox-custom-label">  8</label>
-					        <input type="number" id="stock_size8w" class="size-box">
+					        <input type="number" id="stock_size8w" name="stock_size8w" class="size-box">
 					        <br><br>
 					        </div>
 					        <div id="size_for_men" class="men_size">
-							<input id="size6m" class="checkbox-custom" name="size" type="checkbox" onclick="checkbox_validate()">
+							<input id="size6m" class="checkbox-custom" name="size6m" type="checkbox" onclick="checkbox_validate()">
 					        <label for="size6m" class="checkbox-custom-label">  6</label> 
-					        <input type="number" id="stock_size6m" class="size-box" style="margin-left: 39px;">
+					        <input type="number" id="stock_size6m" name="stock_size6m" class="size-box" style="margin-left: 39px;">
 					        <br>
-					        <input id="size7m" class="checkbox-custom" name="size" type="checkbox" onclick="checkbox_validate()">
+					        <input id="size7m" class="checkbox-custom" name="size7m" type="checkbox" onclick="checkbox_validate()">
 					        <label for="size7m" class="checkbox-custom-label">  7</label>
-					        <input type="number" id="stock_size7m" class="size-box" style="margin-left: 39px;">
+					        <input type="number" id="stock_size7m" name="stock_size7m" class="size-box" style="margin-left: 39px;">
 					        <br>
-					        <input id="size8m" class="checkbox-custom" name="size" type="checkbox" onclick="checkbox_validate()">
+					        <input id="size8m" class="checkbox-custom" name="size8m" type="checkbox" onclick="checkbox_validate()">
 					        <label for="size8m" class="checkbox-custom-label">  8</label>
-					        <input type="number" id="stock_size8m" class="size-box" style="margin-left: 39px;">
+					        <input type="number" id="stock_size8m" name="stock_size8m" class="size-box" style="margin-left: 39px;">
 					        <br>
-					        <input id="size9m" class="checkbox-custom" name="size" type="checkbox" onclick="checkbox_validate()">
+					        <input id="size9m" class="checkbox-custom" name="size9m" type="checkbox" onclick="checkbox_validate()">
 					        <label for="size9m" class="checkbox-custom-label">  9</label>
-					        <input type="number" id="stock_size9m" class="size-box" style="margin-left: 39px;">
+					        <input type="number" id="stock_size9m" name="stock_size9m" class="size-box" style="margin-left: 39px;">
 					        <br>
-					        <input id="size10m" class="checkbox-custom" name="size" type="checkbox" onclick="checkbox_validate()">
+					        <input id="size10m" class="checkbox-custom" name="size10m" type="checkbox" onclick="checkbox_validate()">
 					        <label for="size10m" class="checkbox-custom-label">  10</label>
-					        <input type="number" id="stock_size10m" class="size-box">
+					        <input type="number" id="stock_size10m" name="stock_size10m" class="size-box">
 					        <br>
-					        <input id="size11m" class="checkbox-custom" name="size" type="checkbox" onclick="checkbox_validate()">
+					        <input id="size11m" class="checkbox-custom" name="size11m" type="checkbox" onclick="checkbox_validate()">
 					        <label for="size11m" class="checkbox-custom-label">  11</label>
-					        <input type="number" id="stock_size11m" class="size-box">
+					        <input type="number" id="stock_size11m" name="stock_size11m" class="size-box">
 					        <br>
-					        <input id="size12m" class="checkbox-custom" name="size" type="checkbox" onclick="checkbox_validate()">
+					        <input id="size12m" class="checkbox-custom" name="size12m" type="checkbox" onclick="checkbox_validate()">
 					        <label for="size12m" class="checkbox-custom-label">  12</label>
-					        <input type="number" id="stock_size12m" class="size-box">
+					        <input type="number" id="stock_size12m" name="stock_size12m" class="size-box">
 					        <br><br>
 					        </div>
 

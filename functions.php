@@ -199,12 +199,98 @@ function addfootwear($conn, $gender, $result1) {
 		$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sub_category')";
 		$result2=mysqli_query($conn, $sql);
 		echo "Its".$result2;
+		$sql="SELECT * FROM footwear WHERE product_id=$pid";
+		$row=mysqli_fetch_assoc(mysqli_query($conn, $sql));
+		$fid=$row['footwear_id'];
+		$result2="";
+		if(isset($_POST['size6m']))
+		{
+			$stock=mysqli_real_escape_string($conn, $_POST['stock_size6m']);
+			$sql="INSERT INTO footwear_size VALUES ('$fid', 6, '$stock')";
+			$result2=mysqli_query($conn, $sql);
+		}
+		if(isset($_POST['size7m']))
+		{
+			$stock=mysqli_real_escape_string($conn, $_POST['stock_size7m']);
+			$sql="INSERT INTO footwear_size VALUES ('$fid', 7, '$stock')";
+			$result2=mysqli_query($conn, $sql);
+		}
+		if(isset($_POST['size8m']))
+		{
+			$stock=mysqli_real_escape_string($conn, $_POST['stock_size8m']);
+			$sql="INSERT INTO footwear_size VALUES ('$fid', 8, '$stock')";
+			$result2=mysqli_query($conn, $sql);
+		}
+		if(isset($_POST['size9m']))
+		{
+			$stock=mysqli_real_escape_string($conn, $_POST['stock_size9m']);
+			$sql="INSERT INTO footwear_size VALUES ('$fid', 9, '$stock')";
+			$result2=mysqli_query($conn, $sql);
+		}
+		if(isset($_POST['size10m']))
+		{
+			$stock=mysqli_real_escape_string($conn, $_POST['stock_size10m']);
+			$sql="INSERT INTO footwear_size VALUES ('$fid', 10, '$stock')";
+			$result2=mysqli_query($conn, $sql);
+		}
+		if(isset($_POST['size11m']))
+		{
+			$stock=mysqli_real_escape_string($conn, $_POST['stock_size11m']);
+			$sql="INSERT INTO footwear_size VALUES ('$fid', 11, '$stock')";
+			$result2=mysqli_query($conn, $sql);
+		}
+		if(isset($_POST['size12m']))
+		{
+			$stock=mysqli_real_escape_string($conn, $_POST['stock_size12m']);
+			$sql="INSERT INTO footwear_size VALUES ('$fid', 12, '$stock')";
+			$result2=mysqli_query($conn, $sql);
+		}
 	}
 	elseif($gender=='women') {
 		echo "inside women wala footwear";
 		$sub_category=$_POST['footwear-women'];
 		$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sub_category')";
 		$result2=mysqli_query($conn, $sql);
+		$sql="SELECT * FROM footwear WHERE product_id=$pid";
+		$row=mysqli_fetch_assoc(mysqli_query($conn, $sql));
+		$fid=$row['footwear_id'];
+		$resilt2="";
+		if(isset($_POST['size3w']))
+		{
+			$stock=mysqli_real_escape_string($conn, $_POST['stock_size3w']);
+			$sql="INSERT INTO footwear_size VALUES ('$fid', 3, '$stock')";
+			$result2=mysqli_query($conn, $sql);
+		}
+		if(isset($_POST['size4w']))
+		{
+			$stock=mysqli_real_escape_string($conn, $_POST['stock_size4w']);
+			$sql="INSERT INTO footwear_size VALUES ('$fid', 4, '$stock')";
+			$result2=mysqli_query($conn, $sql);
+		}
+		if(isset($_POST['size5w']))
+		{
+			$stock=mysqli_real_escape_string($conn, $_POST['stock_size5w']);
+			$sql="INSERT INTO footwear_size VALUES ('$fid', 5, '$stock')";
+			$result2=mysqli_query($conn, $sql);
+		}
+		if(isset($_POST['size6w']))
+		{
+			$stock=mysqli_real_escape_string($conn, $_POST['stock_size6w']);
+			$sql="INSERT INTO footwear_size VALUES ('$fid', 6, '$stock')";
+			$result2=mysqli_query($conn, $sql);
+		}
+		if(isset($_POST['size7w']))
+		{
+			$stock=mysqli_real_escape_string($conn, $_POST['stock_size7w']);
+			$sql="INSERT INTO footwear_size VALUES ('$fid', 7, '$stock')";
+			$result2=mysqli_query($conn, $sql);
+		}
+		if(isset($_POST['size8w']))
+		{
+			$stock=mysqli_real_escape_string($conn, $_POST['stock_size8w']);
+			$sql="INSERT INTO footwear_size VALUES ('$fid', 8, '$stock')";
+			$result2=mysqli_query($conn, $sql);
+		}
 	}
 	if($result2) {
 		echo "Done";
