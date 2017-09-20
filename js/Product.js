@@ -39,6 +39,8 @@
 		var watch = document.getElementById("watch-div");
 		var men = document.getElementById("footwear-men");
 		var women = document.getElementById("footwear-women");
+        var size_m = document.getElementById("size_for_men");
+        var size_w = document.getElementById("size_For_women");
 		men.style.display="block";
 		women.style.display="none";
 		men.setAttribute("required", "");
@@ -46,6 +48,8 @@
 		footwear.style.display="block";
 		bag.style.display="none";
 		watch.style.display="none";
+        size_w.style.display="none";
+        size_m.style.display="block";
 		
 	}
 	function selectbagmen(){
@@ -79,6 +83,8 @@
 		var watch = document.getElementById("watch-div");
 		var men = document.getElementById("footwear-men");
 		var women = document.getElementById("footwear-women");
+        var size_m = document.getElementById("size_for_men");
+        var size_w = document.getElementById("size_For_women");
 		women.style.display="block";
 		men.style.display="none";
 		women.setAttribute("required", "");
@@ -86,7 +92,8 @@
 		footwear.style.display="block";
 		bag.style.display="none";
 		watch.style.display="none";
-		
+        size_m.style.display="none";
+        size_w.style.display="block";
 	}
 	function selectbagwomen(){
 		document.getElementById("gender-bag").value = "women";

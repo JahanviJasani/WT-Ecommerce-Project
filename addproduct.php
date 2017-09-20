@@ -84,8 +84,8 @@ include('header.php');
 				<div id="footwear-div">
 					<h3>Add Footwear</h3>
 					<form action="functions.php" method="POST">
-						<p><span class="form-name">Sub-category:<span class="required">*</span></span> 
-						<select id="footwear-men" name="footwear-men">
+						<p><span class="form-name">Sub-category:<span class="required">*</span></p> 
+						<select id="footwear-men" name="footwear-men" style="margin-left: 10px;">
 							<option value="">Select</option>
 							<option value="Casual Shoes">Casual Shoes</option>
 							<option value="Boots">Boots</option>
@@ -120,8 +120,64 @@ include('header.php');
 						<p><span class="form-name">Colour:</span> <input type="text" name="colour"></p>
 						<p><span class="form-name">Description:</span> <textarea name="description"></textarea></p>
 						<p><span class="form-name">Material:</span> <input type="text" name="material"></p>
-						<p><span class="form-name">Size(UK):<span class="required">*</span></span> <input type="text" name="size" required></p>
-						<p><span class="form-name">Available Stock:<span class="required">*</span></span> <input type="number" min="0" name="stock" required></p>
+						<p><span class="form-name">Size(UK):<span class="required">*</span></span></p>
+							<div id="size_for_women" class="women_size">
+							<input id="size3w" class="checkbox-custom" name="size" type="checkbox">
+					        <label for="size3w" class="checkbox-custom-label">  3</label> 
+					        <input type="number" name="stock_size" class="size-box">
+					        <br>
+					        <input id="size4w" class="checkbox-custom" name="size" type="checkbox">
+					        <label for="size4w" class="checkbox-custom-label">  4</label>
+					        <input type="number" name="stock_size" class="size-box">
+					        <br>
+					        <input id="size5w" class="checkbox-custom" name="size" type="checkbox">
+					        <label for="size5w" class="checkbox-custom-label">  5</label>
+					        <input type="number" name="stock_size" class="size-box">
+					        <br>
+					        <input id="size6w" class="checkbox-custom" name="size" type="checkbox">
+					        <label for="size6w" class="checkbox-custom-label">  6</label>
+					        <input type="number" name="stock_size" class="size-box">
+					        <br>
+					        <input id="size7w" class="checkbox-custom" name="size" type="checkbox">
+					        <label for="size7w" class="checkbox-custom-label">  7</label>
+					        <input type="number" name="stock_size" class="size-box">
+					        <br>
+					        <input id="size8w" class="checkbox-custom" name="size" type="checkbox">
+					        <label for="size8w" class="checkbox-custom-label">  8</label>
+					        <input type="number" name="stock_size" class="size-box">
+					        <br>
+					        </div>
+					        <div id="size_for_men" class="men_size">
+							<input id="size6m" class="checkbox-custom" name="size" type="checkbox">
+					        <label for="size6m" class="checkbox-custom-label">  6</label> 
+					        <input type="number" name="stock_size" class="size-box">
+					        <br>
+					        <input id="size7m" class="checkbox-custom" name="size" type="checkbox">
+					        <label for="size7m" class="checkbox-custom-label">  7</label>
+					        <input type="number" name="stock_size" class="size-box">
+					        <br>
+					        <input id="size8m" class="checkbox-custom" name="size" type="checkbox">
+					        <label for="size8m" class="checkbox-custom-label">  8</label>
+					        <input type="number" name="stock_size" class="size-box">
+					        <br>
+					        <input id="size9m" class="checkbox-custom" name="size" type="checkbox">
+					        <label for="size9m" class="checkbox-custom-label">  9</label>
+					        <input type="number" name="stock_size" class="size-box">
+					        <br>
+					        <input id="size10m" class="checkbox-custom" name="size" type="checkbox">
+					        <label for="size10m" class="checkbox-custom-label">  10</label>
+					        <input type="number" name="stock_size" class="size-box">
+					        <br>
+					        <input id="size11m" class="checkbox-custom" name="size" type="checkbox">
+					        <label for="size11m" class="checkbox-custom-label">  11</label>
+					        <input type="number" name="stock_size" class="size-box">
+					        <br>
+					        <input id="size12m" class="checkbox-custom" name="size" type="checkbox">
+					        <label for="size12m" class="checkbox-custom-label">  12</label>
+					        <input type="number" name="stock_size" class="size-box">
+					        <br>
+					        </div>
+
 						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img" multiple required accept="image/*"></p>
 						<p><b>Note:</b> Fields marked with <span class="required">*</span> are mandatory</p>
 						<button name="addfoot" class="btn btn-success add" type="submit">Add Footwear</button>
