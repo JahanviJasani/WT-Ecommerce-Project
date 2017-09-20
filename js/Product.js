@@ -50,7 +50,6 @@
 		watch.style.display="none";
         size_w.style.display="none";
         size_m.style.display="block";
-		
 	}
 	function selectbagmen(){
 		document.getElementById("gender-bag").value = "men";
@@ -128,4 +127,79 @@
     function deletiondone(){
         document.getElementById("button_delete").style.display="none";
         document.getElementById("hidediv").style.display="block";
+    }
+    function checkbox_validate() {
+        if(size3w.checked==1) {
+            document.getElementById("stock_size3w").style.display="inline-block";
+        } else {
+            document.getElementById("stock_size3w").style.display="none";
+        }
+        if(size4w.checked==1) {
+            document.getElementById("stock_size4w").style.display="inline-block";
+        } else {
+            document.getElementById("stock_size4w").style.display="none";
+        }
+        if(size5w.checked==1) {
+            document.getElementById("stock_size5w").style.display="inline-block";
+        } else {
+            document.getElementById("stock_size5w").style.display="none";
+        }
+        if(size6w.checked==1) {
+            document.getElementById("stock_size6w").style.display="inline-block";
+        } else {
+            document.getElementById("stock_size6w").style.display="none";
+        }
+        if(size7w.checked==1) {
+            document.getElementById("stock_size7w").style.display="inline-block";
+        } else {
+            document.getElementById("stock_size7w").style.display="none";
+        }
+        if(size8w.checked==1) {
+            document.getElementById("stock_size8w").style.display="inline-block";
+        } else {
+            document.getElementById("stock_size8w").style.display="none";
+        }
+        if(size6m.checked==1) {
+            document.getElementById("stock_size6m").style.display="inline-block";
+        } else {
+            document.getElementById("stock_size6m").style.display="none";
+        }
+        if(size7m.checked==1) {
+            document.getElementById("stock_size7m").style.display="inline-block";
+        } else {
+            document.getElementById("stock_size7m").style.display="none";
+        }
+        if(size8m.checked==1) {
+            document.getElementById("stock_size8m").style.display="inline-block";
+        } else {
+            document.getElementById("stock_size8m").style.display="none";
+        }
+        if(size9m.checked==1) {
+            document.getElementById("stock_size9m").style.display="inline-block";
+        } else {
+            document.getElementById("stock_size9m").style.display="none";
+        }
+        if(size10m.checked==1) {
+            document.getElementById("stock_size10m").style.display="inline-block";
+        } else {
+            document.getElementById("stock_size10m").style.display="none";
+        }
+        if(size11m.checked==1) {
+            document.getElementById("stock_size11m").style.display="inline-block";
+        } else {
+            document.getElementById("stock_size11m").style.display="none";
+        }
+        if(size12m.checked==1) {
+            document.getElementById("stock_size12m").style.display="inline-block";
+        } else {
+            document.getElementById("stock_size12m").style.display="none";
+        }
+    }
+    function select_link() {
+        var gender = document.getElementById("gender-footwear").value;
+        if(gender=="men") {
+            gender_select.href="images/mens.png"
+        } else if (gender=="women") {
+            gender_select.href="images/womens.png"
+        }
     }

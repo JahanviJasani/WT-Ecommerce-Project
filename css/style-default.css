@@ -994,6 +994,7 @@ select {
   width: 70px;
   margin-left: 30px;
   height: 25px;
+  display: none;
 }
 .men_size {
   margin-left: 10em;
