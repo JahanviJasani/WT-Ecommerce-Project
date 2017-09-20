@@ -60,10 +60,10 @@ CREATE TABLE bags (
 	stock int(5) NOT NULL,
 	bag_capacity float(5,2),
 	length float(5,2),
-	heigth float(5,2),
+	height float(5,2),
 	width float(5,2),
 	material varchar(250),
-	weigth float(5,2),
+	weight float(5,2),
 	subcategory varchar(25) NOT NULL,
 	FOREIGN KEY (product_id) REFERENCES product(product_id) ON DELETE CASCADE ON UPDATE CASCADE
 )

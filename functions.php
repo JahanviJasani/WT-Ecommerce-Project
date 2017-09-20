@@ -172,7 +172,7 @@ function addproduct($conn) {
 		$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category','$price', '$colour', '$gender', 1000 )";
 		$result=mysqli_query($conn, $sql);
 	}
-	$sql="SELECT product_id FROM product WHERE name='$name'";
+	$sql = "SELECT product_id FROM product WHERE name='$name' AND brand='$brand' AND category='$category' AND price='$price'";
 	$result1=mysqli_query($conn, $sql);
 	if (isset($_POST['addfoot'])) {
 		echo "Calling footwear";
@@ -204,6 +204,59 @@ function addfootwear($conn, $gender, $result1) {
 		echo "inside women wala footwear";
 		$sub_category=$_POST['footwear-women'];
 		$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sub_category')";
+		$result2=mysqli_query($conn, $sql);
+	}
+	if($result2) {
+		echo "Done";
+	} else {
+		echo "Error";
+	}
+}
+
+function addbag($conn, $gender, $result1) {
+	$capacity = mysqli_real_escape_string($conn, $_POST['capacity']);
+	$length = mysqli_real_escape_string($conn, $_POST['length']);
+	$height = mysqli_real_escape_string($conn, $_POST['height']);
+	$width = mysqli_real_escape_string($conn, $_POST['width']);
+	$material = mysqli_real_escape_string($conn, $_POST['material']);
+	$weight = mysqli_real_escape_string($conn, $_POST['weight']);
+	$stock = mysqli_real_escape_string($conn, $_POST['stock']);
+	$row = mysqli_fetch_assoc($result1);
+	$pid = $row['product_id'];
+
+	if ($gender=='men') {
+		$subcategory = mysqli_real_escape_string($conn, $_POST['bag-men']);
+		$sql = "INSERT INTO bags (product_id, stock, bag_capacity, length, height, width, material, weight,subcategory) VALUES ('$pid', '$stock', '$capacity', '$length', '$height', '$width', '$material', '$weight', '$subcategory')";
+		$result2=mysqli_query($conn, $sql);
+	} elseif ($gender=='women') {
+		$subcategory = mysqli_real_escape_string($conn, $_POST['bag-women']);
+		$sql = "INSERT INTO bags (product_id, stock, bag_capacity, length, height, width, material, weight,subcategory) VALUES ('$pid', '$stock', '$capacity', '$length', '$height', '$width', '$material', '$weight', '$subcategory')";
+		$result2=mysqli_query($conn, $sql);
+	}
+	if($result2) {
+		echo "Done";
+	} else {
+		echo "Error";
+	}
+}
+
+
+function addwatch($conn, $gender, $result1) {
+	$clasp_type = mysqli_real_escape_string($conn, $_POST['clasp_type']);
+	$case_shape = mysqli_real_escape_string($conn, $_POST['case_shape']);
+	$display_type = mysqli_real_escape_string($conn, $_POST['display_type']);
+	$dial_colour = mysqli_real_escape_string($conn, $_POST['dial_colour']);
+	$case_material = mysqli_real_escape_string($conn, $_POST['case_material']);
+	$band_material = mysqli_real_escape_string($conn, $_POST['band_material']);
+	$stock = mysqli_real_escape_string($conn, $_POST['stock']);
+	$row = mysqli_fetch_assoc($result1);
+	$pid = $row['product_id'];
+
+	if ($gender=='men') {
+		$sql = "INSERT INTO watches (product_id, stock, clasp_type, case_shape, display_type, dial_colour, case_material, band_material) VALUES ('$pid', '$stock', '$clasp_type', '$case_shape', '$display_type', '$dial_colour', '$case_material', '$band_material')";
+		$result2=mysqli_query($conn, $sql);
+	} elseif ($gender=='women') {
+		$sql = "INSERT INTO watches (product_id, stock, clasp_type, case_shape, display_type, dial_colour, case_material, band_material) VALUES ('$pid', '$stock', '$clasp_type', '$case_shape', '$display_type', '$dial_colour', '$case_material', '$band_material')";
 		$result2=mysqli_query($conn, $sql);
 	}
 	if($result2) {

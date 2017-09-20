@@ -221,10 +221,10 @@ include('header.php');
 						<p><span class="form-name">Colour:</span> <input type="text" name="colour"></p>
 						<p><span class="form-name">Description:</span> <br><textarea name="description"></textarea></p>
 						<p><span class="form-name">Material:</span> <input type="text" name="material"></p>
-						<p><span class="form-name">Length(in cm):</span> <input type="number" step="0.1" min="0" name="material"></p>
-						<p><span class="form-name">Height(in cm):</span> <input type="number" step="0.1" min="0" name="material"></p>
-						<p><span class="form-name">Width(in cm):</span> <input type="number"  step="0.1" min="0" name="material"></p>
-						<p><span class="form-name">Weigth(in kg):</span> <input type="number" step="0.1" min="0" name="material"></p>
+						<p><span class="form-name">Length(in cm):</span> <input type="number" step="0.1" min="0" name="length"></p>
+						<p><span class="form-name">Height(in cm):</span> <input type="number" step="0.1" min="0" name="height"></p>
+						<p><span class="form-name">Width(in cm):</span> <input type="number"  step="0.1" min="0" name="width"></p>
+						<p><span class="form-name">Weight(in kg):</span> <input type="number" step="0.1" min="0" name="weight"></p>
 						<p><span class="form-name">Capacity(Lts):</span> <input type="number" step="0.1" min="0" name="capacity"></p>
 						<p><span class="form-name">Available Stock:<span class="required">*</span></span> <input type="number" min="0" name="stock" required></p>
 						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img" multiple required accept="image/*"></p>
@@ -240,13 +240,14 @@ include('header.php');
 						<p><span class="form-name">Brand:<span class="required">*</span></span> <input type="text" name="brand" required></p>
 						<p><span class="form-name">Name:<span class="required">*</span></span> <input type="text" name="name" required></p>
 						<p><span class="form-name">Price(in &#8377;):<span class="required">*</span></span> <input type="number" min="0" step="0.01" name="price" required></p>
-						<p><span class="form-name">Dial Colour:</span> <input type="text" name="dial-colour"></p>
+						<p><span class="form-name">Colour:</span> <input type="text" name="colour"></p>
+						<p><span class="form-name">Dial Colour:</span> <input type="text" name="dial_colour"></p>
 						<p><span class="form-name">Description:</span> <br><textarea name="description"></textarea></p>
-						<p><span class="form-name">Case Shape:</span> <input type="text" name="case-shape"></p>
-						<p><span class="form-name">Clasp Type:</span> <input type="text" name="clasp-type"></p>
-						<p><span class="form-name">Display Type:</span> <input type="text" name="display-type"></p>
-						<p><span class="form-name">Case Material:</span> <input type="text" name="case-material"></p>
-						<p><span class="form-name">Band Material:</span> <input type="text" name="band-material"></p>
+						<p><span class="form-name">Case Shape:</span> <input type="text" name="case_shape"></p>
+						<p><span class="form-name">Clasp Type:</span> <input type="text" name="clasp_type"></p>
+						<p><span class="form-name">Display Type:</span> <input type="text" name="display_type"></p>
+						<p><span class="form-name">Case Material:</span> <input type="text" name="case_material"></p>
+						<p><span class="form-name">Band Material:</span> <input type="text" name="band_material"></p>
 						<p><span class="form-name">Available Stock:<span class="required">*</span></span> <input type="text" name="stock" required></p>
 						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img" multiple required accept="image/*"></p>
 						<p><b>Note:</b> Fields marked with <span class="required">*</span> are mandatory</p>
