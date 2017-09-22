@@ -63,7 +63,6 @@ function userlogin($conn){
 			$rememberme = 0;
 		}
 
-
 		$sql = "SELECT * FROM users WHERE users.email='$email'";
 		$result = mysqli_query($conn, $sql);
 		$resultCheck = mysqli_num_rows($result);

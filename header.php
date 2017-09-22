@@ -5,8 +5,8 @@
 		<ul>
 		    <?php
 		    if (!isset($_SESSION['user_id'])) {
-		    	echo '<li> <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a></li>
-				<li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
+		    	echo '<li> <a href="#" data-toggle="modal" data-target="#myModal" onclick="resetvalues1()"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a></li>
+				<li> <a href="#" data-toggle="modal" data-target="#myModal2" onclick="resetvalues2()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
 				<li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
 				<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
 				<li><i class="fa fa-money"></i><a href="sellwithus.php">  Sell With Us</a></li>';
@@ -181,27 +181,24 @@
 						<div class="modal-body modal-body-sub_agile">
 						<div class="col-md-8 modal_body_left modal_body_left1">
 						<h3 class="agileinfo_sign">Sign In <span>Now</span></h3>
-						<form action="functions.php" method="post">
-							<div class="styled-input">
+						<form action="functions.php" method="post" id="sign_in_form">
+							<div class="styled-input" agile-styled-input-top">
 								<input type="email" name="Email" required=""> 
 								<label>Email</label>
 								<span></span>
 							</div> 
-
-
-							<div class="styled-input agile-styled-input-top">
+							<div class="styled-input">
 								<input type="password" name="Password" required="">
 								<label>Password</label>
 								<span></span>
 							</div>
-
 							<div>
-								<input type="checkbox" name="rememberme" style="display: inline;">
-								<label style="color: black; text-transform: none;">Remember Me</label>
+								<br>
+								<input id="rememberme" type="checkbox" name="rememberme" class="checkbox-custom">
+								<label for="rememberme" class="checkbox-custom-label" style="text-transform: none;">  Remember Me</label>
 								<br><br>
 								<span></span>
 							</div>
-							
 							<input type="submit" name="login_submit" id="login_submit" value="Sign In">
 						</form>
 						  <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
@@ -243,7 +240,7 @@
 						<div class="modal-body modal-body-sub_agile">
 						<div class="col-md-8 modal_body_left modal_body_left1">
 						<h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
-						<form action="functions.php" method="POST">
+						<form action="functions.php" method="POST" id="sign_up_form">
 							<div class="styled-input agile-styled-input-top">
 								<input type="text" name="FName" required="">
 								<label>First Name</label>
@@ -260,12 +257,12 @@
 								<span></span>
 							</div> 
 							<div class="styled-input">
-								<input type="password" id="password" name="password" onchange="checkPassword()"> 
+								<input type="password" id="password" name="password" required=""> 
 								<label>Password</label>
 								<span></span>
 							</div> 
 							<div class="styled-input">
-								<input type="password" id="password2" name="password2" onchange="checkPassword()"> 
+								<input type="password" id="password2" name="password2" onchange="validatePassword()" required=""> 
 								<label>Confirm Password</label>
 								<span></span>
 							</div> 

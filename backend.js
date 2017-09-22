@@ -1,12 +1,17 @@
-function checkPassword(){
-		console.log("cutey")
-		var p1 = document.getElementById("password");
-		var p2 = document.getElementById("password2");
-		if (p1.value !== p2.value) {
-			console.log("tatti");
-			p1.style.backgroundColor="red";			
-		}else{
-			console.log("Sahi hai");
-			alert("Passwords Match!");
-		}
-	}
+function resetvalues1() {
+    console.log("hello");
+    document.getElementById("sign_in_form").reset();
+}
+function resetvalues2() {
+    document.getElementById("sign_up_form").reset();
+}
+function validatePassword(){
+    var password = document.getElementById("password")
+    var confirm_password = document.getElementById("password2");
+
+    if(password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
