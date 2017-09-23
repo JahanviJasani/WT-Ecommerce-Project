@@ -1,8 +1,9 @@
 <?php
 session_start();
+//phpinfo();
 $dbServername = "localhost";
 $dbUsername = "root";
-$dbPassword = "pass1234";
+$dbPassword = "pass@123";
 $dbName = "eliteshoppy";
 
 $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
@@ -152,7 +153,7 @@ function register_seller($conn) {
 }
 
 function addproduct($conn) {
-	echo "string";
+	// echo "string";
 	$category=mysqli_real_escape_string($conn, $_POST['category']);
 	$gender=mysqli_real_escape_string($conn, $_POST['gender']);
 	$name=mysqli_real_escape_string($conn, $_POST['name']);
@@ -161,20 +162,20 @@ function addproduct($conn) {
 	$price=mysqli_real_escape_string($conn, $_POST['price']);
 	$colour=mysqli_real_escape_string($conn, $_POST['colour']);
 	if($gender=='men') {
-		echo "Men";
+		// echo "Men";
 		$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category',$price,'$colour', '$gender', 1000)";
 		$result=mysqli_query($conn, $sql);
 		$sql="SELECT product_id FROM product WHERE name='$name'";
 	} 
 	elseif ($gender=='women') {
-		echo "Women";
+		// echo "Women";
 		$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category','$price', '$colour', '$gender', 1000 )";
 		$result=mysqli_query($conn, $sql);
 	}
 	$sql = "SELECT product_id FROM product WHERE name='$name' AND brand='$brand' AND category='$category' AND price='$price'";
 	$result1=mysqli_query($conn, $sql);
 	if (isset($_POST['addfoot'])) {
-		echo "Calling footwear";
+		// echo "Calling footwear";
 		addfootwear($conn, $gender, $result1);
 	}
 	elseif (isset($_POST['addbag'])) {
@@ -186,18 +187,20 @@ function addproduct($conn) {
 }
 
 function addfootwear($conn, $gender, $result1) {
-	echo "footwear called";
+	// echo "footwear called";
 	$material=mysqli_real_escape_string($conn, $_POST['material']);
 	$sub_category=$_POST['footwear-men'];
 	$row = mysqli_fetch_assoc($result1);
 	$pid = $row['product_id'];
-	echo "product id ".$pid." mateial ".$material." subcat ".$sub_category;
+	$i=0;
+	
+	// echo "product id ".$pid." material ".$material." subcat ".$sub_category;
 	$result2 = "";
 	if($gender=='men') {
-		echo "inside men wala footwear";
+		// echo "inside men wala footwear";
 		$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sub_category')";
 		$result2=mysqli_query($conn, $sql);
-		echo "Its".$result2;
+		// echo "Its".$result2;
 		$sql="SELECT * FROM footwear WHERE product_id=$pid";
 		$row=mysqli_fetch_assoc(mysqli_query($conn, $sql));
 		$fid=$row['footwear_id'];
@@ -244,16 +247,19 @@ function addfootwear($conn, $gender, $result1) {
 			$sql="INSERT INTO footwear_size VALUES ('$fid', 12, '$stock')";
 			$result2=mysqli_query($conn, $sql);
 		}
+		if (isset($_POST['addfoot'])) {
+			$uploadOk = addimages($conn,$pid); 
+		}
 	}
 	elseif($gender=='women') {
-		echo "inside women wala footwear";
+		// echo "inside women wala footwear";
 		$sub_category=$_POST['footwear-women'];
 		$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sub_category')";
 		$result2=mysqli_query($conn, $sql);
 		$sql="SELECT * FROM footwear WHERE product_id=$pid";
 		$row=mysqli_fetch_assoc(mysqli_query($conn, $sql));
 		$fid=$row['footwear_id'];
-		$resilt2="";
+		$result2="";
 		if(isset($_POST['size3w']))
 		{
 			$stock=mysqli_real_escape_string($conn, $_POST['stock_size3w']);
@@ -290,15 +296,25 @@ function addfootwear($conn, $gender, $result1) {
 			$sql="INSERT INTO footwear_size VALUES ('$fid', 8, '$stock')";
 			$result2=mysqli_query($conn, $sql);
 		}
+		if (isset($_POST['addfoot'])) {
+			$uploadOk = addimages($conn,$pid); 
+		}
 	}
-	if($result2) {
-		echo "Done";
-	} else {
-		echo "Error";
+	
+	if($result2 && $uploadOk) {
+		// echo "Done";
+	} 
+	else {
+		// echo "Error".mysqli_error($conn);
+		$sql="DELETE FROM product WHERE product_id=$pid";
+		$result2=mysqli_query($conn, $sql);
+		$select = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM images WHERE product_id='$pid'")); //Fetch the file which is associated with this account
+    	unlink($select['image_location']); 
 	}
 }
 
 function addbag($conn, $gender, $result1) {
+	$uploadOk=0;
 	$capacity = mysqli_real_escape_string($conn, $_POST['capacity']);
 	$length = mysqli_real_escape_string($conn, $_POST['length']);
 	$height = mysqli_real_escape_string($conn, $_POST['height']);
@@ -313,15 +329,26 @@ function addbag($conn, $gender, $result1) {
 		$subcategory = mysqli_real_escape_string($conn, $_POST['bag-men']);
 		$sql = "INSERT INTO bags (product_id, stock, bag_capacity, length, height, width, material, weight,subcategory) VALUES ('$pid', '$stock', '$capacity', '$length', '$height', '$width', '$material', '$weight', '$subcategory')";
 		$result2=mysqli_query($conn, $sql);
+		if (isset($_POST['addbag'])) {
+			$uploadOk = addimages($conn,$pid); 
+		}
 	} elseif ($gender=='women') {
 		$subcategory = mysqli_real_escape_string($conn, $_POST['bag-women']);
 		$sql = "INSERT INTO bags (product_id, stock, bag_capacity, length, height, width, material, weight,subcategory) VALUES ('$pid', '$stock', '$capacity', '$length', '$height', '$width', '$material', '$weight', '$subcategory')";
 		$result2=mysqli_query($conn, $sql);
+		if (isset($_POST['addbag'])) {
+			$uploadOk = addimages($conn,$pid); 
+		}
 	}
-	if($result2) {
-		echo "Done";
-	} else {
-		echo "Error";
+	if($result2 && $uploadOk) {
+		// echo "Done";
+	} 
+	else {
+		// echo "Error".mysqli_error($conn);
+		$sql="DELETE FROM product WHERE product_id=$pid";
+		$result2=mysqli_query($conn, $sql);
+		$select = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM images WHERE product_id='$pid'")); //Fetch the file which is associated with this account
+    	unlink($select['image_location']); 
 	}
 }
 
@@ -340,13 +367,116 @@ function addwatch($conn, $gender, $result1) {
 	if ($gender=='men') {
 		$sql = "INSERT INTO watches (product_id, stock, clasp_type, case_shape, display_type, dial_colour, case_material, band_material) VALUES ('$pid', '$stock', '$clasp_type', '$case_shape', '$display_type', '$dial_colour', '$case_material', '$band_material')";
 		$result2=mysqli_query($conn, $sql);
+		if (isset($_POST['addwatch'])) {
+			$uploadOk = addimages($conn,$pid); 
+		}
 	} elseif ($gender=='women') {
 		$sql = "INSERT INTO watches (product_id, stock, clasp_type, case_shape, display_type, dial_colour, case_material, band_material) VALUES ('$pid', '$stock', '$clasp_type', '$case_shape', '$display_type', '$dial_colour', '$case_material', '$band_material')";
 		$result2=mysqli_query($conn, $sql);
+		if (isset($_POST['addwatch'])) {
+			$uploadOk = addimages($conn,$pid); 
+		}
 	}
-	if($result2) {
-		echo "Done";
-	} else {
-		echo "Error";
+	if($result2 && $uploadOk) {
+		// echo "Done";
+	} 
+	else {
+		// echo "Error".mysqli_error($conn);
+		$sql="DELETE FROM product WHERE product_id=$pid";
+		$result2=mysqli_query($conn, $sql);
+		$select = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM images WHERE product_id='$pid'")); //Fetch the file which is associated with this account
+    	unlink($select['image_location']); 
 	}
+}
+
+
+function addimages($conn,$pid) 
+{
+	$uploadOk = 1;
+	$resultimage = "";
+	$j = 0;   
+	$i = 0;  // Variable for indexing uploaded image.
+	$target_path = "uploads/";     // Declaring Path for uploaded images.
+	for ($i = 0; $i < count($_FILES['img']['name']); $i++) 
+	{
+	// Loop to get individual element from the array
+			$validextensions = array("jpeg", "jpg", "png","JPEG","PNG","JPG");      // Extensions which are allowed.
+			$ext = explode('.', basename($_FILES['img']['name'][$i]));   // Explode file name from dot(.)
+			$file_extension = end($ext); // Store extensions in the variable.
+			$target_path = $target_path . $pid . '_' .$i. '.' . $ext[count($ext) - 1];     // Set the target path with a new name of image.
+			$j = $j + 1;      // Increment the number of uploaded images according to the files in array.
+			if (($_FILES["img"]["size"][$i] < 100000000)  && in_array($file_extension, $validextensions)) // Approx. 100kb files can be uploaded.
+			{
+				if (move_uploaded_file($_FILES['img']['tmp_name'][$i], $target_path))
+				{
+					// If file moved to uploads folder.
+					// echo $j. ').<span id="noerror">Image uploaded successfully!.</span><br/><br/>';
+					$sql="INSERT INTO images (product_id,image_location) VALUES ('$pid', '$target_path')";
+					$resultimage=mysqli_query($conn, $sql);
+					$target_path='uploads/';
+				} 
+				else 
+				{    //  If File Was Not Moved.
+					// echo $j. ').<span id="error">Please try again!.</span><br/><br/>';
+					$uploadOk = 0;
+				}
+			} 
+			else 
+			{   //   If File Size And File Type Was Incorrect.
+				// echo $j. ').<span id="error">***Invalid file Size or Type***</span><br/><br/>';
+				$uploadOk=0;
+			}
+	}
+	return $uploadOk;
+
+	// Check if image file is a actual image or fake image
+	/*if(isset($_POST["addfoot"]) && isset($_FILES['img']['name'])) {
+
+		for ($i = 0; $i < count($_FILES['img']['name']); $i++) {
+			$target_dir = "uploads/";
+			$target_file = $target_dir . basename($_FILES["img"]["name"][$i]);
+			$uploadOk = 0;
+			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+			$temp = explode(".", $_FILES["img"]["name"][$i]);
+			$newfilename = $pid . '.' . end($temp);
+			
+		    $check = ($_FILES["img"]["tmp_name"][$i]);
+		    if($check !== false) {
+		        echo "File is an image - " . $check["mime"] . ".";
+		        $uploadOk = 1;
+		    } else {
+		        echo "File is not an image.";
+		        $uploadOk = 0;
+		    }
+			
+			// Check if file already exists
+			if (file_exists($target_file)) {
+			    echo "Sorry, file already exists.";
+			    $uploadOk = 0;
+			}
+			// Check file size
+			if ($_FILES["img"]["size"][$i] > 100000000) {
+			    echo "Sorry, your file is too large.";
+			    $uploadOk = 0;
+			}
+			// Allow certain file formats
+			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+			&& $imageFileType != "gif"  && $imageFileType != "JPG" && $imageFileType != "PNG" && $imageFileType != "JPEG"
+			&& $imageFileType != "GIF") {
+			    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+			    $uploadOk = 0;
+			}
+			// Check if $uploadOk is set to 0 by an error
+			if ($uploadOk == 0) {
+			    echo "Sorry, your file was not uploaded.";
+			// if everything is ok, try to upload file
+			} else {
+			    if (move_uploaded_file($_FILES["img"]["name"][$i], "uploads/" . $newfilename)) {
+			        echo "The file ". basename($_FILES["img"]["name"][$i]). " has been uploaded.";
+			    } else {
+			        echo "Sorry, there was an error uploading your file.";
+			    }
+			}
+		}
+	}*/
 }

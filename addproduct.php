@@ -90,7 +90,7 @@ include('header.php');
 				</form>
 				<div id="footwear-div">
 					<h3>Add Footwear</h3>
-					<form action="functions.php" method="POST">
+					<form action="functions.php" method="POST" enctype="multipart/form-data">
 						<p><span class="form-name">Sub-category:<span class="required">*</span></p> 
 						<select id="footwear-men" name="footwear-men" style="margin-left: 10px;">
 							<option value="">Select</option>
@@ -185,14 +185,14 @@ include('header.php');
 					        <br><br>
 					        </div>
 
-						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img" multiple required accept="image/*"></p>
+						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img[]" multiple required accept="image/*"></p>
 						<p><b>Note:</b> Fields marked with <span class="required">*</span> are mandatory</p>
 						<button name="addfoot" class="btn btn-success add" type="submit">Add Footwear</button>
 					</form>
 				</div>
 				<div id="bag-div">
 					<h3>Add Bag</h3>
-					<form action="functions.php" method="POST">
+					<form action="functions.php" method="POST" enctype="multipart/form-data">
 					<p><span class="form-name">Sub-category:<span class="required">*</span></span> 
 						<select id="bag-men" name="bag-men">
 							<option value="">Select</option>
@@ -227,14 +227,14 @@ include('header.php');
 						<p><span class="form-name">Weight(in kg):</span> <input type="number" step="0.1" min="0" name="weight"></p>
 						<p><span class="form-name">Capacity(Lts):</span> <input type="number" step="0.1" min="0" name="capacity"></p>
 						<p><span class="form-name">Available Stock:<span class="required">*</span></span> <input type="number" min="0" name="stock" required></p>
-						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img" multiple required accept="image/*"></p>
+						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img[]" multiple required accept="image/*"></p>
 						<p><b>Note:</b> Fields marked with <span class="required">*</span> are mandatory</p>
 						<button name="addbag" class="btn btn-success add" type="submit">Add Bag</button>
 					</form>
 				</div>
 				<div id="watch-div">
 					<h3>Add Watch</h3>
-					<form action="functions.php" method="POST">
+					<form action="functions.php" method="POST" enctype="multipart/form-data">
 						<input type="hidden" name="category" value="watch">
 						<input type="hidden" name="gender" id="gender-watch" value="">
 						<p><span class="form-name">Brand:<span class="required">*</span></span> <input type="text" name="brand" required></p>
@@ -249,7 +249,7 @@ include('header.php');
 						<p><span class="form-name">Case Material:</span> <input type="text" name="case_material"></p>
 						<p><span class="form-name">Band Material:</span> <input type="text" name="band_material"></p>
 						<p><span class="form-name">Available Stock:<span class="required">*</span></span> <input type="text" name="stock" required></p>
-						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img" multiple required accept="image/*"></p>
+						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img[]" multiple required accept="image/*"></p>
 						<p><b>Note:</b> Fields marked with <span class="required">*</span> are mandatory</p>
 						<button name="addwatch" class="btn btn-success add" type="submit">Add Watch</button>
 					</form>
