@@ -20,10 +20,14 @@ if (isset($_POST['signup_submit'])) {
 	userlogout($conn);
 } elseif (isset($_POST['addfoot']) || isset($_POST['addbag']) || isset($_POST['addwatch'])) {
 	addproduct($conn);
-}
-elseif (isset($_POST['seller_reg'])) {
+} elseif (isset($_POST['seller_reg'])) {
 	register_seller($conn);
+} elseif (isset($_POST['profile_update'])) {
+	profileupdate($conn);
+} elseif (isset($_POST['changepassword'])) {
+	changepassword($conn);
 }
+
 
 function usersignup($conn) {
 	if (isset($_POST['signup_submit'])) {
@@ -136,7 +140,7 @@ function register_seller($conn) {
 				$result3 = mysqli_query($conn, $sql);
 				$row = mysqli_fetch_assoc($result3);
 				$uid=$row['user_id'];
-				$sql="INSERT INTO seller (user_id, account_num, bank_name, ifsc) VALUES ('$uid','$accno','&bankname','$ifsc')";
+				$sql="INSERT INTO seller (user_id, account_num, bank_name, ifsc) VALUES ('$uid','$accno','$bankname','$ifsc')";
 				$result4 = mysqli_query($conn, $sql);
 				if ($result2 && $result4) {
 					echo 'Ho gaya';
@@ -145,11 +149,93 @@ function register_seller($conn) {
 				}
 			} else {
 				//show error for user exists
-				header('Location: selwithus.php?alreadyregistered=true');
+				header('Location: sellwithus.php?alreadyregistered=true');
 			}
 		} else {
 			//Registration failed
-			header('Location: selwithus.php?error=true');
+			header('Location: sellwithus.php?error=true');
+		}
+	}
+}
+
+function profileupdate($conn) {
+	if (isset($_POST['profile_update']))
+	{
+		$fname=mysqli_real_escape_string($conn, $_POST['firstname']);
+		$lname=mysqli_real_escape_string($conn, $_POST['lastname']);
+		$email=mysqli_real_escape_string($conn, $_POST['email']);
+		$mobile=mysqli_real_escape_string($conn, $_POST['mobile']);
+		$address = mysqli_real_escape_string($conn,$_POST['address']);
+		$zip = mysqli_real_escape_string($conn,$_POST['zip']);
+		$city = mysqli_real_escape_string($conn,$_POST['city']);
+		$state = mysqli_real_escape_string($conn,$_POST['state']);
+		$user = $_SESSION['user_id'];
+        $sql = "UPDATE users SET first_name='$fname', last_name='$lname', email='$email', mobile='$mobile', address='$address', zip='$zip', city='$city', state='$state' WHERE users.user_id='$user'";
+        $result1 = mysqli_query($conn, $sql);
+        $sql = "SELECT * FROM users WHERE users.user_id='$user'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        if($row['user_type']==1){
+        	$accno=mysqli_real_escape_string($conn, $_POST['accountnumber']);
+			$bankname=mysqli_real_escape_string($conn, $_POST['bankname']);
+			$ifsc=mysqli_real_escape_string($conn, $_POST['ifsc']);
+			$sql = "UPDATE seller SET account_num='$accno', bank_name='$bankname', ifsc='$ifsc' WHERE seller.user_id='$user'" ;
+        	$result2 = mysqli_query($conn, $sql);
+        	if($result1 && $result2){
+        		header("Location: http://localhost:8080/EliteShoppy/seller_account.php"); /* Redirect browser */
+				exit(); }
+        }                
+        if($result1){
+        	header("Location: http://localhost:8080/EliteShoppy/customer_account.php"); /* Redirect browser */
+			exit();
+        }
+        else{
+        	echo "Failed";
+        }
+	}
+}
+
+function changepassword($conn) {
+	if (isset($_POST['changepassword']))
+	{
+		$user = $_SESSION['user_id'];
+		$password_old=mysqli_real_escape_string($conn, $_POST['password_old']);
+		$password1=mysqli_real_escape_string($conn, $_POST['password_1']);
+		$sql = "SELECT * FROM users WHERE users.user_id='$user'";
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
+		$hashedPwdCheck = password_verify($password_old, $row['password']);
+		if($hashedPwdCheck==true)
+		{
+			$password=mysqli_real_escape_string($conn, password_hash($password1, PASSWORD_DEFAULT));
+			$sql = "UPDATE users SET password='$password' WHERE users.user_id='$user'";
+			$result = mysqli_query($conn, $sql);	
+			if($result){
+				if($row['user_type']==1)
+				{
+					header("Location: seller_account.php"); /* Redirect browser */
+					exit();
+				}
+				else
+				{
+					header("Location: customer_account.php"); /* Redirect browser */
+					exit();
+				}
+
+			}
+		}
+		else if($hashedPwdCheck==false)
+		{
+			if($row['user_type']==1)
+				{
+					header("Location: seller_account.php?change=true"); /* Redirect browser */
+					exit();
+				}
+			else
+			{
+					header("Location: customer_account.php?change=true"); /* Redirect browser */
+					exit();
+			}
 		}
 	}
 }
