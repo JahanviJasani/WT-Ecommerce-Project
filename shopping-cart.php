@@ -30,6 +30,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <?php
 include('header.php');
+
+
 ?>
 
 <div class="shopping-cart-page">

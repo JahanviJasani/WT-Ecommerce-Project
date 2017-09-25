@@ -40,7 +40,9 @@ function usersignup($conn) {
 				$sql="INSERT INTO users (first_name, last_name,email,password,user_type) VALUES ('$fname','$lname','$email','$password',0)";
 				$result2 = mysqli_query($conn, $sql);
 				if ($result2) {
-					echo "<script>location.href='index.php';</script>";
+					echo "<script>location.href='index.php?signup=true';</script>";
+				} elseif (!$result2) {
+					echo "<script>location.href='index.php?signuperror=true';</script>";
 				}
 				
 			} else {

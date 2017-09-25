@@ -78,32 +78,42 @@
 					<li class="active menu__item menu__item--current"><a class="menu__link" href="index.php">Home <span class="sr-only">(current)</span></a></li>
 					<li class=" menu__item"><a class="menu__link" href="about.php">About</a></li>
 					<li class="dropdown menu__item">
-						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Watches <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Footwear <span class="caret"></span></a>
 							<ul class="dropdown-menu multi-column columns-3">
 								<div class="agile_inner_drop_nav_info">
 									<div class="col-sm-6 multi-gd-img1 multi-gd-text ">
 										<a href="mens.php"><img src="images/top2.jpg" alt=" "/></a>
+										<a href="mens.php"><img src="images/top2.jpg" alt=" "/></a>
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<li><a href="mens.php">Clothing</a></li>
-											<li><a href="mens.php">Wallets</a></li>
-											<li><a href="mens.php">Footwear</a></li>
-											<li><a href="mens.php">Watches</a></li>
-											<li><a href="mens.php">Accessories</a></li>
-											<li><a href="mens.php">Bags</a></li>
-											<li><a href="mens.php">Caps & Hats</a></li>
+											<li><strong>MEN'S</strong></li>
+											<li><a href="mens.php">Casual Shoes</a></li>
+											<li><a href="mens.php">Canvas Shoes</a></li>
+											<li><a href="mens.php">Loafers</a></li>
+											<li><a href="mens.php">Sandals</a></li>
+											<li><a href="mens.php">Boots</a></li>
+											<li><a href="mens.php">Sneakers</a></li>
+											<li><a href="mens.php">Slippers & Flip Flops</a></li>
+											<li><a href="mens.php">Athletic Shoes</a></li>
+											<li><a href="mens.php">Running Shoes</a></li>
+											<li><a href="mens.php">Others</a></li>
+											
 										</ul>
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<li><a href="mens.php">Jewellery</a></li>
-											<li><a href="mens.php">Sunglasses</a></li>
-											<li><a href="mens.php">Perfumes</a></li>
-											<li><a href="mens.php">Beauty</a></li>
-											<li><a href="mens.php">Shirts</a></li>
-											<li><a href="mens.php">Sunglasses</a></li>
-											<li><a href="mens.php">Swimwear</a></li>
+											<li><strong>WOMEN'S</strong></li>
+											<li><a href="mens.php">Canvas Shoes</a></li>
+											<li><a href="mens.php">Boots</a></li>
+											<li><a href="mens.php">Kitten Heels</a></li>
+											<li><a href="mens.php">Gladiators</a></li>
+											<li><a href="mens.php">Wedges</a></li>
+											<li><a href="mens.php">Flip Flops</a></li>
+											<li><a href="mens.php">Stiletto</a></li>
+											<li><a href="mens.php">Pumps</a></li>
+											<li><a href="mens.php">Loafers</a></li>
+											<li><a href="mens.php">Others</a></li>
 										</ul>
 									</div>
 									<div class="clearfix"></div>
@@ -111,29 +121,29 @@
 							</ul>
 					</li>
 					<li class="dropdown menu__item">
-						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Footwear <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bags <span class="caret"></span></a>
 							<ul class="dropdown-menu multi-column columns-3">
 								<div class="agile_inner_drop_nav_info">
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<li><a href="womens.php">Clothing</a></li>
-											<li><a href="womens.php">Wallets</a></li>
-											<li><a href="womens.php">Footwear</a></li>
-											<li><a href="womens.php">Watches</a></li>
-											<li><a href="womens.php">Accessories</a></li>
-											<li><a href="womens.php">Bags</a></li>
-											<li><a href="womens.php">Caps & Hats</a></li>
+											<li><strong>MEN'S</strong></li>
+											<li><a href="womens.php">Briefcase</a></li>
+											<li><a href="womens.php">Messenger Bag</a></li>
+											<li><a href="womens.php">Duffel</a></li>
+											<li><a href="womens.php">Tote Bags</a></li>
+											<li><a href="womens.php">Casual Bags</a></li>
+											<li><a href="womens.php">Others</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<li><a href="womens.php">Jewellery</a></li>
-											<li><a href="womens.php">Sunglasses</a></li>
-											<li><a href="womens.php">Perfumes</a></li>
-											<li><a href="womens.php">Beauty</a></li>
-											<li><a href="womens.php">Shirts</a></li>
-											<li><a href="womens.php">Sunglasses</a></li>
-											<li><a href="womens.php">Swimwear</a></li>
+											<li><strong>WOMEN'S</strong></li>
+											<li><a href="womens.php">Crossbody</a></li>
+											<li><a href="womens.php">Tote Bags</a></li>
+											<li><a href="womens.php">Clutch</a></li>
+											<li><a href="womens.php">Satchel</a></li>
+											<li><a href="womens.php">Casual Bags</a></li>
+											<li><a href="womens.php">Others</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-6 multi-gd-img multi-gd-text ">
@@ -144,10 +154,10 @@
 							</ul>
 					</li>
 					<li class="menu__item dropdown">
-					   <a class="menu__link" href="#" class="dropdown-toggle" data-toggle="dropdown">Bags <b class="caret"></b></a>
+					   <a class="menu__link" href="#" class="dropdown-toggle" data-toggle="dropdown">Watches <b class="caret"></b></a>
 								<ul class="dropdown-menu agile_short_dropdown">
-									<li><a href="icons.php">Web Icons</a></li>
-									<li><a href="typography.php">Typography</a></li>
+									<li><a href="icons.php">Men's</a></li>
+									<li><a href="typography.php">Women's</a></li>
 								</ul>
 					</li>
 					<li class=" menu__item"><a class="menu__link" href="contact.php">Contact</a></li>
