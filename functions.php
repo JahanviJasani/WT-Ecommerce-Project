@@ -3,7 +3,7 @@ session_start();
 //phpinfo();
 $dbServername = "localhost";
 $dbUsername = "root";
-$dbPassword = "pass@123";
+$dbPassword = "pass1234";
 $dbName = "eliteshoppy";
 
 $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
