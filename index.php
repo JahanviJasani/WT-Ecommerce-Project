@@ -176,7 +176,7 @@ include('header.php');
 								$item_count = mysqli_num_rows($result);
 
 								if ($item_count==0) {
-									echo "No products to display";
+									echo "<p style='text-align: center;'><b>No products to display</b></p>";
 								} else {
 									while (($row = mysqli_fetch_assoc($result)) && ($count<4) ) {
 										$pid = $row['product_id'];
@@ -248,7 +248,7 @@ include('header.php');
 								$item_count = mysqli_num_rows($result);
 
 								if ($item_count==0) {
-									echo "No products to display";
+									echo "<p style='text-align: center;'><b>No products to display</b></p>";
 								} else {
 									while (($row = mysqli_fetch_assoc($result)) && ($count<4) ) {
 										$pid = $row['product_id'];
@@ -318,7 +318,7 @@ include('header.php');
 								$item_count = mysqli_num_rows($result);
 
 								if ($item_count==0) {
-									echo "No products to display";
+									echo "<p style='text-align: center;'><b>No products to display</b></p>";
 								} else {
 									while (($row = mysqli_fetch_assoc($result)) && ($count<4) ) {
 										$pid = $row['product_id'];
@@ -387,7 +387,7 @@ include('header.php');
 								$item_count = mysqli_num_rows($result);
 
 								if ($item_count==0) {
-									echo "No products to display";
+									echo "<p style='text-align: center;'><b>No products to display</b></p>";
 								} else {
 									while (($row = mysqli_fetch_assoc($result)) && ($count<4) ) {
 										$pid = $row['product_id'];

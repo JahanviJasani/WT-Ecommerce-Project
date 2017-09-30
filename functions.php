@@ -93,6 +93,13 @@ function userlogin($conn){
 					$_SESSION['city'] = $row['city'];
 					$_SESSION['state'] = $row['state'];
 					$_SESSION['user_type'] = $row['user_type'];
+					if ($_SESSION['user_type']==1) {
+						$uid = $_SESSION['user_id'];
+						$sql2 = "SELECT * FROM seller WHERE seller.user_id='$uid'";
+						$result2 = mysqli_query($conn, $sql2);
+						$row2 = mysqli_fetch_assoc($result2);
+						$_SESSION['seller_id']=$row2['seller_id'];
+					}
 					$_SESSION['mobile'] = $row['mobile'];
 					date_default_timezone_set("Asia/Kolkata");
 					if (isset($_SESSION['user_id']) && ($rememberme==1)) {
@@ -249,15 +256,16 @@ function addproduct($conn) {
 	$brand=mysqli_real_escape_string($conn, $_POST['brand']);
 	$price=mysqli_real_escape_string($conn, $_POST['price']);
 	$colour=mysqli_real_escape_string($conn, $_POST['colour']);
+	$sid = $_SESSION["seller_id"];
 	if($gender=='men') {
 		// echo "Men";
-		$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category',$price,'$colour', '$gender', 1000)";
+		$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category',$price,'$colour', '$gender', '$sid')";
 		$result=mysqli_query($conn, $sql);
 		$sql="SELECT product_id FROM product WHERE name='$name'";
 	} 
 	elseif ($gender=='women') {
 		// echo "Women";
-		$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category','$price', '$colour', '$gender', 1000 )";
+		$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category','$price','$colour','$gender', '$sid')";
 		$result=mysqli_query($conn, $sql);
 	}
 	$sql = "SELECT product_id FROM product WHERE name='$name' AND brand='$brand' AND category='$category' AND price='$price'";
