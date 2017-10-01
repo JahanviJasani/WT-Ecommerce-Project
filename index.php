@@ -180,7 +180,7 @@ include('header.php');
 								} else {
 									while (($row = mysqli_fetch_assoc($result)) && ($count<4) ) {
 										$pid = $row['product_id'];
-										$imagesql = "SELECT * FROM images WHERE images.product_id='$pid'";
+										$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
 										$imageresult = mysqli_query($conn, $imagesql);
 										$imagerow = mysqli_fetch_assoc($imageresult);
 										echo '<!-- Item start -->
@@ -198,7 +198,7 @@ include('header.php');
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.php">'.$row['brand'].' '.$row['name'].'</a></h4>
+														<h4><a href="single.php">'.$row['name'].'</a></h4>
 														<div class="info-product-price">
 															<span class="item_price">&#8377;'.$row['price'].'</span>
 															
@@ -252,7 +252,7 @@ include('header.php');
 								} else {
 									while (($row = mysqli_fetch_assoc($result)) && ($count<4) ) {
 										$pid = $row['product_id'];
-										$imagesql = "SELECT * FROM images WHERE images.product_id='$pid'";
+										$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
 										$imageresult = mysqli_query($conn, $imagesql);
 										$imagerow = mysqli_fetch_assoc($imageresult);
 										echo '<!-- Item start -->
@@ -270,7 +270,7 @@ include('header.php');
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.php">'.$row['brand'].' '.$row['name'].'</a></h4>
+														<h4><a href="single.php">'.$row['name'].'</a></h4>
 														<div class="info-product-price">
 															<span class="item_price">&#8377;'.$row['price'].'</span>
 															
@@ -322,7 +322,7 @@ include('header.php');
 								} else {
 									while (($row = mysqli_fetch_assoc($result)) && ($count<4) ) {
 										$pid = $row['product_id'];
-										$imagesql = "SELECT * FROM images WHERE images.product_id='$pid'";
+										$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
 										$imageresult = mysqli_query($conn, $imagesql);
 										$imagerow = mysqli_fetch_assoc($imageresult);
 										echo '<!-- Item start -->
@@ -340,7 +340,7 @@ include('header.php');
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.php">'.$row['brand'].' '.$row['name'].'</a></h4>
+														<h4><a href="single.php">'.$row['name'].'</a></h4>
 														<div class="info-product-price">
 															<span class="item_price">&#8377;'.$row['price'].'</span>
 															
@@ -391,7 +391,7 @@ include('header.php');
 								} else {
 									while (($row = mysqli_fetch_assoc($result)) && ($count<4) ) {
 										$pid = $row['product_id'];
-										$imagesql = "SELECT * FROM images WHERE images.product_id='$pid'";
+										$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
 										$imageresult = mysqli_query($conn, $imagesql);
 										$imagerow = mysqli_fetch_assoc($imageresult);
 										echo '<!-- Item start -->
@@ -409,7 +409,7 @@ include('header.php');
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.php">'.$row['brand'].' '.$row['name'].'</a></h4>
+														<h4><a href="single.php">'.$row['name'].'</a></h4>
 														<div class="info-product-price">
 															<span class="item_price">&#8377;'.$row['price'].'</span>
 															

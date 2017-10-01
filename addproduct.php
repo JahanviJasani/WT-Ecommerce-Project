@@ -184,8 +184,8 @@ include('header.php');
 					        <input type="number" id="stock_size12m" name="stock_size12m" class="size-box">
 					        <br><br>
 					        </div>
-
-						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img[]" multiple required accept="image/*"></p>
+					    <p><span class="form-name">Primary Image:<span class="required">*</span></span> <input type="file" name="pri_img" required accept="image/*"></p> 
+						<p><span class="form-name">Other Images:<span class="required">*</span></span> <input type="file" name="img[]" multiple required accept="image/*"></p>
 						<p><b>Note:</b> Fields marked with <span class="required">*</span> are mandatory</p>
 						<button name="addfoot" class="btn btn-success add" type="submit">Add Footwear</button>
 					</form>
@@ -199,7 +199,7 @@ include('header.php');
 							<option value="Briefcase">Briefcase</option>
 							<option value="Messenger Bags">Messenger Bags</option>
 							<option value="Duffel">Duffel</option>
-							<option value="Tote Bags">Tote Bags</option>
+							<option value="Backpacks">Backpacks</option>
 							<option value="Casual Bags">Casual Bags</option>
 							<option value="Others">Others</option>
 						</select>
@@ -210,6 +210,7 @@ include('header.php');
 							<option value="Clutch">Clutch</option>
 							<option value="Satchel">Satchel</option>
 							<option value="Casual Bags">Casual Bags</option>
+							<option value="Backpacks">Backpacks</option>
 							<option value="Others">Others</option>
 						</select>
 						</p>
@@ -221,13 +222,14 @@ include('header.php');
 						<p><span class="form-name">Colour:</span> <input type="text" name="colour"></p>
 						<p><span class="form-name">Description:</span> <br><textarea name="description"></textarea></p>
 						<p><span class="form-name">Material:</span> <input type="text" name="material"></p>
-						<p><span class="form-name">Length(in cm):</span> <input type="number" step="0.1" min="0" name="length"></p>
-						<p><span class="form-name">Height(in cm):</span> <input type="number" step="0.1" min="0" name="height"></p>
-						<p><span class="form-name">Width(in cm):</span> <input type="number"  step="0.1" min="0" name="width"></p>
-						<p><span class="form-name">Weight(in kg):</span> <input type="number" step="0.1" min="0" name="weight"></p>
-						<p><span class="form-name">Capacity(Lts):</span> <input type="number" step="0.1" min="0" name="capacity"></p>
+						<p><span class="form-name">Length(in cm):</span> <input type="number" step="0.01" min="0" name="length"></p>
+						<p><span class="form-name">Height(in cm):</span> <input type="number" step="0.01" min="0" name="height"></p>
+						<p><span class="form-name">Width(in cm):</span> <input type="number"  step="0.01" min="0" name="width"></p>
+						<p><span class="form-name">Weight(in kg):</span> <input type="number" step="0.01" min="0" name="weight"></p>
+						<p><span class="form-name">Capacity(Lts):</span> <input type="number" step="0.01" min="0" name="capacity"></p>
 						<p><span class="form-name">Available Stock:<span class="required">*</span></span> <input type="number" min="0" name="stock" required></p>
-						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img[]" multiple required accept="image/*"></p>
+						<p><span class="form-name">Primary Image:<span class="required">*</span></span> <input type="file" name="pri_img" required accept="image/*"></p> 
+						<p><span class="form-name">Other Images:<span class="required">*</span></span> <input type="file" name="img[]" multiple required accept="image/*"></p>
 						<p><b>Note:</b> Fields marked with <span class="required">*</span> are mandatory</p>
 						<button name="addbag" class="btn btn-success add" type="submit">Add Bag</button>
 					</form>
@@ -249,7 +251,8 @@ include('header.php');
 						<p><span class="form-name">Case Material:</span> <input type="text" name="case_material"></p>
 						<p><span class="form-name">Band Material:</span> <input type="text" name="band_material"></p>
 						<p><span class="form-name">Available Stock:<span class="required">*</span></span> <input type="text" name="stock" required></p>
-						<p><span class="form-name">Upload Images:<span class="required">*</span></span> <input type="file" name="img[]" multiple required accept="image/*"></p>
+						<p><span class="form-name">Primary Image:<span class="required">*</span></span> <input type="file" name="pri_img" required accept="image/*"></p> 
+						<p><span class="form-name">Other Images:<span class="required">*</span></span> <input type="file" name="img[]" multiple required accept="image/*"></p>
 						<p><b>Note:</b> Fields marked with <span class="required">*</span> are mandatory</p>
 						<button name="addwatch" class="btn btn-success add" type="submit">Add Watch</button>
 					</form>

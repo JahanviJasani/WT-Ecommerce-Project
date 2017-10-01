@@ -256,7 +256,7 @@ function addproduct($conn) {
 	$brand=mysqli_real_escape_string($conn, $_POST['brand']);
 	$price=mysqli_real_escape_string($conn, $_POST['price']);
 	$colour=mysqli_real_escape_string($conn, $_POST['colour']);
-	$sid = $_SESSION["seller_id"];
+	$sid = $_SESSION['seller_id'];
 	if($gender=='men') {
 		// echo "Men";
 		$sql="INSERT INTO product (name, product_description, brand, category, price, colour, gender, seller_id) VALUES ('$name','$desc','$brand','$category',$price,'$colour', '$gender', '$sid')";
@@ -515,14 +515,37 @@ function addimages($conn,$pid)
 				{    //  If File Was Not Moved.
 					// echo $j. ').<span id="error">Please try again!.</span><br/><br/>';
 					$uploadOk = 0;
+					
 				}
 			} 
 			else 
 			{   //   If File Size And File Type Was Incorrect.
 				// echo $j. ').<span id="error">***Invalid file Size or Type***</span><br/><br/>';
 				$uploadOk=0;
+				
 			}
+
 	}
+
+	$ext = explode('.', basename($_FILES['pri_img']['name']));
+	$file_extension = end($ext);
+	$target_path = 'primary/pri_'.$pid.'.'.$ext[count($ext) - 1];
+	if ( ($_FILES["pri_img"]["size"] < 100000000)   && in_array($file_extension, $validextensions)) {
+		if (move_uploaded_file($_FILES['pri_img']['tmp_name'], $target_path))
+		{
+			// If file moved to uploads folder.
+			// echo $j. ').<span id="noerror">Image uploaded successfully!.</span><br/><br/>';
+			$sql="INSERT INTO images (product_id,image_location) VALUES ('$pid', '$target_path')";
+			$resultimage=mysqli_query($conn, $sql);
+		} 
+		else 
+		{    //  If File Was Not Moved.
+			// echo $j. ').<span id="error">Please try again!.</span><br/><br/>';
+			$uploadOk = 0;
+		}
+	}
+
+
 	return $uploadOk;
 
 	// Check if image file is a actual image or fake image
