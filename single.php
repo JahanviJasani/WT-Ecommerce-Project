@@ -109,7 +109,11 @@ include('header.php');
 						<h4>Size :</h4>
 						<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">';
 						while ($row=mysqli_fetch_assoc($result)) {
-							echo'<option value="'.$row['footwear_size'].'" name="'.$row['footwear_size'].'">IND/UK - '.$row['footwear_size'].'</option>';
+							echo'<option value="'.$row["footwear_size"].'" name="'.$row["footwear_size"].'"';
+							if ($row['stock']==0) {
+								echo ' disabled';
+							}
+							echo '>IND/UK - '.$row["footwear_size"].'</option>';
 						}
 					echo'</select>
 					</div>
