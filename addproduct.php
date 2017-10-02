@@ -122,7 +122,7 @@ include('header.php');
 						<input type="hidden" name="category" value="footwear">
 						<input type="hidden" name="gender" id="gender-footwear" value="">
 						<p><span class="form-name">Brand:<span class="required">*</span></span> <input type="text" name="brand" required></p>
-						<p><span class="form-name">Name:<span class="required">*</span></span> <input type="text" name="name" required></p>
+						<p><span class="form-name">Name:<span class="required">*</span></span> <input type="text" name="name" maxlength="56" required></p>
 						<p><span class="form-name">Price(in &#8377;):<span class="required">*</span></span> <input type="number" step="0.01" min="0" name="price" required></p>
 						<p><span class="form-name">Colour:</span> <input type="text" name="colour"></p>
 						<p><span class="form-name">Description:</span> <textarea name="description"></textarea></p>
@@ -217,7 +217,7 @@ include('header.php');
 						<input type="hidden" name="category" value="bag">
 						<input type="hidden" name="gender" id="gender-bag" value="">
 						<p><span class="form-name">Brand:<span class="required">*</span></span> <input type="text" name="brand" required></p>
-						<p><span class="form-name">Name:<span class="required">*</span></span> <input type="text" name="name" required></p>
+						<p><span class="form-name">Name:<span class="required">*</span></span> <input type="text" name="name" maxlength="56" required></p>
 						<p><span class="form-name">Price(in &#8377;):<span class="required">*</span></span> <input type="number" step="0.01" min="0" name="price" required></p>
 						<p><span class="form-name">Colour:</span> <input type="text" name="colour"></p>
 						<p><span class="form-name">Description:</span> <br><textarea name="description"></textarea></p>
@@ -240,7 +240,7 @@ include('header.php');
 						<input type="hidden" name="category" value="watch">
 						<input type="hidden" name="gender" id="gender-watch" value="">
 						<p><span class="form-name">Brand:<span class="required">*</span></span> <input type="text" name="brand" required></p>
-						<p><span class="form-name">Name:<span class="required">*</span></span> <input type="text" name="name" required></p>
+						<p><span class="form-name">Name:<span class="required">*</span></span> <input type="text" name="name" maxlength="56" required></p>
 						<p><span class="form-name">Price(in &#8377;):<span class="required">*</span></span> <input type="number" min="0" step="0.01" name="price" required></p>
 						<p><span class="form-name">Colour:</span> <input type="text" name="colour"></p>
 						<p><span class="form-name">Dial Colour:</span> <input type="text" name="dial_colour"></p>

@@ -1467,6 +1467,7 @@ button.w3view-cart {
 }
 .men-thumb-item {
     position: relative;
+    height: 245px;
 }
 .item-info-product {
     text-align: center;
@@ -1487,6 +1488,7 @@ button.w3view-cart {
 .men-thumb-item .pro-image-front {
     opacity: 1;
     visibility: visible;
+    height: 245px;
 }
 .men-thumb-item img {
     transition: all 0.5s ease-out 0s;
@@ -1498,6 +1500,7 @@ button.w3view-cart {
     position: absolute;
     top: 0;
     left: 0;
+    height: 245px;
 }
 .men-thumb-item img {
     transition: all 0.5s ease-out 0s;

@@ -1,12 +1,6 @@
 <?php
 include('functions.php');
 ?>
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html>
 <head>
@@ -191,14 +185,14 @@ include('header.php');
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
 															<div class="men-cart-pro">
 																<div class="inner-men-cart-pro">
-																	<a href="single.php" class="link-product-add-cart">Quick View</a>
+																	<a href="single.php?pid='.$pid.'" class="link-product-add-cart">Quick View</a>
 																</div>
 															</div>
 															<span class="product-new-top">New</span>
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.php">'.$row['name'].'</a></h4>
+														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>
 														<div class="info-product-price">
 															<span class="item_price">&#8377;'.$row['price'].'</span>
 															
@@ -263,14 +257,14 @@ include('header.php');
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
 															<div class="men-cart-pro">
 																<div class="inner-men-cart-pro">
-																	<a href="single.php" class="link-product-add-cart">Quick View</a>
+																	<a href="single.php?pid='.$pid.'" class="link-product-add-cart">Quick View</a>
 																</div>
 															</div>
 															<span class="product-new-top">New</span>
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.php">'.$row['name'].'</a></h4>
+														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>
 														<div class="info-product-price">
 															<span class="item_price">&#8377;'.$row['price'].'</span>
 															
@@ -333,14 +327,14 @@ include('header.php');
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
 															<div class="men-cart-pro">
 																<div class="inner-men-cart-pro">
-																	<a href="single.php" class="link-product-add-cart">Quick View</a>
+																	<a href="single.php?pid='.$pid.'" class="link-product-add-cart">Quick View</a>
 																</div>
 															</div>
 															<span class="product-new-top">New</span>
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.php">'.$row['name'].'</a></h4>
+														<h4><a href="single.phppid='.$pid.'">'.$row['name'].'</a></h4>
 														<div class="info-product-price">
 															<span class="item_price">&#8377;'.$row['price'].'</span>
 															
@@ -402,14 +396,14 @@ include('header.php');
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
 															<div class="men-cart-pro">
 																<div class="inner-men-cart-pro">
-																	<a href="single.php" class="link-product-add-cart">Quick View</a>
+																	<a href="single.php?pid='.$pid.'" class="link-product-add-cart">Quick View</a>
 																</div>
 															</div>
 															<span class="product-new-top">New</span>
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.php">'.$row['name'].'</a></h4>
+														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>
 														<div class="info-product-price">
 															<span class="item_price">&#8377;'.$row['price'].'</span>
 															
