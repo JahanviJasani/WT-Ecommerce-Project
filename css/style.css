@@ -3383,9 +3383,6 @@ color: #000;
     font-size: 15px;
     color: #888;
 }
-.add-review input[type="email"]{
-    margin-left: 1.55%;
-}
 .add-review textarea{
     width: 100% !important;
     min-height: 120px;
