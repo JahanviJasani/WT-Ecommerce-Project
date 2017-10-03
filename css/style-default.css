@@ -1005,3 +1005,11 @@ select {
   margin-top: -14em;
   width: 30%;
 }
+
+
+.desc_para {
+    margin: 2em 0 0;
+    color: #545454;
+    font-size: 0.9em;
+    line-height: 2em;
+}

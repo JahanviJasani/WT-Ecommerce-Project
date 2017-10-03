@@ -98,7 +98,7 @@ include('header.php');
 							<label for="rating1">1</label>
 						</span>
 					</div>';
-					$sql2 = "SELECT footwear_id FROM footwear WHERE product_id='$pid'";
+					$sql2 = "SELECT * FROM footwear WHERE product_id='$pid'";
 					$result2 = mysqli_query($conn, $sql2);
 					$row2 = mysqli_fetch_assoc($result2);
 					$id=$row2['footwear_id'];
@@ -107,16 +107,41 @@ include('header.php');
 					if ($row1['category']=='footwear') {	
 						echo '<div class="occasional">
 							<h4>Size :</h4>
-							<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">';
+							<select id="country1" onchange="sizecheck()" class="frm-field sect">';
+							echo '<option value="-1" name="-1">Select</option>';
 							while ($row=mysqli_fetch_assoc($result)) {
-								echo'<option value="'.$row["footwear_size"].'" name="'.$row["footwear_size"].'"';
+								echo'<option value="'.$row["stock"].'" name="'.$row["footwear_size"].'"';
 								if ($row['stock']==0) {
 									echo ' disabled';
 								}
 								echo '>IND/UK - '.$row["footwear_size"].'</option>';
 							}
 						echo'</select>
+
+						<p><span id="stockshow"></span></p>
 						</div>';
+					} elseif ($row1['category']=='bag') {
+						$bagsql = "SELECT * FROM bags WHERE bags.product_id='$pid'";
+						$bagresult = mysqli_query($conn, $bagsql);
+						$bagrow = mysqli_fetch_assoc($bagresult);
+						
+						if ($bagrow['stock']==0) {
+							echo '<p style="margin: 0.5em 0 0;color: #B12704;font-size: 1em;line-height: 1.5em; font-weight: 700;">Out of Stock</p>';
+						} elseif ($bagrow['stock']==1) {
+							echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p>';
+						} elseif ($bagrow['stock']==2) {
+							echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 2 left in Stock</p>';
+						} elseif ($bagrow['stock']>2) {
+							echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">In Stock</p>';
+						}
+
+						if ($row1['colour']!=NULL) {
+							echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Colour : &nbsp;&nbsp;</b>'.$row1['colour'].'</p>';
+						}
+						if ($bagrow['material']!=NULL) {
+							echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Material : &nbsp;&nbsp;</b>'.$bagrow['material'].'</p>';
+						}
+
 					}
 					echo '<div class="single-right-left" id="right-box">
 				<div style="border-radius: 4px; border: 1px #ddd solid; background-color: #fff;">
@@ -136,13 +161,13 @@ include('header.php');
 									<input type="hidden" name="currency_code" value="USD">
 									<input type="hidden" name="return" value=" ">
 									<input type="hidden" name="cancel_return" value=" ">
-									<input type="submit" name="submit" value="Add to cart" class="button">
+									<input type="submit" name="submit" id="atc" value="Add to cart" class="button" disabled>
 								</fieldset>
 							</form>											
 					</div>
 					<div class="snipcart-details top_brand_home_details hvr-outline-out" style="margin: -0.2em 2em 1em;">
 							<form action="checkout1.php" method="post">
-									<input type="submit" value="Buy Now" class="button">
+									<input type="submit" value="Buy Now" id="bn" class="button" disabled>
 							</form>											
 					</div>
                 </div>
@@ -159,18 +184,42 @@ include('header.php');
 					<!--/tab_one-->
 					   <div class="tab1">
 
-							<div class="single_page_agile_its_w3ls">
-							  
-							</div>
+							<div class="single_page_agile_its_w3ls">';
+							if ($row1['category']=='bag') {
+
+								if ($bagrow['length']!=0.00) {
+									echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Length : &nbsp;&nbsp;</b>'.$bagrow['length'].' cm</p>';
+								}
+								if ($bagrow['width']!=0.00) {
+									echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Width : &nbsp;&nbsp;</b>'.$bagrow['width'].' cm</p>';
+								}
+								if ($bagrow['height']!=0.00) {
+									echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Height : &nbsp;&nbsp;</b>'.$bagrow['height'].' cm</p>';
+								}
+								if ($bagrow['weight']!=0.00) {
+									echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Weight : &nbsp;&nbsp;</b>'.$bagrow['weight'].' cm</p>';
+								}
+								if ($bagrow['bag_capacity']!=0.00) {
+									echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Capacity : &nbsp;&nbsp;</b>'.$bagrow['bag_capacity'].' cm</p>';
+								}
+
+							} elseif ($row1['category']=='footwear') {
+								if ($row2['material']!=NULL) {
+									echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Material : &nbsp;&nbsp;</b>'.$row2['material'].'</p>';
+								}
+								if ($row1['colour']!=NULL) {
+									echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Colour : &nbsp;&nbsp;</b>'.$row1['colour'].'</p>';
+								}
+							}
+							echo '</div>
 						</div>
 						<!--//tab_one-->
 						<!--//tab-two-->
 						   <div class="tab2">
 
 							<div class="single_page_agile_its_w3ls">
-							  <h6>Big Wing Sneakers (Navy)</h6>
-							   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore magna aliqua.</p>
-							   <p class="w3ls_para">Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore magna aliqua.</p>
+							  <h6 style="font-size: 1em;color: #2fdab8;font-weight: 600;">'.$row1['name'].'</h6>
+							   <p style="margin: 2em 0 0;color: #545454;font-size: 0.9em;line-height: 2em;">'.$row1['product_description'].'</p>
 							</div>
 						</div>
 						<!--//tab-three-->
@@ -622,3 +671,32 @@ include('footer.php');
 <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 </html>
+<script type="text/javascript">
+	function sizecheck() {
+		var atc = document.getElementById("atc");
+		var bn = document.getElementById("bn");
+		var size = document.getElementById("country1").value;
+		var sizedisplay = document.getElementById("stockshow");
+		sizedisplay.style.fontSize = "1em";
+		sizedisplay.style.lineHeight= "1.5em";
+		sizedisplay.style.fontWeight= "700";
+		if (size==0) {
+			sizedisplay.innerHTML = "Out of Stock";
+			sizedisplay.style.color = "#B12704";
+		} else if (size==1) {
+			sizedisplay.innerHTML = "Only 1 left in Stock";
+			sizedisplay.style.color = "#008A00";
+		} else if (size==2) {
+			sizedisplay.innerHTML = "Only 2 left in Stock";
+			sizedisplay.style.color = "#008A00";
+		} else if (size>2) {
+			sizedisplay.innerHTML = "In Stock";
+			sizedisplay.style.color = "#008A00";
+		}
+		if (size==-1) {
+			console.log("xyz");
+		}
+	}
+</script>
+
+<!-- <p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p> -->
