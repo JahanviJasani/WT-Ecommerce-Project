@@ -18,7 +18,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css'/>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-
+<link href="css/style-default.css" rel='stylesheet' type='text/css'/>
 <!-- //for bootstrap working -->
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
@@ -54,7 +54,7 @@ include('header.php');
 		$imagerow = mysqli_fetch_assoc($imageresult);
 		echo '<!-- banner-bootom-w3-agileits -->
 		<div class="banner-bootom-w3-agileits">
-			<div class="container">
+			<div class="container-fluid">
 			     <div class="col-md-4 single-right-left ">
 					<div class="grid images_3_of_2">
 						<div class="flexslider">
@@ -81,8 +81,7 @@ include('header.php');
 						</div>	
 					</div>
 				</div>
-				<div class="col-md-1"></div>
-				<div class="col-md-7 single-right-left simpleCart_shelfItem">
+				<div class="col-md-8 single-right-left simpleCart_shelfItem">
 					<h3>'.$row1['name'].'</h3>
 					<p><span class="item_price"><span style="font-family:Arial;">&#8377;</span>'.$row1['price'].'</span></p>
 					<div class="rating1">
@@ -117,11 +116,13 @@ include('header.php');
 						}
 					echo'</select>
 					</div>
-					<div class="occasional">';
-					echo '<h4>Available Stock : </h4>
-					</div>
-					<div class="occasion-cart">
-						<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+					<div class="single-right-left" id="right-box">
+				<div style="border-radius: 4px; border: 1px #ddd solid; background-color: #fff;">
+                <div style="border-radius: 4px; position: relative; padding: 14px 18px;">
+                	<h5 style="line-height: 16px;  text-align:center;">'.$row1["name"].'</h5>
+                	<p style="font-size:13px; text-align:center;"><span class="item_price"><span style="font-family:Arial;">&#8377;</span>'.$row1['price'].'</span></p>
+                	<h5 style=" text-align:center;">To buy, select a <strong>Size</strong></h5>
+						<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2" style="margin:0.5em 2em 1em;">
 							<form action="#" method="post">
 								<fieldset>
 									<input type="hidden" name="cmd" value="_cart">
@@ -135,27 +136,16 @@ include('header.php');
 									<input type="hidden" name="cancel_return" value=" ">
 									<input type="submit" name="submit" value="Add to cart" class="button">
 								</fieldset>
-							</form>
-						</div>												
+							</form>											
 					</div>
-					<ul class="social-nav model-3d-0 footer-social w3_agile_social single_page_w3ls">
-                       <li class="share">Share On : </li>
-						<li><a href="#" class="facebook">
-							  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-							  <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
-						<li><a href="#" class="twitter"> 
-							  <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-							  <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
-						<li><a href="#" class="instagram">
-							  <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-							  <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
-						<li><a href="#" class="pinterest">
-							  <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-							  <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
-					</ul>
+					<div class="snipcart-details top_brand_home_details hvr-outline-out" style="margin: -0.2em 2em 1em;">
+							<form action="checkout1.php" method="post">
+									<input type="submit" value="Buy Now" class="button">
+							</form>											
+					</div>
+                </div>
+            	</div>
 				</div>
-	 			<div class="clearfix"> </div>
-				<!-- /new_arrivals --> 
 				<div class="responsive_tabs_agileits"> 
 				<div id="horizontalTab">
 						<ul class="resp-tabs-list">
@@ -169,7 +159,7 @@ include('header.php');
 
 							<div class="single_page_agile_its_w3ls">
 							  <h6>'.$row1['name'].'</h6>
-							   <p>'.$row1['product_description'].'</p>
+							   <p style="margin: 2em 0 0; color: #545454; font-size: 0.9em;">'.$row1['product_description'].'</p>
 							</div>
 						</div>
 						<!--//tab_one-->
@@ -216,6 +206,10 @@ include('header.php');
 					</div>
 				</div>	
 			</div>
+				</div>
+				
+	 			<div class="clearfix"> </div>
+				<!-- /new_arrivals --> 
 			
 		<!-- //new_arrivals --> ';
 		?>

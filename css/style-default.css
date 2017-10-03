@@ -999,3 +999,9 @@ select {
 .men_size {
   margin-left: 10em;
 }
+
+#right-box {
+  float: right;
+  margin-top: -14em;
+  width: 30%;
+}
