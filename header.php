@@ -1,3 +1,26 @@
+<script type="text/javascript">
+	function addURL(category,type,id) {
+		var anchor = document.getElementById(id);
+		if(id>=1 && id<=10) {
+			anchor.href="mens_footwear.php?category="+category+"&type="+type;
+		}
+		if(id>=11 && id<=20) {
+			anchor.href="womens_footwear.php?category="+category+"&type="+type;
+		}
+		if(id>=21 && id<=26) {
+			anchor.href="mens.php?category="+category+"&type="+type;
+		}
+		if(id>=27 && id<=32) {
+			anchor.href="womens.php?category="+category+"&type="+type;
+		}
+		if(id==33) {
+			anchor.href="mens.php?category="+category+"&type="+type;
+		}
+		if(id==34) {
+			anchor.href="womens.php?category="+category+"&type="+type;
+		}
+	}
+</script>
 <body>
 <!-- header -->
 <div class="header" id="home">
@@ -88,32 +111,32 @@
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
 											<li><strong>MEN'S</strong></li>
-											<li><a href="mens.php">Casual Shoes</a></li>
-											<li><a href="mens.php">Canvas Shoes</a></li>
-											<li><a href="mens.php">Loafers</a></li>
-											<li><a href="mens.php">Sandals</a></li>
-											<li><a href="mens.php">Boots</a></li>
-											<li><a href="mens.php">Sneakers</a></li>
-											<li><a href="mens.php">Slippers & Flip Flops</a></li>
-											<li><a href="mens.php">Athletic Shoes</a></li>
-											<li><a href="mens.php">Running Shoes</a></li>
-											<li><a href="mens.php">Others</a></li>
+											<li><a id="1" href="#" onclick="addURL('Footwear','Casual',id)">Casual Shoes</a></li>
+											<li><a id="2" href="#" onclick="addURL('Footwear','Canvas',id)">Canvas Shoes</a></li>
+											<li><a id="3" href="#" onclick="addURL('Footwear','Loafers',id)">Loafers</a></li>
+											<li><a id="4" href="#" onclick="addURL('Footwear','Sandals',id)">Sandals</a></li>
+											<li><a id="5" href="#" onclick="addURL('Footwear','Boots',id)">Boots</a></li>
+											<li><a id="6" href="#" onclick="addURL('Footwear','Sneakers',id)">Sneakers</a></li>
+											<li><a id="7" href="#" onclick="addURL('Footwear','S&F',id)">Slippers & Flip Flops</a></li>
+											<li><a id="8" href="#" onclick="addURL('Footwear','Athletic',id)">Athletic Shoes</a></li>
+											<li><a id="9" href="#" onclick="addURL('Footwear','Running',id)">Running Shoes</a></li>
+											<li><a id="10" href="#" onclick="addURL('Footwear','Others',id)">Others</a></li>
 											
 										</ul>
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
 											<li><strong>WOMEN'S</strong></li>
-											<li><a href="mens.php">Canvas Shoes</a></li>
-											<li><a href="mens.php">Boots</a></li>
-											<li><a href="mens.php">Kitten Heels</a></li>
-											<li><a href="mens.php">Gladiators</a></li>
-											<li><a href="mens.php">Wedges</a></li>
-											<li><a href="mens.php">Flip Flops</a></li>
-											<li><a href="mens.php">Stiletto</a></li>
-											<li><a href="mens.php">Pumps</a></li>
-											<li><a href="mens.php">Loafers</a></li>
-											<li><a href="mens.php">Others</a></li>
+											<li><a id="11" href="#" onclick="addURL('Footwear','Canvas',id)">Canvas Shoes</a></li>
+											<li><a id="12" href="#" onclick="addURL('Footwear','Boots',id)">Boots</a></li>
+											<li><a id="13" href="#" onclick="addURL('Footwear','Kitten',id)">Kitten Heels</a></li>
+											<li><a id="14" href="#" onclick="addURL('Footwear','Gladiators',id)">Gladiators</a></li>
+											<li><a id="15" href="#" onclick="addURL('Footwear','Wedges',id)">Wedges</a></li>
+											<li><a id="16" href="#" onclick="addURL('Footwear','F&F',id)">Flip Flops</a></li>
+											<li><a id="17" href="#" onclick="addURL('Footwear','Stiletto',id)">Stiletto</a></li>
+											<li><a id="18" href="#" onclick="addURL('Footwear','Pumps',id)">Pumps</a></li>
+											<li><a id="19" href="#" onclick="addURL('Footwear','Loafers',id)">Loafers</a></li>
+											<li><a id="20" href="#" onclick="addURL('Footwear','Casual',id)">Others</a></li>
 										</ul>
 									</div>
 									<div class="clearfix"></div>
@@ -127,23 +150,23 @@
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
 											<li><strong>MEN'S</strong></li>
-											<li><a href="womens.php">Briefcase</a></li>
-											<li><a href="womens.php">Messenger Bag</a></li>
-											<li><a href="womens.php">Duffel</a></li>
-											<li><a href="womens.php">Tote Bags</a></li>
-											<li><a href="womens.php">Casual Bags</a></li>
-											<li><a href="womens.php">Others</a></li>
+											<li><a id="21" href="#" onclick="addURL('Bag','Briefcase',id)">Briefcase</a></li>
+											<li><a id="22" href="#" onclick="addURL('Bag','Messenger',id)">Messenger Bag</a></li>
+											<li><a id="23" href="#" onclick="addURL('Bag','Duffel',id)">Duffel</a></li>
+											<li><a id="24" href="#" onclick="addURL('Bag','Tote',id)">Tote Bags</a></li>
+											<li><a id="25" href="#" onclick="addURL('Bag','Casual',id)">Casual Bags</a></li>
+											<li><a id="26" href="#" onclick="addURL('Bag','Others',id)">Others</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
 											<li><strong>WOMEN'S</strong></li>
-											<li><a href="womens.php">Crossbody</a></li>
-											<li><a href="womens.php">Tote Bags</a></li>
-											<li><a href="womens.php">Clutch</a></li>
-											<li><a href="womens.php">Satchel</a></li>
-											<li><a href="womens.php">Casual Bags</a></li>
-											<li><a href="womens.php">Others</a></li>
+											<li><a id="27" href="#" onclick="addURL('Bag','Crossbody',id)">Crossbody</a></li>
+											<li><a id="28" href="#" onclick="addURL('Bag','Tote',id)">Tote Bags</a></li>
+											<li><a id="29" href="#" onclick="addURL('Bag','Clutch',id)">Clutch</a></li>
+											<li><a id="30" href="#" onclick="addURL('Bag','Satchel',id)">Satchel</a></li>
+											<li><a id="31" href="#" onclick="addURL('Bag','Casual',id)">Casual Bags</a></li>
+											<li><a id="32" href="#" onclick="addURL('Bag','Others',id)">Others</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-6 multi-gd-img multi-gd-text ">
@@ -156,8 +179,8 @@
 					<li class="menu__item dropdown">
 					   <a class="menu__link" href="#" class="dropdown-toggle" data-toggle="dropdown">Watches <b class="caret"></b></a>
 								<ul class="dropdown-menu agile_short_dropdown">
-									<li><a href="icons.php">Men's</a></li>
-									<li><a href="typography.php">Women's</a></li>
+									<li><a id="33" href="#" onclick="addURL('Watches','Men',id)">Men's</a></li>
+									<li><a id="34" href="#" onclick="addURL('Watches','Women',id)">Women's</a></li>
 								</ul>
 					</li>
 					<li class=" menu__item"><a class="menu__link" href="contact.php">Contact</a></li>

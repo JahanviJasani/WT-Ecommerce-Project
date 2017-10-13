@@ -1,9 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,18 +41,9 @@ include('header.php');
 
   <!-- banner-bootom-w3-agileits -->
 	<div class="banner-bootom-w3-agileits">
-	<div class="container">
+	<div class="container-fluid">
          <!-- mens -->
 		<div class="col-md-4 products-left">
-			<div class="filter-price">
-				<h3>Filter By <span>Price</span></h3>
-					<ul class="dropdown-menu6">
-						<li>                
-							<div id="slider-range"></div>							
-							<input type="text" id="amount" style="border: 0; color: #ffffff; font-weight: normal;" />
-						</li>			
-					</ul>
-			</div>
 			<div class="css-treeview">
 				<h4>Categories</h4>
 				<ul class="tree-list-pad">

@@ -268,6 +268,7 @@ include('header.php');
 	  	<!--/slider_owl-->
 			<div class="w3_agile_latest_arrivals">
 			<h3 class="wthree_text_info">Featured <span>Arrivals</span></h3>
+			<div class="container">
 				   <?php
 				    $pid=$_GET['pid'];
 					$sql="SELECT * FROM product WHERE product_id=$pid";
@@ -463,6 +464,7 @@ include('header.php');
 					<!--//slider_owl-->
 		         </div>
 	        </div>
+	       </div>
  </div>
 <!--//single_page-->
 <!--/grids-->
