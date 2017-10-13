@@ -781,20 +781,6 @@ include('footer.php');
 				</script>
 <script src="js/modernizr.custom.js"></script>
 	<!-- Custom-JavaScript-File-Links --> 
-	<!-- cart-js -->
-	<script src="js/minicart.min.js"></script>
-<script>
-	// Mini Cart
-	paypal.minicart.render({
-		action: '#'
-	});
-
-	if (~window.location.search.indexOf('reset=true')) {
-		paypal.minicart.reset();
-	}
-</script>
-
-	<!-- //cart-js --> 
 	<!---->
 							<script type='text/javascript'>//<![CDATA[ 
 							$(window).load(function(){

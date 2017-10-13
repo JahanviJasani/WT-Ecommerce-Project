@@ -134,20 +134,6 @@ include('footer.php');
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <!-- //js -->	
-	<!-- cart-js -->
-	<script src="js/minicart.min.js"></script>
-<script>
-	// Mini Cart
-	paypal.minicart.render({
-		action: '#'
-	});
-
-	if (~window.location.search.indexOf('reset=true')) {
-		paypal.minicart.reset();
-	}
-</script>
-
-	<!-- //cart-js --> 
 
 <!-- stats -->
 	<script src="js/jquery.waypoints.min.js"></script>
