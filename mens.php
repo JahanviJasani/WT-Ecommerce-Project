@@ -50,15 +50,6 @@ include('header.php');
 	<div class="container">
          <!-- mens -->
 		<div class="col-md-4 products-left">
-			<div class="filter-price">
-				<h3>Filter By <span>Price</span></h3>
-					<ul class="dropdown-menu6">
-						<li>                
-							<div id="slider-range"></div>							
-							<input type="text" id="amount" style="border: 0; color: #ffffff; font-weight: normal;" />
-						</li>			
-					</ul>
-			</div>
 			<div class="css-treeview">
 				<h4>Categories</h4>
 				<ul class="tree-list-pad">
@@ -796,20 +787,6 @@ include('footer.php');
 				</script>
 <script src="js/modernizr.custom.js"></script>
 	<!-- Custom-JavaScript-File-Links --> 
-	<!-- cart-js -->
-	<script src="js/minicart.min.js"></script>
-<script>
-	// Mini Cart
-	paypal.minicart.render({
-		action: '#'
-	});
-
-	if (~window.location.search.indexOf('reset=true')) {
-		paypal.minicart.reset();
-	}
-</script>
-
-	<!-- //cart-js --> 
 	<!---->
 							<script type='text/javascript'>//<![CDATA[ 
 							$(window).load(function(){
