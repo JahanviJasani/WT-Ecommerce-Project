@@ -111,7 +111,9 @@ include('header.php');
 							echo '<option value="-1" name="-1">Select</option>';
 							while ($row=mysqli_fetch_assoc($result)) {
 								echo'<option value="'.$row["stock"].'" name="'.$row["footwear_size"].'"';
-								
+								if ($row['stock']==0) {
+									echo ' disabled';
+								}
 								echo '>IND/UK - '.$row["footwear_size"].'</option>';
 							}
 						echo'</select>
@@ -159,7 +161,7 @@ include('header.php');
 									<input type="hidden" name="currency_code" value="USD">
 									<input type="hidden" name="return" value=" ">
 									<input type="hidden" name="cancel_return" value=" ">
-									<input type="submit" name="submit" id="atc" value="Add to cart" class="button">
+									<input type="submit" name="submit" id="atc" value="Add to cart" class="button" disabled>
 								</fieldset>
 							</form>											
 					</div>
@@ -584,6 +586,20 @@ include('footer.php');
 <!-- //js -->
 <script src="js/modernizr.custom.js"></script>
 	<!-- Custom-JavaScript-File-Links --> 
+	<!-- cart-js -->
+	<script src="js/minicart.min.js"></script>
+<script>
+	// Mini Cart
+	paypal.minicart.render({
+		action: '#'
+	});
+
+	if (~window.location.search.indexOf('reset=true')) {
+		paypal.minicart.reset();
+	}
+</script>
+
+	<!-- //cart-js --> 
 	<!-- single -->
 <script src="js/imagezoom.js"></script>
 <!-- single -->
