@@ -1,26 +1,3 @@
-<script type="text/javascript">
-	function addURL(category,type,id) {
-		var anchor = document.getElementById(id);
-		if(id>=1 && id<=10) {
-			anchor.href="mens_footwear.php?category="+category+"&type="+type;
-		}
-		if(id>=11 && id<=20) {
-			anchor.href="womens_footwear.php?category="+category+"&type="+type;
-		}
-		if(id>=21 && id<=26) {
-			anchor.href="mens.php?category="+category+"&type="+type;
-		}
-		if(id>=27 && id<=32) {
-			anchor.href="womens.php?category="+category+"&type="+type;
-		}
-		if(id==33) {
-			anchor.href="mens.php?category="+category+"&type="+type;
-		}
-		if(id==34) {
-			anchor.href="womens.php?category="+category+"&type="+type;
-		}
-	}
-</script>
 <body>
 <!-- header -->
 <div class="header" id="home">

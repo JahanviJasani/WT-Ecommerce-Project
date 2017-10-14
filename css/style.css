@@ -1464,12 +1464,15 @@ button.w3view-cart {
     position: relative;
     box-shadow: 0px 0px 15px 0px #D6D6D6;
     padding-bottom: 20px;
+    height: 420px;
 }
 .men-thumb-item {
     position: relative;
     height: 245px;
 }
 .item-info-product {
+    position: absolute;
+    bottom: 2%;
     text-align: center;
     margin: 20px 0 0;
 }
@@ -2968,7 +2971,6 @@ border-bottom: 1px solid #e5e3db;
 {
 	background-position: 18px 0;
 }
-
 .css-treeview label::before
 {
 	content: "";
@@ -3154,7 +3156,53 @@ vertical-align: top!important;
 .a-text-center {
     text-align: center!important;
 }
-
+#min-max {
+    margin-bottom: 14px;
+}
+#min-max input::placeholder {
+    font-size: 1em;
+}
+input, select, textarea {
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    line-height: 19px;
+    color: #111;
+}
+button, input, select, textarea {
+    margin: 0;
+    font-size: 100%;
+    vertical-align: middle;
+}
+.s-ref-small-padding-left {
+    padding-left: 9px;
+}
+.a-color-base {
+    color: #111!important;
+}
+.s-ref-price-padding {
+    padding-left: 18px;
+}
+.s-ref-price-range {
+    width: 75px;
+}
+.a-input-text, input[type=text], input[type=search], input[type=number], input[type=tel], input[type=password], input[type=date], input[type=email] {
+    background-color: #fff;
+    height: 31px;
+    line-height: normal;
+}
+.a-input-text, input[type=text], input[type=search], input[type=number], input[type=tel], input[type=password], select.a-select-multiple, textarea {
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.5), 0 1px 0 rgba(0,0,0,.07) inset;
+    outline: 0;
+}
+.s-ref-price-currency {
+    position: absolute;
+    margin-top: 2px;
+    line-height: 30px;
+    font-size: 100%;
+}
 /* webkit adjacent element selector bugfix */
 @media screen and (-webkit-min-device-pixel-ratio:0)
 {

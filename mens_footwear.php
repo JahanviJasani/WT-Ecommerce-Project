@@ -1,3 +1,6 @@
+<?php
+include('functions.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,56 +20,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //for bootstrap working -->
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
+<script src="js/backend.js"></script>
 </head>
-<style type="text/css">
-#min-max {
-    margin-bottom: 14px;
-}
-#min-max input::placeholder {
-	font-size: 1em;
-}
-input, select, textarea {
-    -webkit-transition: all .1s linear;
-    transition: all .1s linear;
-    line-height: 19px;
-    color: #111;
-}
-button, input, select, textarea {
-    margin: 0;
-    font-size: 100%;
-    vertical-align: middle;
-}
-.s-ref-small-padding-left {
-    padding-left: 9px;
-}
-.a-color-base {
-    color: #111!important;
-}
-.s-ref-price-padding {
-    padding-left: 18px;
-}
-.s-ref-price-range {
-    width: 75px;
-}
-.a-input-text, input[type=text], input[type=search], input[type=number], input[type=tel], input[type=password], input[type=date], input[type=email] {
-    background-color: #fff;
-    height: 31px;
-    line-height: normal;
-}
-.a-input-text, input[type=text], input[type=search], input[type=number], input[type=tel], input[type=password], select.a-select-multiple, textarea {
-    border: 1px solid #a6a6a6;
-    border-top-color: #949494;
-    border-radius: 3px;
-    box-shadow: 0 1px 0 rgba(255,255,255,.5), 0 1px 0 rgba(0,0,0,.07) inset;
-    outline: 0;
-}
-.s-ref-price-currency {
-    position: absolute;
-    margin-top: 2px;
-    line-height: 30px;
-    font-size: 100%;
-}
-</style>
 <?php
 include('header.php');
 ?>
@@ -80,32 +35,32 @@ include('header.php');
 					<li><input type="checkbox" checked="checked" id="item-0" /><label for="item-0"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Categories</label>
 						<ul>
 								<ul class="sublist">
-									<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Shoes</a></li>
-									<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Canvas Shoes</a></li>
-									<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Loafers</a></li>
-									<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Sandals</a></li>
-									<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Boots</a></li>
-									<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Sneakers</a></li>
-									<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Slippers & Flip Flops</a></li>
-									<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Athletic Shoes</a></li>
-									<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Running Shoes</a></li>
-									<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Athletic Shoes</a></li>
+									<li><a id="41" href="#" onclick="addURL('Footwear','Casual',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Shoes</a></li>
+									<li><a id="42" href="#" onclick="addURL('Footwear','Canvas',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Canvas Shoes</a></li>
+									<li><a id="43" href="#" onclick="addURL('Footwear','Loafers',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Loafers</a></li>
+									<li><a id="44" href="#" onclick="addURL('Footwear','Sandals',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Sandals</a></li>
+									<li><a id="45" href="#" onclick="addURL('Footwear','Boots',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Boots</a></li>
+									<li><a id="46" href="#" onclick="addURL('Footwear','Sneakers',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Sneakers</a></li>
+									<li><a id="47" href="#" onclick="addURL('Footwear','S&F',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Slippers & Flip Flops</a></li>
+									<li><a id="48" href="#" onclick="addURL('Footwear','Athletic',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Athletic Shoes</a></li>
+									<li><a id="49" href="#" onclick="addURL('Footwear','Running',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Running Shoes</a></li>
+									<li><a id="50" href="#" onclick="addURL('Footwear','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
 								</ul>
 						</ul>
 					</li><br>
 					<li><input type="checkbox" id="item-1" checked="checked" /><label for="item-1"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> New Arrivals</label>
 						<ul>
 							<ul class="sublist">
-								<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Shoes</a></li>
-								<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Canvas Shoes</a></li>
-								<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Loafers</a></li>
-								<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Sandals</a></li>
-								<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Boots</a></li>
-								<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Sneakers</a></li>
-								<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Slippers & Flip Flops</a></li>
-								<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Athletic Shoes</a></li>
-								<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Running Shoes</a></li>
-								<li><a href="mens.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Athletic Shoes</a></li>
+								<li><a id="81" href="#" onclick="addURL('Footwear','Casual',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Shoes</a></li>
+								<li><a id="82" href="#" onclick="addURL('Footwear','Canvas',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Canvas Shoes</a></li>
+								<li><a id="83" href="#" onclick="addURL('Footwear','Loafers',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Loafers</a></li>
+								<li><a id="84" href="#" onclick="addURL('Footwear','Sandals',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Sandals</a></li>
+								<li><a id="85" href="#" onclick="addURL('Footwear','Boots',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Boots</a></li>
+								<li><a id="86" href="#" onclick="addURL('Footwear','Sneakers',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Sneakers</a></li>
+								<li><a id="87" href="#" onclick="addURL('Footwear','S&F',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Slippers & Flip Flops</a></li>
+								<li><a id="88" href="#" onclick="addURL('Footwear','Athletic',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Athletic Shoes</a></li>
+								<li><a id="89" href="#" onclick="addURL('Footwear','Running',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Running Shoes</a></li>
+								<li><a id="90" href="#" onclick="addURL('Footwear','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
 							</ul>
 						</ul>
 					</li>
@@ -121,21 +76,44 @@ include('header.php');
 						<li style="font-size: 1em;"><input type="checkbox" id="item-2" checked="checked" /><label for="item-2" style="text-transform: none;"><i class="fa fa-caret-right" aria-hidden="true"></i> Standard (UK/India)</label><br><br>
 						<ul class="size-boxes">
 							<ul>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner"><input class="a-button-input" type="submit"><span class="a-button-text a-text-center" aria-hidden="true">1</span></span></span></span></span></li>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner"><input class="a-button-input" type="submit"><span class="a-button-text a-text-center" aria-hidden="true">1</span></span></span></span></span></li>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner"><input class="a-button-input" type="submit"><span class="a-button-text a-text-center" aria-hidden="true">1</span></span></span></span></span></li>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner"><input class="a-button-input" type="submit"><span class="a-button-text a-text-center" aria-hidden="true">1</span></span></span></span></span></li>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner"><input class="a-button-input" type="submit"><span class="a-button-text a-text-center" aria-hidden="true">1</span></span></span></span></span></li>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner"><input class="a-button-input" type="submit"><span class="a-button-text a-text-center" aria-hidden="true">1</span></span></span></span></span></li>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner"><input class="a-button-input" type="submit"><span class="a-button-text a-text-center" aria-hidden="true">1</span></span></span></span></span></li>
-							</ul>
+								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+									<input id="m_3" class="a-button-input" type="submit" onclick="getSize(id)" value="3"><span class="a-button-text a-text-center" aria-hidden="true">3</span></span></span></span></span>
+								</li>
+								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+									<input id="m_4" class="a-button-input" type="submit" onclick="getSize(id)" value="4"><span class="a-button-text a-text-center" aria-hidden="true">4</span></span></span></span></span>
+								</li>
+								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+									<input id="m_5" class="a-button-input" type="submit" onclick="getSize(id)" value="5"><span class="a-button-text a-text-center" aria-hidden="true">5</span></span></span></span></span>
+								</li>
+								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+									<input id="m_5" class="a-button-input" type="submit" onclick="getSize(id)" value="6"><span class="a-button-text a-text-center" aria-hidden="true">6</span></span></span></span></span>
+								</li>
+								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+									<input id="m_7" class="a-button-input" type="submit" onclick="getSize(id)" value="7"><span class="a-button-text a-text-center" aria-hidden="true">7</span></span></span></span></span>
+								</li>
+								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+									<input id="m_8" class="a-button-input" type="submit" onclick="getSize(id)" value="8"><span class="a-button-text a-text-center" aria-hidden="true">8</span></span></span></span></span>
+								</li>
+								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+									<input id="m_9" class="a-button-input" type="submit" onclick="getSize(id)" value="9"><span class="a-button-text a-text-center" aria-hidden="true">9</span></span></span></span></span>
+								</li>
+								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+									<input id="m_10" class="a-button-input" type="submit" onclick="getSize(id)" value="10"><span class="a-button-text a-text-center" aria-hidden="true">10</span></span></span></span></span>
+								</li>
+								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+									<input id="m_11" class="a-button-input" type="submit" onclick="getSize(id)" value="11"><span class="a-button-text a-text-center" aria-hidden="true">11</span></span></span></span></span>
+								</li>
+								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+									<input id="m_12" class="a-button-input" type="submit" onclick="getSize(id)" value="12"><span class="a-button-text a-text-center" aria-hidden="true">12</span></span></span></span></span>
+								</li>
+															</ul>
 						</ul>
 						</li>
 					</ul>
 					</li><br>
-					<li><input type="checkbox" id="item-2" style="position: absolute;; opacity: 0;" checked="checked" /><label for="item-1"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> New Arrivals</label>
+					<li><input type="checkbox" id="item-2" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-3"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Prices</label>
 						<ul>
-							<ul class="sublist">
+							<ul class="sublist"
 								<li><a href="mens.php"> Under &#8377 1,000</a></li>
 								<li><a href="mens.php"> &#8377 1,000 - &#8377 2,000</a></li>
 								<li><a href="mens.php"> &#8377 2,000 - &#8377 3,500</a></li>
@@ -187,459 +165,78 @@ include('header.php');
 				<div class="clearfix"></div>
 			</div>
 			<div class="men-wear-top">
-				
-				<div  id="top" class="callbacks_container">
-					<ul class="rslides" id="slider3">
-						<li>
-							<img class="img-responsive" src="images/banner2.jpg" alt=" "/>
-						</li>
-						<li>
-							<img class="img-responsive" src="images/banner5.jpg" alt=" "/>
-						</li>
-						<li>
-							<img class="img-responsive" src="images/banner2.jpg" alt=" "/>
-						</li>
-
-					</ul>
-				</div>
 				<div class="clearfix"></div>
 			</div>
-				<div class="col-md-4 product-men">
-								<div class="men-pro-item simpleCart_shelfItem">
-									<div class="men-thumb-item">
-										<img src="images/m8.jpg" alt="" class="pro-image-front">
-										<img src="images/m8.jpg" alt="" class="pro-image-back">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.php" class="link-product-add-cart">Quick View</a>
+
+
+					<?php
+					$category=$_GET['category'];
+					$type = $_GET['type'];
+					$sql1="SELECT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type'";
+					$res1 = mysqli_query($conn, $sql1);
+					$count=0;
+					if(mysqli_num_rows($res1) == 0) {
+						echo "No Products to display";
+					}
+					else {
+						while(($row1=mysqli_fetch_assoc($res1))) {
+							$pid = $row1['product_id'];
+							$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
+							$imageresult = mysqli_query($conn, $imagesql);
+							$imagerow = mysqli_fetch_assoc($imageresult);
+							echo '	<!-- Item start -->
+											<div class="col-md-4 product-men">
+												<div class="men-pro-item simpleCart_shelfItem">
+													<div class="men-thumb-item">
+														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front">
+														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
+															<div class="men-cart-pro">
+																<div class="inner-men-cart-pro">
+																	<a href="single.php?pid='.$pid.'" class="link-product-add-cart">Quick View</a>
+																</div>
+															</div>
+															<span class="product-new-top">New</span>
+															
+													</div>
+													<div class="item-info-product ">
+														<h4><a href="single.php?pid='.$pid.'">'.$row1['name'].'</a></h4>
+														<div class="info-product-price">
+															<span class="item_price">&#8377;'.$row1['price'].'</span>
+															
+														</div>
+														<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+																			<form action="#" method="GET">
+																				<fieldset>
+																					<input type="hidden" name="cmd" value="_cart" />
+																					<input type="hidden" name="add" value="1" />
+																					<input type="hidden" name="business" value=" " />
+																					<input type="hidden" name="item_name" value="'.$row1['brand'].' '.$row1['name'].'" />
+																					<input type="hidden" name="product_id" value="'.$row1['product_id'].'" />
+																					<input type="hidden" name="amount" value="'.$row1['price'].'" />
+																					<input type="hidden" name="discount_amount" value="0.00" />
+																					<input type="hidden" name="currency_code" value="INR" />
+																					<input type="hidden" name="return" value=" " />
+																					<input type="hidden" name="cancel_return" value=" " />
+																					<input type="submit" name="submit" value="Add to cart" class="button" />
+																				</fieldset>
+																			</form>
+																		</div>
+																							
+													</div>
 												</div>
 											</div>
-											<span class="product-new-top">New</span>
-											
-									</div>
-									<div class="item-info-product ">
-										<h4><a href="single.php">Party Men's Blazer</a></h4>
-										<div class="info-product-price">
-											<span class="item_price">$260.99</span>
-											<del>$390.71</del>
-										</div>
-										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart">
-																	<input type="hidden" name="add" value="1">
-																	<input type="hidden" name="business" value=" ">
-																	<input type="hidden" name="item_name" value="Party Men's Blazer">
-																	<input type="hidden" name="amount" value="30.99">
-																	<input type="hidden" name="discount_amount" value="1.00">
-																	<input type="hidden" name="currency_code" value="USD">
-																	<input type="hidden" name="return" value=" ">
-																	<input type="hidden" name="cancel_return" value=" ">
-																	<input type="submit" name="submit" value="Add to cart" class="button">
-																</fieldset>
-															</form>
-														</div>
-																			
-									</div>
-								</div>
-							</div>
-			<div class="col-md-4 product-men">
-								<div class="men-pro-item simpleCart_shelfItem">
-									<div class="men-thumb-item">
-										<img src="images/m7.jpg" alt="" class="pro-image-front">
-										<img src="images/m7.jpg" alt="" class="pro-image-back">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.php" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-											<span class="product-new-top">New</span>
-											
-									</div>
-									<div class="item-info-product ">
-										<h4><a href="single.php">Analog Watch</a></h4>
-										<div class="info-product-price">
-											<span class="item_price">$160.99</span>
-											<del>$290.71</del>
-										</div>
-										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart">
-																	<input type="hidden" name="add" value="1">
-																	<input type="hidden" name="business" value=" ">
-																	<input type="hidden" name="item_name" value="Analog Watch">
-																	<input type="hidden" name="amount" value="30.99">
-																	<input type="hidden" name="discount_amount" value="1.00">
-																	<input type="hidden" name="currency_code" value="USD">
-																	<input type="hidden" name="return" value=" ">
-																	<input type="hidden" name="cancel_return" value=" ">
-																	<input type="submit" name="submit" value="Add to cart" class="button">
-																</fieldset>
-															</form>
-														</div>
-																			
-									</div>
-								</div>
-							</div>
-			<div class="col-md-4 product-men">
-								<div class="men-pro-item simpleCart_shelfItem">
-									<div class="men-thumb-item">
-										<img src="images/s1.jpg" alt="" class="pro-image-front">
-										<img src="images/s1.jpg" alt="" class="pro-image-back">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.php" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-											<span class="product-new-top">New</span>
-											
-									</div>
-									<div class="item-info-product ">
-										<h4><a href="single.php">Running Shoes</a></h4>
-										<div class="info-product-price">
-											<span class="item_price">$80.99</span>
-											<del>$89.71</del>
-										</div>
-										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart">
-																	<input type="hidden" name="add" value="1">
-																	<input type="hidden" name="business" value=" ">
-																	<input type="hidden" name="item_name" value="Running Shoes">
-																	<input type="hidden" name="amount" value="30.99">
-																	<input type="hidden" name="discount_amount" value="1.00">
-																	<input type="hidden" name="currency_code" value="USD">
-																	<input type="hidden" name="return" value=" ">
-																	<input type="hidden" name="cancel_return" value=" ">
-																	<input type="submit" name="submit" value="Add to cart" class="button">
-																</fieldset>
-															</form>
-														</div>
-																			
-									</div>
-								</div>
-							</div>
-				
+											<!-- Item end -->';
+
+										$count++;
+									}
+								}
+					?>
+					
 				<div class="clearfix"></div>
 		</div>
 		<div class="clearfix"></div>
 		
-		<div class="single-pro">
-			<div class="col-md-3 product-men">
-								<div class="men-pro-item simpleCart_shelfItem">
-									<div class="men-thumb-item">
-										<img src="images/m1.jpg" alt="" class="pro-image-front">
-										<img src="images/m1.jpg" alt="" class="pro-image-back">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.php" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-											<span class="product-new-top">New</span>
-											
-									</div>
-									<div class="item-info-product ">
-										<h4><a href="single.php">Formal Blue Shirt</a></h4>
-										<div class="info-product-price">
-											<span class="item_price">$45.99</span>
-											<del>$69.71</del>
-										</div>
-										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart" />
-																	<input type="hidden" name="add" value="1" />
-																	<input type="hidden" name="business" value=" " />
-																	<input type="hidden" name="item_name" value="Formal Blue Shirt" />
-																	<input type="hidden" name="amount" value="30.99" />
-																	<input type="hidden" name="discount_amount" value="1.00" />
-																	<input type="hidden" name="currency_code" value="USD" />
-																	<input type="hidden" name="return" value=" " />
-																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
-																</fieldset>
-															</form>
-														</div>
-																			
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3 product-men">
-								<div class="men-pro-item simpleCart_shelfItem">
-									<div class="men-thumb-item">
-										<img src="images/m2.jpg" alt="" class="pro-image-front">
-										<img src="images/m2.jpg" alt="" class="pro-image-back">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.php" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-											<span class="product-new-top">New</span>
-											
-									</div>
-									<div class="item-info-product ">
-										<h4><a href="single.php">Gabi Full Sleeve Sweatshirt</a></h4>
-										<div class="info-product-price">
-											<span class="item_price">$45.99</span>
-											<del>$69.71</del>
-										</div>
-										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart" />
-																	<input type="hidden" name="add" value="1" />
-																	<input type="hidden" name="business" value=" " />
-																	<input type="hidden" name="item_name" value="Sweatshirt" />
-																	<input type="hidden" name="amount" value="30.99" />
-																	<input type="hidden" name="discount_amount" value="1.00" />
-																	<input type="hidden" name="currency_code" value="USD" />
-																	<input type="hidden" name="return" value=" " />
-																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
-																</fieldset>
-															</form>
-														</div>
-																			
-									</div>
-								</div>
-							</div>
-                            <div class="col-md-3 product-men">
-								<div class="men-pro-item simpleCart_shelfItem">
-									<div class="men-thumb-item">
-										<img src="images/m3.jpg" alt="" class="pro-image-front">
-										<img src="images/m3.jpg" alt="" class="pro-image-back">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.php" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-											<span class="product-new-top">New</span>
-											
-									</div>
-									<div class="item-info-product ">
-										<h4><a href="single.php">Dark Blue Track Pants</a></h4>
-										<div class="info-product-price">
-											<span class="item_price">$80.99</span>
-											<del>$89.71</del>
-										</div>
-										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart" />
-																	<input type="hidden" name="add" value="1" />
-																	<input type="hidden" name="business" value=" " />
-																	<input type="hidden" name="item_name" value="Dark Blue Track Pants" />
-																	<input type="hidden" name="amount" value="30.99" />
-																	<input type="hidden" name="discount_amount" value="1.00" />
-																	<input type="hidden" name="currency_code" value="USD" />
-																	<input type="hidden" name="return" value=" " />
-																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
-																</fieldset>
-															</form>
-														</div>
-																			
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3 product-men">
-								<div class="men-pro-item simpleCart_shelfItem">
-									<div class="men-thumb-item">
-										<img src="images/m4.jpg" alt="" class="pro-image-front">
-										<img src="images/m4.jpg" alt="" class="pro-image-back">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.php" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-											<span class="product-new-top">New</span>
-											
-									</div>
-									<div class="item-info-product ">
-										<h4><a href="single.php">Round Neck Black T-Shirt</a></h4>
-										<div class="info-product-price">
-											<span class="item_price">$190.99</span>
-											<del>$159.71</del>
-										</div>
-										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart" />
-																	<input type="hidden" name="add" value="1" />
-																	<input type="hidden" name="business" value=" " />
-																	<input type="hidden" name="item_name" value="Black T-Shirt" />
-																	<input type="hidden" name="amount" value="30.99" />
-																	<input type="hidden" name="discount_amount" value="1.00" />
-																	<input type="hidden" name="currency_code" value="USD" />
-																	<input type="hidden" name="return" value=" " />
-																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
-																</fieldset>
-															</form>
-														</div>
-																			
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3 product-men">
-								<div class="men-pro-item simpleCart_shelfItem">
-									<div class="men-thumb-item">
-										<img src="images/m5.jpg" alt="" class="pro-image-front">
-										<img src="images/m5.jpg" alt="" class="pro-image-back">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.php" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-											<span class="product-new-top">New</span>
-											
-									</div>
-									<div class="item-info-product ">
-										<h4><a href="single.php">Men's Black Jeans</a></h4>
-										<div class="info-product-price">
-											<span class="item_price">$60.99</span>
-											<del>$90.71</del>
-										</div>
-										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart" />
-																	<input type="hidden" name="add" value="1" />
-																	<input type="hidden" name="business" value=" " />
-																	<input type="hidden" name="item_name" value="Men's Black Jeans" />
-																	<input type="hidden" name="amount" value="30.99" />
-																	<input type="hidden" name="discount_amount" value="1.00" />
-																	<input type="hidden" name="currency_code" value="USD" />
-																	<input type="hidden" name="return" value=" " />
-																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
-																</fieldset>
-															</form>
-														</div>
-																			
-									</div>
-								</div>
-							</div>
-								<div class="col-md-3 product-men">
-								<div class="men-pro-item simpleCart_shelfItem">
-									<div class="men-thumb-item">
-										<img src="images/m7.jpg" alt="" class="pro-image-front">
-										<img src="images/m7.jpg" alt="" class="pro-image-back">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.php" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-											<span class="product-new-top">New</span>
-											
-									</div>
-									<div class="item-info-product ">
-										<h4><a href="single.php">Analog Watch</a></h4>
-										<div class="info-product-price">
-											<span class="item_price">$160.99</span>
-											<del>$290.71</del>
-										</div>
-										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart" />
-																	<input type="hidden" name="add" value="1" />
-																	<input type="hidden" name="business" value=" " />
-																	<input type="hidden" name="item_name" value="Analog Watch" />
-																	<input type="hidden" name="amount" value="30.99" />
-																	<input type="hidden" name="discount_amount" value="1.00" />
-																	<input type="hidden" name="currency_code" value="USD" />
-																	<input type="hidden" name="return" value=" " />
-																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
-																</fieldset>
-															</form>
-														</div>
-																			
-									</div>
-								</div>
-							</div>
-								<div class="col-md-3 product-men">
-								<div class="men-pro-item simpleCart_shelfItem">
-									<div class="men-thumb-item">
-										<img src="images/m6.jpg" alt="" class="pro-image-front">
-										<img src="images/m6.jpg" alt="" class="pro-image-back">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.php" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-											<span class="product-new-top">New</span>
-											
-									</div>
-									<div class="item-info-product ">
-										<h4><a href="single.php">Reversible Belt</a></h4>
-										<div class="info-product-price">
-											<span class="item_price">$30.99</span>
-											<del>$50.71</del>
-										</div>
-										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart" />
-																	<input type="hidden" name="add" value="1" />
-																	<input type="hidden" name="business" value=" " />
-																	<input type="hidden" name="item_name" value="Reversible Belt" />
-																	<input type="hidden" name="amount" value="30.99" />
-																	<input type="hidden" name="discount_amount" value="1.00" />
-																	<input type="hidden" name="currency_code" value="USD" />
-																	<input type="hidden" name="return" value=" " />
-																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
-																</fieldset>
-															</form>
-														</div>
-																			
-									</div>
-								</div>
-							</div>
-								<div class="col-md-3 product-men">
-								<div class="men-pro-item simpleCart_shelfItem">
-									<div class="men-thumb-item">
-										<img src="images/m8.jpg" alt="" class="pro-image-front">
-										<img src="images/m8.jpg" alt="" class="pro-image-back">
-											<div class="men-cart-pro">
-												<div class="inner-men-cart-pro">
-													<a href="single.php" class="link-product-add-cart">Quick View</a>
-												</div>
-											</div>
-											<span class="product-new-top">New</span>
-											
-									</div>
-									<div class="item-info-product ">
-										<h4><a href="single.php">Party Men's Blazer</a></h4>
-										<div class="info-product-price">
-											<span class="item_price">$260.99</span>
-											<del>$390.71</del>
-										</div>
-										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart" />
-																	<input type="hidden" name="add" value="1" />
-																	<input type="hidden" name="business" value=" " />
-																	<input type="hidden" name="item_name" value="Party Men's Blazer" />
-																	<input type="hidden" name="amount" value="30.99" />
-																	<input type="hidden" name="discount_amount" value="1.00" />
-																	<input type="hidden" name="currency_code" value="USD" />
-																	<input type="hidden" name="return" value=" " />
-																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
-																</fieldset>
-															</form>
-														</div>
-																			
-									</div>
-								</div>
-							</div>
-							<div class="clearfix"></div>
+	<div class="clearfix"></div>
 		</div>
 	</div>
 </div>	
