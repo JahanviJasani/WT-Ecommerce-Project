@@ -159,7 +159,7 @@ include('footer.php');
                 window.scrollTo(0,0);
             }
         };
-      xhttp.open("POST", "http://localhost:8080/EliteShoppy/add_to_cart.php", true);
+      xhttp.open("POST", "add_to_cart.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("product_id="+pid+"&user_id="+user_id);
   var productRow = $(quantityInput).parent().parent();
@@ -189,7 +189,7 @@ include('footer.php');
                   //window.scrollTo(0,0);
               }
           };
-      xhttp.open("POST", "http://localhost:8080/EliteShoppy/remove_from_cart.php", true);
+      xhttp.open("POST", "remove_from_cart.php", true);
       xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhttp.send("product_id="+pid+"&user_id="+user_id);
       var productRow = $(removeButton).parent().parent();

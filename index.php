@@ -593,8 +593,7 @@ include('footer.php');
 	function add_to_cart(pid,user_id)
 	{
 		var xhttp = new XMLHttpRequest();
-		//var url=window.location.href;
-		//alert(url + " " + pid + "  "+ user_id);
+
 		xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 //alert(this.responseText);
@@ -602,7 +601,7 @@ include('footer.php');
                 window.scrollTo(0,0);
             }
         };
-	    xhttp.open("POST", "http://localhost:8080/EliteShoppy/add_to_cart.php", true);
+	    xhttp.open("POST", "add_to_cart.php", true);
 		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhttp.send("product_id="+pid+"&user_id="+user_id);
 
