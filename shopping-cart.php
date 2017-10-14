@@ -1,4 +1,6 @@
-
+<?php
+include('functions.php');
+?>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -27,11 +29,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
 </head>
-
+<body>
 <?php
 include('header.php');
-
-
 ?>
 
 <div class="shopping-cart-page">
@@ -44,79 +44,54 @@ include('header.php');
   <label class="sc-product-removal">Remove</label>
   <label class="sc-product-line-price">Total</label>
   </div>
+  
+  <?php
+  if(isset($_SESSION['user_id']))
+  {
+    $uid=$_SESSION['user_id'];
+    $sql = "SELECT * FROM cart WHERE cart.user_id='$uid'";
+    $result=mysqli_query($conn, $sql);
+    $item_count = mysqli_num_rows($result);
+    if ($item_count==0) {
+      echo "<p style='text-align: center;'><b>No products in Cart!</b></p>";
+    } else {
+      while (($row = mysqli_fetch_assoc($result))){
+        $pid = $row['product_id'];
+        $imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
+        $imageresult = mysqli_query($conn, $imagesql);
+        $imagerow = mysqli_fetch_assoc($imageresult);
+        $sql_product = "SELECT * FROM product WHERE product_id='$pid'";
+        $productresult = mysqli_query($conn, $sql_product);
+        $productrow = mysqli_fetch_assoc($productresult);
+        $sql_cart_product="SELECT * FROM cart WHERE cart.user_id='$uid' AND cart.product_id='$pid';";
+        $sql_cart_product_result=mysqli_query($conn, $sql);
+        $sql_cart_product_result_row = mysqli_fetch_assoc($sql_cart_product_result);
+        $total = $sql_cart_product_result_row['qty']*$productrow['price'];
+    echo '<div class="sc-product">
+          <div class="sc-product-image">
+          <img src="'.$imagerow['image_location'].'" alt="" >
+          </div>
+          <div class="sc-product-details">
+          <div class="sc-product-title"><a href="single.php?pid='.$pid.'">'.$productrow['name'].'</a></div>
+          <p class="sc-product-description">'.$productrow['product_description'].'<br>Do not expose to extreme heat</p>
+          </div>
+          <div class="sc-product-price">'.$productrow['price'].'</div>
+          <div class="sc-product-quantity">
+          <input type="number" value="'.$sql_cart_product_result_row['qty'].'" min="1" 
+          onchange="updateQuantity(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
+          </div>
+          <div class="sc-product-removal">
+          <button class="remove-product" onclick="removeItem(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
+          Remove
+          </button>
+          </div>
 
-  <div class="sc-product">
-  <div class="sc-product-image">
-  <img src="https://sc01.alicdn.com/kf/HTB1FAlQLpXXXXXOXXXX760XFXXX1/Handbags-Lastest-Fancy-Ladies-Stylish-Women-Shoulder.png">
-  </div>
-  <div class="sc-product-details">
-  <div class="sc-product-title">Fancy Handbag</div>
-  <p class="sc-product-description">Faux leather material burgundy colored satchel<br>Do not expose to extreme heat</p>
-  </div>
-  <div class="sc-product-price">12.99</div>
-  <div class="sc-product-quantity">
-  <input type="number" value="2" min="1">
-  </div>
-  <div class="sc-product-removal">
-  <button class="remove-product">
-  Remove
-  </button>
-  </div>
-  <div class="sc-product-line-price">25.98</div>
-  </div>
-
-
-  <div class="sc-product">
-  <div class="sc-product-image">
-  <img src="http://g02.a.alicdn.com/kf/HTB1TqSULVXXXXcRXXXXq6xXFXXXw/-New-2016-Women-Backpacks-bow-Brand-pu-leather-Backpack-travel-hiking-Bags-high-quality-girls.jpg">
-  </div>
-  <div class="sc-product-details">
-  <div class="sc-product-title">Backpack travel hiking Bags</div>
-  <p class="sc-product-description">Material - PU leather<br>Golden Sequin Detail, 2 in 1 combo, 1 Handbag, 1 Clutch with wrist strap</p>
-  </div>
-  <div class="sc-product-price">45.99</div>
-  <div class="sc-product-quantity">
-  <input type="number" value="1" min="1">
-  </div>
-  <div class="sc-product-removal">
-  <button class="remove-product">
-  Remove
-  </button>
-  </div>
-  <div class="sc-product-line-price">45.99</div>
-  </div>
-
-  <div class="totals">
-  <div class="totals-item">
-  <label>Subtotal</label>
-  <div class="totals-value" id="cart-subtotal">71.97</div>
-  </div>
-  <div class="totals-item">
-  <label>Tax (5%)</label>
-  <div class="totals-value" id="cart-tax">3.60</div>
-  </div>
-  <div class="totals-item">
-  <label>Shipping</label>
-  <div class="totals-value" id="cart-shipping">15.00</div>
-  </div>
-  <div class="totals-item totals-item-total">
-  <label>Grand Total</label>
-  <div class="totals-value" id="cart-total">90.57</div>
-  </div>
-  </div>
-  </div>
-  <div class="form1">
-  <form method="post" action="checkout1.php">
-	<div class="pull-left">
-		<a href="index.php" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
-	</div>
-	<div class="pull-right">
-		<button type="submit" class="btn btn-primary">Proceed to Checkout <i class="fa fa-chevron-right"></i>
-		</button>
-	</div>
-  </form>
-  </div>
- 
+          <div class="sc-product-line-price">'.$total.'</div>
+          </div>';}
+  }
+}
+  ?>
+</div>
  <!-- php footer include -->
 <?php
 include('footer.php');
@@ -131,13 +106,13 @@ include('footer.php');
 
 
   /* Assign actions */
-  $('.sc-product-quantity input').change( function() {
+  /*$('.sc-product-quantity input').change( function() {
   updateQuantity(this);
   });
 
   $('.sc-product-removal button').click( function() {
   removeItem(this);
-  });
+  });*/
 
 
   /* Recalculate cart */
@@ -171,9 +146,22 @@ include('footer.php');
   }
 
   /* Update quantity */
-  function updateQuantity(quantityInput)
+  function updateQuantity(quantityInput,pid,user_id)
   {
   /* Calculate line price */
+  var xhttp = new XMLHttpRequest();
+    //var url=window.location.href;
+    //alert(url + " " + pid + "  "+ user_id);
+    xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                //alert(this.responseText);
+                document.getElementById('cart_count').innerHTML=this.responseText;
+                window.scrollTo(0,0);
+            }
+        };
+      xhttp.open("POST", "http://localhost:8080/EliteShoppy/add_to_cart.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("product_id="+pid+"&user_id="+user_id);
   var productRow = $(quantityInput).parent().parent();
   var price = parseFloat(productRow.children('.sc-product-price').text());
   var quantity = $(quantityInput).val();
@@ -190,14 +178,24 @@ include('footer.php');
   }
 
   /* Remove item from cart */
-  function removeItem(removeButton)
+  function removeItem(removeButton,pid,user_id)
   {
   /* Remove row from DOM and recalc cart total */
-  var productRow = $(removeButton).parent().parent();
-  productRow.slideUp(fadeTime, function() {
-  productRow.remove();
-  recalculateCart();
-  });
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  //alert(this.responseText);
+                  document.getElementById('cart_count').innerHTML=this.responseText;
+                  //window.scrollTo(0,0);
+              }
+          };
+      xhttp.open("POST", "http://localhost:8080/EliteShoppy/remove_from_cart.php", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("product_id="+pid+"&user_id="+user_id);
+      var productRow = $(removeButton).parent().parent();
+      productRow.slideUp(fadeTime, function() {
+      productRow.remove();
+      recalculateCart();});
   }
   </script>
   <!-- js -->

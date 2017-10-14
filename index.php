@@ -210,7 +210,7 @@ include('header.php');
 																					<input type="hidden" name="currency_code" value="INR" />
 																					<input type="hidden" name="return" value=" " />
 																					<input type="hidden" name="cancel_return" value=" " />
-																					<input type="submit" name="submit" value="Add to cart" class="button" />
+																					<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
 																				</fieldset>
 																			</form>
 																		</div>
@@ -282,7 +282,7 @@ include('header.php');
 																					<input type="hidden" name="currency_code" value="INR" />
 																					<input type="hidden" name="return" value=" " />
 																					<input type="hidden" name="cancel_return" value=" " />
-																					<input type="submit" name="submit" value="Add to cart" class="button" />
+																					<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
 																				</fieldset>
 																			</form>
 																		</div>
@@ -352,7 +352,7 @@ include('header.php');
 																					<input type="hidden" name="currency_code" value="INR" />
 																					<input type="hidden" name="return" value=" " />
 																					<input type="hidden" name="cancel_return" value=" " />
-																					<input type="submit" name="submit" value="Add to cart" class="button" />
+																					<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
 																				</fieldset>
 																			</form>
 																		</div>
@@ -421,7 +421,7 @@ include('header.php');
 																					<input type="hidden" name="currency_code" value="INR" />
 																					<input type="hidden" name="return" value=" " />
 																					<input type="hidden" name="cancel_return" value=" " />
-																					<input type="submit" name="submit" value="Add to cart" class="button" />
+																					<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
 																				</fieldset>
 																			</form>
 																		</div>
@@ -589,7 +589,25 @@ include('footer.php');
 	</script>
 <!-- //here ends scrolling icon -->
 
+<script type="text/javascript">
+	function add_to_cart(pid,user_id)
+	{
+		var xhttp = new XMLHttpRequest();
+		//var url=window.location.href;
+		//alert(url + " " + pid + "  "+ user_id);
+		xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                //alert(this.responseText);
+                document.getElementById('cart_count').innerHTML=this.responseText;
+                window.scrollTo(0,0);
+            }
+        };
+	    xhttp.open("POST", "http://localhost:8080/EliteShoppy/add_to_cart.php", true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("product_id="+pid+"&user_id="+user_id);
 
+	}
+</script>
 <!-- for bootstrap working -->
 <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>

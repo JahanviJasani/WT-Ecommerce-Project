@@ -166,16 +166,42 @@
 			  </div>
 			</nav>	
 		</div>
-		<div class="top_nav_right">
-			<div class="wthreecartaits wthreecartaits2 cart cart box_1"> 
-						<form action="#"thod="post" class="last"> 
-						<input type="hidden" name="cmd" value="_cart">
-						<input type="hidden" name="display" value="1">
-						<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-					</form>  
-  
-						</div>
-		</div>
+		<?php
+		if(isset($_SESSION['user_id']))
+		{
+			$uid = $_SESSION['user_id'];
+			$sql = "SELECT * FROM cart WHERE cart.user_id='$uid';";
+			$result=mysqli_query($conn, $sql);
+			$item_count = mysqli_num_rows($result);
+			echo '<div class="top_nav_right">
+				<div class="wthreecartaits wthreecartaits2 cart cart box_1"> 
+							<form action="#" thod="post" class="last"> 
+							<input type="hidden" name="cmd" value="_cart">
+							<input type="hidden" name="display" value="1">
+							
+								<button class="w3view-cart" type="button" id="cart"><a href="shopping-cart.php" style="color:black"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></button> 
+								<span id="cart_count">'.$item_count.'</span>
+							</form>  
+	  
+							</div>
+			</div>';
+		}
+		else
+		{
+			echo '<div class="top_nav_right">
+				<div class="wthreecartaits wthreecartaits2 cart cart box_1"> 
+							<form action="#" thod="post" class="last"> 
+							<input type="hidden" name="cmd" value="_cart">
+							<input type="hidden" name="display" value="1">
+							
+								<button class="w3view-cart" type="button" id="cart"><a href="shopping-cart.php" style="color:black"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></button> 
+								<span id="cart_count"></span>
+							</form>  
+	  
+							</div>
+			</div>';
+		}
+		?>
 		<div class="clearfix"></div>
 	</div>
 </div>
