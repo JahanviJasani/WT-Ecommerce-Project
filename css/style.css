@@ -3162,27 +3162,27 @@ vertical-align: top!important;
 #min-max input::placeholder {
     font-size: 1em;
 }
-input, select, textarea {
+#min-max input, select, textarea {
     -webkit-transition: all .1s linear;
     transition: all .1s linear;
     line-height: 19px;
     color: #111;
 }
-button, input, select, textarea {
+#min-max button, input, select, textarea {
     margin: 0;
     font-size: 100%;
     vertical-align: middle;
 }
-.s-ref-small-padding-left {
+#min-max .s-ref-small-padding-left {
     padding-left: 9px;
 }
-.a-color-base {
+#min-max .a-color-base {
     color: #111!important;
 }
-.s-ref-price-padding {
+#min-max .s-ref-price-padding {
     padding-left: 18px;
 }
-.s-ref-price-range {
+#min-max .s-ref-price-range {
     width: 75px;
 }
 .a-input-text, input[type=text], input[type=search], input[type=number], input[type=tel], input[type=password], input[type=date], input[type=email] {

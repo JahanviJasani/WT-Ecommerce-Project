@@ -64,12 +64,12 @@ include('header.php');
 				<ul class="tree-list-pad">	
 					<li><input type="checkbox" id="item-2" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-3"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Prices</label>
 						<ul>
-							<ul class="sublist"
-								<li><a href="mens.php"> Under &#8377 1,000</a></li>
-								<li><a href="mens.php"> &#8377 1,000 - &#8377 2,000</a></li>
-								<li><a href="mens.php"> &#8377 2,000 - &#8377 3,500</a></li>
-								<li><a href="mens.php"> &#8377 3,500 - &#8377 5,000</a></li>
-								<li><a href="mens.php"> &#8377 5,000 - &#8377 10,000</a></li><br>
+							<ul class="sublist">
+								<li><a id="pr1" href="#" onclick="getpricerange(id)"> Under &#8377 1,000</a></li>
+								<li><a id="pr2" href="#" onclick="getpricerange(id)"> &#8377 1,000 - &#8377 2,000</a></li>
+								<li><a id="pr3" href="#" onclick="getpricerange(id)"> &#8377 2,000 - &#8377 3,500</a></li>
+								<li><a id="pr4" href="#" onclick="getpricerange(id)"> &#8377 3,500 - &#8377 5,000</a></li>
+								<li><a id="pr5" href="#" onclick="getpricerange(id)"> &#8377 5,000 - &#8377 10,000</a></li><br>
 
 								<form method="get" action="#" id="min-max">
 								<span class="a-color-base s-ref-small-padding-left s-ref-price-currency s-small-margin-left">₹</span>

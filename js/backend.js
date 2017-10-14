@@ -60,3 +60,45 @@ function gup(name)
   else
     return results[1];
 }
+function getpricerange(id) {
+    console.log("hello");
+    var anchor = document.getElementById(id);
+    var url = window.location.href;
+    var range=0;
+    if(id=="pr1") {
+        range=1;
+    }else if(id=="pr2") {
+        range=2;
+    }else if(id=="pr3") {
+        range=3;
+    }else if(id=="pr4") {
+        range=4;
+    }else if(id=="pr5") {
+        range=5;
+    }
+    if (url.indexOf('&range=') != -1) {
+        var parameter = gup( 'range' );
+        var newUrl=url.replace(parameter,range);
+        anchor.href=newUrl;
+    } 
+    else {
+        window.location=window.location.href+"&range="+range;
+    }
+}
+function getrange() {
+    var min = document.getElementById("low-price").value;
+    var max = document.getElementById("high-price").value;
+    var url = window.location.href;
+    if ((url.indexOf('&min=') != -1) && (url.indexOf('&max=') != -1)) {
+        var parameter1 = gup( 'min' );
+        var parameter2 = gup( 'max' );
+        var newUrl=url.replace(parameter1,min);
+        console.log(newUrl);
+        var finalUrl=newUrl.replace(parameter2,min);
+        console.log(finalUrl);
+        anchor.href=finalUrl;
+    } 
+    else {
+        window.location=window.location.href+"&min="+min+"&max="+max;
+    }
+}
