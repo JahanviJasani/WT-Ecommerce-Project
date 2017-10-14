@@ -197,19 +197,19 @@ include('header.php');
 						<select id="bag-men" name="bag-men">
 							<option value="">Select</option>
 							<option value="Briefcase">Briefcase</option>
-							<option value="Messenger Bags">Messenger Bags</option>
+							<option value="Messenger Bags">Messenger</option>
 							<option value="Duffel">Duffel</option>
 							<option value="Backpacks">Backpacks</option>
-							<option value="Casual Bags">Casual Bags</option>
+							<option value="Casual Bags">Casual</option>
 							<option value="Others">Others</option>
 						</select>
 						<select id="bag-women" name="bag-women">
 							<option value="">Select</option>
 							<option value="Crossbody">Crossbody</option>
-							<option value="Tote Bags">Tote Bags</option>
+							<option value="Tote Bags">Tote</option>
 							<option value="Clutch">Clutch</option>
 							<option value="Satchel">Satchel</option>
-							<option value="Casual Bags">Casual Bags</option>
+							<option value="Casual Bags">Casual</option>
 							<option value="Backpacks">Backpacks</option>
 							<option value="Others">Others</option>
 						</select>

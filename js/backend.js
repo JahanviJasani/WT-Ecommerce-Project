@@ -20,11 +20,11 @@ function addURL(category,type,id) {
     if((id>=1 && id<=10) || (id>=41 && id<=50) || (id>=81 && id<=90)) {
         anchor.href="mens_footwear.php?category="+category+"&type="+type;
     }
-    if(id>=11 && id<=20) {
+    if((id>=11 && id<=20) || (id>=51 && id<=60) || (id>=91 && id<=100)) {
         anchor.href="womens_footwear.php?category="+category+"&type="+type;
     }
-    if(id>=21 && id<=26) {
-        anchor.href="mens.php?category="+category+"&type="+type;
+    if(id>=21 && id<=26 || (id>=61 && id<=66) || (id>=101 && id<=106)) {
+        anchor.href="mens_bags.php?category="+category+"&type="+type;
     }
     if(id>=27 && id<=32) {
         anchor.href="womens.php?category="+category+"&type="+type;
@@ -38,17 +38,25 @@ function addURL(category,type,id) {
 }
 
 function getSize(id) {
-    //debugger
     var size = document.getElementById(id).value;
     var url = window.location.href;
-    var field="size";
-    console.log(url.indexOf('&' + field + '='));
-    if (url.indexOf('&' + field + '=') != -1) {
-        console.log("hello");
-        var newUrl=url.replace(url.indexOf('&' + size + '='),size);
+    if (url.indexOf('&size=') != -1) {
+        var parameter = gup( 'size' );
+        var newUrl=url.replace(parameter,size);
         window.location=newUrl;
     } 
     else {
         window.location=window.location.href+"&size="+size;
     }
+}
+function gup(name)
+{
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results == null )
+    return "";
+  else
+    return results[1];
 }

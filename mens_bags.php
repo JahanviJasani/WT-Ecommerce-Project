@@ -35,32 +35,24 @@ include('header.php');
 					<li><input type="checkbox" checked="checked" id="item-0" /><label for="item-0"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Categories</label>
 						<ul>
 								<ul class="sublist">
-									<li><a id="51" href="#" onclick="addURL('Footwear','Canvas',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Canvas Shoes</a></li>
-									<li><a id="52" href="#" onclick="addURL('Footwear','Boots',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Boots</a></li>
-									<li><a id="53" href="#" onclick="addURL('Footwear','Kitten Heels',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Kitten Heels</a></li>
-									<li><a id="55" href="#" onclick="addURL('Footwear','Gladiators',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Gladiators</a></li>
-									<li><a id="55" href="#" onclick="addURL('Footwear','Flip Flops',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Flip Flops</a></li>
-									<li><a id="56" href="#" onclick="addURL('Footwear','Wedges',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Wedges</a></li>
-									<li><a id="57" href="#" onclick="addURL('Footwear','Stiletto',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Stiletto</a></li>
-									<li><a id="58" href="#" onclick="addURL('Footwear','Pumps',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Pumps</a></li>
-									<li><a id="59" href="#" onclick="addURL('Footwear','Loafers',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Loafers</a></li>
-									<li><a id="60" href="#" onclick="addURL('Footwear','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
+									<li><a id="61" href="#" onclick="addURL('Bag','Briefcase',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Briefcase</a></li>
+									<li><a id="62" href="#" onclick="addURL('Bag','Messenger',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Messenger Bags</a></li>
+									<li><a id="63" href="#" onclick="addURL('Bag','Duffel',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Duffel</a></li>
+									<li><a id="64" href="#" onclick="addURL('Bag','Backpacks',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Backpacks</a></li>
+									<li><a id="65" href="#" onclick="addURL('Bag','Casual',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
+									<li><a id="66" href="#" onclick="addURL('Bag','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
 								</ul>
 						</ul>
 					</li><br>
 					<li><input type="checkbox" id="item-1" checked="checked" /><label for="item-1"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> New Arrivals</label>
 						<ul>
 							<ul class="sublist">
-								<li><a id="91" href="#" onclick="addURL('Footwear','Canvas',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Shoes</a></li>
-								<li><a id="92" href="#" onclick="addURL('Footwear','Boots',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Boots Shoes</a></li>
-								<li><a id="93" href="#" onclick="addURL('Footwear','Kitten Heels',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Kitten Heels</a></li>
-								<li><a id="95" href="#" onclick="addURL('Footwear','Gladiators',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Gladiators</a></li>
-								<li><a id="95" href="#" onclick="addURL('Footwear','Flip Flops',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Flip Flops</a></li>
-								<li><a id="96" href="#" onclick="addURL('Footwear','Wedges',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Wedges</a></li>
-								<li><a id="97" href="#" onclick="addURL('Footwear','S&F',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Stiletto</a></li>
-								<li><a id="98" href="#" onclick="addURL('Footwear','Pumps',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Pumps</a></li>
-								<li><a id="99" href="#" onclick="addURL('Footwear','Loafers',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Loafers</a></li>
-								<li><a id="100" href="#" onclick="addURL('Footwear','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
+								<li><a id="101" href="#" onclick="addURL('Bag','Briefcase',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Briefcase</a></li>
+								<li><a id="102" href="#" onclick="addURL('Bag','Messenger',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Messenger Bags</a></li>
+								<li><a id="103" href="#" onclick="addURL('Bag','Duffel',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Duffel</a></li>
+								<li><a id="104" href="#" onclick="addURL('Bag','Backpacks',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Backpacks</a></li>
+								<li><a id="105" href="#" onclick="addURL('Bag','Casual',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
+								<li><a id="106" href="#" onclick="addURL('Bag','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
 							</ul>
 						</ul>
 					</li>
@@ -70,35 +62,6 @@ include('header.php');
 				<h4>Refine By </h4>
 				<div class="swit form">
 				<ul class="tree-list-pad">	
-					<li><label><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Sizes</label>
-					<ul class="sublist different">
-						<br>
-						<li style="font-size: 1em;"><input type="checkbox" id="item-2" checked="checked" /><label for="item-2" style="text-transform: none;"><i class="fa fa-caret-right" aria-hidden="true"></i> Standard (UK/India)</label><br><br>
-						<ul class="size-boxes">
-							<ul>
-								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_3" class="a-button-input" type="submit" onclick="getSize(id)" value="3"><span class="a-button-text a-text-center" aria-hidden="true">3</span></span></span></span></span>
-								</li>
-								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_4" class="a-button-input" type="submit" onclick="getSize(id)" value="4"><span class="a-button-text a-text-center" aria-hidden="true">4</span></span></span></span></span>
-								</li>
-								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_5" class="a-button-input" type="submit" onclick="getSize(id)" value="5"><span class="a-button-text a-text-center" aria-hidden="true">5</span></span></span></span></span>
-								</li>
-								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_6" class="a-button-input" type="submit" onclick="getSize(id)" value="6"><span class="a-button-text a-text-center" aria-hidden="true">6</span></span></span></span></span>
-								</li>
-								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_7" class="a-button-input" type="submit" onclick="getSize(id)" value="7"><span class="a-button-text a-text-center" aria-hidden="true">7</span></span></span></span></span>
-								</li>
-								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_8" class="a-button-input" type="submit" onclick="getSize(id)" value="8"><span class="a-button-text a-text-center" aria-hidden="true">8</span></span></span></span></span>
-								</li>
-							</ul>
-						</ul>
-						</li>
-					</ul>
-					</li><br>
 					<li><input type="checkbox" id="item-2" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-3"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Prices</label>
 						<ul>
 							<ul class="sublist"
@@ -125,7 +88,7 @@ include('header.php');
 			<div class="clearfix"></div>
 		</div>
 		<div class="col-md-9 products-right">
-			<h5>Women's <span>Footwear</span></h5>
+			<h5>Men's <span>Bags</span></h5>
 			<div class="sort-grid">
 				<div class="sorting">
 					<h6>Sort By</h6>
@@ -160,7 +123,7 @@ include('header.php');
 					<?php
 					$category=$_GET['category'];
 					$type = $_GET['type'];
-					$sql1="SELECT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='women'";
+					$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND bags.subcategory='$type' AND product.gender='men'";
 					$res1 = mysqli_query($conn, $sql1);
 					$count=0;
 					if(mysqli_num_rows($res1) == 0) {

@@ -76,37 +76,28 @@ include('header.php');
 						<li style="font-size: 1em;"><input type="checkbox" id="item-2" checked="checked" /><label for="item-2" style="text-transform: none;"><i class="fa fa-caret-right" aria-hidden="true"></i> Standard (UK/India)</label><br><br>
 						<ul class="size-boxes">
 							<ul>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_3" class="a-button-input" type="submit" onclick="getSize(id)" value="3"><span class="a-button-text a-text-center" aria-hidden="true">3</span></span></span></span></span>
+								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+									<input id="m_6" class="a-button-input" type="submit" onclick="getSize(id)" value="6"><span class="a-button-text a-text-center" aria-hidden="true">6</span></span></span></span></span>
 								</li>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_4" class="a-button-input" type="submit" onclick="getSize(id)" value="4"><span class="a-button-text a-text-center" aria-hidden="true">4</span></span></span></span></span>
-								</li>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_5" class="a-button-input" type="submit" onclick="getSize(id)" value="5"><span class="a-button-text a-text-center" aria-hidden="true">5</span></span></span></span></span>
-								</li>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_5" class="a-button-input" type="submit" onclick="getSize(id)" value="6"><span class="a-button-text a-text-center" aria-hidden="true">6</span></span></span></span></span>
-								</li>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
 									<input id="m_7" class="a-button-input" type="submit" onclick="getSize(id)" value="7"><span class="a-button-text a-text-center" aria-hidden="true">7</span></span></span></span></span>
 								</li>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
 									<input id="m_8" class="a-button-input" type="submit" onclick="getSize(id)" value="8"><span class="a-button-text a-text-center" aria-hidden="true">8</span></span></span></span></span>
 								</li>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
 									<input id="m_9" class="a-button-input" type="submit" onclick="getSize(id)" value="9"><span class="a-button-text a-text-center" aria-hidden="true">9</span></span></span></span></span>
 								</li>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
 									<input id="m_10" class="a-button-input" type="submit" onclick="getSize(id)" value="10"><span class="a-button-text a-text-center" aria-hidden="true">10</span></span></span></span></span>
 								</li>
-								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
+								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
 									<input id="m_11" class="a-button-input" type="submit" onclick="getSize(id)" value="11"><span class="a-button-text a-text-center" aria-hidden="true">11</span></span></span></span></span>
 								</li>
 								<li id="a-autoid-5" class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
 									<input id="m_12" class="a-button-input" type="submit" onclick="getSize(id)" value="12"><span class="a-button-text a-text-center" aria-hidden="true">12</span></span></span></span></span>
 								</li>
-															</ul>
+							</ul>
 						</ul>
 						</li>
 					</ul>
@@ -172,7 +163,7 @@ include('header.php');
 					<?php
 					$category=$_GET['category'];
 					$type = $_GET['type'];
-					$sql1="SELECT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type'";
+					$sql1="SELECT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='men'";
 					$res1 = mysqli_query($conn, $sql1);
 					$count=0;
 					if(mysqli_num_rows($res1) == 0) {
