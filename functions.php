@@ -107,7 +107,7 @@ function userlogin($conn){
 						setcookie("PHPSESSID",$cookievalue,time()+(3600*24*2),"/");
 					}
 					echo $_SESSION['user_id'].$_SESSION['user_name'].$_SESSION['email'];
-					header('Location: customer_orders.php');
+					header('Location: index.php');
 				}
 			}
 		}

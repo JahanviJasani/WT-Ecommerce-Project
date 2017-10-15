@@ -213,8 +213,7 @@ include('header.php');
 																					<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
 																				</fieldset>
 																			</form>
-																		</div>
-																							
+																		</div>							
 													</div>
 												</div>
 											</div>
@@ -514,20 +513,6 @@ include('footer.php');
 <!-- //js -->
 <script src="js/modernizr.custom.js"></script>
 	<!-- Custom-JavaScript-File-Links --> 
-	<!-- cart-js -->
-	<script src="js/minicart.min.js"></script>
-<script>
-	// Mini Cart
-	paypal.minicart.render({
-		action: '#'
-	});
-
-	if (~window.location.search.indexOf('reset=true')) {
-		paypal.minicart.reset();
-	}
-</script>
-
-	<!-- //cart-js --> 
 <!-- script for responsive tabs -->						
 <script src="js/easy-responsive-tabs.js"></script>
 <script>
@@ -588,25 +573,6 @@ include('footer.php');
 			});
 	</script>
 <!-- //here ends scrolling icon -->
-
-<script type="text/javascript">
-	function add_to_cart(pid,user_id)
-	{
-		var xhttp = new XMLHttpRequest();
-
-		xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                //alert(this.responseText);
-                document.getElementById('cart_count').innerHTML=this.responseText;
-                window.scrollTo(0,0);
-            }
-        };
-	    xhttp.open("POST", "add_to_cart.php", true);
-		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xhttp.send("product_id="+pid+"&user_id="+user_id);
-
-	}
-</script>
 <!-- for bootstrap working -->
 <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>

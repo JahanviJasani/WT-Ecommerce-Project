@@ -200,7 +200,7 @@ include('header.php');
 																						<input type="hidden" name="currency_code" value="INR" />
 																						<input type="hidden" name="return" value=" " />
 																						<input type="hidden" name="cancel_return" value=" " />
-																						<input type="submit" name="submit" value="Add to cart" class="button" />
+																						<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
 																					</fieldset>
 																				</form>
 																			</div>
@@ -367,20 +367,6 @@ include('footer.php');
 				</script>
 <script src="js/modernizr.custom.js"></script>
 	<!-- Custom-JavaScript-File-Links --> 
-	<!-- cart-js -->
-	<script src="js/minicart.min.js"></script>
-<script>
-	// Mini Cart
-	paypal.minicart.render({
-		action: '#'
-	});
-
-	if (~window.location.search.indexOf('reset=true')) {
-		paypal.minicart.reset();
-	}
-</script>
-
-	<!-- //cart-js --> 
 	<!---->
 							<script type='text/javascript'>//<![CDATA[ 
 							$(window).load(function(){

@@ -1473,6 +1473,8 @@ button.w3view-cart {
 .item-info-product {
     position: absolute;
     bottom: 2%;
+    left: 3%;
+    right: 3%;
     text-align: center;
     margin: 20px 0 0;
 }
@@ -5810,3 +5812,9 @@ p.w3ls_para {
 /*-- //responsive media queries --*/
 
 
+.badge-notify{
+   background:black;
+   position:relative;
+   top: -22px;
+   left: -15px;
+  }
