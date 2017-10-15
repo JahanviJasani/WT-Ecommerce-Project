@@ -1,12 +1,6 @@
 <?php
 include('functions.php');
 ?>
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //for bootstrap working -->
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
+<script src="js/backend.js"></script>
 </head>
 <body>
 <?php
@@ -64,35 +59,33 @@ include('header.php');
         $sql_product = "SELECT * FROM product WHERE product_id='$pid'";
         $productresult = mysqli_query($conn, $sql_product);
         $productrow = mysqli_fetch_assoc($productresult);
-        $sql_cart_product="SELECT * FROM cart WHERE cart.user_id='$uid' AND cart.product_id='$pid';";
-        $sql_cart_product_result=mysqli_query($conn, $sql);
+        $sql_cart_product="SELECT * FROM cart WHERE cart.user_id='$uid' AND cart.product_id='$pid'";
+        $sql_cart_product_result=mysqli_query($conn, $sql_cart_product);
         $sql_cart_product_result_row = mysqli_fetch_assoc($sql_cart_product_result);
         $total = $sql_cart_product_result_row['qty']*$productrow['price'];
-        echo '<script> alert("'.$sql_cart_product_result_row['qty'].'"); </script>';
-    echo '<div class="sc-product">
-          <div class="sc-product-image">
-          <img src="'.$imagerow['image_location'].'" alt="" >
-          </div>
-          <div class="sc-product-details">
-          <div class="sc-product-title"><a href="single.php?pid='.$pid.'">'.$productrow['name'].'</a></div>
-          <p class="sc-product-description">'.$productrow['product_description'].'<br>Do not expose to extreme heat</p>
-          </div>
-          <div class="sc-product-price">'.$productrow['price'].'</div>
-          <div class="sc-product-quantity">
-          <input type="number" value="'.$sql_cart_product_result_row['qty'].'"  
-          onchange="updateQuantity(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
-          </div>
-          <div class="sc-product-removal">
-          <button class="remove-product" onclick="removeItem(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
-          Remove
-          </button>
-          </div>
+        echo '<div class="sc-product">
+              <div class="sc-product-image">
+              <img src="'.$imagerow['image_location'].'" alt="" >
+              </div>
+              <div class="sc-product-details">
+              <div class="sc-product-title"><a href="single.php?pid='.$pid.'">'.$productrow['name'].'</a></div>
+              <p class="sc-product-description">'.$productrow['product_description'].'</p>
+              </div>
+              <div class="sc-product-price">'.$productrow['price'].'</div>
+              <div class="sc-product-quantity">
+              <input type="number" value="'.$sql_cart_product_result_row['qty'].'" onchange="updateQuantity(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
+              </div>
+              <div class="sc-product-removal">
+              <button class="remove-product" onclick="removeItem(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
+              Remove
+              </button>
+              </div>
 
-          <div class="sc-product-line-price">'.$total.'</div>
-          </div>';}
+              <div class="sc-product-line-price">'.$total.'</div>
+              </div>';}
+    }
   }
-}
-  ?>
+?>
 </div>
  <!-- php footer include -->
 <?php

@@ -12,9 +12,9 @@
 				<li><i class="fa fa-money"></i><a href="sellwithus.php">  Sell With Us</a></li>';
 		    } else {
 		    	echo '<li><i class="fa fa-user-circle-o" aria-hidden="true"></i> Welcome, '.$_SESSION['user_name'].'</li>
+	            <li><i class="fa fa-phone" aria-hidden="true"></i><a href="customer_orders.php"> My Account</a></li>
 	            <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
 	            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
-	            <li></li>
             	<li><i class="fa fa-sign-out" aria-hidden="true"></i> <a href="functions.php?logout=true" name="user_logout.php">Logout</a></li>';
 		    }
 			?>
@@ -180,7 +180,7 @@
 							<input type="hidden" name="display" value="1">
 							
 								<button class="w3view-cart" type="button" id="cart"><a href="shopping-cart.php" style="color:black"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></button> 
-								<span id="cart_count">'.$item_count.'</span>
+								<span><span id="cart_count" class="badge badge-notify">'.$item_count.'</span></span>
 							</form>  
 	  
 							</div>

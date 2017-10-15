@@ -102,3 +102,19 @@ function getrange() {
         window.location=window.location.href+"&min="+min+"&max="+max;
     }
 }
+function add_to_cart(pid,user_id)
+{
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            //alert(this.responseText);
+            document.getElementById('cart_count').innerHTML=this.responseText;
+            window.scrollTo(0,0);
+        }
+    };
+    xhttp.open("POST", "add_to_cart.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("product_id="+pid+"&user_id="+user_id);
+
+}
