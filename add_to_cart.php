@@ -18,15 +18,25 @@ echo add_to_cart($conn);
 function add_to_cart($conn){	
 	$product_id = mysqli_real_escape_string($conn, $_POST['product_id']);	
 	$uid = mysqli_real_escape_string($conn,$_POST['user_id']);
+	$quantity = mysqli_real_escape_string($conn,$_POST['qty']);
 	$sql = "SELECT * FROM cart WHERE cart.user_id='$uid' AND cart.product_id='$product_id';";
 	$result=mysqli_query($conn, $sql);
 	$item_count = mysqli_num_rows($result);
 	if($item_count==1)
 	{
-		$row = mysqli_fetch_assoc($result);
-		$qty=$row['qty']+1;
-		$sql="UPDATE cart SET qty='$qty' WHERE user_id='$uid' AND product_id='$product_id'";
-		$result=mysqli_query($conn, $sql);
+		if($quantity==-1)
+		{
+			$row = mysqli_fetch_assoc($result);
+			$qty=$row['qty']+1;
+			$sql="UPDATE cart SET qty='$qty' WHERE user_id='$uid' AND product_id='$product_id'";
+			$result=mysqli_query($conn, $sql);
+		}
+		else
+		{
+			$qty=$quantity;
+			$sql="UPDATE cart SET qty='$qty' WHERE user_id='$uid' AND product_id='$product_id'";
+			$result=mysqli_query($conn, $sql);
+		}
 	}
 	else
 	{

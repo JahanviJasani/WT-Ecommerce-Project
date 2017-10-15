@@ -144,6 +144,7 @@ include('footer.php');
   function updateQuantity(quantityInput,pid,user_id)
   {
   /* Calculate line price */
+  var qty=quantityInput.value;
   var xhttp = new XMLHttpRequest();
     //var url=window.location.href;
     //alert(url + " " + pid + "  "+ user_id);
@@ -154,9 +155,9 @@ include('footer.php');
                 window.scrollTo(0,0);
             }
         };
-      xhttp.open("POST", "add_to_cart.php", true);
+    xhttp.open("POST", "add_to_cart.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("product_id="+pid+"&user_id="+user_id);
+    xhttp.send("product_id="+pid+"&user_id="+user_id+"&qty="+qty);
   var productRow = $(quantityInput).parent().parent();
   var price = parseFloat(productRow.children('.sc-product-price').text());
   var quantity = $(quantityInput).val();
