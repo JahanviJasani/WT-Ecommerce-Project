@@ -98,7 +98,7 @@ _________________________________________________________ -->
                 <div class="col-sm-6">
                 <div class="form-group">
                 <label for="password_old">Old password</label>
-                <input type="password" class="ca-form-controls" id="password_old">
+                <input type="password" class="ca-form-controls" id="password_old" name="password_old">
                 </div>
                 </div>
                 </div>
@@ -106,13 +106,13 @@ _________________________________________________________ -->
                 <div class="col-sm-6">
                 <div class="form-group">
                 <label for="password_1">New password</label>
-                <input type="password" class="ca-form-controls" id="password_1">
+                <input type="password" class="ca-form-controls" id="password_1" name="password_1">
                 </div>
                 </div>
                 <div class="col-sm-6">
                 <div class="form-group">
                 <label for="password_2">Retype new password</label>
-                <input type="password" class="ca-form-controls" id="password_2">
+                <input type="password" class="ca-form-controls" id="password_2" name="password_2">
                 </div>
                 </div>
                 </div>

@@ -67,6 +67,7 @@ include('header.php');
         $sql_cart_product_result=mysqli_query($conn, $sql);
         $sql_cart_product_result_row = mysqli_fetch_assoc($sql_cart_product_result);
         $total = $sql_cart_product_result_row['qty']*$productrow['price'];
+        echo '<script> alert("'.$sql_cart_product_result_row['qty'].'"); </script>';
     echo '<div class="sc-product">
           <div class="sc-product-image">
           <img src="'.$imagerow['image_location'].'" alt="" >
@@ -77,7 +78,7 @@ include('header.php');
           </div>
           <div class="sc-product-price">'.$productrow['price'].'</div>
           <div class="sc-product-quantity">
-          <input type="number" value="'.$sql_cart_product_result_row['qty'].'" min="1" 
+          <input type="number" value="'.$sql_cart_product_result_row['qty'].'"  
           onchange="updateQuantity(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
           </div>
           <div class="sc-product-removal">
