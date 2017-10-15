@@ -4,7 +4,7 @@ include('functions.php');
 <!DOCTYPE html>
 <html>
 <head>
-<title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template |Men's :: w3layouts</title>
+<title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template |Women's</title>
 <!--/tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -35,24 +35,24 @@ include('header.php');
 					<li><input type="checkbox" checked="checked" id="item-0" /><label for="item-0"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Categories</label>
 						<ul>
 								<ul class="sublist">
-									<li><a id="61" href="#" onclick="addURL('Bag','Briefcase',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Briefcase</a></li>
-									<li><a id="62" href="#" onclick="addURL('Bag','Messenger',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Messenger Bags</a></li>
-									<li><a id="63" href="#" onclick="addURL('Bag','Duffel',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Duffel</a></li>
-									<li><a id="64" href="#" onclick="addURL('Bag','Backpacks',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Backpacks</a></li>
-									<li><a id="65" href="#" onclick="addURL('Bag','Casual',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
-									<li><a id="66" href="#" onclick="addURL('Bag','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
+									<li><a id="67" href="#" onclick="addURL('Bag','Crossbody',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Crossbody</a></li>
+									<li><a id="68" href="#" onclick="addURL('Bag','Tote Bags',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Tote Bags</a></li>
+									<li><a id="69" href="#" onclick="addURL('Bag','Clutch',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Clutch</a></li>
+									<li><a id="70" href="#" onclick="addURL('Bag','Satchel',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Satchel</a></li>
+									<li><a id="71" href="#" onclick="addURL('Bag','Casual Bags',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
+									<li><a id="72" href="#" onclick="addURL('Bag','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
 								</ul>
 						</ul>
 					</li><br>
 					<li><input type="checkbox" id="item-1" checked="checked" /><label for="item-1"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> New Arrivals</label>
 						<ul>
 							<ul class="sublist">
-								<li><a id="101" href="#" onclick="addURL('Bag','Briefcase',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Briefcase</a></li>
-								<li><a id="102" href="#" onclick="addURL('Bag','Messenger',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Messenger Bags</a></li>
-								<li><a id="103" href="#" onclick="addURL('Bag','Duffel',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Duffel</a></li>
-								<li><a id="104" href="#" onclick="addURL('Bag','Backpacks',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Backpacks</a></li>
-								<li><a id="105" href="#" onclick="addURL('Bag','Casual',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
-								<li><a id="106" href="#" onclick="addURL('Bag','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
+								<li><a id="107" href="#" onclick="addURL('Bag','Crossbody',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Crossbody</a></li>
+								<li><a id="108" href="#" onclick="addURL('Bag','Tote Bags',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Tote Bags</a></li>
+								<li><a id="109" href="#" onclick="addURL('Bag','Clutch',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Clutch</a></li>
+								<li><a id="110" href="#" onclick="addURL('Bag','Satchel',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Satchel</a></li>
+								<li><a id="111" href="#" onclick="addURL('Bag','Casual Bags',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
+								<li><a id="112" href="#" onclick="addURL('Bag','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
 							</ul>
 						</ul>
 					</li>
@@ -88,7 +88,7 @@ include('header.php');
 			<div class="clearfix"></div>
 		</div>
 		<div class="col-md-9 products-right">
-			<h5>Men's <span>Bags</span></h5>
+			<h5>Women's <span>Bags</span></h5>
 			<div class="sort-grid">
 				<div class="sorting">
 					<h6>Sort By</h6>
@@ -123,8 +123,9 @@ include('header.php');
 					<?php
 					$category=$_GET['category'];
 					$type = $_GET['type'];
-					$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND bags.subcategory='$type' AND product.gender='men'";
+					$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND bags.subcategory='$type' AND product.gender='women'";
 					$res1 = mysqli_query($conn, $sql1);
+					
 					$minprice=0;
 					$maxprice=9999999;
 					if (isset($_GET['range'])) {
@@ -211,7 +212,7 @@ include('header.php');
 												<!-- Item end -->';
 
 											$count++;
-										}	
+										}
 									}
 									if ($count==0) {
 											echo "No Products to display";

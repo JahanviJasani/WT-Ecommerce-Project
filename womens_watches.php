@@ -4,7 +4,7 @@ include('functions.php');
 <!DOCTYPE html>
 <html>
 <head>
-<title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template |Men's :: w3layouts</title>
+<title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template |Women's</title>
 <!--/tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -88,7 +88,7 @@ include('header.php');
 			<div class="clearfix"></div>
 		</div>
 		<div class="col-md-9 products-right">
-			<h5>Men's <span>Bags</span></h5>
+			<h5>Women's <span>Watches</span></h5>
 			<div class="sort-grid">
 				<div class="sorting">
 					<h6>Sort By</h6>
@@ -122,9 +122,11 @@ include('header.php');
 
 					<?php
 					$category=$_GET['category'];
-					$type = $_GET['type'];
-					$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND bags.subcategory='$type' AND product.gender='men'";
+					//$type = $_GET['type'];
+					$sql1="SELECT * FROM product,watches WHERE product.product_id=watches.product_id AND product.category='$category' AND product.gender='women'";
 					$res1 = mysqli_query($conn, $sql1);
+					$count=0;
+
 					$minprice=0;
 					$maxprice=9999999;
 					if (isset($_GET['range'])) {
@@ -156,7 +158,6 @@ include('header.php');
 						}
 					}
 
-					$count=0;
 					if(mysqli_num_rows($res1) == 0) {
 						echo "No Products to display";
 					}
@@ -211,7 +212,7 @@ include('header.php');
 												<!-- Item end -->';
 
 											$count++;
-										}	
+										}
 									}
 									if ($count==0) {
 											echo "No Products to display";

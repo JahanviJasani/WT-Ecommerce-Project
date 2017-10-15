@@ -189,11 +189,11 @@ function profileupdate($conn) {
 			$sql = "UPDATE seller SET account_num='$accno', bank_name='$bankname', ifsc='$ifsc' WHERE seller.user_id='$user'" ;
         	$result2 = mysqli_query($conn, $sql);
         	if($result1 && $result2){
-        		header("Location: http://localhost:8080/EliteShoppy/seller_account.php"); /* Redirect browser */
+        		header("Location: seller_account.php"); /* Redirect browser */
 				exit(); }
         }                
         if($result1){
-        	header("Location: http://localhost:8080/EliteShoppy/customer_account.php"); /* Redirect browser */
+        	header("Location: customer_account.php"); /* Redirect browser */
 			exit();
         }
         else{

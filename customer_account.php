@@ -84,7 +84,7 @@ include('header.php');
         <a href="customer_account.php"><i class="fa fa-user"></i> My account</a>
         </li>
         <li>
-        <a href="index.php"><i class="fa fa-sign-out"></i> Logout</a>
+        <a href="functions.php?logout=true"><i class="fa fa-sign-out"></i> Logout</a>
         </li>
         </ul>
         </div>

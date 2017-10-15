@@ -142,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 
 <?php
-include('header_login.php');
+include('header.php');
 ?>
 
 
