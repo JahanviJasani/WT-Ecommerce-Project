@@ -444,7 +444,7 @@ a.bg-primary:hover {
 /* Apply clearfix in a few places */
 /* Apply dollar signs */
 .sc-product .sc-product-price:before, .sc-product .sc-product-line-price:before, .totals-value:before {
-  content: '$';
+  content: '₹';
 }
 
 .shopping-cart-page {

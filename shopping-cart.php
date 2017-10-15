@@ -58,35 +58,33 @@ include('header.php');
         $sql_product = "SELECT * FROM product WHERE product_id='$pid'";
         $productresult = mysqli_query($conn, $sql_product);
         $productrow = mysqli_fetch_assoc($productresult);
-        $sql_cart_product="SELECT * FROM cart WHERE cart.user_id='$uid' AND cart.product_id='$pid';";
-        $sql_cart_product_result=mysqli_query($conn, $sql);
+        $sql_cart_product="SELECT * FROM cart WHERE cart.user_id='$uid' AND cart.product_id='$pid'";
+        $sql_cart_product_result=mysqli_query($conn, $sql_cart_product);
         $sql_cart_product_result_row = mysqli_fetch_assoc($sql_cart_product_result);
         $total = $sql_cart_product_result_row['qty']*$productrow['price'];
-        echo '<script> alert("'.$sql_cart_product_result_row['qty'].'"); </script>';
-    echo '<div class="sc-product">
-          <div class="sc-product-image">
-          <img src="'.$imagerow['image_location'].'" alt="" >
-          </div>
-          <div class="sc-product-details">
-          <div class="sc-product-title"><a href="single.php?pid='.$pid.'">'.$productrow['name'].'</a></div>
-          <p class="sc-product-description">'.$productrow['product_description'].'<br>Do not expose to extreme heat</p>
-          </div>
-          <div class="sc-product-price">'.$productrow['price'].'</div>
-          <div class="sc-product-quantity">
-          <input type="number" value="'.$sql_cart_product_result_row['qty'].'"  
-          onchange="updateQuantity(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
-          </div>
-          <div class="sc-product-removal">
-          <button class="remove-product" onclick="removeItem(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
-          Remove
-          </button>
-          </div>
+        echo '<div class="sc-product">
+              <div class="sc-product-image">
+              <img src="'.$imagerow['image_location'].'" alt="" >
+              </div>
+              <div class="sc-product-details">
+              <div class="sc-product-title"><a href="single.php?pid='.$pid.'">'.$productrow['name'].'</a></div>
+              <p class="sc-product-description">'.$productrow['product_description'].'</p>
+              </div>
+              <div class="sc-product-price">'.$productrow['price'].'</div>
+              <div class="sc-product-quantity">
+              <input type="number" value="'.$sql_cart_product_result_row['qty'].'" onchange="updateQuantity(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
+              </div>
+              <div class="sc-product-removal">
+              <button class="remove-product" onclick="removeItem(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
+              Remove
+              </button>
+              </div>
 
-          <div class="sc-product-line-price">'.$total.'</div>
-          </div>';}
+              <div class="sc-product-line-price">'.$total.'</div>
+              </div>';}
+    }
   }
-}
-  ?>
+?>
 </div>
  <!-- php footer include -->
 <?php
