@@ -35,24 +35,16 @@ include('header.php');
 					<li><input type="checkbox" checked="checked" id="item-0" /><label for="item-0"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Categories</label>
 						<ul>
 								<ul class="sublist">
-									<li><a id="61" href="#" onclick="addURL('Bag','Briefcase',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Briefcase</a></li>
-									<li><a id="62" href="#" onclick="addURL('Bag','Messenger',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Messenger Bags</a></li>
-									<li><a id="63" href="#" onclick="addURL('Bag','Duffel',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Duffel</a></li>
-									<li><a id="64" href="#" onclick="addURL('Bag','Backpacks',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Backpacks</a></li>
-									<li><a id="65" href="#" onclick="addURL('Bag','Casual',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
-									<li><a id="66" href="#" onclick="addURL('Bag','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
+									<li><a id="117" href="#" onclick="addURL('Watch','Men',id)">Men's</a></li>
+									<li><a id="118" href="#" onclick="addURL('Watch','Women',id)">Women's</a></li>
 								</ul>
 						</ul>
 					</li><br>
 					<li><input type="checkbox" id="item-1" checked="checked" /><label for="item-1"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> New Arrivals</label>
 						<ul>
 							<ul class="sublist">
-								<li><a id="101" href="#" onclick="addURL('Bag','Briefcase',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Briefcase</a></li>
-								<li><a id="102" href="#" onclick="addURL('Bag','Messenger',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Messenger Bags</a></li>
-								<li><a id="103" href="#" onclick="addURL('Bag','Duffel',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Duffel</a></li>
-								<li><a id="104" href="#" onclick="addURL('Bag','Backpacks',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Backpacks</a></li>
-								<li><a id="105" href="#" onclick="addURL('Bag','Casual',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
-								<li><a id="106" href="#" onclick="addURL('Bag','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
+								<li><a id="119" href="#" onclick="addURL('Watch','Men',id)">Men's</a></li>
+								<li><a id="120" href="#" onclick="addURL('Watch','Women',id)">Women's</a></li>
 							</ul>
 						</ul>
 					</li>
@@ -62,6 +54,17 @@ include('header.php');
 				<h4>Refine By </h4>
 				<div class="swit form">
 				<ul class="tree-list-pad">	
+					<li><input type="checkbox" id="item-2" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-3"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Display Type</label>
+						<ul>
+							<ul class="sublist">
+								<li><a id="dt1" href="#" onclick="getdisplaytype(id)"> Analog</a></li>
+								<li><a id="dt2" href="#" onclick="getdisplaytype(id)"> Digital</a></li>
+								<li><a id="dt3" href="#" onclick="getdisplaytype(id)"> Analog-Digital</a></li>
+								<li><a id="dt4" href="#" onclick="getdisplaytype(id)"> Touchscreen</a></li><br>
+								
+							</ul>
+						</ul>
+					</li>
 					<li><input type="checkbox" id="item-2" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-3"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Prices</label>
 						<ul>
 							<ul class="sublist">
@@ -123,7 +126,16 @@ include('header.php');
 					<?php
 					$category=$_GET['category'];
 					//$type = $_GET['type'];
-					$sql1="SELECT * FROM product,watches WHERE product.product_id=watches.product_id AND product.category='$category' AND product.gender='women'";
+					
+
+					if (isset($_GET['displaytype'])) {
+						$display_type = $_GET['displaytype'];
+						$sql1 = "SELECT * FROM product,watches WHERE product.product_id=watches.product_id AND product.category='$category' AND watches.display_type='$display_type' AND product.gender='women'";
+					} else {
+						$sql1 = "SELECT * FROM product,watches WHERE product.product_id=watches.product_id AND product.category='$category' AND product.gender='women'";
+					}
+
+
 					$res1 = mysqli_query($conn, $sql1);
 					$count=0;
 

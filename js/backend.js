@@ -29,10 +29,10 @@ function addURL(category,type,id) {
     if((id>=27 && id<=32) || (id>=67 && id<=72) || (id>=107 && id<=112)) {
         anchor.href="womens_bags.php?category="+category+"&type="+type;
     }
-    if(id==33) {
+    if(id==33 || id==113 || id==115 || id==117 || id==119) {
         anchor.href="mens_watches.php?category="+category+"&type="+type;
     }
-    if(id==34) {
+    if(id==34 || id==114 || id==116 || id==118 || id==120) {
         anchor.href="womens_watches.php?category="+category+"&type="+type;
     }
 }
@@ -102,6 +102,35 @@ function getrange() {
         window.location=window.location.href+"&min="+min+"&max="+max;
     }
 }
+
+function getdisplaytype(id) {
+    console.log("displaytype fnction k andar");
+    var anchor = document.getElementById(id);
+    var url = window.location.href;
+    var displaytype = "";
+    if (id=="dt1") {
+        displaytype = "Analog";
+    } else if (id=="dt2") {
+        displaytype = "Digital";
+    } else if (id=="dt3") {
+        displaytype = "Analog-Digital";
+    } else if (id=="dt4") {
+        displaytype = "Touchscreen";
+    }
+
+    if (url.indexOf('&displaytype=') != -1) {
+        console.log("displaytype if andar");
+        var parameter = gup( 'displaytype' );
+        var newUrl=url.replace(parameter,displaytype);
+        anchor.href=newUrl;
+    } 
+    else {
+        console.log("displaytype else k andar");
+        window.location=window.location.href+"&displaytype="+displaytype;
+    }
+}
+
+
 function add_to_cart(pid,user_id)
 {
     var xhttp = new XMLHttpRequest();
