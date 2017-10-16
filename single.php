@@ -144,6 +144,31 @@ include('header.php');
 							echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Material : &nbsp;&nbsp;</b>'.$bagrow['material'].'</p>';
 						}
 
+					} elseif ($row1['category']=='watch') {
+						$watchsql = "SELECT * FROM watches WHERE watches.product_id='$pid'";
+						$watchresult = mysqli_query($conn, $watchsql);
+						$watchrow = mysqli_fetch_assoc($watchresult);
+						
+						if ($watchrow['stock']==0) {
+							echo '<p style="margin: 0.5em 0 0;color: #B12704;font-size: 1em;line-height: 1.5em; font-weight: 700;">Out of Stock</p>';
+						} elseif ($watchrow['stock']==1) {
+							echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p>';
+						} elseif ($watchrow['stock']==2) {
+							echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 2 left in Stock</p>';
+						} elseif ($watchrow['stock']>2) {
+							echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">In Stock</p>';
+						}
+
+						if ($row1['colour']!=NULL) {
+							echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Colour : &nbsp;&nbsp;</b>'.$row1['colour'].'</p>';
+						}
+						if ($watchrow['case_material']!=NULL) {
+							echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Case Material : &nbsp;&nbsp;</b>'.$watchrow['case_material'].'</p>';
+						}
+						if ($watchrow['band_material']!=NULL) {
+							echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Band Material : &nbsp;&nbsp;</b>'.$watchrow['band_material'].'</p>';
+						}
+
 					}
 					echo '<div class="single-right-left" id="right-box">
 				<div style="border-radius: 4px; border: 1px #ddd solid; background-color: #fff;">
@@ -212,6 +237,20 @@ include('header.php');
 								if ($row1['colour']!=NULL) {
 									echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Colour : &nbsp;&nbsp;</b>'.$row1['colour'].'</p>';
 								}
+							} elseif ($row1['category']=='watch') {
+								if ($watchrow['case_shape']!=NULL) {
+									echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Case Shape : &nbsp;&nbsp;</b>'.$watchrow['case_shape'].'</p>';
+								}
+								if ($watchrow['clasp_type']!=NULL) {
+									echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Clasp Type : &nbsp;&nbsp;</b>'.$watchrow['clasp_type'].'</p>';
+								}
+								if ($watchrow['dial_colour']!=NULL) {
+									echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Dial Colour : &nbsp;&nbsp;</b>'.$watchrow['dial_colour'].'</p>';
+								}
+								if ($watchrow['display_type']!=NULL) {
+									echo '<p style="margin: 0.5em 0 0;color: #545454;font-size: 0.9em;line-height: 1.5em;"><b>Display Type : &nbsp;&nbsp;</b>'.$watchrow['display_type'].'</p>';
+								}
+
 							}
 							echo '</div>
 						</div>

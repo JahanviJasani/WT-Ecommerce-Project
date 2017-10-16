@@ -57,7 +57,7 @@ include('header.php');
 								<li><a id="95" href="#" onclick="addURL('Footwear','Gladiators',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Gladiators</a></li>
 								<li><a id="95" href="#" onclick="addURL('Footwear','Flip Flops',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Flip Flops</a></li>
 								<li><a id="96" href="#" onclick="addURL('Footwear','Wedges',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Wedges</a></li>
-								<li><a id="97" href="#" onclick="addURL('Footwear','S&F',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Stiletto</a></li>
+								<li><a id="97" href="#" onclick="addURL('Footwear','Stiletto',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Stiletto</a></li>
 								<li><a id="98" href="#" onclick="addURL('Footwear','Pumps',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Pumps</a></li>
 								<li><a id="99" href="#" onclick="addURL('Footwear','Loafers',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Loafers</a></li>
 								<li><a id="100" href="#" onclick="addURL('Footwear','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
