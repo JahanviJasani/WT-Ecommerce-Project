@@ -336,3 +336,79 @@
 			</div>
 		</div>
 <!-- //Modal2 -->
+<!-- footwear Size Modal -->
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body modal-body-sub_agile">
+				<div class="col-md-8 modal_body_left modal_body_left1">
+				<?php
+				$user_id = $_SESSION['user_id'];
+				if (isset($_GET['q7wgrzp84d'])) {
+					$pid = $_GET['q7wgrzp84d'];
+					$pNameSQL = "SELECT * FROM product WHERE product.product_id='$pid'";
+					$pNameResult = mysqli_query($conn, $pNameSQL);
+					$pNameRow = mysqli_fetch_assoc($pNameResult);
+				}
+
+				?>
+				<h3 class="agileinfo_sign">Please <span>Select A Size</span></h3>
+					<div class="sizeSelect">
+					<?php
+					if (isset($_GET['q7wgrzp84d'])) {
+						$getSizeSQL = "SELECT * FROM footwear_size WHERE footwear_size.footwear_id IN (SELECT footwear_id FROM footwear WHERE footwear.product_id='$pid')";
+						$getSizeResult = mysqli_query($conn, $getSizeSQL);
+						while ($getSizeRow = mysqli_fetch_assoc($getSizeResult)) {
+							echo '<form action="#" method="GET" style="margin-bottom: 10px; display: inline-block; margin-right: 10px;">
+									<fieldset>
+										<input type="hidden" name="cmd" value="_cart" />
+										<input type="hidden" name="add" value="1" />
+										<input type="hidden" name="business" value=" " />
+										<input type="hidden" name="item_name" value="'.$pNameRow['brand'].' '.$pNameRow['name'].'" />
+										<input type="hidden" name="product_id" value="'.$pNameRow['product_id'].'" />
+										<input type="hidden" name="amount" value="'.$pNameRow['price'].'" />
+										<input type="hidden" name="discount_amount" value="0.00" />
+										<input type="hidden" name="currency_code" value="INR" />
+										<input type="hidden" name="return" value=" " />
+										<input type="hidden" name="cancel_return" value=" " />';
+										if ($getSizeRow['stock']==0) {
+											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\');" disabled />';
+										} elseif ($getSizeRow['stock']>0) {
+											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\');" />';
+										}
+									echo '</fieldset>
+								</form>';
+
+							//echo '<span> Size : '.$getSizeRow["footwear_size"].'</span><br>';
+						}
+					}
+
+					?>
+					  
+													
+					</div>
+				</div>
+				<div class="col-md-4 modal_body_right modal_body_right1">
+							
+						<?php
+							if (isset($_GET['q7wgrzp84d'])) {
+								$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
+								$imageresult = mysqli_query($conn, $imagesql);
+								$imagerow = mysqli_fetch_assoc($imageresult);
+
+								echo '<img src="'.$imagerow['image_location'].'">';
+							}
+
+						?>
+
+						</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- //Modal content-->
+	</div>
+</div>

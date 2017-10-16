@@ -26,8 +26,9 @@ if (isset($_POST['signup_submit'])) {
 	profileupdate($conn);
 } elseif (isset($_POST['changepassword'])) {
 	changepassword($conn);
+} elseif (isset($_GET['add_to_cart_footwear'])) {
+	getFootwearSizes($conn);
 }
-
 
 function usersignup($conn) {
 	if (isset($_POST['signup_submit'])) {
@@ -484,6 +485,15 @@ function addwatch($conn, $gender, $result1) {
     	unlink($select['image_location']); 
 	}
 }
+
+function getFootwearSizes($conn) {
+	$pid = $_GET['pid'];
+	$url = 'Location: index.php?q7wgrzp84d='.$pid;
+	echo $url;
+	header($url);
+}
+
+
 
 
 function addimages($conn,$pid) 
