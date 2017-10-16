@@ -17,9 +17,6 @@
 	            } elseif ($_SESSION['user_type']==1) {
 	            	echo ' <li><i class="fa fa-user" aria-hidden="true"></i><a href="seller_orders.php"> My Account</a></li>';
 	            }
-
-
-	           
 	            echo '<li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
 	            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
             	<li><i class="fa fa-sign-out" aria-hidden="true"></i> <a href="functions.php?logout=true" name="user_logout.php">Logout</a></li>';

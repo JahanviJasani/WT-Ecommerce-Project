@@ -473,6 +473,8 @@ a.bg-primary:hover {
 }
 .sc-product .sc-product-image img {
   width: 100px;
+  height: auto;
+  max-height: 200px;
 }
 .sc-product .sc-product-details .sc-product-title {
   margin-right: 20px;
