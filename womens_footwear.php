@@ -37,9 +37,9 @@ include('header.php');
 								<ul class="sublist">
 									<li><a id="51" href="#" onclick="addURL('Footwear','Canvas',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Canvas Shoes</a></li>
 									<li><a id="52" href="#" onclick="addURL('Footwear','Boots',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Boots</a></li>
-									<li><a id="53" href="#" onclick="addURL('Footwear','Kitten Heels',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Kitten Heels</a></li>
-									<li><a id="55" href="#" onclick="addURL('Footwear','Gladiators',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Gladiators</a></li>
-									<li><a id="55" href="#" onclick="addURL('Footwear','Flip Flops',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Flip Flops</a></li>
+									<li><a id="53" href="#" onclick="addURL('Footwear','Kitten',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Kitten Heels</a></li>
+									<li><a id="54" href="#" onclick="addURL('Footwear','Gladiators',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Gladiators</a></li>
+									<li><a id="55" href="#" onclick="addURL('Footwear','F&F',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Flip Flops</a></li>
 									<li><a id="56" href="#" onclick="addURL('Footwear','Wedges',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Wedges</a></li>
 									<li><a id="57" href="#" onclick="addURL('Footwear','Stiletto',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Stiletto</a></li>
 									<li><a id="58" href="#" onclick="addURL('Footwear','Pumps',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Pumps</a></li>
@@ -53,9 +53,9 @@ include('header.php');
 							<ul class="sublist">
 								<li><a id="91" href="#" onclick="addURL('Footwear','Canvas',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Shoes</a></li>
 								<li><a id="92" href="#" onclick="addURL('Footwear','Boots',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Boots Shoes</a></li>
-								<li><a id="93" href="#" onclick="addURL('Footwear','Kitten Heels',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Kitten Heels</a></li>
-								<li><a id="95" href="#" onclick="addURL('Footwear','Gladiators',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Gladiators</a></li>
-								<li><a id="95" href="#" onclick="addURL('Footwear','Flip Flops',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Flip Flops</a></li>
+								<li><a id="93" href="#" onclick="addURL('Footwear','Kitten',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Kitten Heels</a></li>
+								<li><a id="94" href="#" onclick="addURL('Footwear','Gladiators',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Gladiators</a></li>
+								<li><a id="95" href="#" onclick="addURL('Footwear','F&F',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Flip Flops</a></li>
 								<li><a id="96" href="#" onclick="addURL('Footwear','Wedges',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Wedges</a></li>
 								<li><a id="97" href="#" onclick="addURL('Footwear','Stiletto',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Stiletto</a></li>
 								<li><a id="98" href="#" onclick="addURL('Footwear','Pumps',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Pumps</a></li>

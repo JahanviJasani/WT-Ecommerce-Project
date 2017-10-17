@@ -151,9 +151,9 @@ function register_seller($conn) {
 				$sql="INSERT INTO seller (user_id, account_num, bank_name, ifsc) VALUES ('$uid','$accno','$bankname','$ifsc')";
 				$result4 = mysqli_query($conn, $sql);
 				if ($result2 && $result4) {
-					echo 'Ho gaya';
+					header('Location: sellwithus.php?seller_reg_success=true');
 				} else {
-					echo 'Ohh shit';
+					header('Location: sellwithus.php?seller_reg_fail=true');
 				}
 			} else {
 				//show error for user exists

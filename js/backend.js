@@ -26,7 +26,7 @@ function addURL(category,type,id) {
     if(id>=21 && id<=26 || (id>=61 && id<=66) || (id>=101 && id<=106)) {
         anchor.href="mens_bags.php?category="+category+"&type="+type;
     }
-    if((id>=27 && id<=32) || (id>=67 && id<=72) || (id>=107 && id<=112)) {
+    if((id>=27 && id<=32) || (id>=67 && id<=72) || (id>=107 && id<=112) || (id>=124 && id<=126)) {
         anchor.href="womens_bags.php?category="+category+"&type="+type;
     }
     if(id==33 || id==113 || id==115 || id==117 || id==119) {

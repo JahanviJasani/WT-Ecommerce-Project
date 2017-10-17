@@ -111,7 +111,7 @@ include('header.php');
       <div class="m-t-lg">
         <ul class="list-inline">
           <li>
-            <input name="seller_reg"class="btn btn--form" type="submit" value="Register" />
+            <input name="seller_reg" class="btn btn--form" type="submit" value="Register" />
           </li>
         </ul>
       </div>

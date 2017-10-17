@@ -117,7 +117,7 @@
 											<li><a id="17" href="#" onclick="addURL('Footwear','Stiletto',id)">Stiletto</a></li>
 											<li><a id="18" href="#" onclick="addURL('Footwear','Pumps',id)">Pumps</a></li>
 											<li><a id="19" href="#" onclick="addURL('Footwear','Loafers',id)">Loafers</a></li>
-											<li><a id="20" href="#" onclick="addURL('Footwear','Casual',id)">Others</a></li>
+											<li><a id="20" href="#" onclick="addURL('Footwear','Others',id)">Others</a></li>
 										</ul>
 									</div>
 									<div class="clearfix"></div>
@@ -134,7 +134,7 @@
 											<li><a id="21" href="#" onclick="addURL('Bag','Briefcase',id)">Briefcase</a></li>
 											<li><a id="22" href="#" onclick="addURL('Bag','Messenger',id)">Messenger Bag</a></li>
 											<li><a id="23" href="#" onclick="addURL('Bag','Duffel',id)">Duffel</a></li>
-											<li><a id="24" href="#" onclick="addURL('Bag','Tote',id)">Tote Bags</a></li>
+											<li><a id="24" href="#" onclick="addURL('Bag','Backpacks',id)">Backpacks</a></li>
 											<li><a id="25" href="#" onclick="addURL('Bag','Casual',id)">Casual Bags</a></li>
 											<li><a id="26" href="#" onclick="addURL('Bag','Others',id)">Others</a></li>
 										</ul>
@@ -147,6 +147,7 @@
 											<li><a id="29" href="#" onclick="addURL('Bag','Clutch',id)">Clutch</a></li>
 											<li><a id="30" href="#" onclick="addURL('Bag','Satchel',id)">Satchel</a></li>
 											<li><a id="31" href="#" onclick="addURL('Bag','Casual',id)">Casual Bags</a></li>
+											<li><a id="124" href="#" onclick="addURL('Bag','Backpacks',id)">Backpacks</a></li>
 											<li><a id="32" href="#" onclick="addURL('Bag','Others',id)">Others</a></li>
 										</ul>
 									</div>

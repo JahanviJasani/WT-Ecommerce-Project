@@ -89,24 +89,24 @@ include('header.php');
 						<p><span class="form-name">Sub-category:<span class="required">*</span></p> 
 						<select id="footwear-men" name="footwear-men" style="margin-left: 10px;">
 							<option value="">Select</option>
-							<option value="Casual Shoes">Casual Shoes</option>
+							<option value="Casual">Casual Shoes</option>
 							<option value="Boots">Boots</option>
 							<option value="Sandals">Sandals</option>
 							<option value="Sneakers">Sneakers</option>
-							<option value="Flip Flops">Flip Flops</option>
-							<option value="Athletic Shoes">Athletic Shoes</option>
-							<option value="Running Shoes">Running Shoes</option>
-							<option value="Canvas Shoes">Canvas Shoes</option>
+							<option value="S&F">Flip Flops</option>
+							<option value="Athletic">Athletic Shoes</option>
+							<option value="Running">Running Shoes</option>
+							<option value="Canvas">Canvas Shoes</option>
 							<option value="Loafers">Loafers</option>
 							<option value="Others">Others</option>
 						</select>
 						<select id="footwear-women" name="footwear-women" style="margin-left: 10px;">
 							<option value="">Select</option>
-							<option value="Canvas Shoes">Canvas Shoes</option>
+							<option value="Canvas">Canvas Shoes</option>
 							<option value="Boots">Boots</option>
-							<option value="Kitten Heels">Kitten Heels</option>
+							<option value="Kitten">Kitten Heels</option>
 							<option value="Gladiators">Gladiators</option>
-							<option value="Flip Flops">Flip Flops</option>
+							<option value="F&F">Flip Flops</option>
 							<option value="Wedges">Wedges</option>
 							<option value="Stiletto">Stiletto</option>
 							<option value="Pumps">Pumps</option>
@@ -192,19 +192,19 @@ include('header.php');
 						<select id="bag-men" name="bag-men">
 							<option value="">Select</option>
 							<option value="Briefcase">Briefcase</option>
-							<option value="Messenger Bags">Messenger</option>
+							<option value="Messenger">Messenger</option>
 							<option value="Duffel">Duffel</option>
 							<option value="Backpacks">Backpacks</option>
-							<option value="Casual Bags">Casual</option>
+							<option value="Casual">Casual</option>
 							<option value="Others">Others</option>
 						</select>
 						<select id="bag-women" name="bag-women">
 							<option value="">Select</option>
 							<option value="Crossbody">Crossbody</option>
-							<option value="Tote Bags">Tote</option>
+							<option value="Tote">Tote</option>
 							<option value="Clutch">Clutch</option>
 							<option value="Satchel">Satchel</option>
-							<option value="Casual Bags">Casual</option>
+							<option value="Casual">Casual</option>
 							<option value="Backpacks">Backpacks</option>
 							<option value="Others">Others</option>
 						</select>

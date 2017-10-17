@@ -846,6 +846,13 @@ if (isset($_GET['signupuserexists'])) {
 } elseif (isset($_GET['loginerror'])) {
 	echo '<script>alert("Email-id or password do not match. Please try again.")</script>';
 }
+
+if (isset($_GET['seller_reg_success'])) {
+	echo "<script>alert('Seller registration success. Please login to continue.')</script>";
+} elseif (isset($_GET['seller_reg_fail'])) {
+	echo "<script>alert('Seller registration failed. Please try again.')</script>";
+}
+
 ?>
 <?php
 if (isset($_GET['signup'])) {

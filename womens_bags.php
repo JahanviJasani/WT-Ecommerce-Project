@@ -36,10 +36,11 @@ include('header.php');
 						<ul>
 								<ul class="sublist">
 									<li><a id="67" href="#" onclick="addURL('Bag','Crossbody',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Crossbody</a></li>
-									<li><a id="68" href="#" onclick="addURL('Bag','Tote Bags',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Tote Bags</a></li>
+									<li><a id="68" href="#" onclick="addURL('Bag','Tote',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Tote Bags</a></li>
 									<li><a id="69" href="#" onclick="addURL('Bag','Clutch',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Clutch</a></li>
 									<li><a id="70" href="#" onclick="addURL('Bag','Satchel',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Satchel</a></li>
-									<li><a id="71" href="#" onclick="addURL('Bag','Casual Bags',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
+									<li><a id="71" href="#" onclick="addURL('Bag','Casual',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
+									<li><a id="125" href="#" onclick="addURL('Bag','Backpacks',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Backpacks</a></li>
 									<li><a id="72" href="#" onclick="addURL('Bag','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
 								</ul>
 						</ul>
@@ -48,10 +49,11 @@ include('header.php');
 						<ul>
 							<ul class="sublist">
 								<li><a id="107" href="#" onclick="addURL('Bag','Crossbody',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Crossbody</a></li>
-								<li><a id="108" href="#" onclick="addURL('Bag','Tote Bags',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Tote Bags</a></li>
+								<li><a id="108" href="#" onclick="addURL('Bag','Tote',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Tote Bags</a></li>
 								<li><a id="109" href="#" onclick="addURL('Bag','Clutch',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Clutch</a></li>
 								<li><a id="110" href="#" onclick="addURL('Bag','Satchel',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Satchel</a></li>
-								<li><a id="111" href="#" onclick="addURL('Bag','Casual Bags',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
+								<li><a id="111" href="#" onclick="addURL('Bag','Casual',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
+								<li><a id="126" href="#" onclick="addURL('Bag','Backpacks',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Backpacks</a></li>
 								<li><a id="112" href="#" onclick="addURL('Bag','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
 							</ul>
 						</ul>
