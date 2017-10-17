@@ -351,8 +351,47 @@ function addfootwear($conn, $gender, $result1) {
 	elseif($gender=='women') {
 		// echo "inside women wala footwear";
 		$sub_category=$_POST['footwear-women'];
-		$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sub_category')";
-		$result2=mysqli_query($conn, $sql);
+		if($sub_category=="Canvas Shoes") {
+			$sc="Canvas";
+			$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sc')";
+			$result2=mysqli_query($conn, $sql);
+		} elseif($sub_category=="Boots") {
+			$sc="Boots";
+			$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sc')";
+			$result2=mysqli_query($conn, $sql);
+		} elseif($sub_category=="Kitten Heels") {
+			$sc="Kitten";
+			$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sc')";
+			$result2=mysqli_query($conn, $sql);
+		} elseif($sub_category=="Gladiators") {
+			$sc="Gladiators";
+			$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sc')";
+			$result2=mysqli_query($conn, $sql);
+		} elseif($sub_category=="Flip Flops") {
+			$sc="F&F";
+			$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sc')";
+			$result2=mysqli_query($conn, $sql);
+		} elseif($sub_category=="Wedges") {
+			$sc="Wedges";
+			$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sc')";
+			$result2=mysqli_query($conn, $sql);
+		} elseif($sub_category=="Stiletto") {
+			$sc="Stiletto";
+			$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sc')";
+			$result2=mysqli_query($conn, $sql);
+		} elseif($sub_category=="Pumps") {
+			$sc="Pumps";
+			$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sc')";
+			$result2=mysqli_query($conn, $sql);
+		} elseif($sub_category=="Loafers") {
+			$sc="Loafers";
+			$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sc')";
+			$result2=mysqli_query($conn, $sql);
+		} elseif($sub_category=="Others") {
+			$sc="Others";
+			$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sc')";
+			$result2=mysqli_query($conn, $sql);
+		}
 		$sql="SELECT * FROM footwear WHERE product_id=$pid";
 		$row=mysqli_fetch_assoc(mysqli_query($conn, $sql));
 		$fid=$row['footwear_id'];
