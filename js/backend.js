@@ -103,32 +103,6 @@ function getrange() {
     }
 }
 
-function getdisplaytype(id) {
-    console.log("displaytype fnction k andar");
-    var anchor = document.getElementById(id);
-    var url = window.location.href;
-    var displaytype = "";
-    if (id=="dt1") {
-        displaytype = "Analog";
-    } else if (id=="dt2") {
-        displaytype = "Digital";
-    } else if (id=="dt3") {
-        displaytype = "Analog-Digital";
-    } else if (id=="dt4") {
-        displaytype = "Touchscreen";
-    }
-
-    if (url.indexOf('&displaytype=') != -1) {
-        console.log("displaytype if andar");
-        var parameter = gup( 'displaytype' );
-        var newUrl=url.replace(parameter,displaytype);
-        anchor.href=newUrl;
-    } 
-    else {
-        console.log("displaytype else k andar");
-        window.location=window.location.href+"&displaytype="+displaytype;
-    }
-}
 function remove_queryString() {
     var url = window.location.href; 
     if(url.indexOf("?") != -1)
@@ -150,4 +124,65 @@ function add_to_cart(pid,user_id)
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("product_id="+pid+"&user_id="+user_id+"&qty="+qty);
 
+}
+
+function getdisplaytype(id) {
+    console.log("displaytype fnction k andar");
+    var anchor = document.getElementById(id);
+    var url = window.location.href;
+    var displaytype = "";
+    if (id=="dt1") {
+        displaytype = "Analog";
+    } else if (id=="dt2") {
+        displaytype = "Digital";
+    } else if (id=="dt3") {
+        displaytype = "Analog-Digital";
+    } else if (id=="dt4") {
+        displaytype = "Touchscreen";
+    }
+
+    if (url.indexOf('&displaytype=') != -1) {
+        console.log("displaytype if andar");
+        var parameter = gup( 'displaytype' );
+        console.log(parameter);
+        var newUrl=url.replace(parameter,displaytype);
+        console.log(newUrl);
+        anchor.href=newUrl;
+    } 
+    else {
+        console.log("displaytype else k andar");
+        window.location=window.location.href+"&displaytype="+displaytype;
+    }
+}
+
+function change_sort_order(id) {
+    console.log("change order fnction k andar");
+    var anchor = document.getElementById(id);
+    var url = window.location.href;
+    var sortorder = "";
+    if (anchor.value=="default") {
+        sortorder = "default";
+    } else if (anchor.value=="name_asc") {
+        sortorder = "name_asc";
+    } else if (anchor.value=="name_desc") {
+        sortorder = "name_desc";
+    } else if (anchor.value=="price_asc") {
+        sortorder = "price_asc";
+    } else if (anchor.value=="price_desc") {
+        sortorder = "price_desc";
+    }
+
+    if (url.indexOf('&sortorder=') != -1) {
+        console.log("sortorder if andar");
+        var parameter = gup( 'sortorder' );
+        console.log(parameter);
+        console.log(url);
+        var newUrl=url.replace(parameter,sortorder);
+        console.log(newUrl);
+        window.location=newUrl;
+    } 
+    else {
+        console.log("sortorder else k andar");
+        window.location=window.location.href+"&sortorder="+sortorder;
+    }
 }

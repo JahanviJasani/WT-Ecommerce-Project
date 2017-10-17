@@ -134,14 +134,16 @@ include('header.php');
 			<div class="sort-grid">
 				<div class="sorting">
 					<h6>Sort By</h6>
-					<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-						<option value="null">Default</option>
-						<option value="null">Name(A - Z)</option> 
-						<option value="null">Name(Z - A)</option>
-						<option value="null">Price(High - Low)</option>
-						<option value="null">Price(Low - High)</option>	
-						<option value="null">Model(A - Z)</option>
-						<option value="null">Model(Z - A)</option>					
+					<select id="order" onchange="change_sort_order(id)" class="frm-field required sect">
+						<?php
+
+						echo '<option value="default"'; if (!isset($_GET['sortorder'])) {echo 'selected';} echo '>Default</option>
+						<option value="name_asc"'; if (isset($_GET['sortorder']) && $_GET['sortorder']=="name_asc") { echo 'selected';} echo '>Name(A - Z)</option> 
+						<option value="name_desc"';  if (isset($_GET['sortorder']) && $_GET['sortorder']=="name_desc") { echo 'selected';} echo '>Name(Z - A)</option>
+						<option value="price_desc"';  if (isset($_GET['sortorder']) && $_GET['sortorder']=="price_desc") { echo 'selected';} echo '>Price(High - Low)</option>
+						<option value="price_asc"';  if (isset($_GET['sortorder']) && $_GET['sortorder']=="price_asc") { echo 'selected';} echo '>Price(Low - High)</option>';
+
+						?>
 					</select>
 					<div class="clearfix"></div>
 				</div>
@@ -165,11 +167,29 @@ include('header.php');
 					<?php
 					$category=$_GET['category'];
 					$type = $_GET['type'];
+
+					$sortby = "ORDER BY product.product_id DESC";
+
+					if (isset($_GET['sortorder'])) {
+						$order = $_GET['sortorder'];
+						if ($order=="default") {
+							$sortby = "ORDER BY product.product_id DESC";
+						} elseif ($order=="name_asc") {
+							$sortby = "ORDER BY product.name ASC";
+						} elseif ($order=="name_desc") {
+							$sortby = "ORDER BY product.name DESC";
+						} elseif ($order=="price_asc") {
+							$sortby = "ORDER BY product.price ASC";
+						} elseif ($order=="price_desc") {
+							$sortby = "ORDER BY product.price DESC";
+						}
+					}
+
 					if (isset($_GET['size'])) {
 						$size = $_GET['size'];
-						$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='men' AND product.product_id IN (SELECT product_id FROM footwear WHERE footwear.footwear_id IN (SELECT footwear_id FROM footwear_size WHERE footwear_size.footwear_size LIKE '$size' AND footwear_size.stock>0))";
+						$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='men' AND product.product_id IN (SELECT product_id FROM footwear WHERE footwear.footwear_id IN (SELECT footwear_id FROM footwear_size WHERE footwear_size.footwear_size LIKE '$size' AND footwear_size.stock>0))"." ".$sortby;
 					} else {
-						$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='men'";
+						$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='men'"." ".$sortby;
 					}
 
 					$minprice=0;

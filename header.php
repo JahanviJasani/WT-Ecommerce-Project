@@ -429,7 +429,7 @@
 					<?php
 						if (isset($_GET['seller_reg_success'])) {
 							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Seller Registration<span> Successful</span></h3><hr style="border-color: #ccc;">
-								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; color: #2fdab8; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a><span> to continue</span></h3>';
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a><span> to continue</span></h3>';
 						} elseif (isset($_GET['seller_reg_fail'])) {
 							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Seller Registration<span> Failed</span></h3><hr style="border-color: #2fdab8;">
 								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;">Please<span> Try Again</span></h3>';
@@ -464,10 +464,10 @@
 					<?php
 						if (isset($_GET['customer_reg_success'])) {
 							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Customer Registration<span> Successful</span></h3><hr style="border-color: #2fdab8;">
-								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; color: #2fdab8; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a><span> to continue</span></h3>';
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a><span> to continue</span></h3>';
 						} elseif (isset($_GET['customer_reg_fail'])) {
 							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Customer Registration<span> Failed</span></h3><hr style="border-color: #2fdab8;">
-								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; color: #2fdab8; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal2" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Click Here </a><span> To Try Again</span></h3>';
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal2" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Click Here </a><span> To Try Again</span></h3>';
 						} elseif (isset($_GET['userexists'])) {
 							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Customer Registration<span> Failed</span></h3><hr style="border-color: #2fdab8;">
 								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;">Email id<span> is already registered with us.</span></h3>';
@@ -498,10 +498,10 @@
 					<?php
 						if (isset($_GET['user_not_found'])) {
 							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Email id<span> not recognized</span></h3><hr style="border-color: #2fdab8;">
-								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; color: #2fdab8; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal2" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Click here </a><span> to sign up</span></h3>';
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal2" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Click here </a><span> to sign up</span></h3>';
 						} elseif (isset($_GET['login_error'])) {
 							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Incorrect<span> Email or Password</span></h3><hr style="border-color: #2fdab8;">
-								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; color: #2fdab8; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Click here </a><span> to try again</span></h3>';
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Click here </a><span> to try again</span></h3>';
 						}
 					?>
 					<div class="clearfix"></div>

@@ -95,14 +95,16 @@ include('header.php');
 			<div class="sort-grid">
 				<div class="sorting">
 					<h6>Sort By</h6>
-					<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-						<option value="null">Default</option>
-						<option value="null">Name(A - Z)</option> 
-						<option value="null">Name(Z - A)</option>
-						<option value="null">Price(High - Low)</option>
-						<option value="null">Price(Low - High)</option>	
-						<option value="null">Model(A - Z)</option>
-						<option value="null">Model(Z - A)</option>					
+					<select id="order" onchange="change_sort_order(id)" class="frm-field required sect">
+						<?php
+
+						echo '<option value="default"'; if (!isset($_GET['sortorder'])) {echo 'selected';} echo '>Default</option>
+						<option value="name_asc"'; if (isset($_GET['sortorder']) && $_GET['sortorder']=="name_asc") { echo 'selected';} echo '>Name(A - Z)</option> 
+						<option value="name_desc"';  if (isset($_GET['sortorder']) && $_GET['sortorder']=="name_desc") { echo 'selected';} echo '>Name(Z - A)</option>
+						<option value="price_desc"';  if (isset($_GET['sortorder']) && $_GET['sortorder']=="price_desc") { echo 'selected';} echo '>Price(High - Low)</option>
+						<option value="price_asc"';  if (isset($_GET['sortorder']) && $_GET['sortorder']=="price_asc") { echo 'selected';} echo '>Price(Low - High)</option>';
+
+						?>
 					</select>
 					<div class="clearfix"></div>
 				</div>
@@ -126,13 +128,29 @@ include('header.php');
 					<?php
 					$category=$_GET['category'];
 					//$type = $_GET['type'];
-					
+
+					$sortby = "ORDER BY product.product_id DESC";
+
+					if (isset($_GET['sortorder'])) {
+						$order = $_GET['sortorder'];
+						if ($order=="default") {
+							$sortby = "ORDER BY product.product_id DESC";
+						} elseif ($order=="name_asc") {
+							$sortby = "ORDER BY product.name ASC";
+						} elseif ($order=="name_desc") {
+							$sortby = "ORDER BY product.name DESC";
+						} elseif ($order=="price_asc") {
+							$sortby = "ORDER BY product.price ASC";
+						} elseif ($order=="price_desc") {
+							$sortby = "ORDER BY product.price DESC";
+						}
+					}
 
 					if (isset($_GET['displaytype'])) {
 						$display_type = $_GET['displaytype'];
-						$sql1 = "SELECT * FROM product,watches WHERE product.product_id=watches.product_id AND product.category='$category' AND watches.display_type='$display_type' AND product.gender='women'";
+						$sql1 = "SELECT * FROM product,watches WHERE product.product_id=watches.product_id AND product.category='$category' AND watches.display_type='$display_type' AND product.gender='women'"." ".$sortby;
 					} else {
-						$sql1 = "SELECT * FROM product,watches WHERE product.product_id=watches.product_id AND product.category='$category' AND product.gender='women'";
+						$sql1 = "SELECT * FROM product,watches WHERE product.product_id=watches.product_id AND product.category='$category' AND product.gender='women'"." ".$sortby;
 					}
 
 
