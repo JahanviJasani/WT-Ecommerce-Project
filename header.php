@@ -345,7 +345,7 @@
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
 			<div class="modal-body modal-body-sub_agile">
-				<div class="col-md-8 modal_body_left modal_body_left1">
+				<div style="padding-left: 1em;" class="col-md-8 modal_body_left modal_body_left1">
 				<?php
 				$user_id = $_SESSION['user_id'];
 				if (isset($_GET['q7wgrzp84d'])) {
@@ -354,10 +354,12 @@
 					$pNameResult = mysqli_query($conn, $pNameSQL);
 					$pNameRow = mysqli_fetch_assoc($pNameResult);
 				}
-
+				echo'<h3 style="margin-bottom: 1.3em;" class="agileinfo_sign">Please <span>Select A Size</span></h3><hr style="margin:0px;">
+				<h4 style="text-transform: capitalize; font-size: 18px; color: #2fdab8; letter-spacing: 1px; font-weight: 600;">'.$pNameRow['name'].'</h4>
+				<p style="color: #000; font-size: 16px; margin: .5em 0;"><span class="item_price"><span style="font-family:Arial;">&#8377;</span>'.$pNameRow['price'].'</span></p><hr style="-webkit-margin-before: 0.5em; -webkit-margin-after: 0.5em;">';
 				?>
-				<h3 class="agileinfo_sign">Please <span>Select A Size</span></h3>
 					<div class="sizeSelect">
+					<h4 style="color: #000; font-size: 16px; font-weight: 600;"><span class="item_price"><span style="font-family:Arial;">Size</h4>
 					<?php
 					if (isset($_GET['q7wgrzp84d'])) {
 						$getSizeSQL = "SELECT * FROM footwear_size WHERE footwear_size.footwear_id IN (SELECT footwear_id FROM footwear WHERE footwear.product_id='$pid')";
@@ -382,17 +384,15 @@
 										}
 									echo '</fieldset>
 								</form>';
-
 							//echo '<span> Size : '.$getSizeRow["footwear_size"].'</span><br>';
 						}
 					}
-
 					?>
-					  
-													
 					</div>
 				</div>
-				<div class="col-md-4 modal_body_right modal_body_right1">
+				<div class="col-md-4 modal_body_right modal_body_right1" style="
+    border-right: 1px solid #d1cfcf;
+    border-top: 1px solid #d1cfcf;">
 							
 						<?php
 							if (isset($_GET['q7wgrzp84d'])) {
@@ -400,13 +400,13 @@
 								$imageresult = mysqli_query($conn, $imagesql);
 								$imagerow = mysqli_fetch_assoc($imageresult);
 
-								echo '<img src="'.$imagerow['image_location'].'">';
+								echo '<img style="margin-top:0px; " src="'.$imagerow['image_location'].'">';
 							}
 
 						?>
 
 						</div>
-				<div class="clearfix"></div>
+				<div style="border: 1px solid #d1cfcf;" class="clearfix"></div>
 			</div>
 		</div>
 		<!-- //Modal content-->
