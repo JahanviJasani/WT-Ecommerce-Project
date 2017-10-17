@@ -342,7 +342,7 @@
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<button type="button" class="close" data-dismiss="modal" onclick="remove_queryString()">&times;</button>
 			</div>
 			<div class="modal-body modal-body-sub_agile">
 				<div style="padding-left: 1em;" class="col-md-8 modal_body_left modal_body_left1">

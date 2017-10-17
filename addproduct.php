@@ -62,7 +62,7 @@ include('header.php');
 		<div class="container">
 			<div class="box">
 				<p class="lead">Add a New Product</p><hr>
-
+				<button style="float: right;padding-left: 15px;padding-right: 15px; margin-top: -4.7em; margin-right: 0.5em;" class="btn btn-primary" onclick="prevpage()">Back</button><br>
 				
 				<form id="select-category-form">
 					<div class="dropdown-group">

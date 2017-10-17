@@ -101,7 +101,7 @@ include('header.php');
                     <div class="col-md-10" id="customer-orders">
                     <div class="box" id="hidediv">
                         <p class="lead">Your Product List</p><hr>
-                        <p>Want to add a new product to your lineup?</p> <button style="float: right;padding-left: 15px;padding-right: 15px; margin-top: -1.7em;" class="btn btn-primary">Add</button><br><hr>
+                        <p>Want to add a new product to your lineup?</p> <button style="float: right;padding-left: 15px;padding-right: 15px; margin-top: -1.7em;" class="btn btn-primary" onclick="additems()">Add</button><br><hr>
                         <p>Want to delete any existing product?</p><button style="float: right;padding-left: 15px;padding-right: 15px; margin-top: -1.7em;" class="btn btn-primary" onclick="deleteitems()">Delete</button><br>
                     </div>
             <div class="box">

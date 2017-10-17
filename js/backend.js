@@ -129,8 +129,12 @@ function getdisplaytype(id) {
         window.location=window.location.href+"&displaytype="+displaytype;
     }
 }
-
-
+function remove_queryString() {
+    var url = window.location.href; 
+    if(url.indexOf("?") != -1)
+        url = url.split("?")[0];
+    window.location=url;
+}
 function add_to_cart(pid,user_id)
 {
     var xhttp = new XMLHttpRequest();
