@@ -28,6 +28,8 @@ if (isset($_POST['signup_submit'])) {
 	changepassword($conn);
 } elseif (isset($_GET['add_to_cart_footwear'])) {
 	getFootwearSizes($conn);
+} elseif (isset($_POST['address_submit'])) {
+	updateAddressDetails($conn);
 }
 
 function usersignup($conn) {
@@ -646,4 +648,26 @@ function addimages($conn,$pid)
 			}
 		}
 	}*/
+}
+
+function updateAddressDetails($conn)
+{
+	$fname=mysqli_real_escape_string($conn, $_POST['firstname']);
+	$lname=mysqli_real_escape_string($conn, $_POST['lastname']);
+	$email=mysqli_real_escape_string($conn, $_POST['email']);
+	$mobile=mysqli_real_escape_string($conn, $_POST['phone']);
+	$address = mysqli_real_escape_string($conn,$_POST['address']);
+	$zip = mysqli_real_escape_string($conn,$_POST['zip']);
+	$city = mysqli_real_escape_string($conn,$_POST['city']);
+	$state = mysqli_real_escape_string($conn,$_POST['state']);
+	$user = $_SESSION['user_id'];
+    $sql = "UPDATE users SET first_name='$fname', last_name='$lname', email='$email', mobile='$mobile', address='$address', zip='$zip', city='$city', state='$state' WHERE users.user_id='$user'";
+    $result1 = mysqli_query($conn, $sql);
+    if($result1){
+        	header("Location: checkout2.php"); /* Redirect browser */
+			exit();
+        }
+        else{
+        	echo "Failed";
+        }
 }

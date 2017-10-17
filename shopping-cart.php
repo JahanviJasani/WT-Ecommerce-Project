@@ -86,6 +86,10 @@ include('header.php');
     }
   }
 ?>
+<div class="pull-right">
+<a href="checkout1.php" class="btn btn-primary">Proceed to Checkout <i class="fa fa-chevron-right"></i>
+</a>
+</div>
 </div>
  <!-- php footer include -->
 <?php

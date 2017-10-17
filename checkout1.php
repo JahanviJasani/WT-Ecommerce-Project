@@ -1,6 +1,10 @@
 <?php
+header('Access-Control-Allow-Origin: *'); 
+?>
+<?php
 include('functions.php');
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +52,7 @@ include('header.php');
     <div class="container">
         <div class="col-md-9">
             <div class="box">
-                <form method="post" action="checkout2.php">
+                <form method="post" action="functions.php">
                     <ul class="nav nav-pills nav-justified">
                         <li class="active"><a href="#"><i class="fa fa-map-marker"></i>     Address</a>
                         </li>
@@ -57,83 +61,84 @@ include('header.php');
                         <li class="disabled"><a href="#"><i class="fa fa-money"></i>    Payment Method</a>
                         </li>
                     </ul>
+                    <?php 
+                        $uid=$_SESSION['user_id'];
+                        $sql_user = "SELECT * FROM users WHERE users.user_id='$uid'";
+                        $sql_result = mysqli_query($conn, $sql_user);
+                        $user_row = mysqli_fetch_assoc($sql_result);
+                        $sql = "SELECT * FROM cart WHERE cart.user_id='$uid'";
+
+                    echo '
                     <div style="margin-top: 2em;">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <labe1 for="firstname">Firstname</label1>
-                                    <input type="text" class="form-control1" id="firstname">
-                                </div>
-                            </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                            <label1 for="lastname">Lastname</label1>
-                            <input type="text" class="form-control1" id="lastname">
-                            </div>
-                        </div>
-                        </div>
-                    <!-- /.row -->
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label1 for="company">Company</label1>
-                                    <input type="text" class="form-control1" id="company">
+                                    <labe1 for="firstname">First Name</label1>
+                                    <input type="text" class="form-control1" id="firstname" name="firstname" value="'.$user_row['first_name'].'" required="required">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label1 for="street">Street</label1>
-                                    <input type="text" class="form-control1" id="street">
+                                    <label1 for="lastname">Last Name</label1>
+                                    <input type="text" class="form-control1" id="lastname" name="lastname" value="'.$user_row['last_name'].'" required="required">
                                 </div>
                             </div>
                         </div>
                     <!-- /.row -->
                         <div class="row">
-                            <div class="col-sm-6 col-md-3">
+                            <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label1 for="city">Company</label1>
-                                    <input type="text" class="form-control1" id="city">
+                                    <label1 for="address">Address</label1>
+                                    <input type="text" class="form-control1" id="address" name="address" value="'.$user_row['address'].'" required="required">
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-3">
+                            
+                        </div>
+                    <!-- /.row -->
+                        <div class="row">
+                            <div class="col-sm-6 col-md-4">
                                 <div class="form-group">
                                     <label1 for="zip">ZIP</label1>
-                                    <input type="text" class="form-control1" id="zip">
+                                    <input type="text" class="form-control1" id="zip" name="zip" value="'.$user_row['zip'].'"required="required" onkeyup="apicaller();" minlength="6" maxlength="6">
+                                </div>
+                            </div>';
+                            //$json = file_get_contents('http://postalpincode.in/api/pincode/');
+                            echo '<div class="col-sm-6 col-md-4">
+                                <div class="form-group">
+                                    <label1 for="city">City</label1>
+                                    <input type="text" class="form-control1" id="city" name="city" value="'.$user_row['city'].'" required="required" readonly>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-3">
+                            
+                            <div class="col-sm-6 col-md-4">
                                 <div class="form-group">
                                     <label1 for="state">State</label1>
-                                    <select class="form-control1" id="state"></select>
+                                    <input type="text" class="form-control1" id="state" name="state" value="'.$user_row['state'].'" required="required" readonly>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-3">
-                                <div class="form-group">
-                                    <label1 for="country">Country</label1>
-                                    <select class="form-control1" id="country"></select>
-                                </div>
-                            </div>
+                            
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label1 for="phone">Telephone</label1>
-                                    <input type="text" class="form-control1" id="phone">
+                                    <input type="text" class="form-control1" id="phone" name="phone" value="'.$user_row['mobile'].'" required="required" > 
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                     <div class="form-group">
                                         <label1 for="email">Email</label1>
-                                        <input type="text" class="form-control1" id="email">
+                                        <input type="text" class="form-control1" id="email" name="email" value="'.$user_row['email'].'" required="required" >
                                     </div>
                             </div>
                         </div>
                     <!-- /.row -->
-                    </div>
+                    </div>';
+                     ?>
                     <div class="box-footer">
                         <div class="pull-left">
                             <a href="index.php" class="btn btn-default"><i class="fa fa-chevron-left"></i>Continue shopping</a>
                         </div>
                         <div class="pull-right">
-                            <button type="submit" class="btn btn-primary">Continue to Delivery Method<i class="fa fa-chevron-right"></i>
+                            <button type="submit" name="address_submit" class="btn btn-primary">Continue to Delivery Method<i class="fa fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
@@ -259,7 +264,54 @@ include('header.php');
     </script>
 <!-- //here ends scrolling icon -->
 
-
+<script type="text/javascript">
+    function pincode_api()
+    {
+        var xhttp = new XMLHttpRequest();
+        var pincode = document.getElementById('zip').value;
+               xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+            //document.getElementById('cart_count').innerHTML=this.responseText;
+            //window.scrollTo(0,0);
+        }
+    };
+    var url = 'http://postalpincode.in/api/pincode/'+ pincode;
+    xhttp.open("GET", url, true);
+    xhttp.send();
+    }
+</script>
+<script type="text/javascript">
+  function apicaller() {
+     var xhttp = new XMLHttpRequest();
+    var pin = document.getElementById('zip').value;
+    if(pin.length == 6){
+          var city = document.getElementById('city');
+          var state = document.getElementById('state');
+          //var country = document.getElementById('country');
+          xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+              var res = xhttp.responseText;
+              var response = JSON.parse(xhttp.responseText);
+              city.value = response['PostOffice'][0]['Region'];
+              state.value = response['PostOffice'][0]['State'];
+              //country.value = response['PostOffice'][0]['Country'];
+            }
+        };
+        xhttp.open("POST", "pincode.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("pincode="+pin);
+    }
+    else if(pin.length<6){
+      var city = document.getElementById('city');
+          var state = document.getElementById('state');
+          //var country = document.getElementById('country')
+          city.value = '';
+          state.value = '';
+          //country.value = '';
+    }
+}
+</script>
 <!-- for bootstrap working -->
 <script type="text/javascript" src="js/bootstrap.js"></script>
 
