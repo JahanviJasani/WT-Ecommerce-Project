@@ -112,8 +112,8 @@
 											<li><a id="12" href="#" onclick="addURL('Footwear','Boots',id)">Boots</a></li>
 											<li><a id="13" href="#" onclick="addURL('Footwear','Kitten',id)">Kitten Heels</a></li>
 											<li><a id="14" href="#" onclick="addURL('Footwear','Gladiators',id)">Gladiators</a></li>
-											<li><a id="15" href="#" onclick="addURL('Footwear','Wedges',id)">Wedges</a></li>
-											<li><a id="16" href="#" onclick="addURL('Footwear','F&F',id)">Flip Flops</a></li>
+											<li><a id="15" href="#" onclick="addURL('Footwear','FlipFlops',id)">Flip Flops</a></li>
+											<li><a id="16" href="#" onclick="addURL('Footwear','Wedges',id)">Wedges</a></li>
 											<li><a id="17" href="#" onclick="addURL('Footwear','Stiletto',id)">Stiletto</a></li>
 											<li><a id="18" href="#" onclick="addURL('Footwear','Pumps',id)">Pumps</a></li>
 											<li><a id="19" href="#" onclick="addURL('Footwear','Loafers',id)">Loafers</a></li>
@@ -381,7 +381,7 @@
 										if ($getSizeRow['stock']==0) {
 											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\');" disabled />';
 										} elseif ($getSizeRow['stock']>0) {
-											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\');" />';
+											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\'); remove_queryString();" />';
 										}
 									echo '</fieldset>
 								</form>';

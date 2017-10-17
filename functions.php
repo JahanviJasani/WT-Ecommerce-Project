@@ -368,7 +368,7 @@ function addfootwear($conn, $gender, $result1) {
 			$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sc')";
 			$result2=mysqli_query($conn, $sql);
 		} elseif($sub_category=="Flip Flops") {
-			$sc="F&F";
+			$sc="FlipFlops";
 			$sql="INSERT INTO footwear (product_id, material, subcategory) VALUES ('$pid', '$material', '$sc')";
 			$result2=mysqli_query($conn, $sql);
 		} elseif($sub_category=="Wedges") {

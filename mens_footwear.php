@@ -41,7 +41,7 @@ include('header.php');
 									<li><a id="44" href="#" onclick="addURL('Footwear','Sandals',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Sandals</a></li>
 									<li><a id="45" href="#" onclick="addURL('Footwear','Boots',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Boots</a></li>
 									<li><a id="46" href="#" onclick="addURL('Footwear','Sneakers',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Sneakers</a></li>
-									<li><a id="47" href="#" onclick="addURL('Footwear','S&F',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Slippers & Flip Flops</a></li>
+									<li><a id="47" href="#" onclick="addURL('Footwear','SnF',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Slippers & Flip Flops</a></li>
 									<li><a id="48" href="#" onclick="addURL('Footwear','Athletic',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Athletic Shoes</a></li>
 									<li><a id="49" href="#" onclick="addURL('Footwear','Running',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Running Shoes</a></li>
 									<li><a id="50" href="#" onclick="addURL('Footwear','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
@@ -57,7 +57,7 @@ include('header.php');
 								<li><a id="84" href="#" onclick="addURL('Footwear','Sandals',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Sandals</a></li>
 								<li><a id="85" href="#" onclick="addURL('Footwear','Boots',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Boots</a></li>
 								<li><a id="86" href="#" onclick="addURL('Footwear','Sneakers',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Sneakers</a></li>
-								<li><a id="87" href="#" onclick="addURL('Footwear','S&F',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Slippers & Flip Flops</a></li>
+								<li><a id="87" href="#" onclick="addURL('Footwear','SnF',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Slippers & Flip Flops</a></li>
 								<li><a id="88" href="#" onclick="addURL('Footwear','Athletic',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Athletic Shoes</a></li>
 								<li><a id="89" href="#" onclick="addURL('Footwear','Running',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Running Shoes</a></li>
 								<li><a id="90" href="#" onclick="addURL('Footwear','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
