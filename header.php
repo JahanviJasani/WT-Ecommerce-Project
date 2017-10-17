@@ -217,7 +217,7 @@
 				<!-- Modal content-->
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<button type="button" class="close" data-dismiss="modal" onclick="remove_queryString()">&times;</button>
 					</div>
 						<div class="modal-body modal-body-sub_agile">
 						<div class="col-md-8 modal_body_left modal_body_left1">
@@ -276,7 +276,7 @@
 				<!-- Modal content-->
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<button type="button" class="close" data-dismiss="modal" onclick="remove_queryString()">&times;</button>
 					</div>
 						<div class="modal-body modal-body-sub_agile">
 						<div class="col-md-8 modal_body_left modal_body_left1">
@@ -337,7 +337,7 @@
 			</div>
 		</div>
 <!-- //Modal2 -->
-<!-- footwear Size Modal -->
+<!-- Footwear Size Modal -->
 <div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
 	<div class="modal-dialog">
 		<!-- Modal content-->
@@ -408,6 +408,105 @@
 
 						</div>
 				<div style="border: 1px solid #d1cfcf;" class="clearfix"></div>
+			</div>
+		</div>
+		<!-- //Modal content-->
+	</div>
+</div>
+
+
+<!-- Seller registration successful/failed modal -->
+
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" onclick="remove_queryString()">&times;</button>
+			</div>
+				<div class="modal-body modal-body-sub_agile" style="border: 1px solid #ccc; margin: 10px; border-radius: 5px; padding-bottom: 0px;">
+				<div class="col-md-12 modal_body_left modal_body_left1">
+					<?php
+						if (isset($_GET['seller_reg_success'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Seller Registration<span> Successful</span></h3><hr style="border-color: #ccc;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; color: #2fdab8; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a><span> to continue</span></h3>';
+						} elseif (isset($_GET['seller_reg_fail'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Seller Registration<span> Failed</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;">Please<span> Try Again</span></h3>';
+						} elseif (isset($_GET['alreadyregistered'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Seller Registration<span> Failed</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;">Email id<span> is already registered with us.</span></h3>';
+						} elseif (isset($_GET['error'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Seller Registration<span> Failed</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;">Please <span>try after some time.</span></h3>';
+						}
+					?>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- //Modal content-->
+	</div>
+</div>
+
+<!-- Customer registration successful/failed modal -->
+
+<div class="modal fade" id="myModal5" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" onclick="remove_queryString()">&times;</button>
+			</div>
+				<div class="modal-body modal-body-sub_agile" style="border: 1px solid #ccc; margin: 10px; border-radius: 5px; padding-bottom: 0px;">
+				<div class="col-md-12 modal_body_left modal_body_left1">
+					<?php
+						if (isset($_GET['customer_reg_success'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Customer Registration<span> Successful</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; color: #2fdab8; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a><span> to continue</span></h3>';
+						} elseif (isset($_GET['customer_reg_fail'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Customer Registration<span> Failed</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; color: #2fdab8; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal2" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Click Here </a><span> To Try Again</span></h3>';
+						} elseif (isset($_GET['userexists'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Customer Registration<span> Failed</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;">Email id<span> is already registered with us.</span></h3>';
+						} elseif (isset($_GET['customer_reg_error'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Customer Registration<span> Failed</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;">Please <span>try after some time.</span></h3>';
+						}
+					?>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- //Modal content-->
+	</div>
+</div>
+
+<!-- User login modal -->
+<div class="modal fade" id="myModal6" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" onclick="remove_queryString()">&times;</button>
+			</div>
+				<div class="modal-body modal-body-sub_agile" style="border: 1px solid #ccc; margin: 10px; border-radius: 5px; padding-bottom: 0px;">
+				<div class="col-md-12 modal_body_left modal_body_left1">
+					<?php
+						if (isset($_GET['user_not_found'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Email id<span> not recognized</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; color: #2fdab8; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal2" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Click here </a><span> to sign up</span></h3>';
+						} elseif (isset($_GET['login_error'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Incorrect<span> Email or Password</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; color: #2fdab8; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Click here </a><span> to try again</span></h3>';
+						}
+					?>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
 			</div>
 		</div>
 		<!-- //Modal content-->

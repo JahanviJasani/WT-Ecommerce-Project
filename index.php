@@ -839,27 +839,28 @@ include('footer.php');
 </body>
 </html>
 <?php
-if (isset($_GET['signupuserexists'])) {
-	echo '<script>alert("Email-id is already registered. Try with another email-id.")</script>';
-} elseif (isset($_GET['loginusernotexists'])) {
+if (isset($_GET['loginusernotexists'])) {
 	echo '<script>alert("User not recognized. Please sign up with Elite Shoppy to continue.")</script>';
 } elseif (isset($_GET['loginerror'])) {
 	echo '<script>alert("Email-id or password do not match. Please try again.")</script>';
 }
 
-if (isset($_GET['seller_reg_success'])) {
-	echo "<script>alert('Seller registration success. Please login to continue.')</script>";
-} elseif (isset($_GET['seller_reg_fail'])) {
-	echo "<script>alert('Seller registration failed. Please try again.')</script>";
+if (isset($_GET['customer_reg'])) {
+  echo '<script>
+  $(window).load(function(){
+        $("#myModal5").modal("show");
+    });
+  </script>';
 }
 
-?>
-<?php
-if (isset($_GET['signup'])) {
-	echo "<script>alert('Sign up success. Please login to continue.')</script>";
-} elseif ($_GET['signuperror']) {
-	echo "<script>alert('Registration failed. Please try again.')</script>";
+if (isset($_GET['user_login'])) {
+  echo '<script>
+  $(window).load(function(){
+        $("#myModal6").modal("show");
+    });
+  </script>';
 }
+
 if (isset($_GET['q7wgrzp84d'])) {
 	echo '<script>
 	$(window).load(function(){

@@ -181,3 +181,12 @@ include('footer.php');
 
 <!-- for bootstrap working -->
 <script type="text/javascript" src="js/bootstrap.js"></script>
+<?php
+if (isset($_GET['seller_reg'])) {
+  echo '<script>
+  $(window).load(function(){
+        $("#myModal4").modal("show");
+    });
+  </script>';
+}
+?>

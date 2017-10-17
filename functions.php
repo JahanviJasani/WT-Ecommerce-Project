@@ -45,17 +45,18 @@ function usersignup($conn) {
 				$sql="INSERT INTO users (first_name, last_name,email,password,user_type) VALUES ('$fname','$lname','$email','$password',0)";
 				$result2 = mysqli_query($conn, $sql);
 				if ($result2) {
-					echo "<script>location.href='index.php?signup=true';</script>";
+					header('Location: index.php?customer_reg=true&customer_reg_success=true');
 				} elseif (!$result2) {
-					echo "<script>location.href='index.php?signuperror=true';</script>";
+					header('Location: index.php?customer_reg=true&customer_reg_fail=true');
 				}
 				
 			} else {
 				//show error for user exists
-				header('Location: index.php?signupuserexists=true');
+				header('Location: index.php?customer_reg=true&userexists=true');
 			}
 		} else {
 			//Registration failed
+			header('Location: index.php?customer_reg=true&customer_reg_error=true');
 		}
 	}
 }
@@ -76,14 +77,14 @@ function userlogin($conn){
 		$resultCheck = mysqli_num_rows($result);
 		if ($resultCheck < 1) {
 			//USER NOT FOUND ERROR
-			header('Location: index.php?loginusernotexists=true');
+			header('Location: index.php?user_login=true&user_not_found=true');
 		} else if ($resultCheck==1) {
 			if ($row = mysqli_fetch_assoc($result)) {
 				//De-hashing the password
 				$hashedPwdCheck = password_verify($password, $row['password']);
 				if ($hashedPwdCheck == false) {
 							//INCORRECT PASSWORD ERROR
-					header('Location: index.php?loginerror=true');
+					header('Location: index.php?user_login=true&login_error=true');
 				} elseif ($hashedPwdCheck == true) {
 					//Log in the user here
 					$_SESSION['user_id'] = $row['user_id'];
@@ -107,7 +108,6 @@ function userlogin($conn){
 						$cookievalue = $_COOKIE['PHPSESSID'];
 						setcookie("PHPSESSID",$cookievalue,time()+(3600*24*2),"/");
 					}
-					echo $_SESSION['user_id'].$_SESSION['user_name'].$_SESSION['email'];
 					header('Location: index.php');
 				}
 			}
@@ -151,17 +151,17 @@ function register_seller($conn) {
 				$sql="INSERT INTO seller (user_id, account_num, bank_name, ifsc) VALUES ('$uid','$accno','$bankname','$ifsc')";
 				$result4 = mysqli_query($conn, $sql);
 				if ($result2 && $result4) {
-					header('Location: sellwithus.php?seller_reg_success=true');
+					header('Location: sellwithus.php?seller_reg=true&seller_reg_success=true');
 				} else {
-					header('Location: sellwithus.php?seller_reg_fail=true');
+					header('Location: sellwithus.php?seller_reg=true&seller_reg_fail=true');
 				}
 			} else {
 				//show error for user exists
-				header('Location: sellwithus.php?alreadyregistered=true');
+				header('Location: sellwithus.php?seller_reg=true&alreadyregistered=true');
 			}
 		} else {
 			//Registration failed
-			header('Location: sellwithus.php?error=true');
+			header('Location: sellwithus.php?seller_reg=true&error=true');
 		}
 	}
 }
@@ -528,7 +528,6 @@ function addwatch($conn, $gender, $result1) {
 function getFootwearSizes($conn) {
 	$pid = $_GET['pid'];
 	$url = 'Location: index.php?q7wgrzp84d='.$pid;
-	echo $url;
 	header($url);
 }
 
