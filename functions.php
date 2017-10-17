@@ -441,7 +441,7 @@ function addfootwear($conn, $gender, $result1) {
 		// echo "Done";
 	} 
 	else {
-		// echo "Error".mysqli_error($conn);
+		echo (mysqli_error($conn));
 		$sql="DELETE FROM product WHERE product_id=$pid";
 		$result2=mysqli_query($conn, $sql);
 		$select = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM images WHERE product_id='$pid'")); //Fetch the file which is associated with this account
