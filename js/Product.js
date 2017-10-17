@@ -208,5 +208,5 @@ function additems() {
     window.location="http://localhost/WT-Ecommerce-Project/addproduct.php"
 }
 function prevpage() {
-    window.location="http://localhost/WT-Ecommerce-Project/seller_products.php"
+    window.location="products.php"
 }
