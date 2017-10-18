@@ -190,9 +190,10 @@ include('header.php');
                                                         $wresult = mysqli_query($conn, $wsql);
                                                         $wrow = mysqli_fetch_assoc($wresult);
                                                         echo '<td>
-                                                            <form>
+                                                            <form action="functions.php" method="POST">
+                                                                <input type="hidden" name="prod_id" value="'.$watchrow["product_id"].'">
                                                                 <input type="number" name="stock_quantity" style="width: 50px;" value="'.$wrow["stock"].'">
-                                                                <button type="submit" name="qty_change_submit" class="btn btn-primary btn-sm">Update</button>
+                                                                <button type="submit" name="watch_stock_update" class="btn btn-primary btn-sm">Update</button>
                                                             </form>
                                                         </td>
                                                         </td>
@@ -242,9 +243,10 @@ include('header.php');
                                                         $bresult = mysqli_query($conn, $bsql);
                                                         $brow = mysqli_fetch_assoc($bresult);
                                                         echo '<td>
-                                                            <form>
+                                                            <form action="functions.php" method="POST">
+                                                                <input type="hidden" name="prod_id" value="'.$bagrow["product_id"].'">
                                                                 <input type="number" name="stock_quantity" style="width: 50px;" value="'.$brow["stock"].'">
-                                                                <button type="submit" name="qty_change_submit" class="btn btn-primary btn-sm">Update</button>
+                                                                <button type="submit" name="bag_stock_update" class="btn btn-primary btn-sm">Update</button>
                                                             </form>
                                                         </td>
                                                         </td>
@@ -470,5 +472,12 @@ if (isset($_GET['footwear_id_stock_update'], $_GET['qty_change_submit'])) {
         $("#myModal7").modal("show");
     });
     </script>';
+}
+if (isset($_GET['stock_update'])) {
+  echo '<script>
+  $(window).load(function(){
+        $("#myModal8").modal("show");
+    });
+  </script>';
 }
 ?>

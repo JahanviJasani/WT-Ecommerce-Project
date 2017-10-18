@@ -539,11 +539,12 @@
 							$result2 = mysqli_query($conn, $sql2);
 							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Update<span> Stock</span></h3><hr style="border-color: #d1cfcf;">
 								<h4 style="text-transform: capitalize; font-size: 18px; color: #2fdab8; text-align: center; letter-spacing: 1px; font-weight: 600;">'.$getNameRow['name'].'</h4>';
-							echo '<form><fieldset id="sizedisplay" disabled="disabled">';
+							echo '<form action="functions.php" method="POST"><fieldset id="sizedisplay" disabled="disabled">';
 							while ($row2 = mysqli_fetch_assoc($result2)) {
 								echo '<b>Size : '.$row2["footwear_size"].'</b>&nbsp;&nbsp;&nbsp;<input type="number" name="'.$row2["footwear_size"].'" value="'.$row2["stock"].'" style="width: 50px; margin-bottom: 8px;"><br>';
 							}
-							echo '<input type="hidden" value="Update Stock" style="margin: 8px;" id="sub_but">';
+							echo '<input type="hidden" name="product_id" value="'.$updatefid.'">
+								<input type="hidden" value="Update Stock" name="footwear_stock_update" style="margin: 8px;" id="sub_but">';
 							echo '</fieldset></form>';
 							echo '<input type="submit" value="Update Stock" style="margin: 8px;" onclick="modifyfootwearstock()" id="mod_but">';
 						} else {
@@ -567,6 +568,38 @@
 
 							echo '</div>';
 							?>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- //Modal content-->
+	</div>
+</div>
+
+
+<!-- Product stock modify modal -->
+<div class="modal fade" id="myModal8" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" onclick="remove_queryString()">&times;</button>
+			</div>
+				<div class="modal-body modal-body-sub_agile" style="border: 1px solid #ccc; margin: 10px; border-radius: 5px; padding-bottom: 0px;">
+				<div class="col-md-12 modal_body_left modal_body_left1">
+					<?php
+						if (isset($_GET['stock_update_success'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Stock Update<span> Success</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-dismiss="modal" onclick="remove_queryString()"> Click here </a><span> to continue</span></h3>';
+						} elseif (isset($_GET['stock_update_fail'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Stock Update<span> Failed</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-dismiss="modal" onclick="remove_queryString()"> Click here </a><span> to try again</span></h3>';
+						} elseif (isset($_GET['invalid_seller'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Stock Update<span> Failed</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: none; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;">This product <span> is not owned by you</span></h3>';
+						}
+					?>
+					<div class="clearfix"></div>
+				</div>
 				<div class="clearfix"></div>
 			</div>
 		</div>

@@ -30,6 +30,12 @@ if (isset($_POST['signup_submit'])) {
 	getFootwearSizes($conn);
 } elseif (isset($_POST['address_submit'])) {
 	updateAddressDetails($conn);
+} elseif (isset($_POST['watch_stock_update'])) {
+	updateWatchStock($conn);
+} elseif (isset($_POST['bag_stock_update'])) {
+	updateBagStock($conn);
+} elseif (isset($_POST['footwear_stock_update'])) {
+	updateFootwearStock($conn);
 }
 
 function usersignup($conn) {
@@ -650,8 +656,7 @@ function addimages($conn,$pid)
 	}*/
 }
 
-function updateAddressDetails($conn)
-{
+function updateAddressDetails($conn) {
 	$fname=mysqli_real_escape_string($conn, $_POST['firstname']);
 	$lname=mysqli_real_escape_string($conn, $_POST['lastname']);
 	$email=mysqli_real_escape_string($conn, $_POST['email']);
@@ -670,4 +675,89 @@ function updateAddressDetails($conn)
         else{
         	echo "Failed";
         }
+}
+
+function updateWatchStock($conn) {
+	$pid = $_POST['prod_id'];
+	$qty = $_POST['stock_quantity'];
+	$sql2 = "SELECT * FROM product WHERE product.product_id='$pid'";
+	$result2 = mysqli_query($conn, $sql2);
+	$row2 = mysqli_fetch_assoc($result2);
+	$sid = $row2['seller_id'];
+	if ($_SESSION['seller_id']!=$sid) {
+		header('Location: seller_products.php?stock_update=true&invalid_seller=true');
+	} else {
+		$sql = "UPDATE watches SET watches.stock = '$qty' WHERE watches.product_id = '$pid'";
+		$result = mysqli_query($conn, $sql);
+		if ($result) {
+			header('Location: seller_products.php?stock_update=true&stock_update_success=true');
+		} else {
+			header('Location: seller_products.php?stock_update=true&stock_update_fail=true');
+		}
+	}
+}
+
+function updateBagStock($conn) {
+	$pid = $_POST['prod_id'];
+	$qty = $_POST['stock_quantity'];
+	$sql2 = "SELECT * FROM product WHERE product.product_id='$pid'";
+	$result2 = mysqli_query($conn, $sql2);
+	$row2 = mysqli_fetch_assoc($result2);
+	$sid = $row2['seller_id'];
+	if ($_SESSION['seller_id']!=$sid) {
+		header('Location: seller_products.php?stock_update=true&invalid_seller=true');
+	} else {
+		$sql = "UPDATE bags SET bags.stock = '$qty' WHERE bags.product_id = '$pid'";
+		$result = mysqli_query($conn, $sql);
+		if ($result) {
+			header('Location: seller_products.php?stock_update=true&stock_update_success=true');
+		} else {
+			header('Location: seller_products.php?stock_update=true&stock_update_fail=true');
+		}
+	}
+}
+
+function updateFootwearStock($conn) {
+	$sql = "INSERT INTO footwear_size (footwear_id, footwear_size, stock) VALUES";
+	$pid = $_POST['product_id'];
+	$init = "0";
+	$sql2 = "SELECT * FROM product WHERE product.product_id='$pid'";
+	$result2 = mysqli_query($conn, $sql2);
+	$row2 = mysqli_fetch_assoc($result2);
+	$sid = $row2['seller_id'];
+	//check if seller is owner of product
+	if ($_SESSION['seller_id']!=$sid) {
+		header('Location: seller_products.php?stock_update=true&invalid_seller=true');
+	} else {
+		$sql3 = "SELECT * FROM footwear WHERE footwear.product_id='$pid'";
+		$result3 = mysqli_query($conn, $sql3);
+		$row3 = mysqli_fetch_assoc($result3);
+		$fid = $row3['footwear_id'];
+
+		foreach ($_POST as $param_name => $param_val) {
+	    	if (($param_name!="footwear_stock_update") && ($param_name!="product_id")) {
+	    		if ($init!=0) {
+	    			$sql.=",";
+	    		}
+	    		$sql.=" ($fid, $param_name, $param_val)";
+	    		$init++;
+			}	
+	    }
+	 	echo $sql;
+	 	$deleteSQL = "DELETE FROM footwear_size WHERE footwear_size.footwear_id = '$fid'";
+	 	$deleteResult = mysqli_query($conn, $deleteSQL);
+	 	if ($deleteResult) {
+	 		$result = mysqli_query($conn, $sql);
+	 		if ($result) {
+	 			header('Location: seller_products.php?stock_update=true&stock_update_success=true');
+	 		} else {
+	 			header('Location: seller_products.php?stock_update=true&stock_update_fail=true');
+	 		}
+	 	} else {
+	 		header('Location: seller_products.php?stock_update=true&stock_update_fail=true');
+	 	}
+
+
+	}
+    	
 }

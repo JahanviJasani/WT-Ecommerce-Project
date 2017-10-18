@@ -207,10 +207,10 @@ function select_link() {
 }
 function additems() {
     console.log("Hello");
-    window.location="http://localhost/WT-Ecommerce-Project/addproduct.php"
+    window.location="addproduct.php"
 }
 function prevpage() {
-    window.location="products.php"
+    window.location="seller_products.php"
 }
 
 function modifyfootwearstock() {
