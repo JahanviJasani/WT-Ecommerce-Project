@@ -31,7 +31,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     #after_delete {
         display: none;
     }
-    #button_delete {
+    #button_delete {>
         display: none;
         float: right;
     }
@@ -40,15 +40,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     }
     .resp-tab-active {
         background-color: #000;
-        background: #000;
-        border-bottom: 4px solid #000;
+        background: #2fdab8;
+        border-bottom: 4px solid #2fdab8;
         color: #fff !important;
     }
     .resp-tab-active:before {
-        border-top: 10px solid #000;
+        border-top: 10px solid #2fdab8;
     }
     .resp-tabs-active {
         color: #fff;
+    }
+    #pid {
+        width: 123px;
+        height: 52px;>
+    }
+    #brand {
+        width: 100px;
+        height: 52px;
+    }
+    #name {
+        width: 351px;
+        height: 52px;
+    }
+    #price {
+        width: 108px;
+        height: 52px;
+    }
+    #qty {
+        width: 142px;
+        height: 52px;
+    }
+    #us {
+        width: 173px;
+        height: 52px;
     }
 </style>
 </head>
@@ -135,19 +159,18 @@ include('header.php');
                                 <div class="resp-tabs-container">
                             <!--/tab_one-->
                                 <div class="tab1">
-                                    <!-- idhar watch ka list -->
 
                                     <!-- start1 -->
                                     <div class="table-responsive" id="before_delete">
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>Product Id</th>
-                                                    <th>Brand</th>
-                                                    <th>Name</th>
-                                                    <th>Price</th>
-                                                    <th>Qty. in Stock</th>
-                                                    <th>Update Stock</th>
+                                                    <th id="pid">Product Id</th>
+                                                    <th id="brand">Brand</th>
+                                                    <th id="name">Name</th>
+                                                    <th id="price">Price</th>
+                                                    <th id="qty">Qty. in Stock</th>
+                                                    <th id="us">Update Stock</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -185,19 +208,18 @@ include('header.php');
                                 <!--//tab_one-->
                                 <!--/tab_two-->
                                 <div class="tab2">
-                                    <!-- idhar bags ka list -->
 
                                     <!-- start1 -->
                                     <div class="table-responsive" id="before_delete">
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>Product Id</th>
-                                                    <th>Brand</th>
-                                                    <th>Name</th>
-                                                    <th>Price</th>
-                                                    <th>Qty. in Stock</th>
-                                                    <th>Update Stock</th>
+                                                    <th id="pid">Product Id</th>
+                                                    <th id="brand">Brand</th>
+                                                    <th id="name">Name</th>
+                                                    <th id="price">Price</th>
+                                                    <th id="qty">Qty. in Stock</th>
+                                                    <th id="us">Update Stock</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -234,19 +256,18 @@ include('header.php');
                                 </div>
                          <!--//tab_two-->
                                 <div class="tab3">
-                                    <!-- idhar footwear ka khatarnaak list -->
 
                                     <!-- start1 -->
                                     <div class="table-responsive" id="before_delete">
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>Product Id</th>
-                                                    <th>Brand</th>
-                                                    <th>Name</th>
-                                                    <th>Price</th>
-                                                    <th>Qty. in Stock</th>
-                                                    <th>Update Stock</th>
+                                                    <th id="pid">Product Id</th>
+                                                    <th id="brand">Brand</th>
+                                                    <th id="name">Name</th>
+                                                    <th id="price">Price</th>
+                                                    <th id="qty">Qty. in Stock</th>
+                                                    <th id="us">Update Stock</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -254,7 +275,7 @@ include('header.php');
                                                     $uid = $_SESSION['user_id'];
                                                     $footwearsql = "SELECT * FROM product WHERE product.category='footwear' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
                                                     $footwearresult = mysqli_query($conn, $footwearsql);
-
+                                                    $
                                                 while ($footwearrow = mysqli_fetch_assoc($footwearresult)) {
                                                     echo '<tr>
                                                         <th><a href="#">'.$footwearrow["product_id"].'</a></th>
@@ -287,7 +308,6 @@ include('header.php');
                 </div>
 
                 <!-- 3 products categories tabs end -->
-                <!-- AFTER DELETE WALA LIST WITH ALL PRODUCTS |||||START||||| -->
                 <!-- start2 -->
                 <div class="table-responsive" id="after_delete">
                     <form action="#" method="GET">
@@ -307,12 +327,13 @@ include('header.php');
                                     $uid = $_SESSION['user_id'];
                                     $sql = "SELECT * FROM product WHERE product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
                                     $result = mysqli_query($conn, $sql);
+                                    $count=10000;
 
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo '<tr>
                                     <td>
-                                        <input id="checkbox-2" class="checkbox-custom" name="checkbox-2" type="checkbox">
-                                        <label for="checkbox-2" class="checkbox-custom-label"></label>
+                                        <input id="'.$count.'" class="checkbox-custom" name="checkbox-2" type="checkbox">
+                                        <label for="'.$count.'" class="checkbox-custom-label"></label>
                                     </td>
                                     <th><a href="#">'.$row["product_id"].'</a></th>
                                     <td>'.$row["brand"].'</td>
@@ -320,6 +341,7 @@ include('header.php');
                                     <td>'.$row["price"].'</td>
                                     <td style="text-align: center;">20</td>
                                 </tr>';
+                                $count++;
                                 }  
                                 ?>
                             </tbody>

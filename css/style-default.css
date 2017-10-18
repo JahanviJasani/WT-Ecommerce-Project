@@ -953,8 +953,6 @@ select {
   }
   }
 
-
-
 .checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before {
     content: '';
     background: #fff;
@@ -963,7 +961,8 @@ select {
     vertical-align: middle;
     width: 20px;
     height: 20px;
-    margin-left: -1.3em;
+    margin-left: -0.3em;
+    margin-top: -2.2em;
     text-align: center;
 }
 

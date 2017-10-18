@@ -21,6 +21,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
 <script src="js/backend.js"></script>
+<style type="text/css">
+	#min-max {
+    margin-bottom: 14px;
+}
+#min-max input::placeholder {
+    font-size: 1em;
+}
+#min-max input, select, textarea {
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    line-height: 19px;
+    color: #111;
+}
+#min-max button, input, select, textarea {
+    margin: 0;
+    font-size: 100%;
+    vertical-align: middle;
+}
+#min-max .s-ref-small-padding-left {
+    padding-left: 9px;
+}
+#min-max .a-color-base {
+    color: #111!important;
+}
+#min-max .s-ref-price-padding {
+    padding-left: 18px;
+}
+#min-max .s-ref-price-range {
+    width: 75px;
+}
+#min-max .a-input-text, input[type=text], input[type=search], input[type=number], input[type=tel], input[type=password], input[type=date] {
+    background-color: #fff;
+    height: 31px;
+    line-height: normal;
+}
+#min-max .a-input-text, input[type=text], input[type=search], input[type=number], input[type=tel], input[type=password], select.a-select-multiple, textarea {
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;
+    border-radius: 3px;
+    outline: 0;
+}
+#min-max .s-ref-price-currency {
+    position: absolute;
+    margin-top: 2px;
+    line-height: 30px;
+    font-size: 100%;
+}
+</style>
 </head>
 <?php
 include('header.php');
