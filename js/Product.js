@@ -119,7 +119,7 @@ function selectwatchwomen(){
     watch.style.display="block";
 }
 function deleteitems(){
-    document.getElementById("before_delete").style.display="none";
+    document.getElementById("productlisttabs").style.display="none";
     document.getElementById("after_delete").style.display="block";
     document.getElementById("hidediv").style.display="none";
     document.getElementById("button_delete").style.display="block";
@@ -127,6 +127,8 @@ function deleteitems(){
 function deletiondone(){
     document.getElementById("button_delete").style.display="none";
     document.getElementById("hidediv").style.display="block";
+    document.getElementById("after_delete").style.display="none";
+    document.getElementById("productlisttabs").style.display="block";
 }
 function checkbox_validate() {
     if(size3w.checked==1) {

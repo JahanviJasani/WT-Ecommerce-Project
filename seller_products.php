@@ -27,17 +27,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
 <script src="js/backend.js"></script>
+<style type="text/css">
+    #after_delete {
+        display: none;
+    }
+    #button_delete {
+        display: none;
+        float: right;
+    }
+    .resp-tabs-list li {
+        width: 33.33%;
+    }
+    .resp-tab-active {
+        background-color: #000;
+        background: #000;
+        border-bottom: 4px solid #000;
+        color: #fff !important;
+    }
+    .resp-tab-active:before {
+        border-top: 10px solid #000;
+    }
+    .resp-tabs-active {
+        color: #fff;
+    }
+</style>
 </head>
 
-<style type="text/css">
-#after_delete {
-    display: none;
-}
-#button_delete {
-    display: none;
-    float: right;
-}
-</style>
 
 <body>
 <?php
@@ -108,99 +123,219 @@ include('header.php');
                 <p class="lead">My products.</p>
                 <p class="text-muted"><b>The products listed for sale by you are displayed here.</b> In case of any questions <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>
 
-                <div class="table-responsive" id="before_delete">
-                <table class="table table-hover">
-                <thead>
-                <tr>
-                <th>Product Id</th>
-                <th>Brand</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Qty. in Stock</th>
-                <th>Update Stock</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <th><a href="#"># 1735</a></th>
-                <td>Louis Vuitton</td>
-                <td>Hand Bag</td>
-                <td>$ 200.00</td>
-                <td style="text-align: center;">5</td>
-                <td>
-                <form>
-                <input type="number" name="stock_quantity" style="width: 50px;">
-                <button type="submit" name="qty_change_submit" class="btn btn-primary btn-sm">Update</button>
-                </form>
-                </td>
-                </td>
-                 </tr>
-                <tr>
-                <th><a href="#"># 1735</a></th>
-                <td>Louis Vuitton</td>
-                <td>Hand Bag</td>
-                <td>$ 200.00</td>
-                <td style="text-align: center;">2</td>
-                <td>
-                <form>
-                <input type="number" name="stock_quantity" style="width: 50px;">
-                <button type="submit" name="qty_change_submit" class="btn btn-primary btn-sm">Update</button>
-                </form>
-                </td>
-                </td>
-                </tr>
-                </tbody>
-                </table>
+                <!-- 3 products categories tabs start -->
+                <div class="new_arrivals_agile_w3ls_info" style="padding-top: 10px; padding-bottom: 0px;" id="productlisttabs"> 
+                    <div class="container-fluid">
+                            <div id="horizontalTab" style="width: 100%;">
+                                <ul class="resp-tabs-list">
+                                    <li> Watches</li>
+                                    <li> Bags</li>
+                                    <li> Footwear</li>
+                                </ul>
+                                <div class="resp-tabs-container">
+                            <!--/tab_one-->
+                                <div class="tab1">
+                                    <!-- idhar watch ka list -->
+
+                                    <!-- start1 -->
+                                    <div class="table-responsive" id="before_delete">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product Id</th>
+                                                    <th>Brand</th>
+                                                    <th>Name</th>
+                                                    <th>Price</th>
+                                                    <th>Qty. in Stock</th>
+                                                    <th>Update Stock</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $uid = $_SESSION['user_id'];
+                                                    $watchsql = "SELECT * FROM product WHERE product.category='watch' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    $watchresult = mysqli_query($conn, $watchsql);
+
+                                                while ($watchrow = mysqli_fetch_assoc($watchresult)) {
+                                                    echo '<tr>
+                                                        <th><a href="#">'.$watchrow["product_id"].'</a></th>
+                                                        <td>'.$watchrow["brand"].'</td>
+                                                        <td>'.$watchrow["name"].'</td>
+                                                        <td>'.$watchrow["price"].'</td>
+                                                        <td style="text-align: center;">20</td>
+                                                        <td>
+                                                            <form>
+                                                                <input type="number" name="stock_quantity" style="width: 50px;">
+                                                                <button type="submit" name="qty_change_submit" class="btn btn-primary btn-sm">Update</button>
+                                                            </form>
+                                                        </td>
+                                                        </td>
+                                                    </tr>';
+                                                }
+
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- end1 -->
+                                    
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                <!--//tab_one-->
+                                <!--/tab_two-->
+                                <div class="tab2">
+                                    <!-- idhar bags ka list -->
+
+                                    <!-- start1 -->
+                                    <div class="table-responsive" id="before_delete">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product Id</th>
+                                                    <th>Brand</th>
+                                                    <th>Name</th>
+                                                    <th>Price</th>
+                                                    <th>Qty. in Stock</th>
+                                                    <th>Update Stock</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $uid = $_SESSION['user_id'];
+                                                    $bagsql = "SELECT * FROM product WHERE product.category='bag' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    $bagresult = mysqli_query($conn, $bagsql);
+
+                                                while ($bagrow = mysqli_fetch_assoc($bagresult)) {
+                                                    echo '<tr>
+                                                        <th><a href="#">'.$bagrow["product_id"].'</a></th>
+                                                        <td>'.$bagrow["brand"].'</td>
+                                                        <td>'.$bagrow["name"].'</td>
+                                                        <td>'.$bagrow["price"].'</td>
+                                                        <td style="text-align: center;">20</td>
+                                                        <td>
+                                                            <form>
+                                                                <input type="number" name="stock_quantity" style="width: 50px;">
+                                                                <button type="submit" name="qty_change_submit" class="btn btn-primary btn-sm">Update</button>
+                                                            </form>
+                                                        </td>
+                                                        </td>
+                                                    </tr>';
+                                                }
+
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- end1 -->
+                                    
+
+                                    <div class="clearfix"></div>
+                                </div>
+                         <!--//tab_two-->
+                                <div class="tab3">
+                                    <!-- idhar footwear ka khatarnaak list -->
+
+                                    <!-- start1 -->
+                                    <div class="table-responsive" id="before_delete">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product Id</th>
+                                                    <th>Brand</th>
+                                                    <th>Name</th>
+                                                    <th>Price</th>
+                                                    <th>Qty. in Stock</th>
+                                                    <th>Update Stock</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $uid = $_SESSION['user_id'];
+                                                    $footwearsql = "SELECT * FROM product WHERE product.category='footwear' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    $footwearresult = mysqli_query($conn, $footwearsql);
+
+                                                while ($footwearrow = mysqli_fetch_assoc($footwearresult)) {
+                                                    echo '<tr>
+                                                        <th><a href="#">'.$footwearrow["product_id"].'</a></th>
+                                                        <td>'.$footwearrow["brand"].'</td>
+                                                        <td>'.$footwearrow["name"].'</td>
+                                                        <td>'.$footwearrow["price"].'</td>
+                                                        <td style="text-align: center;">20</td>
+                                                        <td>
+                                                            <form>
+                                                                <input type="number" name="stock_quantity" style="width: 50px;">
+                                                                <button type="submit" name="qty_change_submit" class="btn btn-primary btn-sm">Update</button>
+                                                            </form>
+                                                        </td>
+                                                        </td>
+                                                    </tr>';
+                                                }
+
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- end1 -->
+                                    
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
                 </div>
+
+                <!-- 3 products categories tabs end -->
+                <!-- AFTER DELETE WALA LIST WITH ALL PRODUCTS |||||START||||| -->
+                <!-- start2 -->
                 <div class="table-responsive" id="after_delete">
-                <form action="#" method="GET">
-                <table class="table table-hover">
-                <thead>
-                <tr>
-                <th></th>
-                <th>Product Id</th>
-                <th>Brand</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Qty. in Stock</th>
-                <th>Update Stock</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td><input id="checkbox-2" class="checkbox-custom" name="checkbox-2" type="checkbox">
-            <label for="checkbox-2" class="checkbox-custom-label"></label></td>
-                <th><a href="#"># 1735</a></th>
-                <td>Louis Vuitton</td>
-                <td>Hand Bag</td>
-                <td>$ 200.00</td>
-                <td style="text-align: center;">5</td>
-                <td>
-                <form>
-                <input type="number" name="stock_quantity" style="width: 50px;">
-                <button type="submit" name="qty_change_submit" class="btn btn-primary btn-sm">Update</button>
-                </form>
-                </td>
-                </tr>
-                <tr>
-                <td><input id="checkbox-3" class="checkbox-custom" name="checkbox-2" type="checkbox">
-            <label for="checkbox-3" class="checkbox-custom-label"></label></td>
-                <th><a href="#"># 1735</a></th>
-                <td>Louis Vuitton</td>
-                <td>Hand Bag</td>
-                <td>$ 200.00</td>
-                <td style="text-align: center;">2</td>
-                <td>
-                <form>
-                <input type="number" name="stock_quantity" style="width: 50px;">
-                <button type="submit" name="qty_change_submit" class="btn btn-primary btn-sm">Update</button>
-                </form>
-                </td>
-                </tr>
-                </tbody>
-                </table>
-                <hr><button id="button_delete" onclick="deletiondone()" class="btn btn-primary btn-sm" style="background-color: #2fdab8; border: #2fdab8; font-size: 1em; margin-right: 6.5em;">Delete</button>
-            </div>
+                    <form action="#" method="GET">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Product Id</th>
+                                    <th>Brand</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Qty. in Stock</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $uid = $_SESSION['user_id'];
+                                    $sql = "SELECT * FROM product WHERE product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                    $result = mysqli_query($conn, $sql);
+
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo '<tr>
+                                    <td>
+                                        <input id="checkbox-2" class="checkbox-custom" name="checkbox-2" type="checkbox">
+                                        <label for="checkbox-2" class="checkbox-custom-label"></label>
+                                    </td>
+                                    <th><a href="#">'.$row["product_id"].'</a></th>
+                                    <td>'.$row["brand"].'</td>
+                                    <td>'.$row["name"].'</td>
+                                    <td>'.$row["price"].'</td>
+                                    <td style="text-align: center;">20</td>
+                                </tr>';
+                                }  
+                                ?>
+                            </tbody>
+                        </table>
+                        <hr>
+                        <button id="button_delete" onclick="deletiondone()" class="btn btn-primary btn-sm" style="background-color: #2fdab8; border: #2fdab8; font-size: 1em; margin-right: 2em;">Delete</button>
+                    </form>
+                </div>
+                <!-- end2 -->
+                <!-- AFTER DELETE WALA LIST WITH ALL PRODUCTS |||||END||||| -->
+
+
+
+
+
+                
             </div>
             </div>
             <!-- /.container -->
