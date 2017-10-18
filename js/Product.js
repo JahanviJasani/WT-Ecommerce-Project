@@ -212,3 +212,12 @@ function additems() {
 function prevpage() {
     window.location="products.php"
 }
+
+function modifyfootwearstock() {
+    var submit_button = document.getElementById("sub_but");
+    submit_button.setAttribute("type", "submit");
+    var modify_button = document.getElementById("mod_but");
+    modify_button.style.display = "none";
+    var update_form = document.getElementById("sizedisplay");
+    update_form.removeAttribute('disabled');
+}

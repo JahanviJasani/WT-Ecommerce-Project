@@ -165,11 +165,11 @@ include('header.php');
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
+
                                                     <th id="pid">Product Id</th>
                                                     <th id="brand">Brand</th>
                                                     <th id="name">Name</th>
                                                     <th id="price">Price</th>
-                                                    <th id="qty">Qty. in Stock</th>
                                                     <th id="us">Update Stock</th>
                                                 </tr>
                                             </thead>
@@ -184,11 +184,14 @@ include('header.php');
                                                         <th><a href="#">'.$watchrow["product_id"].'</a></th>
                                                         <td>'.$watchrow["brand"].'</td>
                                                         <td>'.$watchrow["name"].'</td>
-                                                        <td>'.$watchrow["price"].'</td>
-                                                        <td style="text-align: center;">20</td>
-                                                        <td>
+                                                        <td>'.$watchrow["price"].'</td>';
+                                                        $wid = $watchrow["product_id"];
+                                                        $wsql = "SELECT stock FROM watches WHERE watches.product_id='$wid'";
+                                                        $wresult = mysqli_query($conn, $wsql);
+                                                        $wrow = mysqli_fetch_assoc($wresult);
+                                                        echo '<td>
                                                             <form>
-                                                                <input type="number" name="stock_quantity" style="width: 50px;">
+                                                                <input type="number" name="stock_quantity" style="width: 50px;" value="'.$wrow["stock"].'">
                                                                 <button type="submit" name="qty_change_submit" class="btn btn-primary btn-sm">Update</button>
                                                             </form>
                                                         </td>
@@ -214,11 +217,11 @@ include('header.php');
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
+
                                                     <th id="pid">Product Id</th>
                                                     <th id="brand">Brand</th>
                                                     <th id="name">Name</th>
                                                     <th id="price">Price</th>
-                                                    <th id="qty">Qty. in Stock</th>
                                                     <th id="us">Update Stock</th>
                                                 </tr>
                                             </thead>
@@ -233,11 +236,14 @@ include('header.php');
                                                         <th><a href="#">'.$bagrow["product_id"].'</a></th>
                                                         <td>'.$bagrow["brand"].'</td>
                                                         <td>'.$bagrow["name"].'</td>
-                                                        <td>'.$bagrow["price"].'</td>
-                                                        <td style="text-align: center;">20</td>
-                                                        <td>
+                                                        <td>'.$bagrow["price"].'</td>';
+                                                        $bid = $bagrow["product_id"];
+                                                        $bsql = "SELECT stock FROM bags WHERE bags.product_id='$bid'";
+                                                        $bresult = mysqli_query($conn, $bsql);
+                                                        $brow = mysqli_fetch_assoc($bresult);
+                                                        echo '<td>
                                                             <form>
-                                                                <input type="number" name="stock_quantity" style="width: 50px;">
+                                                                <input type="number" name="stock_quantity" style="width: 50px;" value="'.$brow["stock"].'">
                                                                 <button type="submit" name="qty_change_submit" class="btn btn-primary btn-sm">Update</button>
                                                             </form>
                                                         </td>
@@ -266,7 +272,6 @@ include('header.php');
                                                     <th id="brand">Brand</th>
                                                     <th id="name">Name</th>
                                                     <th id="price">Price</th>
-                                                    <th id="qty">Qty. in Stock</th>
                                                     <th id="us">Update Stock</th>
                                                 </tr>
                                             </thead>
@@ -275,20 +280,19 @@ include('header.php');
                                                     $uid = $_SESSION['user_id'];
                                                     $footwearsql = "SELECT * FROM product WHERE product.category='footwear' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
                                                     $footwearresult = mysqli_query($conn, $footwearsql);
-                                                    $
+                                                    
                                                 while ($footwearrow = mysqli_fetch_assoc($footwearresult)) {
+                                                    $fid = $footwearrow["product_id"];
                                                     echo '<tr>
                                                         <th><a href="#">'.$footwearrow["product_id"].'</a></th>
                                                         <td>'.$footwearrow["brand"].'</td>
                                                         <td>'.$footwearrow["name"].'</td>
                                                         <td>'.$footwearrow["price"].'</td>
-                                                        <td style="text-align: center;">20</td>
                                                         <td>
-                                                            <form>
-                                                                <input type="number" name="stock_quantity" style="width: 50px;">
-                                                                <button type="submit" name="qty_change_submit" class="btn btn-primary btn-sm">Update</button>
+                                                            <form action="seller_products.php" method="GET">
+                                                                <input type="hidden" name="footwear_id_stock_update" value="'.$fid.'">
+                                                                <button type="submit" name="qty_change_submit" value="true" class="btn btn-primary btn-sm" style="display: block; margin: 0 auto;">Update</button>
                                                             </form>
-                                                        </td>
                                                         </td>
                                                     </tr>';
                                                 }
@@ -459,3 +463,12 @@ include('footer.php');
 <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 </html>
+<?php
+if (isset($_GET['footwear_id_stock_update'], $_GET['qty_change_submit'])) {
+    echo '<script>
+    $(window).load(function(){
+        $("#myModal7").modal("show");
+    });
+    </script>';
+}
+?>

@@ -391,9 +391,7 @@
 					?>
 					</div>
 				</div>
-				<div class="col-md-4 modal_body_right modal_body_right1" style="
-    border-right: 1px solid #d1cfcf;
-    border-top: 1px solid #d1cfcf;">
+				<div class="col-md-4 modal_body_right modal_body_right1" style="border-right: 1px solid #d1cfcf; border-top: 1px solid #d1cfcf;">
 							
 						<?php
 							if (isset($_GET['q7wgrzp84d'])) {
@@ -406,7 +404,7 @@
 
 						?>
 
-						</div>
+				</div>
 				<div style="border: 1px solid #d1cfcf;" class="clearfix"></div>
 			</div>
 		</div>
@@ -506,6 +504,69 @@
 					?>
 					<div class="clearfix"></div>
 				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- //Modal content-->
+	</div>
+</div>
+
+<!--Seller footwear stock change modal -->
+<div class="modal fade" id="myModal7" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" onclick="remove_queryString()">&times;</button>
+			</div>
+				<div class="modal-body modal-body-sub_agile" style="border: 1px solid #ccc; margin: 10px; border-radius: 5px; padding-bottom: 0px;">
+				<div class="col-md-8 modal_body_left modal_body_left1">
+					<?php
+						$sid = $_SESSION['seller_id'];
+						$updatefid = $_GET['footwear_id_stock_update'];
+						
+						$getNameSQL = "SELECT * FROM product WHERE product.product_id='$updatefid'";
+						$getNameResult = mysqli_query($conn, $getNameSQL);
+						$getNameRow = mysqli_fetch_assoc($getNameResult);
+
+
+						$checksql = "SELECT seller_id FROM product WHERE product.product_id='$updatefid'";
+						$checkresult = mysqli_query($conn, $checksql);
+						$checkrow = mysqli_fetch_assoc($checkresult);
+
+						if ($checkrow["seller_id"]==$sid) {
+							$sql2 = "SELECT * from footwear_size WHERE footwear_size.footwear_id IN (SELECT footwear_id FROM footwear WHERE footwear.product_id='$updatefid')";
+							$result2 = mysqli_query($conn, $sql2);
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Update<span> Stock</span></h3><hr style="border-color: #d1cfcf;">
+								<h4 style="text-transform: capitalize; font-size: 18px; color: #2fdab8; text-align: center; letter-spacing: 1px; font-weight: 600;">'.$getNameRow['name'].'</h4>';
+							echo '<form><fieldset id="sizedisplay" disabled="disabled">';
+							while ($row2 = mysqli_fetch_assoc($result2)) {
+								echo '<b>Size : '.$row2["footwear_size"].'</b>&nbsp;&nbsp;&nbsp;<input type="number" name="'.$row2["footwear_size"].'" value="'.$row2["stock"].'" style="width: 50px; margin-bottom: 8px;"><br>';
+							}
+							echo '<input type="hidden" value="Update Stock" style="margin: 8px;" id="sub_but">';
+							echo '</fieldset></form>';
+							echo '<input type="submit" value="Update Stock" style="margin: 8px;" onclick="modifyfootwearstock()" id="mod_but">';
+						} else {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">You cannot update<span> this product</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: none; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;">This product <span> is not owned by you</span></h3>';
+						}
+
+					?>
+					<div class="clearfix"></div>
+				</div>
+				<?php
+				echo '<div class="col-md-4 modal_body_right modal_body_right1" style="position: absolute; bottom: 0%; right: 0;">';
+							
+								$imagesql = "SELECT * FROM images WHERE images.product_id='$updatefid' AND images.image_location LIKE '%primary%'";
+								$imageresult = mysqli_query($conn, $imagesql);
+								$imagerow = mysqli_fetch_assoc($imageresult);
+
+								echo '<img style="margin-top:0px; " src="'.$imagerow['image_location'].'">';
+
+						
+
+							echo '</div>';
+							?>
 				<div class="clearfix"></div>
 			</div>
 		</div>
