@@ -81,7 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	.rating:not(:hover) label input:checked ~ .icon,
 	.rating:hover label:hover input ~ .icon {
-	  color: #FD4;
+	  color: #2fdab8;
 	}
 
 	.rating label input:focus:not(:checked) ~ .icon:last-child {
@@ -346,7 +346,7 @@ include('header.php');
 									$nameRow = mysqli_fetch_assoc($nameResult);
 									echo '<div class="bootstrap-tab-text-grid-right" style="float: left; width: 100%;">
 											<ul style="margin-bottom: 5px;">
-												<li><b>'.$nameRow["first_name"].' '.$nameRow["last_name"].'</b></li>
+												<li>- By '.$nameRow["first_name"].' '.$nameRow["last_name"].'</li>
 												<li';
 												if ($reviewRow["rating"]>3) {
 													echo ' style="color: #008A00"';
@@ -355,10 +355,10 @@ include('header.php');
 												} elseif ($reviewRow["rating"]) {
 													echo ' style="color: #B12704"';
 												}
-												echo '><b>Rated : '.$reviewRow["rating"].' / 5 </b></li><br>
-												<li style="color: #2fdab8; text-transform: uppercase;"><b>"'.$reviewRow["review_title"].'"</b></li>
+												echo '>Rated : '.$reviewRow["rating"].' / 5 </b></li><br>
+												<li style="color: #fc636b;text-transform: uppercase; margin-top: 0.5em;"><b>"'.$reviewRow["review_title"].'"</b></li>
 											</ul>
-											<p style="margin-top: 0px; margin-bottom: 10px;"><b>'.$reviewRow["review"].'</b></p>';
+											<p style="margin-top: 0px; margin-bottom: 10px; color:#000;">'.$reviewRow["review"].'</p>';
 										if ($reviewRow!=0) {
 											echo '<hr>';
 										}
@@ -373,9 +373,9 @@ include('header.php');
 						            echo '</div>';
 						             if (isset($_SESSION['user_id'])) {
 										 echo '<div class="add-review">
-											<h4 style="margin-bottom: 0px;">add a review</h4>
-											<span style="position: relative; top 20%;">Give your rating : </span>
-											<form class="rating">
+											<h3 style="margin-bottom: 0px;">add a review</h3>
+											<h4 style="margin-top:1.2em;">Give Your Rating : </h4>
+											<form class="rating" style="position: absolute;top: 72.5%;left: 23%;">
 											  <label>
 											    <input type="radio" name="stars" value="1" />
 											    <span class="icon">★</span>
