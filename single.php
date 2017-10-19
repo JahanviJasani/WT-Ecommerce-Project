@@ -368,14 +368,14 @@ include('header.php');
 										$ctr++;
 									}
 									if ($ctr==0) {
-										echo '<b>No reviews yet. Be the first one to review!</b>';
+										echo '<h4 style="color:#999">No reviews yet. Be the first one to review!</h4>';
 									}
 						            echo '</div>';
 						             if (isset($_SESSION['user_id'])) {
 										 echo '<div class="add-review">
 											<h3 style="margin-bottom: 0px;">add a review</h3>
 											<h4 style="margin-top:1.2em;">Give Your Rating : </h4>
-											<form class="rating" style="position: absolute;top: 72.5%;left: 23%;">
+											<form class="rating" style="display:block;margin-top: -0.4em;">
 											  <label>
 											    <input type="radio" name="stars" value="1" />
 											    <span class="icon">★</span>
