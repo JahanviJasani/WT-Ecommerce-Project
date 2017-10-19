@@ -166,7 +166,7 @@ include('header.php');
                                             <thead>
                                                 <tr>
 
-                                                    <th id="pid">Product Id</th>
+                                                    <th id="pid">Product</th>
                                                     <th id="brand">Brand</th>
                                                     <th id="name">Name</th>
                                                     <th id="price">Price</th>
@@ -180,8 +180,12 @@ include('header.php');
                                                     $watchresult = mysqli_query($conn, $watchsql);
 
                                                 while ($watchrow = mysqli_fetch_assoc($watchresult)) {
+                                                    $pid=$watchrow["product_id"];
+                                                    $imagesql = "SELECT * FROM images WHERE images.product_id=$pid AND images.image_location LIKE '%primary%'";
+                                                    $imageresult = mysqli_query($conn, $imagesql);
+                                                    $imagerow = mysqli_fetch_assoc($imageresult);
                                                     echo '<tr>
-                                                        <th><a href="#">'.$watchrow["product_id"].'</a></th>
+                                                        <th><a href="#"><img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front"></a></th>
                                                         <td>'.$watchrow["brand"].'</td>
                                                         <td>'.$watchrow["name"].'</td>
                                                         <td>'.$watchrow["price"].'</td>';
@@ -233,8 +237,12 @@ include('header.php');
                                                     $bagresult = mysqli_query($conn, $bagsql);
 
                                                 while ($bagrow = mysqli_fetch_assoc($bagresult)) {
+                                                    $pid=$bagrow["product_id"];
+                                                    $imagesql = "SELECT * FROM images WHERE images.product_id=$pid AND images.image_location LIKE '%primary%'";
+                                                    $imageresult = mysqli_query($conn, $imagesql);
+                                                    $imagerow = mysqli_fetch_assoc($imageresult);
                                                     echo '<tr>
-                                                        <th><a href="#">'.$bagrow["product_id"].'</a></th>
+                                                        <th><a href="#"><img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front"></a></th>
                                                         <td>'.$bagrow["brand"].'</td>
                                                         <td>'.$bagrow["name"].'</td>
                                                         <td>'.$bagrow["price"].'</td>';
@@ -244,7 +252,7 @@ include('header.php');
                                                         $brow = mysqli_fetch_assoc($bresult);
                                                         echo '<td>
                                                             <form action="functions.php" method="POST">
-                                                                <input type="hidden" name="prod_id" value="'.$bagrow["product_id"].'">
+                                                                <input type="hidden" name="prod_id" value="'.$pid,'">
                                                                 <input type="number" name="stock_quantity" style="width: 50px;" value="'.$brow["stock"].'">
                                                                 <button type="submit" name="bag_stock_update" class="btn btn-primary btn-sm">Update</button>
                                                             </form>
@@ -284,15 +292,18 @@ include('header.php');
                                                     $footwearresult = mysqli_query($conn, $footwearsql);
                                                     
                                                 while ($footwearrow = mysqli_fetch_assoc($footwearresult)) {
-                                                    $fid = $footwearrow["product_id"];
+                                                    $pid=$footwearrow["product_id"];
+                                                    $imagesql = "SELECT * FROM images WHERE images.product_id=$pid AND images.image_location LIKE '%primary%'";
+                                                    $imageresult = mysqli_query($conn, $imagesql);
+                                                    $imagerow = mysqli_fetch_assoc($imageresult);
                                                     echo '<tr>
-                                                        <th><a href="#">'.$footwearrow["product_id"].'</a></th>
+                                                        <th><a href="#"><img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front"></a></th>
                                                         <td>'.$footwearrow["brand"].'</td>
                                                         <td>'.$footwearrow["name"].'</td>
                                                         <td>'.$footwearrow["price"].'</td>
                                                         <td>
                                                             <form action="seller_products.php" method="GET">
-                                                                <input type="hidden" name="footwear_id_stock_update" value="'.$fid.'">
+                                                                <input type="hidden" name="footwear_id_stock_update" value="'.$pid.'">
                                                                 <button type="submit" name="qty_change_submit" value="true" class="btn btn-primary btn-sm" style="display: block; margin: 0 auto;">Update</button>
                                                             </form>
                                                         </td>
