@@ -3453,10 +3453,19 @@ color: #000;
     outline: none;
     padding: 10px;
     border: 1px solid #D2D2D2;
-    width: 49%;
+    width: 80%;
     font-size: 15px;
     color: #888;
 }
+.add-review input[type="number"] {
+    outline: none;
+    padding: 10px;
+    border: 1px solid #D2D2D2;
+    width: 19%;
+    font-size: 15px;
+    color: #888;   
+}
+
 .add-review textarea{
     width: 100% !important;
     min-height: 120px;

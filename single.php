@@ -24,6 +24,71 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
 <script src="js/backend.js"></script>
+<style>
+	.rating {
+	  display: inline-block;
+	  position: relative
+	}
+
+	.rating label {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  height: 100%;
+	  cursor: pointer;
+	}
+
+	.rating label:last-child {
+	  position: static;
+	}
+
+	.rating label:nth-child(1) {
+	  z-index: 5;
+	}
+
+	.rating label:nth-child(2) {
+	  z-index: 4;
+	}
+
+	.rating label:nth-child(3) {
+	  z-index: 3;
+	}
+
+	.rating label:nth-child(4) {
+	  z-index: 2;
+	}
+
+	.rating label:nth-child(5) {
+	  z-index: 1;
+	}
+
+	.rating label input {
+	  position: absolute;
+	  top: 20%;
+	  left: 0;
+	  opacity: 0;
+	}
+
+	.rating label .icon {
+	  float: left;
+	  color: transparent;
+	  font-size: 2em;
+	}
+
+	.rating label:last-child .icon {
+	  color: #000;
+	}
+
+	.rating:not(:hover) label input:checked ~ .icon,
+	.rating:hover label:hover input ~ .icon {
+	  color: #FD4;
+	}
+
+	.rating label input:focus:not(:checked) ~ .icon:last-child {
+	  color: #000;
+	  text-shadow: 0 0 5px #FD4;
+	}
+</style>
 </head>
 <?php
 include('header.php');
@@ -266,32 +331,92 @@ include('header.php');
 						<!--//tab-three-->
 						<div class="tab3">
 							
-							<div class="single_page_agile_its_w3ls">
+							<div class="single_page_agile_its_w3ls" style="padding-top: 0px !important;">
 								<div class="bootstrap-tab-text-grids">
 									<div class="bootstrap-tab-text-grid">
-										<div class="bootstrap-tab-text-grid-left">
-											<img src="images/t1.jpg" alt=" " class="img-responsive">
-										</div>
-										<div class="bootstrap-tab-text-grid-right">
-											<ul>
-												<li><a href="#">Admin</a></li>
-												<li><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i> Reply</a></li>
+									<h3 style="color: #000; margin-bottom: 20px;"><b>Most recent reviews</b></h3>';
+									$ctr=0;
+									$reviewSQL = "SELECT * FROM review WHERE review.product_id='$pid' ORDER BY review.review_id DESC";
+									$reviewResult = mysqli_query($conn, $reviewSQL);
+
+									while (($reviewRow = mysqli_fetch_assoc($reviewResult)) && ($ctr<3)) {
+									$uid = $reviewRow["user_id"];
+									$nameSQL = "SELECT * FROM users WHERE users.user_id='$uid'";
+									$nameResult = mysqli_query($conn, $nameSQL);
+									$nameRow = mysqli_fetch_assoc($nameResult);
+									echo '<div class="bootstrap-tab-text-grid-right" style="float: left; width: 100%;">
+											<ul style="margin-bottom: 5px;">
+												<li><b>'.$nameRow["first_name"].' '.$nameRow["last_name"].'</b></li>
+												<li';
+												if ($reviewRow["rating"]>3) {
+													echo ' style="color: #008A00"';
+												} elseif ($reviewRow["rating"]==3) {
+													echo ' style="color: #FFBB00"';
+												} elseif ($reviewRow["rating"]) {
+													echo ' style="color: #B12704"';
+												}
+												echo '><b>Rated : '.$reviewRow["rating"].' / 5 </b></li><br>
+												<li style="color: #2fdab8; text-transform: uppercase;"><b>"'.$reviewRow["review_title"].'"</b></li>
 											</ul>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget.Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis 
-												suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem 
-												vel eum iure reprehenderit.</p>
-										</div>
-										<div class="clearfix"> </div>
-						             </div>
-									 <div class="add-review">
-										<h4>add a review</h4>
-										<form action="#" method="post">
-												<input type="text" name="Name" required="Name">
-												<input type="email" name="Email" required="Email"> 
-												<textarea name="Message" required=""></textarea>
-											<input type="submit" value="SEND">
-										</form>
-									</div>
+											<p style="margin-top: 0px; margin-bottom: 10px;"><b>'.$reviewRow["review"].'</b></p>';
+										if ($reviewRow!=0) {
+											echo '<hr>';
+										}
+
+										echo '</div>
+										<div class="clearfix"> </div>';
+										$ctr++;
+									}
+									if ($ctr==0) {
+										echo '<b>No reviews yet. Be the first one to review!</b>';
+									}
+						            echo '</div>';
+						             if (isset($_SESSION['user_id'])) {
+										 echo '<div class="add-review">
+											<h4 style="margin-bottom: 0px;">add a review</h4>
+											<span style="position: relative; top 20%;">Give your rating : </span>
+											<form class="rating">
+											  <label>
+											    <input type="radio" name="stars" value="1" />
+											    <span class="icon">★</span>
+											  </label>
+											  <label>
+											    <input type="radio" name="stars" value="2" />
+											    <span class="icon">★</span>
+											    <span class="icon">★</span>
+											  </label>
+											  <label>
+											    <input type="radio" name="stars" value="3" />
+											    <span class="icon">★</span>
+											    <span class="icon">★</span>
+											    <span class="icon">★</span>   
+											  </label>
+											  <label>
+											    <input type="radio" name="stars" value="4" />
+											    <span class="icon">★</span>
+											    <span class="icon">★</span>
+											    <span class="icon">★</span>
+											    <span class="icon">★</span>
+											  </label>
+											  <label>
+											    <input type="radio" name="stars" value="5" />
+											    <span class="icon">★</span>
+											    <span class="icon">★</span>
+											    <span class="icon">★</span>
+											    <span class="icon">★</span>
+											    <span class="icon">★</span>
+											  </label>
+											</form>
+											<form action="functions.php" method="post" style="width: 100%;">
+													<input type="hidden" name="product_id" value="'.$pid.'">
+													<input type="text" name="title" required placeholder="Add a title" style="width: 100%;">
+													<input type="hidden" name="rating" required min="1" max="5" step=1> 
+													<textarea name="review" required placeholder="Add your review here"></textarea>
+													<input type="submit" name="review_submit" value="SEND">
+											</form>
+										</div>';
+									}
+									echo '
 								 </div>
 								 
 							 </div>
@@ -741,5 +866,11 @@ include('footer.php');
 		}
 	}
 </script>
+<script type="text/javascript">
+	$(':radio').change(function() {
+  console.log('New star rating: ' + this.value);
+  $('input[name="rating"]').val(this.value);
+});
 
+</script>
 <!-- <p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p> -->

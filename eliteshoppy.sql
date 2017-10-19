@@ -145,4 +145,14 @@ CREATE TABLE transaction(
 )
 ENGINE=INNODB;
 
-
+CREATE TABLE review(
+	review_id int(8) PRIMARY KEY AUTO_INCREMENT,
+	product_id int(8),
+	user_id int(8),
+	review_title varchar(200),
+	review varchar(1000),
+	rating int(1),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES product(product_id) ON DELETE CASCADE ON UPDATE CASCADE
+)
+ENGINE=INNODB;

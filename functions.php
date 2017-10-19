@@ -36,6 +36,8 @@ if (isset($_POST['signup_submit'])) {
 	updateBagStock($conn);
 } elseif (isset($_POST['footwear_stock_update'])) {
 	updateFootwearStock($conn);
+} elseif (isset($_POST['review_submit'])) {
+	addReview($conn);
 }
 
 function usersignup($conn) {
@@ -756,8 +758,29 @@ function updateFootwearStock($conn) {
 	 	} else {
 	 		header('Location: seller_products.php?stock_update=true&stock_update_fail=true');
 	 	}
-
-
 	}
-    	
+}
+
+function addReview($conn) {
+	$uid = $_SESSION['user_id'];
+	$pid = mysqli_real_escape_string($conn, $_POST['product_id']);
+	$rating = mysqli_real_escape_string($conn, $_POST['rating']);
+	$title = mysqli_real_escape_string($conn, $_POST['title']);
+	$review = mysqli_real_escape_string($conn, $_POST['review']);
+	//check if user has already reviewed the current product
+	$checkSQL = "SELECT * FROM review WHERE review.user_id='$uid' AND review.product_id='$pid'";
+	$checkResult = mysqli_query($conn, $checkSQL);
+	$checkNumRow = mysqli_num_rows($checkResult);
+	if ($checkNumRow>0) {
+		header("Location: single.php?pid=".$pid."&add_review=true&review_exist=true");
+	} else {
+		$sql = "INSERT INTO review (product_id, user_id, review_title, review, rating) VALUES ('$pid', '$uid', '$title', '$review', '$rating')";
+		$result = mysqli_query($conn, $sql);
+		if ($result) {
+			header("Location: single.php?pid=".$pid."&add_review=true&add_review_success=true");
+		} else {
+			header("Location: single.php?pid=".$pid."&add_review=true&add_review_fail=true");
+		}
+	}
+
 }
