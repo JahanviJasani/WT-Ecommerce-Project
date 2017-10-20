@@ -3,9 +3,7 @@
 	<div class="footer_agile_inner_info_w3l">
 		<div class="col-md-3 footer-left">
 			<h2><a href="index.php"><span>E</span>lite Shoppy </a></h2>
-			<p>Lorem ipsum quia dolor
-			sit amet, consectetur, adipisci velit, sed quia non 
-			numquam eius modi tempora.</p>
+			<p>The perfect platform for all your C2C business needs. For businesses and customers alike.</p>
 			<ul class="social-nav model-3d-0 footer-social w3_agile_social two">
 															<li><a href="#" class="facebook">
 																  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
@@ -44,7 +42,7 @@
 							</div>
 							<div class="w3-address-right">
 								<h6>Phone Number</h6>
-								<p>+1 234 567 8901</p>
+								<p>+91 97699 83936</p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -54,7 +52,7 @@
 							</div>
 							<div class="w3-address-right">
 								<h6>Email Address</h6>
-								<p>Email :<a href="mailto:example@email.com"> mail@example.com</a></p>
+								<p>Email :<a href="mailto:jahanvijasani.46@gmail.com"> jahanvijasani.46@gmail.com</a></p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -64,7 +62,7 @@
 							</div>
 							<div class="w3-address-right">
 								<h6>Location</h6>
-								<p>Broome St, NY 10002,California, USA. 
+								<p>JVPD Scheme, Juhu, Vile Parle (West), Mumbai 400056
 								
 								</p>
 							</div>

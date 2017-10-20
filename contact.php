@@ -54,21 +54,21 @@ include('header.php');
 						<div class="contact-grid-agile-w31">
 							<i class="fa fa-map-marker" aria-hidden="true"></i>
 							<h4>Address</h4>
-							<p>12K Street, 45 Building Road <span>California, USA.</span></p>
+							<p>JVPD Scheme, Juhu<span>Vile Parle (West)</span><span>Mumbai 400056</span></p>
 						</div>
 					</div>
 					<div class="col-md-4 contact-grid-agile-w3">
 						<div class="contact-grid-agile-w32">
 							<i class="fa fa-phone" aria-hidden="true"></i>
 							<h4>Call Us</h4>
-							<p>+1234 758 839<span>+1273 748 730</span></p>
+							<p>+91 97699 83936<span>+91 80802 77553</span><span>+91 99209 47570</span></p>
 						</div>
 					</div>
 					<div class="col-md-4 contact-grid-agile-w3">
 						<div class="contact-grid-agile-w33">
 							<i class="fa fa-envelope-o" aria-hidden="true"></i>
 							<h4>Email</h4>
-							<p><a href="mailto:info@example.com">info@example1.com</a><span><a href="mailto:info@example.com">info@example2.com</a></span></p>
+							<p><a href="mailto:jahanvijasani.46@gmail.com">jahanvijasani.46@gmail.com</a><span><a href="mailto:doshivatsal7@gmail.com">doshivatsal7@gmail.com</a></span><span><a href="mailto:contact@arnavjalui.ml">contact@arnavjalui.ml</a></span></p>
 						</div>
 					</div>
 					<div class="clearfix"> </div>
@@ -77,7 +77,7 @@ include('header.php');
 	 </div>
 	   <div class="contact-w3-agile1 map" data-aos="flip-right">
 			
-		   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100949.24429313939!2d-122.44206553967531!3d37.75102885910819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan+Francisco%2C+CA%2C+USA!5e0!3m2!1sen!2sin!4v1472190196783" class="map" style="border:0" allowfullscreen=""></iframe>
+		   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.0123130306342!2d72.83482221448956!3d19.107115755959807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9c676018b43%3A0x75f29a4205098f99!2sDwarkadas+J.+Sanghvi+College+of+Engineering!5e0!3m2!1sen!2sin!4v1508507116108" class="map" style="border:0" allowfullscreen=""></iframe>
 	   </div>
    <div class="banner_bottom_agile_info">
 	<div class="container">
@@ -88,21 +88,21 @@ include('header.php');
 							<div class="mail-agileits-w3layouts">
 								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
 								<div class="contact-right">
-									<p>Telephone </p><span>+1 (100)222-23-33</span>
+									<p>Telephone </p><span>+91 97699 83936</span>
 								</div>
 								<div class="clearfix"> </div>
 							</div>
 							<div class="mail-agileits-w3layouts">
 								<i class="fa fa-envelope-o" aria-hidden="true"></i>
 								<div class="contact-right">
-									<p>Mail </p><a href="mailto:info@example.com">info@example.com</a>
+									<p>Mail </p><a href="mailto:jahanvijasani.46@gmail.com">jahanvijasani.46@gmail.com</a>
 								</div>
 								<div class="clearfix"> </div>
 							</div>
 							<div class="mail-agileits-w3layouts">
 								<i class="fa fa-map-marker" aria-hidden="true"></i>
 								<div class="contact-right">
-									<p>Location</p><span>7784 Diamonds street, California, US.</span>
+									<p>Location</p><span>JVPD Scheme, Juhu, Vile Parle (West), Mumbai 400056</span>
 								</div>
 								<div class="clearfix"> </div>
 							</div>

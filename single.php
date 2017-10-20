@@ -361,7 +361,7 @@ include('header.php');
 												} elseif ($reviewRow["rating"]) {
 													echo ' style="color: #B12704"';
 												}
-												echo '>Rated : '.$reviewRow["rating"].' / 5 </b></li><br>
+												echo '><b>Rated : '.$reviewRow["rating"].' / 5 </b></li><br>
 												<li style="color: #fc636b;text-transform: uppercase; margin-top: 0.5em;"><b>"'.$reviewRow["review_title"].'"</b></li>
 											</ul>
 											<p style="margin-top: 0px; margin-bottom: 10px; color:#000;">'.$reviewRow["review"].'</p>';
@@ -375,13 +375,15 @@ include('header.php');
 									}
 									if ($ctr==0) {
 										echo '<h4 style="color:#999">No reviews yet. Be the first one to review!</h4>';
+									} else {
+										echo '<p style="margin-bottom: 20px;"><a href="reviews.php?pid='.$pid.'">View all reviews <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>';
 									}
 						            echo '</div>';
 						             if (isset($_SESSION['user_id'])) {
 										 echo '<div class="add-review">
 											<h3 style="margin-bottom: 0px;">add a review</h3>
 											<h4 style="margin-top:1.2em;">Give Your Rating : </h4>
-											<form class="rating" style="display:block;margin-top: -0.4em;">
+											<form class="rating" style="display: inline-block;margin-top: -0.4em;">
 											  <label>
 											    <input type="radio" name="stars" value="1" />
 											    <span class="icon">★</span>
