@@ -88,6 +88,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  color: #000;
 	  text-shadow: 0 0 5px #FD4;
 	}
+	span.stars, span.stars span {
+	    display: block;
+	    background: url(stars.png) 0 -16px repeat-x;
+	    width: 80px;
+	    height: 16px;
+	}
+
+	span.stars span {
+	    background-position: 0 0;
+	}
 </style>
 </head>
 <?php
@@ -119,6 +129,13 @@ include('header.php');
 		$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
 		$imageresult = mysqli_query($conn, $imagesql);
 		$imagerow = mysqli_fetch_assoc($imageresult);
+		$ratingSQL = "SELECT AVG(rating) AS star_rating FROM review WHERE review.product_id='$pid'";
+		$ratingResult = mysqli_query($conn, $ratingSQL);
+		$ratingRow = mysqli_fetch_assoc($ratingResult);
+		$str = $ratingRow["star_rating"];
+		if ($str==NULL) {
+			$str=0;
+		}
 		echo '<!-- banner-bootom-w3-agileits -->
 		<div class="banner-bootom-w3-agileits">
 			<div class="container-fluid">
@@ -152,18 +169,7 @@ include('header.php');
 					<h3 style="width: 70%;">'.$row1['name'].'</h3>
 					<p><span class="item_price"><span style="font-family:Arial;">&#8377;</span>'.$row1['price'].'</span></p>
 					<div class="rating1">
-						<span class="starRating">
-							<input id="rating5" type="radio" name="rating" value="5">
-							<label for="rating5">5</label>
-							<input id="rating4" type="radio" name="rating" value="4">
-							<label for="rating4">4</label>
-							<input id="rating3" type="radio" name="rating" value="3" checked="">
-							<label for="rating3">3</label>
-							<input id="rating2" type="radio" name="rating" value="2">
-							<label for="rating2">2</label>
-							<input id="rating1" type="radio" name="rating" value="1">
-							<label for="rating1">1</label>
-						</span>
+						<span class="stars">'.$str.'</span>
 					</div>';
 					$sql2 = "SELECT * FROM footwear WHERE product_id='$pid'";
 					$result2 = mysqli_query($conn, $sql2);
@@ -874,3 +880,37 @@ include('footer.php');
 
 </script>
 <!-- <p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p> -->
+
+<script>
+	$.fn.stars = function() {
+	    return $(this).each(function() {
+	        // Get the value
+	        var val = parseFloat($(this).html());
+	        // Make sure that the value is in 0 - 5 range, multiply to get width
+	        var size = Math.max(0, (Math.min(5, val))) * 16;
+	        // Create stars holder
+	        var $span = $('<span />').width(size);
+	        // Replace the numerical value with stars
+	        $(this).html($span);
+	    });
+	}
+	$(function() {
+	    $('span.stars').stars();
+	});
+</script>
+
+<!-- ORIGINAL WALA STAR
+
+	<span class="starRating">
+		<input id="rating5" type="radio" name="rating" value="5">
+		<label for="rating5">5</label>
+		<input id="rating4" type="radio" name="rating" value="4">
+		<label for="rating4">4</label>
+		<input id="rating3" type="radio" name="rating" value="3" checked="">
+		<label for="rating3">3</label>
+		<input id="rating2" type="radio" name="rating" value="2">
+		<label for="rating2">2</label>
+		<input id="rating1" type="radio" name="rating" value="1">
+		<label for="rating1">1</label>
+	</span>
+ -->
