@@ -94,8 +94,8 @@
 							<ul class="dropdown-menu multi-column columns-3">
 								<div class="agile_inner_drop_nav_info">
 									<div class="col-sm-6 multi-gd-img1 multi-gd-text ">
-										<a href="mens.php"><img src="images/top2.jpg" alt=" "/></a>
-										<a href="mens.php"><img src="images/top2.jpg" alt=" "/></a>
+										<a href="#"><img src="uploads/125_3.jpg" alt=" "/></a>
+										<a href="#"><img src="uploads/141_4.jpg" alt=" "/></a>
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
@@ -160,7 +160,7 @@
 										</ul>
 									</div>
 									<div class="col-sm-6 multi-gd-img multi-gd-text ">
-										<a href="womens.php"><img src="images/top1.jpg" alt=" "/></a>
+										<a href="womens.php"><img src="uploads/47_5.jpg" alt=" "/></a>
 									</div>
 									<div class="clearfix"></div>
 								</div>

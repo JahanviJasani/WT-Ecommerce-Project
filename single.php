@@ -90,7 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	}
 	span.stars, span.stars span {
 	    display: block;
-	    background: url(stars.png) 0 -16px repeat-x;
+	    background: url(star.png) 0 -16px repeat-x;
 	    width: 80px;
 	    height: 16px;
 	}
@@ -218,7 +218,7 @@ include('header.php');
 						if($numprintRow['number'] == 0) {
 										echo'<a href="#addR" onclick="review_add()">Be the first to write a review</a><hr style="margin-top: 0.5em">';
 									} else {
-										echo'<a href="reviews.php?pid='.$pid.'">See all '.$numprintRow['number'].' customer reviews <i class="fa fa-arrow-right" aria-hidden="true"></i></a><hr style="margin-top: 0.5em">';
+										echo'<a href="reviews.php?pid='.$pid.'">'.$numprintRow['number'].' customer reviews</i></a><hr style="margin-top: 0.5em">';
 									}
 						echo'</div>';
 					$sql2 = "SELECT * FROM footwear WHERE product_id='$pid'";
@@ -229,7 +229,6 @@ include('header.php');
 					$result=mysqli_query($conn, $sql);
 					if ($row1['category']=='footwear') {	
 						echo '<div class="occasional">
-						<hr>
 							<h4><b>Size :</b></h4>
 							<select id="country1" onchange="sizecheck()" class="frm-field sect">';
 							echo '<option value="-1" name="-1">Select</option>';
