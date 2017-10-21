@@ -395,12 +395,12 @@ include('header.php');
 									<span style="color: #000; font-weight:600;">('.$str.' out of 5 stars)</span>
 									<br>';
 									if($numprintRow['number'] == 0) {
-										echo'<a href="#addR" onclick="review_add()">Be the first to write a review</a><hr>';
+										echo'<a href="#addR" onclick="review_add()">Be the first to write a review</a>';
 									} else {
-										echo'<a href="reviews.php?pid='.$pid.'">See all '.$numprintRow['number'].' customer reviews <i class="fa fa-arrow-right" aria-hidden="true"></i></a><hr>';
+										echo'<a href="reviews.php?pid='.$pid.'">See all '.$numprintRow['number'].' customer reviews <i class="fa fa-arrow-right" aria-hidden="true"></i></a>';
 									}
 									echo'
-									<div id="meters">';
+									<div id="meters"><br>';
 										$count="SELECT COUNT(*) AS c FROM review WHERE review.rating='5' AND review.product_id='$pid'";
 										$countResult=mysqli_query($conn, $count);
 										$countrow=mysqli_fetch_assoc($countResult);
@@ -428,7 +428,7 @@ include('header.php');
 										echo'
 											<li><span class="styled"><span class="progress_p">1 star</span> <progress value="'.$countrow['c'].'" max="10"></progress> '.$countrow['c'].'</span></li>
 										</ul>
-									</div>';
+									</div><hr>';
 									if($numprintRow['number'] != 0) {
 										echo'
 											<h4 style="color: #000; margin-bottom: 20px;"><b>Top Customer Reviews</b></h4>';
@@ -443,7 +443,6 @@ include('header.php');
 											$nameRow = mysqli_fetch_assoc($nameResult);
 											echo '<div class="bootstrap-tab-text-grid-right" style="float: left; width: 100%;">
 													<ul style="margin-bottom: 5px;">
-														<li>- By '.$nameRow["first_name"].' '.$nameRow["last_name"].'</li>
 														<li';
 														if ($reviewRow["rating"]>3) {
 															echo ' style="color: #008A00"';
@@ -452,7 +451,10 @@ include('header.php');
 														} elseif ($reviewRow["rating"]) {
 															echo ' style="color: #B12704"';
 														}
-														echo '><b>Rated : '.$reviewRow["rating"].' / 5 </b></li><br>
+														echo '><b>Rated : </b><span class="stars" style="display:inline-block;">'.$reviewRow["rating"].'</span><span style="color: #000; font-weight:400; font-size: 0.95em;"> ('.$reviewRow["rating"].' out of 5 stars)</span></li><br>
+														<li>By '.$nameRow["first_name"].' '.$nameRow["last_name"].'</li>
+														<li>
+														</li><br>
 														<li style="color: #fc636b;text-transform: uppercase; margin-top: 0.5em;"><b>"'.$reviewRow["review_title"].'"</b></li>
 													</ul>
 													<p style="margin-top: 0px; margin-bottom: 10px; color:#000;">'.$reviewRow["review"].'</p>';
