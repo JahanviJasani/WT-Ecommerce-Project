@@ -90,16 +90,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	}
 	span.stars, span.stars span {
 	    display: inline-block;
-	    background: url(stars.png) 0 -16px repeat-x;
+	    background: url(star.png) 0 -16px repeat-x;
 	    width: 80px;
 	    height: 16px;
 	}
-
 	span.stars span {
 	    background-position: 0 0;
 	}
 	.resp-tab-active:before {
 		left: 50%;
+	}
+	#addReview {
+		display: none;
 	}
 </style>
 </head>
@@ -174,20 +176,22 @@ include('header.php');
 									$nameResult = mysqli_query($conn, $nameSQL);
 									$nameRow = mysqli_fetch_assoc($nameResult);
 									echo '<div class="bootstrap-tab-text-grid-right" style="float: left; width: 100%;">
-											<ul style="margin-bottom: 5px;">
-												<li>- By '.$nameRow["first_name"].' '.$nameRow["last_name"].'</li>
-												<li';
-												if ($reviewRow["rating"]>3) {
-													echo ' style="color: #008A00"';
-												} elseif ($reviewRow["rating"]==3) {
-													echo ' style="color: #FFBB00"';
-												} elseif ($reviewRow["rating"]) {
-													echo ' style="color: #B12704"';
-												}
-												echo '><b>Rated : '.$reviewRow["rating"].' / 5 </b></li><br>
-												<li style="color: #fc636b;text-transform: uppercase; margin-top: 0.5em;"><b>"'.$reviewRow["review_title"].'"</b></li>
-											</ul>
-											<p style="margin-top: 0px; margin-bottom: 10px; color:#000;">'.$reviewRow["review"].'</p>';
+													<ul style="margin-bottom: 5px;">
+														<li';
+														if ($reviewRow["rating"]>3) {
+															echo ' style="color: #008A00"';
+														} elseif ($reviewRow["rating"]==3) {
+															echo ' style="color: #FFBB00"';
+														} elseif ($reviewRow["rating"]) {
+															echo ' style="color: #B12704"';
+														}
+														echo '><b>Rated : </b><span class="stars" style="display:inline-block;">'.$reviewRow["rating"].'</span><span style="color: #000; font-weight:400; font-size: 0.95em;"> ('.$reviewRow["rating"].' out of 5 stars)</span></li><br>
+														<li>By '.$nameRow["first_name"].' '.$nameRow["last_name"].'</li>
+														<li>
+														</li><br>
+														<li style="color: #fc636b;text-transform: uppercase; margin-top: 0.5em;"><b>"'.$reviewRow["review_title"].'"</b></li>
+													</ul>
+													<p style="margin-top: 0px; margin-bottom: 10px; color:#000;">'.$reviewRow["review"].'</p>';
 										if ($reviewRow!=0) {
 											echo '<hr>';
 										}
@@ -201,8 +205,8 @@ include('header.php');
 									}
 						            echo '</div>';
 						             if (isset($_SESSION['user_id'])) {
-										 echo '<div class="add-review">
-											<h3 style="margin-bottom: 0px;">add a review</h3>
+										 echo '<h4 style="margin-bottom: 0px; cursor:pointer; color: #2fdab8" id="addR" onclick="review_add()">Click here to add a review</h4>
+											<div class="add-review" id="addReview">
 											<h4 style="margin-top:1.2em;">Give Your Rating : </h4>
 											<form class="rating" style="display: inline-block;margin-top: -0.4em;">
 											  <label>
@@ -476,7 +480,11 @@ include('footer.php');
   console.log('New star rating: ' + this.value);
   $('input[name="rating"]').val(this.value);
 });
-
+	function review_add() {
+		var rev = document.getElementById("addR");
+		var addrev = document.getElementById("addReview");
+		addrev.style.display="block";
+	}
 </script>
 <!-- <p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p> -->
 
