@@ -1003,7 +1003,9 @@ select {
 
 #right-box {
   float: right;
-  margin-top: -14em;
+  position: absolute;
+  top: 4%;
+  right: 1%;
   width: 30%;
 }
 

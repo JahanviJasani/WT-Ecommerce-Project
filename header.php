@@ -1,3 +1,11 @@
+<head>
+<style type="text/css">
+	.checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before { 
+		margin-top: -0.5em;
+		margin-left: -1.2em;
+	}
+</style>
+</head>
 <body>
 <!-- header -->
 <div class="header" id="home">

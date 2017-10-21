@@ -98,6 +98,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	span.stars span {
 	    background-position: 0 0;
 	}
+	#addReview {
+		display: none;
+	}
+	#meters li {
+		list-style: none;
+	}
+	.progress_p {
+		font-size: 1em;
+		margin: 0.1em 0 0.5em;
+		color: #23527c;
+	}
+	.styled progress {
+	  -webkit-appearance: none;
+	  -moz-appearance: none;
+	  appearance: none;
+	  width: 20%;
+	  height: 20px;
+	  border: none;
+	  background: #f3f3f3;
+	  border-radius: 3px;
+	  box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+}
+
+	.styled progress::-webkit-progress-bar {
+	  background: #f3f3f3;
+	  box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+	  border-radius: 1px;
+	}
+
+	.styled progress::-webkit-progress-value {
+	  background-color: #2fdab8;
+	  border-radius: 3px;
+	}
+
+	.styled progress::-moz-progress-bar {
+	  background-color: #2fdab8;
+	  border-radius: 3px;
+	}
+}
 </style>
 </head>
 <?php
@@ -129,7 +168,10 @@ include('header.php');
 		$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
 		$imageresult = mysqli_query($conn, $imagesql);
 		$imagerow = mysqli_fetch_assoc($imageresult);
-		$ratingSQL = "SELECT AVG(rating) AS star_rating FROM review WHERE review.product_id='$pid'";
+		$num="SELECT COUNT(*) AS number FROM review WHERE review.product_id='$pid'";
+		$numResult = mysqli_query($conn, $num);
+		$numprintRow=mysqli_fetch_assoc($numResult);
+		$ratingSQL = "SELECT ROUND((AVG(rating)),1) AS star_rating FROM review WHERE review.product_id='$pid'";
 		$ratingResult = mysqli_query($conn, $ratingSQL);
 		$ratingRow = mysqli_fetch_assoc($ratingResult);
 		$str = $ratingRow["star_rating"];
@@ -166,11 +208,19 @@ include('header.php');
 					</div>
 				</div>
 				<div class="col-md-8 single-right-left simpleCart_shelfItem">
+					<h4>'.$row1['brand'].'</h4>
 					<h3 style="width: 70%;">'.$row1['name'].'</h3>
 					<p><span class="item_price"><span style="font-family:Arial;">&#8377;</span>'.$row1['price'].'</span></p>
 					<div class="rating1">
-						<span class="stars">'.$str.'</span>
-					</div>';
+						<b>Average Customer Rating :&nbsp;&nbsp;&nbsp;</b><span class="stars" style="display:inline-block;">'.$str.'</span>
+						<span style="color: #000; font-weight:600;">('.$str.' out of 5 stars)</span>
+						<br>';
+						if($numprintRow['number'] == 0) {
+										echo'<a href="#addR" onclick="review_add()">Be the first to write a review</a><hr style="margin-top: 0.5em">';
+									} else {
+										echo'<a href="reviews.php?pid='.$pid.'">See all '.$numprintRow['number'].' customer reviews <i class="fa fa-arrow-right" aria-hidden="true"></i></a><hr style="margin-top: 0.5em">';
+									}
+						echo'</div>';
 					$sql2 = "SELECT * FROM footwear WHERE product_id='$pid'";
 					$result2 = mysqli_query($conn, $sql2);
 					$row2 = mysqli_fetch_assoc($result2);
@@ -179,7 +229,8 @@ include('header.php');
 					$result=mysqli_query($conn, $sql);
 					if ($row1['category']=='footwear') {	
 						echo '<div class="occasional">
-							<h4>Size :</h4>
+						<hr>
+							<h4><b>Size :</b></h4>
 							<select id="country1" onchange="sizecheck()" class="frm-field sect">';
 							echo '<option value="-1" name="-1">Select</option>';
 							while ($row=mysqli_fetch_assoc($result)) {
@@ -340,48 +391,85 @@ include('header.php');
 							<div class="single_page_agile_its_w3ls" style="padding-top: 0px !important;">
 								<div class="bootstrap-tab-text-grids">
 									<div class="bootstrap-tab-text-grid">
-									<h3 style="color: #000; margin-bottom: 20px;"><b>Most recent reviews</b></h3>';
-									$ctr=0;
-									$reviewSQL = "SELECT * FROM review WHERE review.product_id='$pid' ORDER BY review.review_id DESC";
-									$reviewResult = mysqli_query($conn, $reviewSQL);
-
-									while (($reviewRow = mysqli_fetch_assoc($reviewResult)) && ($ctr<3)) {
-									$uid = $reviewRow["user_id"];
-									$nameSQL = "SELECT * FROM users WHERE users.user_id='$uid'";
-									$nameResult = mysqli_query($conn, $nameSQL);
-									$nameRow = mysqli_fetch_assoc($nameResult);
-									echo '<div class="bootstrap-tab-text-grid-right" style="float: left; width: 100%;">
-											<ul style="margin-bottom: 5px;">
-												<li>- By '.$nameRow["first_name"].' '.$nameRow["last_name"].'</li>
-												<li';
-												if ($reviewRow["rating"]>3) {
-													echo ' style="color: #008A00"';
-												} elseif ($reviewRow["rating"]==3) {
-													echo ' style="color: #FFBB00"';
-												} elseif ($reviewRow["rating"]) {
-													echo ' style="color: #B12704"';
-												}
-												echo '><b>Rated : '.$reviewRow["rating"].' / 5 </b></li><br>
-												<li style="color: #fc636b;text-transform: uppercase; margin-top: 0.5em;"><b>"'.$reviewRow["review_title"].'"</b></li>
-											</ul>
-											<p style="margin-top: 0px; margin-bottom: 10px; color:#000;">'.$reviewRow["review"].'</p>';
-										if ($reviewRow!=0) {
-											echo '<hr>';
-										}
-
-										echo '</div>
-										<div class="clearfix"> </div>';
-										$ctr++;
-									}
-									if ($ctr==0) {
-										echo '<h4 style="color:#999">No reviews yet. Be the first one to review!</h4>';
+									<h4 style="color: #000; margin-bottom: 20px;"><b>Customer reviews</b></h4>
+									<span class="stars" style="display:inline-block;">'.$str.'</span>
+									<span style="color: #000; font-weight:600;">('.$str.' out of 5 stars)</span>
+									<br>';
+									if($numprintRow['number'] == 0) {
+										echo'<a href="#addR" onclick="review_add()">Be the first to write a review</a><hr>';
 									} else {
-										echo '<p style="margin-bottom: 20px;"><a href="reviews.php?pid='.$pid.'">View all reviews <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>';
+										echo'<a href="reviews.php?pid='.$pid.'">See all '.$numprintRow['number'].' customer reviews <i class="fa fa-arrow-right" aria-hidden="true"></i></a><hr>';
+									}
+									echo'
+									<div id="meters">';
+										$count="SELECT COUNT(*) AS c FROM review WHERE review.rating='5' AND review.product_id='$pid'";
+										$countResult=mysqli_query($conn, $count);
+										$countrow=mysqli_fetch_assoc($countResult);
+										echo'
+										<ul>
+											<li><span class="styled"><span class="progress_p">5 star</span> <progress value="'.$countrow['c'].'" max="10"></progress> '.$countrow['c'].'</span></li>';
+										$count="SELECT COUNT(*) AS c FROM review WHERE review.rating='4' AND review.product_id='$pid'";
+										$countResult=mysqli_query($conn, $count);
+										$countrow=mysqli_fetch_assoc($countResult);
+										echo'
+											<li><span class="styled"><span class="progress_p">4 star</span> <progress value="'.$countrow['c'].'" max="10"></progress> '.$countrow['c'].'</span></li>';	
+										$count="SELECT COUNT(*) AS c FROM review WHERE review.rating='3' AND review.product_id='$pid'";
+										$countResult=mysqli_query($conn, $count);
+										$countrow=mysqli_fetch_assoc($countResult);
+										echo'
+											<li><span class="styled"><span class="progress_p">3 star</span> <progress value="'.$countrow['c'].'" max="10"></progress> '.$countrow['c'].'</span></li>';
+										$count="SELECT COUNT(*) AS c FROM review WHERE review.rating='2' AND review.product_id='$pid'";
+										$countResult=mysqli_query($conn, $count);
+										$countrow=mysqli_fetch_assoc($countResult);
+										echo'
+											<li><span class="styled"><span class="progress_p">2 star</span> <progress value="'.$countrow['c'].'" max="10"></progress> '.$countrow['c'].'</span></li>';
+										$count="SELECT COUNT(*) AS c FROM review WHERE review.rating='1' AND review.product_id='$pid'";
+										$countResult=mysqli_query($conn, $count);
+										$countrow=mysqli_fetch_assoc($countResult);
+										echo'
+											<li><span class="styled"><span class="progress_p">1 star</span> <progress value="'.$countrow['c'].'" max="10"></progress> '.$countrow['c'].'</span></li>
+										</ul>
+									</div>';
+									if($numprintRow['number'] != 0) {
+										echo'
+											<h4 style="color: #000; margin-bottom: 20px;"><b>Top Customer Reviews</b></h4>';
+											$ctr=0;
+											$reviewSQL = "SELECT * FROM review WHERE review.product_id='$pid' ORDER BY review.review_id DESC";
+											$reviewResult = mysqli_query($conn, $reviewSQL);
+
+											while (($reviewRow = mysqli_fetch_assoc($reviewResult)) && ($ctr<2)) {
+											$uid = $reviewRow["user_id"];
+											$nameSQL = "SELECT * FROM users WHERE users.user_id='$uid'";
+											$nameResult = mysqli_query($conn, $nameSQL);
+											$nameRow = mysqli_fetch_assoc($nameResult);
+											echo '<div class="bootstrap-tab-text-grid-right" style="float: left; width: 100%;">
+													<ul style="margin-bottom: 5px;">
+														<li>- By '.$nameRow["first_name"].' '.$nameRow["last_name"].'</li>
+														<li';
+														if ($reviewRow["rating"]>3) {
+															echo ' style="color: #008A00"';
+														} elseif ($reviewRow["rating"]==3) {
+															echo ' style="color: #FFBB00"';
+														} elseif ($reviewRow["rating"]) {
+															echo ' style="color: #B12704"';
+														}
+														echo '><b>Rated : '.$reviewRow["rating"].' / 5 </b></li><br>
+														<li style="color: #fc636b;text-transform: uppercase; margin-top: 0.5em;"><b>"'.$reviewRow["review_title"].'"</b></li>
+													</ul>
+													<p style="margin-top: 0px; margin-bottom: 10px; color:#000;">'.$reviewRow["review"].'</p>';
+												if ($reviewRow!=0) {
+													echo '<hr>';
+												}
+
+												echo '</div>
+												<div class="clearfix"> </div>';
+												$ctr++;
+											}
 									}
 						            echo '</div>';
 						             if (isset($_SESSION['user_id'])) {
-										 echo '<div class="add-review">
-											<h3 style="margin-bottom: 0px;">add a review</h3>
+										 echo '<h4 style="margin-bottom: 0px; cursor:pointer; color: #2fdab8" id="addR" onclick="review_add()">Click here to add a review</h4>
+											<div class="add-review" id="addReview">
 											<h4 style="margin-top:1.2em;">Give Your Rating : </h4>
 											<form class="rating" style="display: inline-block;margin-top: -0.4em;">
 											  <label>
@@ -872,6 +960,11 @@ include('footer.php');
 		if (size==-1) {
 			console.log("xyz");
 		}
+	}
+	function review_add() {
+		var rev = document.getElementById("addR");
+		var addrev = document.getElementById("addReview");
+		addrev.style.display="block";
 	}
 </script>
 <script type="text/javascript">
