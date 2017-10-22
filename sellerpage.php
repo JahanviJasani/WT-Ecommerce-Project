@@ -806,7 +806,7 @@ if ($str==NULL) {
 </div>
 <!--grids-->
 <?php
-include('footer.php');
+include('seller_custom_footer.php');
 ?>
 
 <!-- login -->
