@@ -1,8 +1,17 @@
+<head>
+<style type="text/css">
+.resp{
+    display: block;
+    width: 53.23px;
+    height: 53.23px;
+}
+</style>
+</head>
 <!-- footer -->
 <div class="footer">
 	<div class="footer_agile_inner_info_w3l">
 		<div class="col-md-3 footer-left">
-			<h2><a href="index.php"><span>E</span>lite Shoppy </a></h2>
+			<h2 style="margin-top: 0.1em"><a href="index.php"><span>E</span>lite Shoppy </a></h2>
 			<p>The perfect platform for all your C2C business needs. For businesses and customers alike.</p>
 			<ul class="social-nav model-3d-0 footer-social w3_agile_social two">
 															<li><a href="#" class="facebook">
@@ -21,8 +30,8 @@
 		</div>
 		<div class="col-md-9 footer-right">
 			<div class="sign-grds">
-				<div class="col-md-4 sign-gd">
-					<h4>Our <span>Information</span> </h4>
+				<div class="col-md-3 sign-gd">
+					<h4>Quick <span>Links</span> </h4>
 					<ul>
 						<li><a href="index.php">Home</a></li>
 						<li><a href="about.php">About</a></li>
@@ -70,18 +79,30 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 sign-gd flickr-post">
-					<h4>Flickr <span>Posts</span></h4>
+				<div class="col-md-4 sign-gd flickr-post">
+					<h4>Our <span>Products</span></h4>
 					<ul>
-						<li><a href="single.php"><img src="images/t1.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img src="images/t2.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img src="images/t3.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img src="images/t4.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img src="images/t1.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img src="images/t2.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img src="images/t3.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img src="images/t2.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img src="images/t4.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_46.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_124.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_101.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_58.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_127.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_100.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_85.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_130.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_96.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_84.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_138.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_103.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_87.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_140.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_104.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_54.jpeg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_143.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_94.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_83.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.php"><img class="resp" src="primary/pri_122.jpg" alt=" " class="img-responsive" /></a></li>
+						
 					</ul>
 				</div>
 				<div class="clearfix"></div>
