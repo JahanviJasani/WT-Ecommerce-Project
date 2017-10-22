@@ -204,3 +204,13 @@ function change_sort_order(id) {
         window.location=window.location.href+"&sortorder="+sortorder;
     }
 }
+
+function showSellerPageModal() {
+    var currUrl = window.location.href;
+    if (currUrl.indexOf('?')>(-1)) {
+        window.location=currUrl+"&sellerpage=true";
+    } else {
+        window.location=currUrl+"?getsellerpage=true";
+    }
+    
+}

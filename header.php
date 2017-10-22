@@ -511,7 +511,7 @@
 					<?php
 						if (isset($_GET['user_not_found'])) {
 							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Email id<span> not recognized</span></h3><hr style="border-color: #2fdab8;">
-								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal2" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Click here </a><span> to sign up</span></h3>';
+								`';
 						} elseif (isset($_GET['login_error'])) {
 							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Incorrect<span> Email or Password</span></h3><hr style="border-color: #2fdab8;">
 								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Click here </a><span> to try again</span></h3>';
@@ -611,6 +611,38 @@
 						} elseif (isset($_GET['invalid_seller'])) {
 							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Stock Update<span> Failed</span></h3><hr style="border-color: #2fdab8;">
 								<h3 class="agileinfo_sign" style="text-transform: none; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;">This product <span> is not owned by you</span></h3>';
+						}
+					?>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- //Modal content-->
+	</div>
+</div>
+
+<!-- Get seller product page modal -->
+<div class="modal fade" id="myModal9" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" onclick="remove_queryString()">&times;</button>
+			</div>
+				<div class="modal-body modal-body-sub_agile" style="border: 1px solid #ccc; margin: 10px; border-radius: 5px; padding-bottom: 0px;">
+				<div class="col-md-12 modal_body_left modal_body_left1">
+					<?php
+						if (!isset($_SESSION['user_id'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">You are not<span> logged in.</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Click here </a><span> to log in</span></h3><span style="display: block; text-align: center; "><b>OR</b></span>
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="sellwithus.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a><span> as a seller</span></h3>';
+						} elseif ($_SESSION['user_type']==0) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">You do not have<span> a seller account</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-dismiss="modal" onclick="remove_queryString()"> Click here </a><span> to continue</span></h3>';
+						} elseif ($_SESSION['user_type']==1) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">View Your<span> Seller Page</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="sellerpage.php?seller_id='.$_SESSION['seller_id'].'"><i class="fa fa-external-link" aria-hidden="true"></i> Click here </a><span> to visit </span></h3>';
 						}
 					?>
 					<div class="clearfix"></div>

@@ -109,20 +109,24 @@
 			</div>
 		</div>
 		<div class="clearfix"></div>
-			<div class="agile_newsletter_footer">
-					<div class="col-sm-6 newsleft">
-				<h3>SIGN UP FOR NEWSLETTER !</h3>
+			<div class="agile_newsletter_footer" style="margin-top: 1em;">
+					<div class="col-sm-6 newsleft" style="width: 100%;">
+				<h3 style="text-align: center;"><a id="seller_page_anchor" onclick="showSellerPageModal()" style="cursor: pointer; color: #fff; border: 1px solid #2fdab8; padding: 5px; background-color: #2fdab8;">CLICK HERE</a> TO GET YOUR OWN SELLER PAGE!</h3>
 			</div>
-			<div class="col-sm-6 newsright">
-				<form action="#" method="post">
-					<input type="email" placeholder="Enter your email..." name="email" required="">
-					<input type="submit" value="Submit">
-				</form>
-			</div>
-
 		<div class="clearfix"></div>
 	</div>
 		<p class="copy-right">&copy 2017 Elite shoppy. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
 	</div>
 </div>
 <!-- //footer -->
+
+
+<?php
+	if (isset($_GET['getsellerpage'])) {
+	echo '<script>
+	$(window).load(function(){
+        $("#myModal9").modal("show");
+    });
+	</script>';
+}
+?>
