@@ -243,7 +243,7 @@ include('header.php');
 							$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='men' AND product.product_id IN (SELECT product_id FROM footwear WHERE footwear.footwear_id IN (SELECT footwear_id FROM footwear_size WHERE footwear_size.footwear_size LIKE '$size' AND footwear_size.stock>0))"." ".$sortby;
 						}
 					} else {
-						if($type="All") {
+						if($type=="All") {
 							$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND product.gender='men'"." ".$sortby;
 						}
 						else {
