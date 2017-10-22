@@ -89,6 +89,7 @@ include('header.php');
 									<li><a id="64" href="#" onclick="addURL('Bag','Backpacks',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Backpacks</a></li>
 									<li><a id="65" href="#" onclick="addURL('Bag','Casual',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
 									<li><a id="66" href="#" onclick="addURL('Bag','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
+									<li><a id="all_mb" href="#" onclick="addURL('Bag','All',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> All</a></li>
 								</ul>
 						</ul>
 					</li><br>
@@ -190,8 +191,12 @@ include('header.php');
 						}
 					}
 
-
-					$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND bags.subcategory='$type' AND product.gender='men'"." ".$sortby;
+					if($type=="All") {
+						$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND product.gender='men'"." ".$sortby;	
+					}
+					else {
+						$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND bags.subcategory='$type' AND product.gender='men'"." ".$sortby;
+					}
 					$res1 = mysqli_query($conn, $sql1);
 					$minprice=0;
 					$maxprice=9999999;

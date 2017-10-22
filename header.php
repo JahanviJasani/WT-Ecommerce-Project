@@ -110,7 +110,7 @@
 											<li><a id="8" href="#" onclick="addURL('Footwear','Athletic',id)">Athletic Shoes</a></li>
 											<li><a id="9" href="#" onclick="addURL('Footwear','Running',id)">Running Shoes</a></li>
 											<li><a id="10" href="#" onclick="addURL('Footwear','Others',id)">Others</a></li>
-											
+											<li><a id="all_mf" href="#" onclick="addURL('Footwear','All',id)">All</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3 multi-gd-img">
@@ -126,6 +126,7 @@
 											<li><a id="18" href="#" onclick="addURL('Footwear','Pumps',id)">Pumps</a></li>
 											<li><a id="19" href="#" onclick="addURL('Footwear','Loafers',id)">Loafers</a></li>
 											<li><a id="20" href="#" onclick="addURL('Footwear','Others',id)">Others</a></li>
+											<li><a id="all_wf" href="#" onclick="addURL('Footwear','All',id)">All</a></li>
 										</ul>
 									</div>
 									<div class="clearfix"></div>
@@ -145,6 +146,7 @@
 											<li><a id="24" href="#" onclick="addURL('Bag','Backpacks',id)">Backpacks</a></li>
 											<li><a id="25" href="#" onclick="addURL('Bag','Casual',id)">Casual Bags</a></li>
 											<li><a id="26" href="#" onclick="addURL('Bag','Others',id)">Others</a></li>
+											<li><a id="all_mb" href="#" onclick="addURL('Bag','All',id)">All</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3 multi-gd-img">
@@ -157,6 +159,7 @@
 											<li><a id="31" href="#" onclick="addURL('Bag','Casual',id)">Casual Bags</a></li>
 											<li><a id="124" href="#" onclick="addURL('Bag','Backpacks',id)">Backpacks</a></li>
 											<li><a id="32" href="#" onclick="addURL('Bag','Others',id)">Others</a></li>
+											<li><a id="all_wb" href="#" onclick="addURL('Bag','All',id)">All</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-6 multi-gd-img multi-gd-text ">

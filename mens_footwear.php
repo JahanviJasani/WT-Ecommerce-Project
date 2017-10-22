@@ -93,6 +93,7 @@ include('header.php');
 									<li><a id="48" href="#" onclick="addURL('Footwear','Athletic',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Athletic Shoes</a></li>
 									<li><a id="49" href="#" onclick="addURL('Footwear','Running',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Running Shoes</a></li>
 									<li><a id="50" href="#" onclick="addURL('Footwear','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
+									<li><a id="all_mf" href="#" onclick="addURL('Footwear','All',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> All</a></li>
 								</ul>
 						</ul>
 					</li><br>
@@ -235,9 +236,19 @@ include('header.php');
 
 					if (isset($_GET['size'])) {
 						$size = $_GET['size'];
-						$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='men' AND product.product_id IN (SELECT product_id FROM footwear WHERE footwear.footwear_id IN (SELECT footwear_id FROM footwear_size WHERE footwear_size.footwear_size LIKE '$size' AND footwear_size.stock>0))"." ".$sortby;
+						if($type=="All") {
+							$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND product.gender='men' AND product.product_id IN (SELECT product_id FROM footwear WHERE footwear.footwear_id IN (SELECT footwear_id FROM footwear_size WHERE footwear_size.footwear_size LIKE '$size' AND footwear_size.stock>0))"." ".$sortby;
+						}
+						else {
+							$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='men' AND product.product_id IN (SELECT product_id FROM footwear WHERE footwear.footwear_id IN (SELECT footwear_id FROM footwear_size WHERE footwear_size.footwear_size LIKE '$size' AND footwear_size.stock>0))"." ".$sortby;
+						}
 					} else {
-						$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='men'"." ".$sortby;
+						if($type="All") {
+							$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND product.gender='men'"." ".$sortby;
+						}
+						else {
+							$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='men'"." ".$sortby;
+						}
 					}
 
 					$minprice=0;
