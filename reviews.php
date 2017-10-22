@@ -173,9 +173,12 @@ include('header.php');
 									while ($reviewRow = mysqli_fetch_assoc($reviewResult)) {
 									$uid = $reviewRow["user_id"];
 									$nameSQL = "SELECT * FROM users WHERE users.user_id='$uid'";
-									$nameResult = mysqli_query($conn, $nameSQL);
-									$nameRow = mysqli_fetch_assoc($nameResult);
-									echo '<div class="bootstrap-tab-text-grid-right" style="float: left; width: 100%;">
+											$nameResult = mysqli_query($conn, $nameSQL);
+											$nameRow = mysqli_fetch_assoc($nameResult);
+											$mySQLdate=$reviewRow['rev_date'];
+											$mydate=strtotime($mySQLdate);
+											$phpdate=date("d-m-y", $mydate);
+											echo '<div class="bootstrap-tab-text-grid-right" style="float: left; width: 100%;">
 													<ul style="margin-bottom: 5px;">
 														<li';
 														if ($reviewRow["rating"]>3) {
@@ -186,7 +189,7 @@ include('header.php');
 															echo ' style="color: #B12704"';
 														}
 														echo '><b>Rated : </b><span class="stars" style="display:inline-block;">'.$reviewRow["rating"].'</span><span style="color: #000; font-weight:400; font-size: 0.95em;"> ('.$reviewRow["rating"].' out of 5 stars)</span></li><br>
-														<li>By '.$nameRow["first_name"].' '.$nameRow["last_name"].'</li>
+														<li>By <span style="color:#337ab7"> '.$nameRow["first_name"].' '.$nameRow["last_name"].'</span> on '.$phpdate.' </li>
 														<li>
 														</li><br>
 														<li style="color: #fc636b;text-transform: uppercase; margin-top: 0.5em;"><b>"'.$reviewRow["review_title"].'"</b></li>

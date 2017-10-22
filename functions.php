@@ -774,7 +774,7 @@ function addReview($conn) {
 	if ($checkNumRow>0) {
 		header("Location: single.php?pid=".$pid."&add_review=true&review_exist=true");
 	} else {
-		$sql = "INSERT INTO review (product_id, user_id, review_title, review, rating) VALUES ('$pid', '$uid', '$title', '$review', '$rating')";
+		$sql = "INSERT INTO review (product_id, user_id, review_title, review, rating, rdate) VALUES ('$pid', '$uid', '$title', '$review', '$rating', CURDATE())";
 		$result = mysqli_query($conn, $sql);
 		if ($result) {
 			header("Location: single.php?pid=".$pid."&add_review=true&add_review_success=true");
