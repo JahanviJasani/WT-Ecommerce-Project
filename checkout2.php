@@ -23,6 +23,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
 <script src="js/backend.js"></script>
+<style type="text/css">
+    .row {
+        padding: 10px 10px 10px 10px; 
+        margin-left: -2px; margin-right: -2px;
+        border-bottom: 1px solid #d1cfcf;
+    }
+    .respon {
+        display: block;
+        width: 60px;
+        height: 60px;
+    }
+    .check_name {
+        display: block;
+        font-size: 1em;
+        color: #fc636b;
+        font-weight: 600;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .check_span {
+        color: #000;
+        font-size: 0.85em;
+    }
+</style>
 </head>
 
 <?php
@@ -51,53 +75,48 @@ include('header.php');
                     <ul class="nav nav-pills nav-justified">
                         <li class="visited"><a href="checkout1.php"><i class="fa fa-map-marker"></i>     Address</a>
                         </li>
-                        <li class="active"><a href="#"><i class="fa fa-truck"></i>    Delivery Method</a>
+                        <li class="active"><a href="#"><i class="fa fa-truck"></i>    Review Order</a>
                         </li>
                         <li class="disabled"><a href="#"><i class="fa fa-money"></i>    Payment Method</a>
                         </li>
                     </ul>
-                    <div class="content" style="margin-top: 3em;">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="box">
-
-                                    <h4>USPS Next Day</h4>
-
-                                    <p>Get it right on next day - fastest option possible.</p>
-
-                                    <div class="box-footer text-center">
-
-                                        <input type="radio" name="delivery" value="delivery1">
-                                    </div>
+                    <div class="content" style="margin-top: 1em;">
+                        <div class="col-sm-12" style="border-bottom: 1px solid #d1cfcf;">
+                            <div class="col-sm-8"></div>
+                            <div class="col-sm-2"><h5 class="check_span">Price</h5></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="row" style="padding: 10px 10px 10px 10px; margin-left: -2px; margin-right: -2px;">
+                                <div class="col-sm-2">
+                                    <img class="respon" src="primary/pri_122.jpg" alt=" " class="img-responsive" />
                                 </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="box shipping-method">
-
-                                    <h4>USPS Next Day</h4>
-
-                                    <p>Get it right on next day - fastest option possible.</p>
-
-                                    <div class="box-footer text-center">
-
-                                        <input type="radio" name="delivery" value="delivery2">
-                                    </div>
+                                <div class="col-sm-6">
+                                    <span class="check_span">Brand</span>
+                                    <h5 class="check_name">Product Name</h5>
                                 </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="box shipping-method">
-
-                                    <h4>USPS Next Day</h4>
-
-                                    <p>Get it right on next day - fastest option possible.</p>
-
-                                    <div class="box-footer text-center">
-
-                                        <input type="radio" name="delivery" value="delivery3">
-                                    </div>
+                                <div class="col-sm-2">
+                                    <p><span style="font-family:Arial;">&#8377;</span>700</p>
                                 </div>
-                            </div>
+                                <div class="col-sm-2">
+                                    <h5 style="    margin-top: 0; margin-bottom: 5px;">Quantity</h5>
+                                    <input type="number" name="stock_quantity" style="width: 40px; height: 20px;" value="2">
+                                </div>
+                        </div>
+                        <div class="row" style="padding: 10px 10px 10px 10px; margin-left: -2px; margin-right: -2px;">
+                                <div class="col-sm-2">
+                                    <img class="respon" src="primary/pri_122.jpg" alt=" " class="img-responsive" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <span class="check_span">Brand</span>
+                                    <h5 class="check_name">Product Name</h5>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p><span style="font-family:Arial;">&#8377;</span>700</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <h5 style="    margin-top: 0; margin-bottom: 5px;">Quantity</h5>
+                                    <input type="number" name="stock_quantity" style="width: 40px; height: 20px;" value="2">
+                                </div>
                         </div>
                         <!-- /.row -->
 

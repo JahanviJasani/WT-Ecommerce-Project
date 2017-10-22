@@ -51,7 +51,7 @@ include('header_login.php');
                     <ul class="nav nav-pills nav-justified">
                         <li class="visited"><a href="checkout1.php"><i class="fa fa-map-marker"></i>     Address</a>
                         </li>
-                        <li class="visited"><a href="checkout2.php"><i class="fa fa-truck"></i>    Delivery Method</a>
+                        <li class="visited"><a href="checkout2.php"><i class="fa fa-truck"></i>    Review Order</a>
                         </li>
                         <li class="active"><a href="#"><i class="fa fa-money"></i>    Payment Method</a>
                         </li>

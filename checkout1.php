@@ -56,7 +56,7 @@ include('header.php');
                     <ul class="nav nav-pills nav-justified">
                         <li class="active"><a href="#"><i class="fa fa-map-marker"></i>     Address</a>
                         </li>
-                        <li class="disabled"><a href="#"><i class="fa fa-truck"></i>    Delivery Method</a>
+                        <li class="disabled"><a href="#"><i class="fa fa-truck"></i>    Review Order</a>
                         </li>
                         <li class="disabled"><a href="#"><i class="fa fa-money"></i>    Payment Method</a>
                         </li>
@@ -138,7 +138,7 @@ include('header.php');
                             <a href="index.php" class="btn btn-default"><i class="fa fa-chevron-left"></i>Continue shopping</a>
                         </div>
                         <div class="pull-right">
-                            <button type="submit" name="address_submit" class="btn btn-primary">Continue to Delivery Method<i class="fa fa-chevron-right"></i>
+                            <button type="submit" name="address_submit" class="btn btn-primary">Continue to Review Order<i class="fa fa-chevron-right"></i>
                             </button>
                         </div>
                     </div>
