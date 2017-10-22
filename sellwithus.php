@@ -1,3 +1,7 @@
+<?php
+include('functions.php');
+date_default_timezone_set("Asia/Kolkata");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,6 +79,8 @@ include('header.php');
   </div>
   <div class="container__child signup__form">
     <form action="functions.php" method="POST">
+      <?php $date = date('Y-m-d');?>
+      <input type="hidden" name="currDate" value="<?php echo $date;?>">
       <div class="form-group">
         <label for="name">First Name</label>
         <input class="form-control" type="text" name="fname" id="fname" placeholder="John" required />

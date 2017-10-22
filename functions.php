@@ -46,13 +46,14 @@ function usersignup($conn) {
 		$fname=mysqli_real_escape_string($conn, $_POST['FName']);
 		$lname=mysqli_real_escape_string($conn, $_POST['LName']);
 		$email=mysqli_real_escape_string($conn, $_POST['Email']);
+		$currDate=mysqli_real_escape_string($conn, $_POST['currDate']);
 		$password=mysqli_real_escape_string($conn, password_hash($_POST['password'], PASSWORD_DEFAULT));
 		$sql="SELECT * FROM users WHERE users.email='$email'";
 		$result=mysqli_query($conn, $sql);
 		if($result) {
 			$num_row= mysqli_num_rows($result);
 			if ($num_row==0) {
-				$sql="INSERT INTO users (first_name, last_name,email,password,user_type) VALUES ('$fname','$lname','$email','$password',0)";
+				$sql="INSERT INTO users (first_name, last_name,email,password,user_type, register_date) VALUES ('$fname','$lname','$email','$password',0,'$currDate')";
 				$result2 = mysqli_query($conn, $sql);
 				if ($result2) {
 					header('Location: index.php?customer_reg=true&customer_reg_success=true');
@@ -146,13 +147,14 @@ function register_seller($conn) {
 		$accno=mysqli_real_escape_string($conn, $_POST['account_num']);
 		$bankname=mysqli_real_escape_string($conn, $_POST['bank']);
 		$ifsc=mysqli_real_escape_string($conn, $_POST['ifsc']);
+		$currDate=mysqli_real_escape_string($conn, $_POST['currDate']);
 		$password=mysqli_real_escape_string($conn, password_hash($_POST['password'], PASSWORD_DEFAULT));
 		$sql="SELECT * FROM users WHERE users.email='$email'";
 		$result=mysqli_query($conn, $sql);
 		if($result) {
 			$num_row= mysqli_num_rows($result);
 			if ($num_row==0) {
-				$sql="INSERT INTO users (first_name, last_name,email,password,user_type) VALUES ('$fname','$lname','$email','$password',1)";
+				$sql="INSERT INTO users (first_name, last_name,email,password,user_type,register_date) VALUES ('$fname','$lname','$email','$password',1,'$currDate')";
 				$result2 = mysqli_query($conn, $sql);
 				$sql="SELECT * FROM users WHERE users.email='$email' AND users.user_type=1";
 				$result3 = mysqli_query($conn, $sql);

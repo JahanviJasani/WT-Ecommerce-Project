@@ -103,16 +103,65 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	#addReview {
 		display: none;
 	}
+	#kys {
+		cursor: pointer;
+	}
+	#knowYourSeller:before {
+	    content: '';
+	    height: 0;
+	    position: absolute;
+	    width: 0;
+	    top: 5px;
+	    left:-20px;
+	    border: 10px solid transparent;
+	    border-right-color: #2fdab8;
+	}
+	#knowYourSeller {
+		display: none;
+		z-index: 100;
+		top: 30px;
+		left: 220px;
+		background-color: #fff;
+		box-shadow: 7px 7px 25px #888888;
+		position: absolute;
+		padding: 5px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		border: 2px solid #2fdab8;
+		border-radius: 7px;
+	}
 </style>
+<script>
+	function showSellerInfo() {
+		var knowYourSeller = document.getElementById("knowYourSeller");
+		knowYourSeller.style.display = "block";
+	}
+	function hideSellerInfo() {
+		var knowYourSeller = document.getElementById("knowYourSeller");
+		knowYourSeller.style.display = "none";
+	}
+</script>
 </head>
 <?php
 include('header.php');
+$sid=$_GET['seller_id'];
+$sql1="SELECT * FROM users WHERE users.user_id IN (SELECT user_id FROM seller WHERE seller.seller_id='$sid')";
+$result1 = mysqli_query($conn, $sql1);
+$row1 = mysqli_fetch_assoc($result1);
+
+$rateSQL = "SELECT AVG(rating) AS rate_num FROM review WHERE review.product_id IN (SELECT product_id FROM product WHERE product.seller_id='$sid')";
+$rateResult = mysqli_query($conn, $rateSQL);
+$rateRow = mysqli_fetch_assoc($rateResult);
+$str = $rateRow["rate_num"];
+if ($str==NULL) {
+	$str=0;
+}
 ?>
 <!--/single_page-->
        <!-- /banner_bottom_agile_info -->
 <div class="page-head_agile_info_w3l">
 		<div class="container">
-			<h3>Seller <span>Page </span></h3>
+			<h3><span>All products by </span><span style="color: #2fdab8;"><b><?php echo $row1["first_name"].' '.$row1["last_name"];?></b></span></h3>
 			<!--/w3_short-->
 				 <div class="services-breadcrumb">
 						<div class="agile_inner_breadcrumb">
@@ -126,39 +175,30 @@ include('header.php');
 	   <!--//w3_short-->
 	</div>
 </div>
-<?php
-		$sid=$_GET['seller_id'];
-		$sql1="SELECT * FROM users WHERE users.user_id IN (SELECT user_id FROM seller WHERE seller.seller_id='$sid')";
-		$result1 = mysqli_query($conn, $sql1);
-		$row1 = mysqli_fetch_assoc($result1);
-
-
-		$rateSQL = "SELECT AVG(rating) AS rate_num FROM review WHERE review.product_id IN (SELECT product_id FROM product WHERE product.seller_id='$sid')";
-		$rateResult = mysqli_query($conn, $rateSQL);
-		$rateRow = mysqli_fetch_assoc($rateResult);
-		$str = $rateRow["rate_num"];
-		if ($str==NULL) {
-			$str=0;
-		}
-
-		?>
 		<!-- banner-bootom-w3-agileits -->
-		<div class="banner-bootom-w3-agileits" style="padding-top: 2em;">
+		<div class="banner-bootom-w3-agileits" style="padding-top: 2em; padding-bottom: 0em;">
 			<div class="container-fluid">
 				<div class="col-md-12 single-right-left simpleCart_shelfItem">
 					<?php
-					echo '<div style="display: inline-block; float: left;"><h3>Seller : '.$row1["first_name"].' '.$row1["last_name"].'</h3></div>
-						<div style="padding: 5px; padding-top: 15px; padding-bottom: 15px; border: 2px solid #2fdab8; display: inline-block; border-radius: 7px; float: right;">
+
+					$mySQLdate=$row1['register_date'];
+					$mydate=strtotime($mySQLdate);
+					$phpdate=date("d-M-Y", $mydate);
+
+					echo '<div style="display: inline-block; float: left;"><h3>Seller : '.$row1["first_name"].' '.$row1["last_name"].'</h3>
+					<p name="kys" id="kys" onmouseover="showSellerInfo()" onmouseout="hideSellerInfo()">Know your seller <i class="fa fa-info-circle" aria-hidden="true"></i></p></div>
+						<div name="knowYourSeller" id="knowYourSeller">
 						<span style="text-align: center; display: block;"><b>Know Your Seller</b></span><hr style="margin: 3px; border-color: #999; border-width: 2px;"><b>Average Seller Rating :&nbsp;&nbsp;&nbsp;</b><span class="stars">'.$str.'</span><br>
 						<b>Seller Email Id:&nbsp;&nbsp;&nbsp;</b>'.$row1["email"].'<br>
+						<b>Seller Contact:&nbsp;&nbsp;&nbsp;</b>'.$row1["mobile"].'<br>
+						<b>Seller Since:&nbsp;&nbsp;&nbsp;</b>'.$phpdate.'<br>
 						<b>Elite Shoppy Seller Id:&nbsp;&nbsp;&nbsp;</b>'.$sid.'</div>
 					</div>';
 					?>
 				</div>
 
-				<div class="new_arrivals_agile_w3ls_info" style="padding-top: 2em;"> 
+				<div class="new_arrivals_agile_w3ls_info" style="padding-top: 2em; padding-bottom: 0em;"> 
 					<div class="container" style="margin-left: 0px; margin-right: 0px; width: 100%;">
-					    <h3 class="wthree_text_info"><span>All Products By </span><span style="color: #2fdab8;"><b><?php echo $row1["first_name"].' '.$row1["last_name"];?></b></span></h3><hr>
 							<div id="horizontalTab">
 									<ul class="resp-tabs-list">
 										<li> Watches</li>
@@ -964,3 +1004,14 @@ if (isset($_GET['getsellerpage'])) {
 	</script>';
 }
 ?>
+
+<script>
+	function showSellerInfo() {
+		var knowYourSeller = document.getElementById("knowYourSeller");
+		knowYourSeller.style.display = "block";
+	}
+	function hideSellerInfo() {
+		var knowYourSeller = document.getElementById("knowYourSeller");
+		knowYourSeller.style.display = "none";
+	}
+</script>

@@ -14,7 +14,8 @@ CREATE TABLE users (
 	zip varchar(10),
 	city varchar(50),
 	state varchar(50),
-	user_type int(2)
+	user_type int(2),
+	register_date date DEFAULT NULL
 )
 ENGINE=INNODB;
 
@@ -152,6 +153,7 @@ CREATE TABLE review(
 	review_title varchar(200),
 	review varchar(1000),
 	rating int(1),
+	rev_date date DEFAULT NULL
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (product_id) REFERENCES product(product_id) ON DELETE CASCADE ON UPDATE CASCADE
 )

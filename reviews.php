@@ -1,5 +1,6 @@
 <?php
 include('functions.php');
+date_default_timezone_set("Asia/Kolkata");
 ?>
 <!DOCTYPE html>
 <html>

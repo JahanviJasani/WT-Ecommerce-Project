@@ -297,6 +297,8 @@
 						<div class="col-md-8 modal_body_left modal_body_left1">
 						<h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
 						<form action="functions.php" method="POST" id="sign_up_form">
+							<?php $date = date('Y-m-d');?>
+      						<input type="hidden" name="currDate" value="<?php echo $date;?>">
 							<div class="styled-input agile-styled-input-top">
 								<input type="text" name="FName" required="">
 								<label>First Name</label>
