@@ -5,7 +5,7 @@
 		margin-left: -1.2em;
 	}
 	.ban-top {
-		background: url(images/inner1.jpg) repeat center;
+		background: url(images/inner1.jpg) no-repeat center;
 	}
 	.rating {
 	  display: inline-block;
@@ -101,7 +101,7 @@
 		display: none;
 		z-index: 100;
 		top: 6.5%;
-		left: 18%;
+		right: 1%;
 		background-color: #fff;
 		box-shadow: 7px 7px 25px #888888;
 		position: absolute;
@@ -120,11 +120,11 @@
 		<ul>
 		    <?php
 		    	
-		    	$id = $_SESSION['user_id'];
+		    	$id = $sid;
 		    	$sql_u = "SELECT * FROM users WHERE user_id='$id'";
 		    	$user = mysqli_query($conn, $sql_u);
 		    	$userRow=mysqli_fetch_assoc($user);
-		    	$sid=$_GET['seller_id'];
+		    	$sid=$sid;
 				$sql1="SELECT * FROM users WHERE users.user_id IN (SELECT user_id FROM seller WHERE seller.seller_id='$sid')";
 				$result1 = mysqli_query($conn, $sql1);
 				$row1 = mysqli_fetch_assoc($result1);
@@ -135,13 +135,11 @@
 				if ($str==NULL) {
 					$str=0;
 				}
-        		echo " <li><i class='fa fa-user-circle-o' aria-hidden='true'></i><a href='seller_orders.php'> Welcome to  ".$userRow['first_name']."'s Shoppy</a></li>";
-	            echo '
-	            <li><i class="fa fa-info-circle" aria-hidden="true"></i> <p style="display:inline; font-size: 13px;" name="kys" id="kys" onmouseover="showSellerInfo()" onmouseout="hideSellerInfo()">Know your seller</p></li>
-	            <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
+        		echo " <li><i class='fa fa-user-circle-o' aria-hidden='true'></i><a> Welcome to  ".$row1['first_name']."'s Shoppy</a></li>";
+	            echo '<li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
 	            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
-	            <li><i class="fa fa-shopping-bag" aria-hidden="true"></i> <a href="index.php">Elite Shoppy</a></li>';
-	            
+	            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
+	            <li><i class="fa fa-info-circle" aria-hidden="true"></i> <p style="display:inline; font-size: 13px;" name="kys" id="kys" onmouseover="showSellerInfo()" onmouseout="hideSellerInfo()">Know your seller</p></li>';
 
 					$mySQLdate=$row1['register_date'];
 					$mydate=strtotime($mySQLdate);
@@ -170,12 +168,7 @@
 		</div>
 		<!-- header-bot -->
 			<div class="col-md-4 logo_agile">
-				<h1 style="margin: 0em; font-size: 1.7em;"><a href="index.php"><?php
-				 $string1 = $userRow['first_name'];
-				 $arr1 = str_split($string1);
-				 $string2 = substr($string1, 1);
-				 echo'<span> '.$arr1[0].'</span>'.$string2.'';?>'s Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" style="top: 46px;
-    right: 6px;" aria-hidden="true"></i></a></h1>
+				<h1 style="margin: 0em;"><a href="index.php"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
 			</div>
         <!-- header-bot -->
 		<div class="col-md-4 agileits-social top_content">
@@ -205,19 +198,23 @@
 		<div class="top_nav_left">
 			<nav class="navbar navbar-default">
 			  <div class="container-fluid">
-			  <!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
-					</button>
-					</div>
+				  </button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav menu__list">
 					<li class=" menu__item"><h3 style="color: #fff;font-size: 30px;text-transform: uppercase;">All products by <span style="color: #2fdab8;"><b><?php echo $row1["first_name"].' '.$row1["last_name"];?></b></span></h3></li>
 					</ul>
+
 				</div>
+			  </div>
 			</nav>	
 		</div>
 		<?php
@@ -256,8 +253,6 @@
 			</div>';
 		}
 		?>
-			</div>
-			</div>
 		<div class="clearfix"></div>
 	</div>
 </div>
