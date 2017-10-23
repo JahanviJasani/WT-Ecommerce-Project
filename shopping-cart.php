@@ -41,7 +41,7 @@ include('header.php');
   <label class="sc-product-line-price">Total</label>
   </div>
   
-  <?php
+<?php
   if(isset($_SESSION['user_id']))
   {
     $uid=$_SESSION['user_id'];

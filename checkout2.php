@@ -84,41 +84,53 @@ include('header.php');
                         <div class="col-sm-12" style="border-bottom: 1px solid #d1cfcf;">
                             <div class="col-sm-8"></div>
                             <div class="col-sm-2"><h5 class="check_span">Price</h5></div>
+                            <div class="col-sm-2"><h5 class="check-span">Quantity</h5></div>
+                            
                         </div>
                         <div class="clearfix"></div>
-                        <div class="row" style="padding: 10px 10px 10px 10px; margin-left: -2px; margin-right: -2px;">
-                                <div class="col-sm-2">
-                                    <img class="respon" src="primary/pri_122.jpg" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="col-sm-6">
-                                    <span class="check_span">Brand</span>
-                                    <h5 class="check_name">Product Name</h5>
-                                </div>
-                                <div class="col-sm-2">
-                                    <p><span style="font-family:Arial;">&#8377;</span>700</p>
-                                </div>
-                                <div class="col-sm-2">
-                                    <h5 style="    margin-top: 0; margin-bottom: 5px;">Quantity</h5>
-                                    <input type="number" name="stock_quantity" style="width: 40px; height: 20px;" value="2">
-                                </div>
-                        </div>
-                        <div class="row" style="padding: 10px 10px 10px 10px; margin-left: -2px; margin-right: -2px;">
-                                <div class="col-sm-2">
-                                    <img class="respon" src="primary/pri_122.jpg" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="col-sm-6">
-                                    <span class="check_span">Brand</span>
-                                    <h5 class="check_name">Product Name</h5>
-                                </div>
-                                <div class="col-sm-2">
-                                    <p><span style="font-family:Arial;">&#8377;</span>700</p>
-                                </div>
-                                <div class="col-sm-2">
-                                    <h5 style="    margin-top: 0; margin-bottom: 5px;">Quantity</h5>
-                                    <input type="number" name="stock_quantity" style="width: 40px; height: 20px;" value="2">
-                                </div>
-                        </div>
-                        <!-- /.row -->
+                    <?php
+                      if(isset($_SESSION['user_id']))
+                      {
+                        $uid=$_SESSION['user_id'];
+                        $sql = "SELECT * FROM cart WHERE cart.user_id='$uid'";
+                        $result=mysqli_query($conn, $sql);
+                        $item_count = mysqli_num_rows($result);
+                        if ($item_count==0) {
+                          echo "<p style='text-align: center;'><b>No products in Cart!</b></p>";
+                        } else {
+                          while (($row = mysqli_fetch_assoc($result))){
+                            $pid = $row['product_id'];
+                            $imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
+                            $imageresult = mysqli_query($conn, $imagesql);
+                            $imagerow = mysqli_fetch_assoc($imageresult);
+                            $sql_product = "SELECT * FROM product WHERE product_id='$pid'";
+                            $productresult = mysqli_query($conn, $sql_product);
+                            $productrow = mysqli_fetch_assoc($productresult);
+                            $sql_cart_product="SELECT * FROM cart WHERE cart.user_id='$uid' AND cart.product_id='$pid'";
+                            $sql_cart_product_result=mysqli_query($conn, $sql_cart_product);
+                            $sql_cart_product_result_row = mysqli_fetch_assoc($sql_cart_product_result);
+                            $total = $sql_cart_product_result_row['qty']*$productrow['price'];
+                            echo'<div class="row" style="padding: 10px 10px 10px 10px; margin-left: -2px; margin-right: -2px;">
+                                    <div class="col-sm-2">
+                                        <img class="respon" src="'.$imagerow['image_location'].'" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="sc-product-title"><a href="single.php?pid='.$pid.'">'.$productrow['name'].'</a></div>
+                                        
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <p><span style="font-family:Arial;">&#8377;</span>'.$productrow['price'].'</p>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <p><span style="font-family:Arial;"></span>'.$sql_cart_product_result_row['qty'].'</p>
+                                    </div>
+                            </div>'; 
+                        }
+                    }
+                }
+            ?>
+
+
 
                     </div>
                     <!-- /.content -->
@@ -140,41 +152,63 @@ include('header.php');
         </div>
         <!-- /.col-md-9 -->
 
-        <div class="col-md-3">
-
-            <div class="box" id="order-summary">
+        <?php
+  if(isset($_SESSION['user_id']))
+  {
+    echo '<div class="col-md-3" >
+            <div class="box" id="order-summary" style="height:528px;">
                 <div class="box-header">
                     <h3>Order summary</h3>
-                </div>
-                <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+                </div>';
+    $uid=$_SESSION['user_id'];
+    $sql = "SELECT * FROM cart WHERE cart.user_id='$uid'";
+    $result=mysqli_query($conn, $sql);
+    $item_count = mysqli_num_rows($result);
+    if ($item_count==0) {
+      echo "<p style='text-align: center;'><b>No products in Cart!</b></p>";
+    } else {
+        $total = 0;
+      while (($row = mysqli_fetch_assoc($result))){
+        $pid = $row['product_id'];
+        $imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
+        $imageresult = mysqli_query($conn, $imagesql);
+        $imagerow = mysqli_fetch_assoc($imageresult);
+        $sql_product = "SELECT * FROM product WHERE product_id='$pid'";
+        $productresult = mysqli_query($conn, $sql_product);
+        $productrow = mysqli_fetch_assoc($productresult);
+        $sql_cart_product="SELECT * FROM cart WHERE cart.user_id='$uid' AND cart.product_id='$pid'";
+        $sql_cart_product_result=mysqli_query($conn, $sql_cart_product);
+        $sql_cart_product_result_row = mysqli_fetch_assoc($sql_cart_product_result);
+        $total = $total + $sql_cart_product_result_row['qty']*$productrow['price'];}
 
-                <div class="table-responsive">
+        echo'       <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+                    <div class="table-responsive">
                     <table class="table">
                         <tbody>
-                            <tr>
-                                <td>Order subtotal</td>
-                                <th>$446.00</th>
-                            </tr>
-                            <tr>
-                                <td>Shipping and handling</td>
-                                <th>$10.00</th>
-                            </tr>
-                            <tr>
-                                <td>Tax</td>
-                                <th>$0.00</th>
-                            </tr>
-                            <tr class="total">
-                                <td>Total</td>
-                                <th>$456.00</th>
-                            </tr>
+                        <tr>
+                        <td>Order subtotal</td>
+                        <th>₹'.$total.'</th>
+                        </tr>
+                        <tr>
+                        <td>Shipping and handling</td>
+                        <th>₹0.00</th>
+                        </tr>
+                        <tr>
+                        <td>Tax</td>
+                        <th>₹0.00</th>
+                        </tr>
+                        <tr class="total">
+                        <td>Total</td>
+                        <th>₹'.$total.'</th>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
-
             </div>
-
-        </div>
-        <!-- /.col-md-3 -->
+        </div>';
+    }
+}
+?>
 
     </div>
     <!-- /.container -->
