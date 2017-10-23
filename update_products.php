@@ -55,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     }
     
     .form-wrapper input {
-        width: 63em;
+        width: 85%;
         height: 40px;
         padding: 10px 5px;
         float: left;    
@@ -91,7 +91,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         padding: 0;
         cursor: pointer;
         height: 40px;
-        width: 110px;
+        width: 14%;
         color: #fff;
         text-transform: uppercase;
         background: #2fdab8;

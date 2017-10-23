@@ -734,7 +734,6 @@ a.bg-primary:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 20px;
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
@@ -777,7 +776,7 @@ a.bg-primary:hover {
   list-style: none;
 }
 #customer .nav > li > a {
-  padding: 10px 15px;
+  padding: 10px 6px;
 }
 #customer .nav > li > a:hover,
 #customer .nav > li > a:focus {
