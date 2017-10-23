@@ -92,6 +92,7 @@ include('header.php');
 
         <div class="col-md-10">
         <div class="box">
+        <div style="display: block; padding: 5px 15px 5px 15px;"> 
         <p class="lead">Change your personal details or your password here.</p>
         <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
 
@@ -219,7 +220,7 @@ include('header.php');
                     
     </fieldset>
 </div>
-
+</div>
         </div>
         <!-- /.container -->
         </div>

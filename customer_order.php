@@ -86,6 +86,7 @@ _________________________________________________________ -->
 
                 <div class="col-md-10" id="customer-order">
                     <div class="box">
+                    <div style="display: block; padding: 5px 15px 5px 15px;"> 
                         <h3 style="font-size: 2em; font-weight: 600;">Order #1735</h3><br>
                         <p class="lead">Order #1735 was placed on <strong>22/06/2013</strong> and is currently <strong>Being prepared</strong>.</p>
                         <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>
@@ -173,6 +174,7 @@ _________________________________________________________ -->
                             </div>
                         </div>
 
+                    </div>
                     </div>
                 </div>
 

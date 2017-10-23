@@ -87,6 +87,7 @@ _________________________________________________________ -->
 
         <div class="col-md-10" id="customer-orders">
             <div class="box">
+            <div style="display: block; padding: 5px 15px 5px 15px;"> 
                 <p class="lead">Your orders on one place.</p>
                 <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>
                 <div class="table-responsive">
@@ -149,6 +150,7 @@ _________________________________________________________ -->
                         </tbody>
                     </table>
                 </div>
+            </div>
             </div>
         </div>
 
