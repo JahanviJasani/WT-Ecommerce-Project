@@ -396,9 +396,9 @@
 										<input type="hidden" name="return" value=" " />
 										<input type="hidden" name="cancel_return" value=" " />';
 										if ($getSizeRow['stock']==0) {
-											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\');" disabled />';
+											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\',\''.$getSizeRow["footwear_size"].'\');" disabled />';
 										} elseif ($getSizeRow['stock']>0) {
-											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\'); remove_queryString();" />';
+											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\',\''.$getSizeRow["footwear_size"].'\'); remove_queryString();" />';
 										}
 									echo '</fieldset>
 								</form>';

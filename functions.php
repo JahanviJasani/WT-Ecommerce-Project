@@ -546,8 +546,6 @@ function getFootwearSizes($conn) {
 }
 
 
-
-
 function addimages($conn,$pid) 
 {
 	$uploadOk = 1;

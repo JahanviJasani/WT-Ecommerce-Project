@@ -127,7 +127,7 @@ function remove_queryString() {
         url = url.split("?")[0];
     window.location=url;
 }
-function add_to_cart(pid,user_id)
+function add_to_cart(pid,user_id,size)
 {
     var xhttp = new XMLHttpRequest();
     var qty=-1;
@@ -140,7 +140,7 @@ function add_to_cart(pid,user_id)
     };
     xhttp.open("POST", "add_to_cart.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("product_id="+pid+"&user_id="+user_id+"&qty="+qty);
+    xhttp.send("product_id="+pid+"&user_id="+user_id+"&qty="+qty+"&size="+size);
 
 }
 

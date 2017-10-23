@@ -216,7 +216,7 @@ include('header.php');
 																					<input type="hidden" name="currency_code" value="INR" />
 																					<input type="hidden" name="return" value=" " />
 																					<input type="hidden" name="cancel_return" value=" " />
-																					<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
+																					<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',"NA");" />
 																				</fieldset>
 																			</form>
 																		</div>							
@@ -485,7 +485,7 @@ include('header.php');
 																					<input type="hidden" name="currency_code" value="INR" />
 																					<input type="hidden" name="return" value=" " />
 																					<input type="hidden" name="cancel_return" value=" " />
-																					<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
+																					<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',"NA");" />
 																				</fieldset>
 																			</form>
 																		</div>

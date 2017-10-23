@@ -115,8 +115,10 @@ include('header.php');
                                         <img class="respon" src="'.$imagerow['image_location'].'" alt=" " class="img-responsive" />
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="sc-product-title"><a href="single.php?pid='.$pid.'">'.$productrow['name'].'</a></div>
+                                        <div class="sc-product-title"><a href="single.php?pid='.$pid.'">'.$productrow['brand'].'</a></div>
                                         
+                                        <p><span style="font-family:Arial;"></span>'.$productrow['name'].'</p>
+
                                     </div>
                                     <div class="col-sm-2">
                                         <p><span style="font-family:Arial;">&#8377;</span>'.$productrow['price'].'</p>
