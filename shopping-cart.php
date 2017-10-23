@@ -51,6 +51,7 @@ include('header.php');
     if ($item_count==0) {
       echo "<p style='text-align: center;'><b>No products in Cart!</b></p>";
     } else {
+      $flag=1;
       while (($row = mysqli_fetch_assoc($result))){
         $pid = $row['product_id'];
         $imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
@@ -81,6 +82,7 @@ include('header.php');
                 $footresult2=mysqli_query($conn, $footsql2);
                 $footrow2 = mysqli_fetch_assoc($footresult2);
                 if ($footrow2['stock']==0) {
+                  $flag=0;
                 echo '<p style="margin: 0.5em 0 0;color: #B12704;font-size: 1em;line-height: 1.5em; font-weight: 700;">Out of Stock</p>';
                 } elseif ($footrow2['stock']==1) {
                 echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p>';
@@ -96,6 +98,7 @@ include('header.php');
                 $bagrow = mysqli_fetch_assoc($bagresult);
 
                 if ($bagrow['stock']==0) {
+                  $flag=0;
                 echo '<p style="margin: 0.5em 0 0;color: #B12704;font-size: 1em;line-height: 1.5em; font-weight: 700;">Out of Stock</p>';
                 } elseif ($bagrow['stock']==1) {
                 echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p>';
@@ -109,6 +112,7 @@ include('header.php');
                 $watchresult = mysqli_query($conn, $watchsql);
                 $watchrow = mysqli_fetch_assoc($watchresult);
                 if ($watchrow['stock']==0) {
+                  $flag=0;
                 echo '<p style="margin: 0.5em 0 0;color: #B12704;font-size: 1em;line-height: 1.5em; font-weight: 700;">Out of Stock</p>';
                 } elseif ($watchrow['stock']==1) {
                 echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p>';
@@ -135,10 +139,19 @@ include('header.php');
 ?>
 
 <div class="pull-right">
-<a href="checkout1.php" class="btn btn-primary">Proceed to Checkout <i class="fa fa-chevron-right"></i>
+<?php
+if($flag==0)
+{
+  echo'<a href="#" data-toggle="modal" data-target="#myModal10" onclick="no_checkout();" class="btn btn-primary">Proceed to Checkout <i class="fa fa-chevron-right"></i>';
+}
+else {
+  echo'<a href="checkout1.php" class="btn btn-primary">Proceed to Checkout <i class="fa fa-chevron-right"></i>';
+}
+?>
 </a>
 </div>
 </div>
+
  <!-- php footer include -->
 <?php
 include('footer.php');
