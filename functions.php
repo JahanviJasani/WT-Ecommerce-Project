@@ -778,12 +778,12 @@ function addReview($conn) {
 	if ($checkNumRow>0) {
 		header("Location: single.php?pid=".$pid."&add_review=true&review_exist=true");
 	} else {
-		$sql = "INSERT INTO review (product_id, user_id, review_title, review, rating, rdate) VALUES ('$pid', '$uid', '$title', '$review', '$rating', CURDATE())";
+		$sql = "INSERT INTO review (product_id, user_id, review_title, review, rating, rev_date) VALUES ('$pid', '$uid', '$title', '$review', '$rating', CURDATE())";
 		$result = mysqli_query($conn, $sql);
 		if ($result) {
 			header("Location: single.php?pid=".$pid."&add_review=true&add_review_success=true");
 		} else {
-			header("Location: single.php?pid=".$pid."&add_review=true&add_review_fail=true");
+			echo "Hello".mysqli_error();
 		}
 	}
 }

@@ -68,9 +68,57 @@ include('header.php');
               <img src="'.$imagerow['image_location'].'" alt="" >
               </div>
               <div class="sc-product-details">
-              <div class="sc-product-title"><a href="single.php?pid='.$pid.'">'.$productrow['name'].'</a></div>
-              <p class="sc-product-description">'.$productrow['product_description'].'</p>
-              </div>
+              <div class="sc-product-brand"><h4>'.$productrow['brand'].'</h4></div>
+              <div class="sc-product-title"><a href="single.php?pid='.$pid.'">'.$productrow['name'].'</a></div>';
+              if($row['size'] != NULL) {
+                echo'<h4>Size : '.$row['size'].'</h4>';
+                $footsize=$row['size'];
+                $footsql1 = "SELECT * FROM footwear WHERE product_id='$pid'";
+                $footresult1 = mysqli_query($conn, $footsql1);
+                $footrow1 = mysqli_fetch_assoc($footresult1);
+                $id=$footrow1['footwear_id'];
+                $footsql2="SELECT * FROM footwear_size WHERE footwear_size.footwear_id='$id' AND footwear_size.footwear_size='$footsize'";
+                $footresult2=mysqli_query($conn, $footsql2);
+                $footrow2 = mysqli_fetch_assoc($footresult2);
+                if ($footrow2['stock']==0) {
+                echo '<p style="margin: 0.5em 0 0;color: #B12704;font-size: 1em;line-height: 1.5em; font-weight: 700;">Out of Stock</p>';
+                } elseif ($footrow2['stock']==1) {
+                echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p>';
+                } elseif ($footrow2['stock']==2) {
+                echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 2 left in Stock</p>';
+                } elseif ($footrow2['stock']>2) {
+                echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">In Stock</p>';
+                }
+              }
+              if ($productrow['category']=='bag') {
+                $bagsql = "SELECT * FROM bags WHERE bags.product_id='$pid'";
+                $bagresult = mysqli_query($conn, $bagsql);
+                $bagrow = mysqli_fetch_assoc($bagresult);
+
+                if ($bagrow['stock']==0) {
+                echo '<p style="margin: 0.5em 0 0;color: #B12704;font-size: 1em;line-height: 1.5em; font-weight: 700;">Out of Stock</p>';
+                } elseif ($bagrow['stock']==1) {
+                echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p>';
+                } elseif ($bagrow['stock']==2) {
+                echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 2 left in Stock</p>';
+                } elseif ($bagrow['stock']>2) {
+                echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">In Stock</p>';
+                }
+              } elseif ($productrow['category']=='watch') {
+                $watchsql = "SELECT * FROM watches WHERE watches.product_id='$pid'";
+                $watchresult = mysqli_query($conn, $watchsql);
+                $watchrow = mysqli_fetch_assoc($watchresult);
+                if ($watchrow['stock']==0) {
+                echo '<p style="margin: 0.5em 0 0;color: #B12704;font-size: 1em;line-height: 1.5em; font-weight: 700;">Out of Stock</p>';
+                } elseif ($watchrow['stock']==1) {
+                echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p>';
+                } elseif ($watchrow['stock']==2) {
+                echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 2 left in Stock</p>';
+                } elseif ($watchrow['stock']>2) {
+                echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">In Stock</p>';
+                }
+              } 
+              echo'</div>
               <div class="sc-product-price">'.$productrow['price'].'</div>
               <div class="sc-product-quantity">
               <input type="number" value="'.$sql_cart_product_result_row['qty'].'" onchange="updateQuantity(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
@@ -80,12 +128,12 @@ include('header.php');
               Remove
               </button>
               </div>
-
               <div class="sc-product-line-price">'.$total.'</div>
               </div>';}
     }
   }
 ?>
+
 <div class="pull-right">
 <a href="checkout1.php" class="btn btn-primary">Proceed to Checkout <i class="fa fa-chevron-right"></i>
 </a>

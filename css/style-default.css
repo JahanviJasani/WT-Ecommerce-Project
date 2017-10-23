@@ -471,7 +471,12 @@ a.bg-primary:hover {
   height: auto;
   max-height: 200px;
 }
-.sc-product .sc-product-details .sc-product-title {
+.sc-product .sc-product-details .sc-product-title a {
+  text-transform: capitalize;
+  font-size: 15px;
+  color: #2fdab8;
+  letter-spacing: 1px;
+  font-weight: 600;
   margin-right: 20px;
 }
 .sc-product .sc-product-details .sc-product-description {
