@@ -124,7 +124,7 @@ include('header.php');
                     <a href="products.php"><i class="fa fa-shopping-bag"></i> My products</a>
                     </li>
                     <li>
-                    <a href="#"><i class="fa fa-shopping-bag"></i> Update products</a>
+                    <a href="update_products.php"><i class="fa fa-pencil-square-o"></i> Update products</a>
                     </li>
                     <li>
                     <a href="functions.php?logout=true"><i class="fa fa-sign-out"></i> Logout</a>
@@ -139,11 +139,14 @@ include('header.php');
 
                     <div class="col-md-10" id="customer-orders">
                     <div class="box" id="hidediv">
+                    <div style="display: block; padding: 5px 15px 1px 15px;"> 
                         <p class="lead">Your Product List</p><hr>
                         <p>Want to add a new product to your lineup?</p> <button style="float: right;padding-left: 15px;padding-right: 15px; margin-top: -1.7em;" class="btn btn-primary" onclick="additems()">Add</button><br><hr>
                         <p>Want to delete any existing product?</p><button style="float: right;padding-left: 15px;padding-right: 15px; margin-top: -1.7em;" class="btn btn-primary" onclick="deleteitems()">Delete</button><br>
                     </div>
-            <div class="box">
+                    </div>
+                <div class="box">
+                <div style="display: block; padding: 5px 15px 1px 15px;"> 
                 <p class="lead">My products.</p>
                 <p class="text-muted"><b>The products listed for sale by you are displayed here.</b> In case of any questions <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>
 
@@ -369,12 +372,7 @@ include('header.php');
                 </div>
                 <!-- end2 -->
                 <!-- AFTER DELETE WALA LIST WITH ALL PRODUCTS |||||END||||| -->
-
-
-
-
-
-                
+            </div>
             </div>
             </div>
             <!-- /.container -->

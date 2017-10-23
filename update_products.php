@@ -166,7 +166,7 @@ _________________________________________________________ -->
                             <a href="seller_products.php"><i class="fa fa-shopping-bag"></i> My products</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-shopping-bag"></i> Update products</a>
+                            <a href="update_products.php"><i class="fa fa-pencil-square-o"></i> Update products</a>
                         </li>
                         <li>
                             <a href="functions.php?logout=true"><i class="fa fa-sign-out"></i> Logout</a>
