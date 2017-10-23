@@ -111,7 +111,7 @@
 		<div class="clearfix"></div>
 			<div class="agile_newsletter_footer" style="margin-top: 1em;">
 					<div class="col-sm-6 newsleft" style="width: 100%;">
-				<h3 style="text-align: center;"><a id="seller_page_anchor" onclick="showSellerPageModal()" style="cursor: pointer; color: #fff; border: 1px solid #2fdab8; padding: 5px; background-color: #2fdab8;">CLICK HERE</a> TO GET YOUR OWN SELLER PAGE!</h3>
+				<h3 style="text-align: center;"><a id="seller_page_anchor" onclick="showSellerPageModal()" style="cursor: pointer; color: #000; border: 1px solid #2fdab8; padding: 5px; background-color: #2fdab8; border-radius: 10px;">CLICK HERE</a> TO GET YOUR OWN SELLER PAGE!</h3>
 			</div>
 		<div class="clearfix"></div>
 	</div>

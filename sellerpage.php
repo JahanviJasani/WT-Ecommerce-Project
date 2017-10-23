@@ -24,113 +24,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
 <script src="js/backend.js"></script>
-<style>
-	.rating {
-	  display: inline-block;
-	  position: relative
-	}
-
-	.rating label {
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  height: 100%;
-	  cursor: pointer;
-	}
-
-	.rating label:last-child {
-	  position: static;
-	}
-
-	.rating label:nth-child(1) {
-	  z-index: 5;
-	}
-
-	.rating label:nth-child(2) {
-	  z-index: 4;
-	}
-
-	.rating label:nth-child(3) {
-	  z-index: 3;
-	}
-
-	.rating label:nth-child(4) {
-	  z-index: 2;
-	}
-
-	.rating label:nth-child(5) {
-	  z-index: 1;
-	}
-
-	.rating label input {
-	  position: absolute;
-	  top: 20%;
-	  left: 0;
-	  opacity: 0;
-	}
-
-	.rating label .icon {
-	  float: left;
-	  color: transparent;
-	  font-size: 2em;
-	}
-
-	.rating label:last-child .icon {
-	  color: #000;
-	}
-
-	.rating:not(:hover) label input:checked ~ .icon,
-	.rating:hover label:hover input ~ .icon {
-	  color: #2fdab8;
-	}
-
-	.rating label input:focus:not(:checked) ~ .icon:last-child {
-	  color: #000;
-	  text-shadow: 0 0 5px #FD4;
-	}
-	span.stars, span.stars span {
-	    display: inline-block;
-	    background: url(star.png) 0 -16px repeat-x;
-	    width: 80px;
-	    height: 16px;
-	}
-	span.stars span {
-	    background-position: 0 0;
-	}
-	.resp-tab-active:before {
-		left: 50%;
-	}
-	#addReview {
-		display: none;
-	}
-	#kys {
-		cursor: pointer;
-	}
-	#knowYourSeller:before {
-	    content: '';
-	    height: 0;
-	    position: absolute;
-	    width: 0;
-	    top: 5px;
-	    left:-20px;
-	    border: 10px solid transparent;
-	    border-right-color: #2fdab8;
-	}
-	#knowYourSeller {
-		display: none;
-		z-index: 100;
-		top: 30px;
-		left: 220px;
-		background-color: #fff;
-		box-shadow: 7px 7px 25px #888888;
-		position: absolute;
-		padding: 5px;
-		padding-top: 15px;
-		padding-bottom: 15px;
-		border: 2px solid #2fdab8;
-		border-radius: 7px;
-	}
-</style>
 <script>
 	function showSellerInfo() {
 		var knowYourSeller = document.getElementById("knowYourSeller");
@@ -143,7 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 </head>
 <?php
-include('header.php');
+include('seller_custom_header.php');
 $sid=$_GET['seller_id'];
 $sql1="SELECT * FROM users WHERE users.user_id IN (SELECT user_id FROM seller WHERE seller.seller_id='$sid')";
 $result1 = mysqli_query($conn, $sql1);
@@ -159,42 +52,11 @@ if ($str==NULL) {
 ?>
 <!--/single_page-->
        <!-- /banner_bottom_agile_info -->
-<div class="page-head_agile_info_w3l">
-		<div class="container">
-			<h3><span>All products by </span><span style="color: #2fdab8;"><b><?php echo $row1["first_name"].' '.$row1["last_name"];?></b></span></h3>
-			<!--/w3_short-->
-				 <div class="services-breadcrumb">
-						<div class="agile_inner_breadcrumb">
-
-						   <ul class="w3_short">
-								<li><a href="index.php">Home</a><i>|</i></li>
-								<li>Seller Page</li>
-							</ul>
-						 </div>
-				</div>
-	   <!--//w3_short-->
-	</div>
-</div>
 		<!-- banner-bootom-w3-agileits -->
 		<div class="banner-bootom-w3-agileits" style="padding-top: 2em; padding-bottom: 0em;">
 			<div class="container-fluid">
 				<div class="col-md-12 single-right-left simpleCart_shelfItem">
-					<?php
-
-					$mySQLdate=$row1['register_date'];
-					$mydate=strtotime($mySQLdate);
-					$phpdate=date("d-M-Y", $mydate);
-
-					echo '<div style="display: inline-block; float: left;"><h3>Seller : '.$row1["first_name"].' '.$row1["last_name"].'</h3>
-					<p name="kys" id="kys" onmouseover="showSellerInfo()" onmouseout="hideSellerInfo()">Know your seller <i class="fa fa-info-circle" aria-hidden="true"></i></p></div>
-						<div name="knowYourSeller" id="knowYourSeller">
-						<span style="text-align: center; display: block;"><b>Know Your Seller</b></span><hr style="margin: 3px; border-color: #999; border-width: 2px;"><b>Average Seller Rating :&nbsp;&nbsp;&nbsp;</b><span class="stars">'.$str.'</span><br>
-						<b>Seller Email Id:&nbsp;&nbsp;&nbsp;</b>'.$row1["email"].'<br>
-						<b>Seller Contact:&nbsp;&nbsp;&nbsp;</b>'.$row1["mobile"].'<br>
-						<b>Seller Since:&nbsp;&nbsp;&nbsp;</b>'.$phpdate.'<br>
-						<b>Elite Shoppy Seller Id:&nbsp;&nbsp;&nbsp;</b>'.$sid.'</div>
-					</div>';
-					?>
+					
 				</div>
 
 				<div class="new_arrivals_agile_w3ls_info" style="padding-top: 2em; padding-bottom: 0em;"> 

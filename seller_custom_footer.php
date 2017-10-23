@@ -92,29 +92,6 @@
 							$imCtr++;
 						}
 					?>
-
-					<!-- <ul>
-						<li><a href="single.php"><img class="resp" src="primary/pri_46.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_124.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_101.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_58.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_127.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_100.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_85.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_130.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_96.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_84.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_138.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_103.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_87.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_140.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_104.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_54.jpeg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_143.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_94.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_83.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_122.jpg" alt=" " class="img-responsive" /></a></li> -->
-						
 					</ul>
 				</div>
 				<div class="clearfix"></div>
@@ -123,7 +100,7 @@
 		<div class="clearfix"></div>
 			<div class="agile_newsletter_footer" style="margin-top: 1em;">
 					<div class="col-sm-6 newsleft" style="width: 100%;">
-				<h3 style="text-align: center;"><a id="seller_page_anchor" onclick="showSellerPageModal()" style="cursor: pointer; color: #fff; border: 1px solid #2fdab8; padding: 5px; background-color: #2fdab8;">CLICK HERE</a> TO GET YOUR OWN SELLER PAGE!</h3>
+				<h3 style="text-align: center;"><a id="seller_page_anchor" onclick="showSellerPageModal()" style="cursor: pointer; color: #000; border: 1px solid #2fdab8; padding: 5px; background-color: #2fdab8; border-radius: 10px;">CLICK HERE</a> TO GET YOUR OWN SELLER PAGE!</h3>
 			</div>
 		<div class="clearfix"></div>
 	</div>
