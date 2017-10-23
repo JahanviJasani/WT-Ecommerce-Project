@@ -60,7 +60,7 @@
 							</div>
 							<div class="w3-address-right">
 								<h6>Phone Number</h6>
-								<p>+91 97699 83936</p>
+								<p>+91 <?php echo''.$row1['mobile'].'';?></p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -70,7 +70,7 @@
 							</div>
 							<div class="w3-address-right">
 								<h6>Email Address</h6>
-								<p>Email :<a href="mailto:jahanvijasani.46@gmail.com"> jahanvijasani.46@gmail.com</a></p>
+								<p>Email :<a href="mailto:<?php echo''.$row1['email'].'';?>"> jahanvijasani.46@gmail.com</a></p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>

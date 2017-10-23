@@ -91,7 +91,7 @@
 	    position: absolute;
 	    width: 0;
 	    bottom: 100%;
-	    right: 45%;
+	    right: 47%;
 	    border: 10px solid transparent;
 	    border-right-color: #2fdab8;
 	    transform: rotate(90deg);
@@ -101,7 +101,7 @@
 		display: none;
 		z-index: 100;
 		top: 6.5%;
-		right: 1%;
+		left: 16%;
 		background-color: #fff;
 		box-shadow: 7px 7px 25px #888888;
 		position: absolute;
@@ -136,10 +136,12 @@
 					$str=0;
 				}
         		echo " <li><i class='fa fa-user-circle-o' aria-hidden='true'></i><a> Welcome to  ".$row1['first_name']."'s Shoppy</a></li>";
-	            echo '<li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
-	            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
-	            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
-	            <li><i class="fa fa-info-circle" aria-hidden="true"></i> <p style="display:inline; font-size: 13px;" name="kys" id="kys" onmouseover="showSellerInfo()" onmouseout="hideSellerInfo()">Know your seller</p></li>';
+	            echo '
+	            <li><i class="fa fa-info-circle" aria-hidden="true"></i> <p style="display:inline; font-size: 13px;" name="kys" id="kys" onmouseover="showSellerInfo()" onmouseout="hideSellerInfo()">Know your seller</p></li>
+	            <li><i class="fa fa-phone" aria-hidden="true"></i> Call : '.$row1["mobile"].'</li>
+	            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:'.$row1["email"].'">'.$row1["email"].'</a></li>
+	            <li><i class="fa fa-shopping-bag" aria-hidden="true"></i> <a href="index.php">Elite Shoppy</a></li>
+	            ';
 
 					$mySQLdate=$row1['register_date'];
 					$mydate=strtotime($mySQLdate);
@@ -168,7 +170,12 @@
 		</div>
 		<!-- header-bot -->
 			<div class="col-md-4 logo_agile">
-				<h1 style="margin: 0em;"><a href="index.php"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
+			<?php
+			$string1=$row1['first_name'];
+			$arr1=str_split($string1);
+			$string2=substr($string1, 1);
+				echo"<h1 style='margin: 0em;'><a href='#' style='font-size: 1.1em;'><span>".$arr1[0]."</span>".$string2."'s Shoppy <i style='top: 49px; right: 8px;' class='fa fa-shopping-bag top_logo_agile_bag' aria-hidden='true'></i></a></h1>";
+			?>
 			</div>
         <!-- header-bot -->
 		<div class="col-md-4 agileits-social top_content">
