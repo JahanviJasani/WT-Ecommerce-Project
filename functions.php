@@ -814,3 +814,4 @@ function addSellerPage($conn) {
 		}
 	}
 }
+

@@ -147,7 +147,7 @@ include('header.php');
         <!-- /.box -->
         </div>
         <!-- /.col-md-9 -->
-        <?php
+<?php
   if(isset($_SESSION['user_id']))
   {
     echo '<div class="col-md-3" >
@@ -156,6 +156,15 @@ include('header.php');
                     <h3>Order summary</h3>
                 </div>';
     $uid=$_SESSION['user_id'];
+    $user_name='';
+    $user_mobile='';
+    $user_email='';
+    $user_sql = "SELECT * FROM users WHERE users.user_id='$uid'";
+    $user_sql_result = mysqli_query($conn, $user_sql);
+    $user_row = mysqli_fetch_assoc($user_sql_result);
+    $user_name = $user_row['first_name'].' '.$user_row['last_name'];
+    $user_email = $user_row['email'];
+    $user_mobile = $user_row['mobile'];
     $sql = "SELECT * FROM cart WHERE cart.user_id='$uid'";
     $result=mysqli_query($conn, $sql);
     $item_count = mysqli_num_rows($result);
@@ -163,6 +172,7 @@ include('header.php');
       echo "<p style='text-align: center;'><b>No products in Cart!</b></p>";
     } else {
         $total = 0;
+        
       while (($row = mysqli_fetch_assoc($result))){
         $pid = $row['product_id'];
         $imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
@@ -174,10 +184,12 @@ include('header.php');
         $sql_cart_product="SELECT * FROM cart WHERE cart.user_id='$uid' AND cart.product_id='$pid'";
         $sql_cart_product_result=mysqli_query($conn, $sql_cart_product);
         $sql_cart_product_result_row = mysqli_fetch_assoc($sql_cart_product_result);
-        $total = $total + $sql_cart_product_result_row['qty']*$productrow['price'];}
+        $total = $total + $sql_cart_product_result_row['qty']*$productrow['price'];
+        
+    }
 
-        echo'       <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
-                    <div class="table-responsive">
+        echo'<p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+                <div class="table-responsive">
                     <table class="table">
                         <tbody>
                         <tr>
@@ -199,13 +211,13 @@ include('header.php');
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>';
+           ';
     }
 }
 ?>
+ </div>
+        </div>
 
-    <!-- /.col-md-3 -->
     </div>
 <!-- /.container -->
 </div>
