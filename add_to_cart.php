@@ -20,11 +20,10 @@ function add_to_cart($conn){
 	$uid = mysqli_real_escape_string($conn,$_POST['user_id']);
 	$quantity = mysqli_real_escape_string($conn,$_POST['qty']);
 	$size = mysqli_real_escape_string($conn,$_POST['size']);
-	if ($size=='NA')
-	{
-		$size = null;
-	}
-	$sql = "SELECT * FROM cart WHERE cart.user_id='$uid' AND cart.product_id='$product_id'; AND cart.size='$size'";
+	if($size!='NA')
+		$sql = "SELECT * FROM cart WHERE cart.user_id='$uid' AND cart.product_id='$product_id' AND cart.size='$size'";
+	else
+		$sql = "SELECT * FROM cart WHERE cart.user_id='$uid' AND cart.product_id='$product_id'";
 	$result=mysqli_query($conn, $sql);
 	$item_count = mysqli_num_rows($result);
 	if($item_count==1)
@@ -46,7 +45,10 @@ function add_to_cart($conn){
 	else
 	{
 		$qty="1";
-		$sql="INSERT INTO cart (user_id, product_id ,qty, size) VALUES ('$uid','$product_id','$qty','$size')";
+		if($size=='NA')
+			$sql="INSERT INTO cart (user_id, product_id ,qty) VALUES ('$uid','$product_id','$qty')";
+		else	
+			$sql="INSERT INTO cart (user_id, product_id ,qty, size) VALUES ('$uid','$product_id','$qty','$size')";
 		$result=mysqli_query($conn, $sql);
 		echo mysqli_error($conn);
 	}

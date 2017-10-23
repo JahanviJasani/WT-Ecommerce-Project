@@ -183,6 +183,7 @@ include('header.php');
 										$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
 										$imageresult = mysqli_query($conn, $imagesql);
 										$imagerow = mysqli_fetch_assoc($imageresult);
+										$size="NA";
 										echo '<!-- Item start -->
 											<div class="col-md-3 product-men">
 												<div class="men-pro-item simpleCart_shelfItem">
@@ -216,7 +217,7 @@ include('header.php');
 																					<input type="hidden" name="currency_code" value="INR" />
 																					<input type="hidden" name="return" value=" " />
 																					<input type="hidden" name="cancel_return" value=" " />
-																					<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',"NA");" />
+																					<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',\''.$size.'\');" />
 																				</fieldset>
 																			</form>
 																		</div>							
@@ -452,6 +453,7 @@ include('header.php');
 										$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
 										$imageresult = mysqli_query($conn, $imagesql);
 										$imagerow = mysqli_fetch_assoc($imageresult);
+										$size = 'NA';
 										echo '<!-- Item start -->
 											<div class="col-md-3 product-men">
 												<div class="men-pro-item simpleCart_shelfItem">
@@ -485,7 +487,7 @@ include('header.php');
 																					<input type="hidden" name="currency_code" value="INR" />
 																					<input type="hidden" name="return" value=" " />
 																					<input type="hidden" name="cancel_return" value=" " />
-																					<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',"NA");" />
+																					<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',\''.$size.'\');" />
 																				</fieldset>
 																			</form>
 																		</div>
