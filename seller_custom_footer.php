@@ -10,8 +10,11 @@
 <!-- footer -->
 <div class="footer">
 	<div class="footer_agile_inner_info_w3l">
-		<div class="col-md-3 footer-left">
-			<h2 style="margin-top: 0.1em"><a href="index.php"><span>E</span>lite Shoppy </a></h2>
+		<div class="col-md-3 footer-left"><?php
+		 	$string1 = $userRow['first_name'];
+			 $arr1 = str_split($string1);
+			 $string2 = substr($string1, 1);
+			 echo' <h2 style="margin-top: 0.1em"><a href="#"><span> '.$arr1[0].'</span>'.$string2.'';?>'s shoppy</a></h2>
 			<p>The perfect platform for all your C2C business needs. For businesses and customers alike.</p>
 			<ul class="social-nav model-3d-0 footer-social w3_agile_social two">
 															<li><a href="#" class="facebook">
@@ -98,12 +101,6 @@
 			</div>
 		</div>
 		<div class="clearfix"></div>
-			<div class="agile_newsletter_footer" style="margin-top: 1em;">
-					<div class="col-sm-6 newsleft" style="width: 100%;">
-				<h3 style="text-align: center;"><a id="seller_page_anchor" onclick="showSellerPageModal()" style="cursor: pointer; color: #000; border: 1px solid #2fdab8; padding: 5px; background-color: #2fdab8; border-radius: 10px;">CLICK HERE</a> TO GET YOUR OWN SELLER PAGE!</h3>
-			</div>
-		<div class="clearfix"></div>
-	</div>
 		<p class="copy-right">&copy 2017 Elite shoppy. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
 	</div>
 </div>

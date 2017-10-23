@@ -59,7 +59,7 @@ if ($str==NULL) {
 					
 				</div>
 
-				<div class="new_arrivals_agile_w3ls_info" style="padding-top: 2em; padding-bottom: 0em;"> 
+				<div class="new_arrivals_agile_w3ls_info" style="padding-top:0; padding-bottom: 0em;"> 
 					<div class="container" style="margin-left: 0px; margin-right: 0px; width: 100%;">
 							<div id="horizontalTab">
 									<ul class="resp-tabs-list">
@@ -110,22 +110,22 @@ if ($str==NULL) {
 																		
 																	</div>
 																	<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-																						<form action="#" method="GET">
-																							<fieldset>
-																								<input type="hidden" name="cmd" value="_cart" />
-																								<input type="hidden" name="add" value="1" />
-																								<input type="hidden" name="business" value=" " />
-																								<input type="hidden" name="item_name" value="'.$row['brand'].' '.$row['name'].'" />
-																								<input type="hidden" name="product_id" value="'.$row['product_id'].'" />
-																								<input type="hidden" name="amount" value="'.$row['price'].'" />
-																								<input type="hidden" name="discount_amount" value="0.00" />
-																								<input type="hidden" name="currency_code" value="INR" />
-																								<input type="hidden" name="return" value=" " />
-																								<input type="hidden" name="cancel_return" value=" " />
-																								<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
-																							</fieldset>
-																						</form>
-																					</div>							
+																		<form action="#" method="GET">
+																			<fieldset>
+																				<input type="hidden" name="cmd" value="_cart" />
+																				<input type="hidden" name="add" value="1" />
+																				<input type="hidden" name="business" value=" " />
+																				<input type="hidden" name="item_name" value="'.$row['brand'].' '.$row['name'].'" />
+																				<input type="hidden" name="product_id" value="'.$row['product_id'].'" />
+																				<input type="hidden" name="amount" value="'.$row['price'].'" />
+																				<input type="hidden" name="discount_amount" value="0.00" />
+																				<input type="hidden" name="currency_code" value="INR" />
+																				<input type="hidden" name="return" value=" " />
+																				<input type="hidden" name="cancel_return" value=" " />
+																				<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
+																			</fieldset>
+																		</form>
+																	</div>							
 																</div>
 															</div>
 														</div>
@@ -171,22 +171,22 @@ if ($str==NULL) {
 																		
 																	</div>
 																	<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-																						<form action="#" method="GET">
-																							<fieldset>
-																								<input type="hidden" name="cmd" value="_cart" />
-																								<input type="hidden" name="add" value="1" />
-																								<input type="hidden" name="business" value=" " />
-																								<input type="hidden" name="item_name" value="'.$row['brand'].' '.$row['name'].'" />
-																								<input type="hidden" name="product_id" value="'.$row['product_id'].'" />
-																								<input type="hidden" name="amount" value="'.$row['price'].'" />
-																								<input type="hidden" name="discount_amount" value="0.00" />
-																								<input type="hidden" name="currency_code" value="INR" />
-																								<input type="hidden" name="return" value=" " />
-																								<input type="hidden" name="cancel_return" value=" " />
-																								<input type="button" name="submit" value="Add to cart" class="button" data-toggle="modal" data-target="#myModal2"/>
-																							</fieldset>
-																						</form>
-																					</div>							
+																			<form action="#" method="GET">
+																				<fieldset>
+																					<input type="hidden" name="cmd" value="_cart" />
+																					<input type="hidden" name="add" value="1" />
+																					<input type="hidden" name="business" value=" " />
+																					<input type="hidden" name="item_name" value="'.$row['brand'].' '.$row['name'].'" />
+																					<input type="hidden" name="product_id" value="'.$row['product_id'].'" />
+																					<input type="hidden" name="amount" value="'.$row['price'].'" />
+																					<input type="hidden" name="discount_amount" value="0.00" />
+																					<input type="hidden" name="currency_code" value="INR" />
+																					<input type="hidden" name="return" value=" " />
+																					<input type="hidden" name="cancel_return" value=" " />
+																					<input type="button" name="submit" value="Add to cart" class="button" data-toggle="modal" data-target="#myModal2"/>
+																				</fieldset>
+																			</form>
+																		</div>							
 																</div>
 															</div>
 														</div>
@@ -198,8 +198,6 @@ if ($str==NULL) {
 										}
 										?>
 										<!-- Item end -->
-			                            
-										
 										<div class="clearfix"></div>
 									</div>
 									<!--//tab_one-->
