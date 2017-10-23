@@ -632,7 +632,7 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" onclick="remove_queryString()">&times;</button>
 			</div>
-				<div class="modal-body modal-body-sub_agile" style="border: 1px solid #ccc; margin: 10px; border-radius: 5px; padding-bottom: 0px;">
+				<div class="modal-body modal-body-sub_agile" style="border: 1px solid #ccc; margin: 10px; border-radius: 5px; padding-bottom: 10px;">
 				<div class="col-md-12 modal_body_left modal_body_left1">
 					<?php
 						if (!isset($_SESSION['user_id'])) {
@@ -643,8 +643,55 @@
 							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">You do not have<span> a seller account</span></h3><hr style="border-color: #2fdab8;">
 								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-dismiss="modal" onclick="remove_queryString()"> Click here </a><span> to continue</span></h3>';
 						} elseif ($_SESSION['user_type']==1) {
-							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">View Your<span> Seller Page</span></h3><hr style="border-color: #2fdab8;">
-								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="sellerpage.php?seller_id='.$_SESSION['seller_id'].'"><i class="fa fa-external-link" aria-hidden="true"></i> Click here </a><span> to visit </span></h3>';
+							$sid = $_SESSION["seller_id"];
+							$getDataSQL = "SELECT * FROM sellerpage WHERE sellerpage.seller_id='$sid'";
+							$getDataResult = mysqli_query($conn, $getDataSQL);
+							$getDataNumRow = mysqli_num_rows($getDataResult);
+
+							$getPageSQL = "SELECT * FROM sellerpage WHERE sellerpage.seller_id='$sid'";
+							$getPageResult = mysqli_query($conn, $getPageSQL);
+							$getPageRow = mysqli_fetch_assoc($getPageResult);
+							$pageurl = $getPageRow['seller_url'];
+
+							if (isset($_GET['pagecreatesuccess'])) {
+									echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Seller Page<span> Successfully Created</span></h3><hr style="border-color: #2fdab8;">
+									<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="sellerpage.php?seller='.$pageurl.'"><i class="fa fa-external-link" aria-hidden="true"></i> Click here </a><span> to visit </span></h3>';
+							} elseif (isset($_GET['pagecreateerror'])) {
+								echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Seller Page<span> Creation Failed</span></h3><hr style="border-color: #2fdab8;">
+									<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;">Please try again later</h3>';
+							} elseif (isset($_GET['pageexists'])) {
+								echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Seller Page<span> Creation failed</span></h3><hr style="border-color: #2fdab8;">
+									<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;">You already have a seller page.</h3>';
+							} elseif(isset($_GET['urlexists'])) {
+									echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Please Choose<span> Another URL</span></h3><hr style="border-color: #2fdab8;">';
+								echo '<form action="functions.php" method="POST" style="text-align: center;">
+										<div class="styled-input" agile-styled-input-top">
+											<input id="getUrl" name="getUrl" type="text" placeholder="Max. 50 alphanumeric characters...">
+											<label for="getUrl">Your unique url</label>
+										</div>
+										<div class="styled-input" agile-styled-input-top">
+											<input id="getDesc" name="getDesc" type="text" placeholder="Max. 200 characters...">
+											<label for="getUrl">A brief description</label>
+										</div>
+										<input type="submit" name="sellerpage_submit" value="Get Started" style="display: inline-block; margin: 0 auto; position: relative;">
+									</form>';
+							} elseif ($getDataNumRow==0) {
+								echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Set Up<span> Your Seller Page</span></h3><hr style="border-color: #2fdab8;">';
+								echo '<form action="functions.php" method="POST" style="text-align: center;">
+										<div class="styled-input" agile-styled-input-top">
+											<input id="getUrl" name="getUrl" type="text" placeholder="Max. 50 alphanumeric characters...">
+											<label for="getUrl">Your unique url</label>
+										</div>
+										<div class="styled-input" agile-styled-input-top">
+											<input id="getDesc" name="getDesc" type="text" placeholder="Max. 200 characters...">
+											<label for="getUrl">A brief description</label>
+										</div>
+										<input type="submit" name="sellerpage_submit" value="Get Started" style="display: inline-block; margin: 0 auto; position: relative;">
+								</form>';
+							} elseif ($getDataNumRow=="1") {
+								echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">View Your<span> Seller Page</span></h3><hr style="border-color: #2fdab8;">
+									<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="sellerpage.php?seller='.$pageurl.'"><i class="fa fa-external-link" aria-hidden="true"></i> Click here </a><span> to visit </span></h3>';
+							}
 						}
 					?>
 					<div class="clearfix"></div>

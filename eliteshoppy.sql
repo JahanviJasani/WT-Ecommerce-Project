@@ -158,3 +158,11 @@ CREATE TABLE review(
     FOREIGN KEY (product_id) REFERENCES product(product_id) ON DELETE CASCADE ON UPDATE CASCADE
 )
 ENGINE=INNODB;
+
+CREATE TABLE sellerpage (
+	seller_id int(8) PRIMARY KEY,
+	seller_url varchar(50),
+	seller_desc varchar(200),
+	FOREIGN KEY (seller_id) REFERENCES seller(seller_id) ON DELETE CASCADE ON UPDATE CASCADE
+)
+ENGINE=INNODB;

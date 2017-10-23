@@ -38,6 +38,8 @@ if (isset($_POST['signup_submit'])) {
 	updateFootwearStock($conn);
 } elseif (isset($_POST['review_submit'])) {
 	addReview($conn);
+} elseif(isset($_POST['sellerpage_submit'])) {
+	addSellerPage($conn);
 }
 
 function usersignup($conn) {
@@ -784,5 +786,31 @@ function addReview($conn) {
 			header("Location: single.php?pid=".$pid."&add_review=true&add_review_fail=true");
 		}
 	}
+}
 
+function addSellerPage($conn) {
+	$sid = $_SESSION['seller_id'];
+	$url = mysqli_real_escape_string($conn, $_POST['getUrl']);
+	$desc = mysqli_real_escape_string($conn, $_POST['getDesc']);
+	$checkSQL = "SELECT * FROM sellerpage WHERE sellerpage.seller_id='$sid'";
+	$checkResult = mysqli_query($conn, $checkSQL);
+	$checkNumRow = mysqli_num_rows($checkResult);
+	if ($checkNumRow>0) {
+		header("Location: index.php?getsellerpage=true&pageexists=true");
+	} elseif ($checkNumRow==0) {
+		$sql1 = "SELECT * FROM sellerpage WHERE sellerpage.seller_url='$url'";
+		$result1 = mysqli_query($conn, $sql1);
+		$num_row = mysqli_num_rows($result1);
+		if ($num_row>0) {
+			header("Location: index.php?getsellerpage=true&urlexists=true");
+		} else {
+			$sql = "INSERT INTO sellerpage (seller_id, seller_url, seller_desc) VALUES ('$sid', '$url', '$desc')";
+			$result = mysqli_query($conn, $sql);
+			if ($result) {
+				header("Location: index.php?getsellerpage=true&pagecreatesuccess=true");
+			} else {
+				header("Location: index.php?getsellerpage=true&pagecreateerror=true");
+			}
+		}
+	}
 }

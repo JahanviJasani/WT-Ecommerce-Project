@@ -36,8 +36,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 </head>
 <?php
+if (!isset($_GET['seller'])) {
+	header('Location: index.php');
+}
+$url=$_GET['seller'];
+$sidSQL = "SELECT seller_id FROM sellerpage WHERE sellerpage.seller_url='$url'";
+$sidResult = mysqli_query($conn, $sidSQL);
+$sidRow = mysqli_fetch_assoc($sidResult);
+
+$sid = $sidRow['seller_id'];
+
 include('seller_custom_header.php');
-$sid=$_GET['seller_id'];
+
+$sid = $sidRow['seller_id'];
+
 $sql1="SELECT * FROM users WHERE users.user_id IN (SELECT user_id FROM seller WHERE seller.seller_id='$sid')";
 $result1 = mysqli_query($conn, $sql1);
 $row1 = mysqli_fetch_assoc($result1);

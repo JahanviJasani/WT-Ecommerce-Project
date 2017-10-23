@@ -68,7 +68,7 @@ _________________________________________________________ -->
                             <a href="seller_products.php"><i class="fa fa-shopping-bag"></i> My products</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-shopping-bag"></i> Update products</a>
+                            <a href="update_products.php"><i class="fa fa-pencil-square-o"></i> Update products</a>
                         </li>
                         <li>
                             <a href="functions.php?logout=true"><i class="fa fa-sign-out"></i> Logout</a>
@@ -82,7 +82,8 @@ _________________________________________________________ -->
             </div>
 
         <div class="col-md-9">
-        <div class="box" style="height: 920px;">
+        <div class="box" style="height: 100%;">
+            <div style="display: block; padding: 5px 15px 1px 15px;"> 
         <p class="lead">Change your personal details or your password here.</p>
         <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
 
@@ -235,8 +236,8 @@ _________________________________________________________ -->
                     
     </fieldset>
 </div>
-        
-
+    </div> 
+</div>
     </div>
     <!-- /.container -->
 </div>

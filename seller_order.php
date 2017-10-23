@@ -61,7 +61,7 @@ _________________________________________________________ -->
                             <a href="seller_products.php"><i class="fa fa-shopping-bag"></i> My products</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-shopping-bag"></i> Update products</a>
+                            <a href="update_products.php"><i class="fa fa-pencil-square-o"></i> Update products</a>
                         </li>
                         <li>
                             <a href="functions.php?logout=true"><i class="fa fa-sign-out"></i> Logout</a>
@@ -76,6 +76,7 @@ _________________________________________________________ -->
 
             <div class="col-md-10" id="seller">
                 <div class="box">
+                <div style="display: block; padding: 5px 15px 1px 15px;"> 
                     <h5><strong>Order Id: </strong></h5>
                     <h5><strong>Customer Name: </strong></h5>
                     <h5><strong>Shipping Address: </strong></h5>
@@ -101,6 +102,7 @@ _________________________________________________________ -->
                         </tbody>
                     </table>
                 </div>
+            </div>
             </div>
         </div>
 

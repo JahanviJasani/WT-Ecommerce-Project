@@ -75,7 +75,7 @@ _________________________________________________________ -->
                             <a href="seller_products.php"><i class="fa fa-shopping-bag"></i> My products</a>
                         </li>
                         <li>
-                            <a href="update_products.php"><i class="fa fa-shopping-bag"></i> Update products</a>
+                            <a href="update_products.php"><i class="fa fa-pencil-square-o"></i> Update products</a>
                         </li>
                         <li>
                             <a href="functions.php?logout=true"><i class="fa fa-sign-out"></i> Logout</a>
@@ -91,6 +91,7 @@ _________________________________________________________ -->
 
         <div class="col-md-10" id="customer-orders">
             <div class="box">
+                <div style="display: block; padding: 5px 15px 1px 15px;"> 
                 <p class="lead">Pending Orders.</p>
                 <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>
                 <div class="table-responsive">
@@ -166,6 +167,7 @@ _________________________________________________________ -->
                     </table>
                 </div>
             </div>
+        </div>
         </div>
 
     </div>

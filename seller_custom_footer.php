@@ -11,11 +11,17 @@
 <div class="footer">
 	<div class="footer_agile_inner_info_w3l">
 		<div class="col-md-3 footer-left"><?php
-		 	$string1 = $userRow['first_name'];
+		 	$string1 = $row1['first_name'];
 			 $arr1 = str_split($string1);
 			 $string2 = substr($string1, 1);
 			 echo' <h2 style="margin-top: 0.1em"><a href="#"><span> '.$arr1[0].'</span>'.$string2.'';?>'s shoppy</a></h2>
-			<p>The perfect platform for all your C2C business needs. For businesses and customers alike.</p>
+			<p><?php
+			$sql1 = "SELECT seller_desc FROM sellerpage WHERE sellerpage.seller_id='$sid'";
+			$result1 = mysqli_query($conn, $sql1);
+			$row1 = mysqli_fetch_assoc($result1);
+			$desc = $row1['seller_desc'];
+			echo $desc;
+			?></p>
 			<ul class="social-nav model-3d-0 footer-social w3_agile_social two">
 															<li><a href="#" class="facebook">
 																  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
@@ -83,9 +89,9 @@
 					</div>
 				</div>
 				<div class="col-md-4 sign-gd flickr-post">
-					<h4><?php echo $row1["first_name"];?>'s <span>Products</span></h4>
+					<h4><?php echo $string1;?>'s <span>Products</span></h4>
 					<?php
-						$seller_id_no = $_GET['seller_id'];
+						$seller_id_no = $sid;
 						$imSQL = "SELECT image_location FROM images WHERE images.image_location LIKE '%primary%' AND images.product_id IN (SELECT product_id FROM product WHERE product.seller_id='$seller_id_no')";
 						$imResult = mysqli_query($conn, $imSQL);
 						$imCtr = 0;
