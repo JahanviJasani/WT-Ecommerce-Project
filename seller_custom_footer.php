@@ -16,12 +16,12 @@
 			 $string2 = substr($string1, 1);
 			 echo' <h2 style="margin-top: 0.1em"><a href="#"><span> '.$arr1[0].'</span>'.$string2.'';?>'s shoppy</a></h2>
 			<p><?php
-			$sql1 = "SELECT seller_desc FROM sellerpage WHERE sellerpage.seller_id='$sid'";
-			$result1 = mysqli_query($conn, $sql1);
-			$row1 = mysqli_fetch_assoc($result1);
-			$desc = $row1['seller_desc'];
+			$sql2 = "SELECT seller_desc FROM sellerpage WHERE sellerpage.seller_id='$sid'";
+			$result2 = mysqli_query($conn, $sql2);
+			$row2 = mysqli_fetch_assoc($result2);
+			$desc = $row2['seller_desc'];
 			echo $desc;
-			?></p>
+			echo'</p>
 			<ul class="social-nav model-3d-0 footer-social w3_agile_social two">
 															<li><a href="#" class="facebook">
 																  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
@@ -50,7 +50,6 @@
 						<li><a href="contact.php">Contact</a></li>
 					</ul>
 				</div>
-				
 				<div class="col-md-5 sign-gd-two">
 					<h4>Store <span>Information</span></h4>
 					<div class="w3-address">
@@ -60,7 +59,7 @@
 							</div>
 							<div class="w3-address-right">
 								<h6>Phone Number</h6>
-								<p>+91 <?php echo''.$row1['mobile'].'';?></p>
+								<p>+91'.$row1['mobile'].'</p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -70,7 +69,7 @@
 							</div>
 							<div class="w3-address-right">
 								<h6>Email Address</h6>
-								<p>Email :<a href="mailto:<?php echo''.$row1['email'].'';?>"> jahanvijasani.46@gmail.com</a></p>
+								<p>Email :<a href="mailto:'.$row1["email"].'">'.$row1["email"].'</a></p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -87,7 +86,8 @@
 							<div class="clearfix"> </div>
 						</div>
 					</div>
-				</div>
+				</div>';
+				?>
 				<div class="col-md-4 sign-gd flickr-post">
 					<h4><?php echo $string1;?>'s <span>Products</span></h4>
 					<?php
