@@ -96,7 +96,7 @@ include('header.php');
 
                     <div class="box-footer">
                         <div class="pull-left">
-                            <a href="checkout2.php" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to Shipping method</a>
+                            <a href="checkout2.php" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to Review Order</a>
                         </div>
                         <div class="pull-right">
                             <button type="submit" class="btn btn-primary">Place Order<i class="fa fa-chevron-right"></i>
