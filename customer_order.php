@@ -93,8 +93,8 @@ _________________________________________________________ -->
                 echo' <div class="col-md-10" id="customer-order">
                     <div class="box">
                     <div style="display: block; padding: 5px 15px 5px 15px;"> 
-                        <h3 style="font-size: 2em; font-weight: 600;">Order #'.$order_id.'</h3><br>
-                        <p class="lead">Order #'.$order_id.' was placed on <strong>'.$row['date'].'</strong> and is currently <strong>Being prepared</strong>.</p>
+                        <h3 style="font-size: 1.7em; font-weight: 600;">Order #'.$order_id.'</h3><br>
+                        <p class="lead">Placed on <strong>'.$row['date'].'</strong> and is currently <strong>Being prepared</strong>.</p>
                         <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>';?>
 
                         <div class="table-responsive">
@@ -159,17 +159,16 @@ _________________________________________________________ -->
                         $row = mysqli_fetch_assoc($result);
                         echo '<div class="row addresses">
                             <div class="col-md-6">
-                                <h3 style="font-size: 1.7em; font-weight: 600;">Invoice address</h3>
-                                <p>'.$row['first_name'].' '.$row['last_name'].'
+                                <h3 style="font-size: 1.4em; font-weight: 600;">Invoice address</h3>
+                                <p style="letter-spacing:0; font-size: 1em;">'.$row['first_name'].' '.$row['last_name'].'
                                     <br>'.$row['address'].'
-                                    <br>'.$row['city'].'
-                                    <br>'.$row['zip'].'
+                                    <br>'.$row['city'].'-'.$row['zip'].'
                                     <br>'.$row['state'].'
                                 </p>
                             </div>
                             <div class="col-md-6">
-                                <h3 style="font-size: 1.7em; font-weight: 600;">Shipping address</h3>
-                                <p>'.$row['first_name'].' '.$row['last_name'].'
+                                <h3 style="font-size: 1.4em; font-weight: 600;">Shipping address</h3>
+                                <p style="letter-spacing:0; font-size: 1em;">'.$row['first_name'].' '.$row['last_name'].'
                                     <br>'.$row['address'].'
                                     <br>'.$row['city'].'
                                     <br>'.$row['zip'].'
@@ -189,3 +188,74 @@ _________________________________________________________ -->
 <?php
 include('footer.php');
 ?>
+<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<script src="js/modernizr.custom.js"></script>
+    <!-- Custom-JavaScript-File-Links --> 
+<!-- script for responsive tabs -->                     
+<script src="js/easy-responsive-tabs.js"></script>
+<script>
+    $(document).ready(function () {
+    $('#horizontalTab').easyResponsiveTabs({
+    type: 'default', //Types: default, vertical, accordion           
+    width: 'auto', //auto or any width like 600px
+    fit: true,   // 100% fit in a container
+    closed: 'accordion', // Start closed if in accordion view
+    activate: function(event) { // Callback function if tab is switched
+    var $tab = $(this);
+    var $info = $('#tabInfo');
+    var $name = $('span', $info);
+    $name.text($tab.text());
+    $info.show();
+    }
+    });
+    $('#verticalTab').easyResponsiveTabs({
+    type: 'vertical',
+    width: 'auto',
+    fit: true
+    });
+    });
+</script>
+<!-- //script for responsive tabs -->       
+<!-- stats -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.countup.js"></script>
+    <script>
+        $('.counter').countUp();
+    </script>
+<!-- //stats -->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){     
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear' 
+                };
+            */
+                                
+            $().UItoTop({ easingType: 'easeOutQuart' });
+                                
+            });
+    </script>
+<!-- //here ends scrolling icon -->
+<!-- for bootstrap working -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+</body>
+</html>
