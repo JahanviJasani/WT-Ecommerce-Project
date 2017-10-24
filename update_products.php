@@ -132,13 +132,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         border: 0;
         padding: 0;
     }
+    .resp-tabs-list li {
+        width: 33.33%;
+    }
+    .resp-tab-active {
+        background-color: #000;
+        background: #2fdab8;
+        border-bottom: 4px solid #2fdab8;
+        color: #fff !important;
+    }
+    .resp-tab-active:before {
+        border-top: 10px solid #2fdab8;
+    }
+    .resp-tabs-active {
+        color: #fff;
+    }
+    #pid {
+        width: 123px;
+        height: 52px;>
+    }
+    #brand {
+        width: 100px;
+        height: 52px;
+    }
+    #name {
+        width: 351px;
+        height: 52px;
+    }
+    #price {
+        width: 108px;
+        height: 52px;
+    }
+    #qty {
+        width: 142px;
+        height: 52px;
+    }
+    #us {
+        width: 173px;
+        height: 52px;
+    }
 
 </style>
 <body>
 
-<?php
-include('header.php');
-?>
 
 
 <div id="customer">
@@ -166,11 +202,7 @@ _________________________________________________________ -->
                             <a href="seller_products.php"><i class="fa fa-shopping-bag"></i> My products</a>
                         </li>
                         <li>
-<<<<<<< Updated upstream
                             <a href="update_products.php"><i class="fa fa-pencil-square-o"></i> Update products</a>
-=======
-                            <a href="update_products.php"><i class="fa fa-shopping-bag"></i> Update products</a>
->>>>>>> Stashed changes
                         </li>
                         <li>
                             <a href="functions.php?logout=true"><i class="fa fa-sign-out"></i> Logout</a>
@@ -185,14 +217,190 @@ _________________________________________________________ -->
 
             <div class="col-md-10">
                 <div class="box" style=" background: #555 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpi/P//PwM6YGLAAuCCmpqacC2MRGsHCDAA+fIHfeQbO8kAAAAASUVORK5CYII=);">
-                   <form class="form-wrapper class1">
-    <input type="text" placeholder="Search here..." required />
-      <button type="submit">Search</button>
-</form>
-
+                    <form class="form-wrapper class1">
+                        <input type="text" placeholder="Search here..." required />
+                        <button type="submit">Search</button>
+                    </form>
                 </div>
-            </div>
+            
+                    <!-- 3 products categories tabs start -->
+                <div class="new_arrivals_agile_w3ls_info box" style="padding-top: 10px; padding-bottom: 0px;" id="productlisttabs"> 
+                    <p class="lead" style="text-align: center;">Edit your products</p>
+                    <div class="container-fluid">
+                            <div id="horizontalTab" style="width: 100%;">
+                                <ul class="resp-tabs-list">
+                                    <li> Watches</li>
+                                    <li> Bags</li>
+                                    <li> Footwear</li>
+                                </ul>
+                                <div class="resp-tabs-container">
+                            <!--/tab_one-->
+                                <div class="tab1">
 
+                                    <!-- start1 -->
+                                    <div class="table-responsive" id="before_delete">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+
+                                                    <th id="pid">Product</th>
+                                                    <th id="brand">Brand</th>
+                                                    <th id="name">Name</th>
+                                                    <th id="price">Price</th>
+                                                    <th id="us">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $uid = $_SESSION['user_id'];
+                                                    $watchsql = "SELECT * FROM product WHERE product.category='watch' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    $watchresult = mysqli_query($conn, $watchsql);
+
+                                                while ($watchrow = mysqli_fetch_assoc($watchresult)) {
+                                                    $pid=$watchrow["product_id"];
+                                                    $imagesql = "SELECT * FROM images WHERE images.product_id=$pid AND images.image_location LIKE '%primary%'";
+                                                    $imageresult = mysqli_query($conn, $imagesql);
+                                                    $imagerow = mysqli_fetch_assoc($imageresult);
+                                                    echo '<tr>
+                                                        <th><a href="#"><img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front"></a></th>
+                                                        <td>'.$watchrow["brand"].'</td>
+                                                        <td>'.$watchrow["name"].'</td>
+                                                        <td>'.$watchrow["price"].'</td>';
+                                                        $wid = $watchrow["product_id"];
+                                                        $wsql = "SELECT stock FROM watches WHERE watches.product_id='$wid'";
+                                                        $wresult = mysqli_query($conn, $wsql);
+                                                        $wrow = mysqli_fetch_assoc($wresult);
+                                                        echo '<td>
+                                                            <form action="update_product.php" method="GET">
+                                                                <input type="hidden" name="prod_id" value="'.$watchrow["product_id"].'">
+                                                                <button type="submit" class="btn btn-primary btn-sm">View or Edit</button>
+                                                            </form>
+                                                        </td>
+                                                        </td>
+                                                    </tr>';
+                                                }
+
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- end1 -->
+                                    
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                <!--//tab_one-->
+                                <!--/tab_two-->
+                                <div class="tab2">
+
+                                    <!-- start1 -->
+                                    <div class="table-responsive" id="before_delete">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+
+                                                    <th id="pid">Product Id</th>
+                                                    <th id="brand">Brand</th>
+                                                    <th id="name">Name</th>
+                                                    <th id="price">Price</th>
+                                                    <th id="us">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $uid = $_SESSION['user_id'];
+                                                    $bagsql = "SELECT * FROM product WHERE product.category='bag' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    $bagresult = mysqli_query($conn, $bagsql);
+
+                                                while ($bagrow = mysqli_fetch_assoc($bagresult)) {
+                                                    $pid=$bagrow["product_id"];
+                                                    $imagesql = "SELECT * FROM images WHERE images.product_id=$pid AND images.image_location LIKE '%primary%'";
+                                                    $imageresult = mysqli_query($conn, $imagesql);
+                                                    $imagerow = mysqli_fetch_assoc($imageresult);
+                                                    echo '<tr>
+                                                        <th><a href="#"><img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front"></a></th>
+                                                        <td>'.$bagrow["brand"].'</td>
+                                                        <td>'.$bagrow["name"].'</td>
+                                                        <td>'.$bagrow["price"].'</td>';
+                                                        $bid = $bagrow["product_id"];
+                                                        $bsql = "SELECT stock FROM bags WHERE bags.product_id='$bid'";
+                                                        $bresult = mysqli_query($conn, $bsql);
+                                                        $brow = mysqli_fetch_assoc($bresult);
+                                                        echo '<td>
+                                                            <form action="update_product.php" method="GET">
+                                                                <input type="hidden" name="prod_id" value="'.$pid.'">
+                                                                <button type="submit" class="btn btn-primary btn-sm">View or Edit</button>
+                                                            </form>
+                                                        </td>
+                                                        </td>
+                                                    </tr>';
+                                                }
+
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- end1 -->
+                                    
+
+                                    <div class="clearfix"></div>
+                                </div>
+                         <!--//tab_two-->
+                                <div class="tab3">
+
+                                    <!-- start1 -->
+                                    <div class="table-responsive" id="before_delete">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th id="pid">Product Id</th>
+                                                    <th id="brand">Brand</th>
+                                                    <th id="name">Name</th>
+                                                    <th id="price">Price</th>
+                                                    <th id="us">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $uid = $_SESSION['user_id'];
+                                                    $footwearsql = "SELECT * FROM product WHERE product.category='footwear' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    $footwearresult = mysqli_query($conn, $footwearsql);
+                                                    
+                                                while ($footwearrow = mysqli_fetch_assoc($footwearresult)) {
+                                                    $pid=$footwearrow["product_id"];
+                                                    $imagesql = "SELECT * FROM images WHERE images.product_id=$pid AND images.image_location LIKE '%primary%'";
+                                                    $imageresult = mysqli_query($conn, $imagesql);
+                                                    $imagerow = mysqli_fetch_assoc($imageresult);
+                                                    echo '<tr>
+                                                        <th><a href="#"><img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front"></a></th>
+                                                        <td>'.$footwearrow["brand"].'</td>
+                                                        <td>'.$footwearrow["name"].'</td>
+                                                        <td>'.$footwearrow["price"].'</td>
+                                                        <td>
+                                                            <form action="update_product.php" method="GET">
+                                                                <input type="hidden" name="prod_id" value="'.$pid.'">
+                                                                <button type="submit" class="btn btn-primary btn-sm">View or Edit</button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>';
+                                                }
+
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- end1 -->
+                                    
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+
+                <!-- 3 products categories tabs end -->
+            </div>
  </div>
     <!-- /.container -->
 </div>
@@ -202,3 +410,92 @@ _________________________________________________________ -->
 <?php
 include('footer.php');
 ?>
+
+<script src="js/index.js"></script>
+<script src="js/Product.js"></script>
+
+<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<script src="js/modernizr.custom.js"></script>
+    <!-- Custom-JavaScript-File-Links --> 
+    <!-- cart-js -->
+    <script src="js/minicart.min.js"></script>
+<script>
+    // Mini Cart
+    paypal.minicart.render({
+        action: '#'
+    });
+
+    if (~window.location.search.indexOf('reset=true')) {
+        paypal.minicart.reset();
+    }
+</script>
+
+    <!-- //cart-js --> 
+<!-- script for responsive tabs -->                     
+<script src="js/easy-responsive-tabs.js"></script>
+<script>
+    $(document).ready(function () {
+    $('#horizontalTab').easyResponsiveTabs({
+    type: 'default', //Types: default, vertical, accordion           
+    width: 'auto', //auto or any width like 600px
+    fit: true,   // 100% fit in a container
+    closed: 'accordion', // Start closed if in accordion view
+    activate: function(event) { // Callback function if tab is switched
+    var $tab = $(this);
+    var $info = $('#tabInfo');
+    var $name = $('span', $info);
+    $name.text($tab.text());
+    $info.show();
+    }
+    });
+    $('#verticalTab').easyResponsiveTabs({
+    type: 'vertical',
+    width: 'auto',
+    fit: true
+    });
+    });
+</script>
+<!-- //script for responsive tabs -->       
+<!-- stats -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.countup.js"></script>
+    <script>
+        $('.counter').countUp();
+    </script>
+<!-- //stats -->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){     
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear' 
+                };
+            */
+                                
+            $().UItoTop({ easingType: 'easeOutQuart' });
+                                
+            });
+    </script>
+<!-- //here ends scrolling icon -->
+
+
+<!-- for bootstrap working -->
+<script type="text/javascript" src="js/bootstrap.js"></script>

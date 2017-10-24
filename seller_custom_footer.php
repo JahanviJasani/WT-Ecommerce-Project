@@ -11,6 +11,12 @@
 <div class="footer">
 	<div class="footer_agile_inner_info_w3l">
 		<div class="col-md-3 footer-left"><?php
+
+			$sql1="SELECT * FROM users WHERE users.user_id IN (SELECT user_id FROM seller WHERE seller.seller_id='$sid')";
+				$result1 = mysqli_query($conn, $sql1);
+				$row2 = mysqli_fetch_assoc($result1);
+
+
 		 	$string1 = $row1['first_name'];
 			 $arr1 = str_split($string1);
 			 $string2 = substr($string1, 1);

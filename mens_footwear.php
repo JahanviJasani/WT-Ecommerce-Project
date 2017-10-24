@@ -214,8 +214,19 @@ include('header.php');
 
 
 					<?php
-					$category=$_GET['category'];
-					$type = $_GET['type'];
+
+					if (isset($_GET['category'])) {
+						$category=$_GET['category'];
+					} else {
+						$category = "footwear";
+					}
+					
+					
+					if (isset($_GET['type'])) {
+						$type = $_GET['type'];
+					} else {
+						$type="All";
+					}
 
 					$sortby = "ORDER BY product.product_id DESC";
 
@@ -315,7 +326,7 @@ include('header.php');
 																
 															</div>
 															<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-																				<form action="#" method="GET">
+																				<form action="functions.php" method="POST">
 																					<fieldset>
 																						<input type="hidden" name="cmd" value="_cart" />
 																						<input type="hidden" name="add" value="1" />
@@ -327,7 +338,9 @@ include('header.php');
 																						<input type="hidden" name="currency_code" value="INR" />
 																						<input type="hidden" name="return" value=" " />
 																						<input type="hidden" name="cancel_return" value=" " />
-																						<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
+																						<input type="hidden" name="type" value="'.$type.'" />
+																						<input type="hidden" name="pid" value="'.$pid.'" />
+																						<input type="submit" name="add_to_cart_footwear_category_mens" value="Add to cart" class="button" />
 																					</fieldset>
 																				</form>
 																			</div>
@@ -545,3 +558,16 @@ include('footer.php');
 <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 </html>
+
+
+<!-- add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\'); -->
+
+<?php
+if (isset($_GET['q7wgrzp84d'])) {
+	echo '<script>
+	$(window).load(function(){
+        $("#myModal11").modal("show");
+    });
+	</script>';
+}
+?>
