@@ -722,3 +722,79 @@
 	<!-- //Modal content-->
 	</div>
 </div>
+
+
+<!-- Footwear Size Modal -->
+<div class="modal fade" id="myModal11" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" onclick="removeParam('q7wgrzp84d')">&times;</button>
+			</div>
+			<div class="modal-body modal-body-sub_agile">
+				<div style="padding-left: 1em;" class="col-md-8 modal_body_left modal_body_left1">
+				<?php
+				$user_id = $_SESSION['user_id'];
+				if (isset($_GET['q7wgrzp84d'])) {
+					$pid = $_GET['q7wgrzp84d'];
+					$pNameSQL = "SELECT * FROM product WHERE product.product_id='$pid'";
+					$pNameResult = mysqli_query($conn, $pNameSQL);
+					$pNameRow = mysqli_fetch_assoc($pNameResult);
+				}
+				echo'<h3 style="margin-bottom: 1.3em;" class="agileinfo_sign">Please <span>Select A Size</span></h3><hr style="margin:0px;">
+				<h4 style="text-transform: capitalize; font-size: 18px; color: #2fdab8; letter-spacing: 1px; font-weight: 600;">'.$pNameRow['name'].'</h4>
+				<p style="color: #000; font-size: 16px; margin: .5em 0;"><span class="item_price"><span style="font-family:Arial;">&#8377;</span>'.$pNameRow['price'].'</span></p><hr style="-webkit-margin-before: 0.5em; -webkit-margin-after: 0.5em;">';
+				?>
+					<div class="sizeSelect">
+					<h4 style="color: #000; font-size: 16px; font-weight: 600;"><span class="item_price"><span style="font-family:Arial;">Size</h4>
+					<?php
+					if (isset($_GET['q7wgrzp84d'])) {
+						$getSizeSQL = "SELECT * FROM footwear_size WHERE footwear_size.footwear_id IN (SELECT footwear_id FROM footwear WHERE footwear.product_id='$pid')";
+						$getSizeResult = mysqli_query($conn, $getSizeSQL);
+						while ($getSizeRow = mysqli_fetch_assoc($getSizeResult)) {
+							echo '<form action="#" method="GET" style="margin-bottom: 10px; display: inline-block; margin-right: 10px;">
+									<fieldset>
+										<input type="hidden" name="cmd" value="_cart" />
+										<input type="hidden" name="add" value="1" />
+										<input type="hidden" name="business" value=" " />
+										<input type="hidden" name="item_name" value="'.$pNameRow['brand'].' '.$pNameRow['name'].'" />
+										<input type="hidden" name="product_id" value="'.$pNameRow['product_id'].'" />
+										<input type="hidden" name="amount" value="'.$pNameRow['price'].'" />
+										<input type="hidden" name="discount_amount" value="0.00" />
+										<input type="hidden" name="currency_code" value="INR" />
+										<input type="hidden" name="return" value=" " />
+										<input type="hidden" name="cancel_return" value=" " />';
+										if ($getSizeRow['stock']==0) {
+											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\');" disabled />';
+										} elseif ($getSizeRow['stock']>0) {
+											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\'); removeParam(\'q7wgrzp84d\');" />';
+										}
+									echo '</fieldset>
+								</form>';
+							//echo '<span> Size : '.$getSizeRow["footwear_size"].'</span><br>';
+						}
+					}
+					?>
+					</div>
+				</div>
+				<div class="col-md-4 modal_body_right modal_body_right1" style="border-right: 1px solid #d1cfcf; border-top: 1px solid #d1cfcf;">
+							
+						<?php
+							if (isset($_GET['q7wgrzp84d'])) {
+								$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
+								$imageresult = mysqli_query($conn, $imagesql);
+								$imagerow = mysqli_fetch_assoc($imageresult);
+
+								echo '<img style="margin-top:0px; " src="'.$imagerow['image_location'].'">';
+							}
+
+						?>
+
+				</div>
+				<div style="border: 1px solid #d1cfcf;" class="clearfix"></div>
+			</div>
+		</div>
+		<!-- //Modal content-->
+	</div>
+</div>

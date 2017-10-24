@@ -206,11 +206,24 @@ function select_link() {
     }
 }
 function additems() {
-    console.log("Hello");
     window.location="addproduct.php"
+}
+function edititems() {
+    var edit_button = document.getElementById("editb");
+    edit_button.style.display="none";
+    var ff = document.getElementById("footwear-form");
+    var bf = document.getElementById("bag-form");
+    var wf = document.getElementById("watch-form");
+    ff.removeAttribute("disabled");
+    bf.removeAttribute("disabled");
+    wf.removeAttribute("disabled");
 }
 function prevpage() {
     window.location="seller_products.php"
+}
+
+function prevpage2() {
+    window.location="update_products.php"
 }
 
 function modifyfootwearstock() {

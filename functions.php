@@ -40,6 +40,16 @@ if (isset($_POST['signup_submit'])) {
 	addReview($conn);
 } elseif(isset($_POST['sellerpage_submit'])) {
 	addSellerPage($conn);
+} elseif(isset($_POST['updatebag'])) {
+	updatebag($conn);
+} elseif(isset($_POST['updatefoot'])) {
+	updatefoot($conn);
+} elseif(isset($_POST['updatewatch'])) {
+	updatewatch($conn);
+} elseif (isset($_POST['add_to_cart_footwear_category_mens'])) {
+	getFootwearSizes2($conn);
+} elseif (isset($_POST['add_to_cart_footwear_category_womens'])) {
+	getFootwearSizes3($conn);
 }
 
 function usersignup($conn) {
@@ -545,6 +555,19 @@ function getFootwearSizes($conn) {
 	header($url);
 }
 
+function getFootwearSizes2($conn) {
+	$pid = $_POST['pid'];
+	$type = $_POST['type'];
+	$url = 'Location: mens_footwear.php?category=Footwear&type='.$type.'&q7wgrzp84d='.$pid;
+	header($url);
+}
+
+function getFootwearSizes3($conn) {
+	$pid = $_POST['pid'];
+	$type = $_POST['type'];
+	$url = 'Location: womens_footwear.php?category=Footwear&type='.$type.'&q7wgrzp84d='.$pid;
+	header($url);
+}
 
 function addimages($conn,$pid) 
 {
@@ -813,3 +836,82 @@ function addSellerPage($conn) {
 	}
 }
 
+function updatebag($conn) {
+	$name=mysqli_real_escape_string($conn, $_POST['name']);
+	$brand=mysqli_real_escape_string($conn, $_POST['brand']);
+	$price=mysqli_real_escape_string($conn, $_POST['price']);
+	$colour=mysqli_real_escape_string($conn, $_POST['colour']);
+	$product_id = mysqli_real_escape_string($conn, $_POST['product_id']);
+	$capacity = mysqli_real_escape_string($conn, $_POST['capacity']);
+	$length = mysqli_real_escape_string($conn, $_POST['length']);
+	$height = mysqli_real_escape_string($conn, $_POST['height']);
+	$width = mysqli_real_escape_string($conn, $_POST['width']);
+	$material = mysqli_real_escape_string($conn, $_POST['material']);
+	$weight = mysqli_real_escape_string($conn, $_POST['weight']);
+	$stock = mysqli_real_escape_string($conn, $_POST['stock']);
+
+	$prodSQL = "UPDATE product SET name='$name', brand='$brand', price='$price', colour='$colour' WHERE product.product_id='$product_id'";
+	$prodResult = mysqli_query($conn, $prodSQL);
+	if ($prodResult) {
+		$bagSQL = "UPDATE bags SET bag_capacity='$capacity', length='$length', height='$height', width='$width', material='$material', stock='$stock' WHERE bags.product_id='$product_id'";
+		$bagResult = mysqli_query($conn, $bagSQL);
+		if ($bagResult) {
+			echo 'ho gaya';
+		} else {
+			echo 'bag me gadbad';
+		}
+	} else {
+		echo 'prod me gadbad';
+	}
+}
+
+function updatewatch($conn) {
+	$name=mysqli_real_escape_string($conn, $_POST['name']);
+	$brand=mysqli_real_escape_string($conn, $_POST['brand']);
+	$price=mysqli_real_escape_string($conn, $_POST['price']);
+	$colour=mysqli_real_escape_string($conn, $_POST['colour']);
+	$product_id = mysqli_real_escape_string($conn, $_POST['product_id']);
+	$stock = mysqli_real_escape_string($conn, $_POST['stock']);
+	$clasp_type = mysqli_real_escape_string($conn, $_POST['clasp_type']);
+	$case_shape = mysqli_real_escape_string($conn, $_POST['case_shape']);
+	$display_type = mysqli_real_escape_string($conn, $_POST['display_type']);
+	$dial_colour = mysqli_real_escape_string($conn, $_POST['dial_colour']);
+	$case_material = mysqli_real_escape_string($conn, $_POST['case_material']);
+	$band_material = mysqli_real_escape_string($conn, $_POST['band_material']);
+	$prodSQL = "UPDATE product SET name='$name', brand='$brand', price='$price', colour='$colour' WHERE product.product_id='$product_id'";
+	$prodResult = mysqli_query($conn, $prodSQL);
+	if ($prodResult) {
+		$watchSQL = "UPDATE watches SET clasp_type='$clasp_type', case_shape='$case_shape', display_type='$display_type', dial_colour='$dial_colour', case_material='$case_material', band_material='$band_material' WHERE watches.product_id='$product_id'";
+		$watchResult = mysqli_query($conn, $watchSQL);
+		if ($watchResult) {
+			echo 'ho gaya';
+		} else {
+			echo 'watch me gadbad';
+		}
+	} else {
+		echo 'prod me gadbad';
+	}
+}
+
+
+function updatefoot($conn) {
+	$name=mysqli_real_escape_string($conn, $_POST['name']);
+	$brand=mysqli_real_escape_string($conn, $_POST['brand']);
+	$price=mysqli_real_escape_string($conn, $_POST['price']);
+	$colour=mysqli_real_escape_string($conn, $_POST['colour']);
+	$product_id = mysqli_real_escape_string($conn, $_POST['product_id']);
+	$material = mysqli_real_escape_string($conn, $_POST['material']);
+	$prodSQL = "UPDATE product SET name='$name', brand='$brand', price='$price', colour='$colour' WHERE product.product_id='$product_id'";
+	$prodResult = mysqli_query($conn, $prodSQL);
+	if ($prodResult) {
+		$footwearSQL = "UPDATE footwear SET material='$material' WHERE footwear.product_id='$product_id'";
+		$footwearResult = mysqli_query($conn, $footwearSQL);
+		if ($footwearResult) {
+			echo 'ho gaya';
+		} else {
+			echo 'footwear me gadbad';
+		}
+	} else {
+		echo 'prod me gadbad';
+	}
+}

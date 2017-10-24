@@ -73,6 +73,7 @@ include('header.php');
 	<div id="customer">
 		<div class="container">
 			<div class="box">
+			    <div style="display: block; padding: 20px 15px 20px 15px;"> 
 				<p class="lead">Add a New Product</p><hr>
 				<button style="float: right;padding-left: 15px;padding-right: 15px; margin-top: -4.7em; margin-right: 0.5em;" class="btn btn-primary" onclick="prevpage()">Back</button><br>
 				
@@ -135,7 +136,7 @@ include('header.php');
 						<p><span class="form-name">Description:</span> <textarea name="description"></textarea></p>
 						<p><span class="form-name">Material:</span> <input type="text" name="material"></p>
 						<p><span class="form-name">Size(UK):<span class="required">*</span></span><a id="gender_select" href="#"s target="_blank" onclick="select_link()">Refer to size chart</a></p>
-							<div id="size_for_women" class="women_size">
+							<div id="size_for_women" class="womeze">
 							<input id="size3w" class="checkbox-custom" name="size3w" type="checkbox" onclick="checkbox_validate()">
 					        <label for="size3w" class="checkbox-custom-label">  3</label> 
 					        <input type="number" id="stock_size3w" name="stock_size3w" class="size-box">
@@ -266,7 +267,7 @@ include('header.php');
 				</div>
 
 			</div>
-
+		</div>
             
         </div>
 	</div>
