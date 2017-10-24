@@ -125,7 +125,7 @@ include('header.php');
 
                                     <div class="box-footer text-center">
 
-                                        <input type="radio" name="payment" value="payment3" id="upi" required="required">
+                                        <input type="radio" name="payment" value="payment5" id="upi" required="required">
                                     </div>
                                 </div>
                             </div>
@@ -320,13 +320,11 @@ if(document.getElementById('cod').checked) {
          this.form.submit();
     }
     else if(document.getElementById('card').checked) {
-        
-         id = rzp1.open();
+         rzp1.open();
          event.preventDefault();
     
     }
-    else if(document.getElementById('netbanking').checked) {
-         
+    else if(document.getElementById('netbanking').checked) {     
          rzp2.open();
          event.preventDefault();
     }
@@ -361,7 +359,8 @@ var options = {
     "prefill.name": <?php echo json_encode($user_name);?>,
     "prefill.email": <?php echo json_encode($user_email);?>,
     "prefill.contact": <?php echo json_encode($user_mobile);?>,
-
+    "modal.escape" : "false",
+    
     "notes": {
         "address": "Hello World"
     },
@@ -380,16 +379,17 @@ var options = {
     "name": "Elite Shoppy",
     "description": "Purchase from Elite Shoppy",
     "image": "/your_logo.png",
-    },
     "handler": function (response){
         document.getElementById('razorpay_payment_id').value = response.razorpay_payment_id;
         document.getElementById('pmt_method').value = 'netbanking';
         document.getElementById('checkout_form').submit();
+    },
     "prefill.method": "netbanking",
     "prefill.name": <?php echo json_encode($user_name);?>,
     "prefill.email": <?php echo json_encode($user_email);?>,
     "prefill.contact": <?php echo json_encode($user_mobile);?>,
-
+    "modal.escape" : "false",
+    
     "notes": {
         "address": "Hello World"
     },
@@ -418,6 +418,8 @@ var options = {
     "prefill.email": <?php echo json_encode($user_email);?>,
     "prefill.contact": <?php echo json_encode($user_mobile);?>,
 
+    "modal.escape" : "false",
+
     "notes": {
         "address": "Hello World"
     },
@@ -445,6 +447,8 @@ var options = {
     "prefill.name": <?php echo json_encode($user_name);?>,
     "prefill.email": <?php echo json_encode($user_email);?>,
     "prefill.contact": <?php echo json_encode($user_mobile);?>,
+
+    "modal.escape" : "false",
 
     "notes": {
         "address": "Hello World"

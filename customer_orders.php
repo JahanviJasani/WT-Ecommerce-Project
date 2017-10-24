@@ -92,61 +92,47 @@ _________________________________________________________ -->
                 <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>
                 <div class="table-responsive">
                     <table class="table table-hover">
-                        <thead>
+                        
+                        <?php 
+                        $user = $_SESSION['user_id'];
+                        $sql = "SELECT * FROM orders WHERE user_id='$user'";
+                        $sql_result = mysqli_query($conn,$sql);
+                        $item_count = mysqli_num_rows($sql_result);
+                        if ($item_count==0) {
+                            echo "<p style='text-align: center;'><b>You've not ordered anything with us. Please start shopping.</b></p>";
+                        } else {
+                          echo'  <thead>
                             <tr>
                                 <th>Order</th>
                                 <th>Date</th>
                                 <th>Total</th>
-                                <th>Status</th>
+                                <th>Suborders</th>
                                 <th>Action</th>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th># 1735</th>
-                                <td>22/06/2013</td>
-                                <td>$ 150.00</td>
-                                <td><span class="label label-info">Being prepared</span>
-                                </td>
-                                <td><a href="customer_order.php" class="btn btn-primary btn-sm">View</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th># 1735</th>
-                                <td>22/06/2013</td>
-                                <td>$ 150.00</td>
-                                <td><span class="label label-info">Being prepared</span>
-                                </td>
-                                <td><a href="customer_order.php" class="btn btn-primary btn-sm">View</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th># 1735</th>
-                                <td>22/06/2013</td>
-                                <td>$ 150.00</td>
-                                <td><span class="label label-success">Received</span>
-                                </td>
-                                <td><a href="customer_order.php" class="btn btn-primary btn-sm">View</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th># 1735</th>
-                                <td>22/06/2013</td>
-                                <td>$ 150.00</td>
-                                <td><span class="label label-danger">Cancelled</span>
-                                </td>
-                                <td><a href="customer_order.php" class="btn btn-primary btn-sm">View</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th># 1735</th>
-                                <td>22/06/2013</td>
-                                <td>$ 150.00</td>
-                                <td><span class="label label-warning">On hold</span>
-                                </td>
-                                <td><a href="customer-order.php" class="btn btn-primary btn-sm">View</a>
-                                </td>
-                            </tr>
+                            </thead>
+                            <tbody>';
+                            while (($row = mysqli_fetch_assoc($sql_result))) 
+                            {
+                                $oid = $row['order_id'];
+                                $sql = "SELECT COUNT(*) FROM sub_order WHERE order_id='$oid'";
+                                $suborder_result = mysqli_query($conn,$sql);
+                                $suborderss = mysqli_fetch_assoc($suborder_result);
+
+                                echo '
+                                <form action="customer_order.php" method="POST">
+                                    <tr>
+                                        <input type="hidden" value="'.$row['order_id'].'" name=order_id id=order_id>
+                                        <th># '.$row['order_id'].'</th>
+                                        <td>'.$row['date'].'</td>
+                                        <td>₹'.$row['total'].'</td>
+                                        <td><span class="label label-info">'.$suborderss['COUNT(*)'].'</span>
+                                        </td>
+                                        <td><input type="submit" class="btn btn-primary btn-sm" value="View">
+                                        </td>
+                                    </tr>
+                                </form>';
+                            }
+                        }?>
                         </tbody>
                     </table>
                 </div>

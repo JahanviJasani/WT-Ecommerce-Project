@@ -50,6 +50,7 @@ include('header.php');
     $item_count = mysqli_num_rows($result);
     if ($item_count==0) {
       echo "<p style='text-align: center;'><b>No products in Cart!</b></p>";
+      $flag=0;
     } else {
       $flag=1;
       while (($row = mysqli_fetch_assoc($result))){
@@ -212,7 +213,7 @@ include('footer.php');
   var qty=quantityInput.value;
   var xhttp = new XMLHttpRequest();
     //var url=window.location.href;
-    //alert(url + " " + pid + "  "+ user_id);
+    var size="NA";//alert(url + " " + pid + "  "+ user_id);
     xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 //alert(this.responseText);
@@ -222,7 +223,7 @@ include('footer.php');
         };
     xhttp.open("POST", "add_to_cart.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("product_id="+pid+"&user_id="+user_id+"&qty="+qty);
+    xhttp.send("product_id="+pid+"&user_id="+user_id+"&qty="+qty+"&size="+size);
   var productRow = $(quantityInput).parent().parent();
   var price = parseFloat(productRow.children('.sc-product-price').text());
   var quantity = $(quantityInput).val();

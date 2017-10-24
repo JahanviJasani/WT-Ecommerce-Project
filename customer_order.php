@@ -83,97 +83,101 @@ _________________________________________________________ -->
 
             <!-- *** CUSTOMER MENU END *** -->
                 </div>
-
-                <div class="col-md-10" id="customer-order">
+                <?php 
+                $uid=$_SESSION['user_id'];
+                $order_id = mysqli_real_escape_string($conn, $_POST['order_id']);
+                $sql = "SELECT * FROM orders WHERE order_id='$order_id'";
+                $result=mysqli_query($conn, $sql); 
+                $row = mysqli_fetch_assoc($result);
+                
+                echo' <div class="col-md-10" id="customer-order">
                     <div class="box">
                     <div style="display: block; padding: 5px 15px 5px 15px;"> 
-                        <h3 style="font-size: 2em; font-weight: 600;">Order #1735</h3><br>
-                        <p class="lead">Order #1735 was placed on <strong>22/06/2013</strong> and is currently <strong>Being prepared</strong>.</p>
-                        <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>
+                        <h3 style="font-size: 2em; font-weight: 600;">Order #'.$order_id.'</h3><br>
+                        <p class="lead">Order #'.$order_id.' was placed on <strong>'.$row['date'].'</strong> and is currently <strong>Being prepared</strong>.</p>
+                        <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>';?>
 
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
+                                        <th>Sub Order Id</th>
                                         <th colspan="2">Product</th>
                                         <th>Quantity</th>
                                         <th>Unit price</th>
-                                        <th>Discount</th>
-                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Sub-Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <a href="#">
-                                                <img src="http://g02.a.alicdn.com/kf/HTB1TqSULVXXXXcRXXXXq6xXFXXXw/-New-2016-Women-Backpacks-bow-Brand-pu-leather-Backpack-travel-hiking-Bags-high-quality-girls.jpg">
-                                            </a>
-                                        </td>
-                                        <td><a href="#">White Blouse Armani</a>
-                                        </td>
-                                        <td>2</td>
-                                        <td>$123.00</td>
-                                        <td>$0.00</td>
-                                        <td>$246.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="#">
-                                                <img src="https://sc01.alicdn.com/kf/HTB1FAlQLpXXXXXOXXXX760XFXXX1/Handbags-Lastest-Fancy-Ladies-Stylish-Women-Shoulder.png">
-                                            </a>
-                                        </td>
-                                        <td><a href="#">Black Blouse Armani</a>
-                                        </td>
-                                        <td>1</td>
-                                        <td>$200.00</td>
-                                        <td>$0.00</td>
-                                        <td>$200.00</td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th colspan="5" class="text-right">Order subtotal</th>
-                                        <th>$446.00</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="5" class="text-right">Shipping and handling</th>
-                                        <th>$10.00</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="5" class="text-right">Tax</th>
-                                        <th>$0.00</th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="5" class="text-right">Total</th>
-                                        <th>$456.00</th>
-                                    </tr>
+                                    <?php 
+
+                                    $uid=$_SESSION['user_id'];
+                                    $order_id = mysqli_real_escape_string($conn, $_POST['order_id']);   
+                                    $sql = "SELECT * FROM sub_order WHERE sub_order.order_id='$order_id'";
+                                    $result=mysqli_query($conn, $sql);
+                                    $item_count = mysqli_num_rows($result);
+                                    if ($item_count==0) {
+                                      echo "<p style='text-align: center;'><b>No products in order!</b></p>";
+                                    } else {
+                                      while (($row = mysqli_fetch_assoc($result))){
+                                        $pid = $row['product_id'];
+                                        $imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
+                                        $imageresult = mysqli_query($conn, $imagesql);
+                                        $imagerow = mysqli_fetch_assoc($imageresult);
+                                        $sql_product = "SELECT * FROM product WHERE product_id='$pid'";
+                                        $productresult = mysqli_query($conn, $sql_product);
+                                        $productrow = mysqli_fetch_assoc($productresult);
+                                        echo '
+                                        <tr>
+                                            <td>'.$row['sub_order_id'].'</td>
+                                            <td>
+                                                <a href="single.php?pid='.$pid.'">
+                                                    <img src="'.$imagerow['image_location'].'">
+                                                </a>
+                                            </td>
+                                            <td><a href="single.php?pid='.$pid.'">'.$productrow['name'].'</a>
+                                            </td>
+                                            <td>'.$row['quantity'].'</td>
+                                            <td>₹ '.$productrow['price'].'</td>
+                                            <td><span class="label label-info">'.$row['status'].'</span>
+                                            </td>
+                                            <td>₹ '.$row['subtotal'].'</td>
+                                        </tr>';
+                                        }
+                                    }
+                                    ?>
                                 </tfoot>
                             </table>
 
                         </div>
                         <!-- /.table-responsive -->
-
-                        <div class="row addresses">
+                        <?php
+                        $uid=$_SESSION['user_id'];
+                        $sql="SELECT * FROM users where user_id='$uid'";
+                        $result = mysqli_query($conn,$sql);
+                        $row = mysqli_fetch_assoc($result);
+                        echo '<div class="row addresses">
                             <div class="col-md-6">
                                 <h3 style="font-size: 1.7em; font-weight: 600;">Invoice address</h3>
-                                <p>John Brown
-                                    <br>13/25 New Avenue
-                                    <br>New Heaven
-                                    <br>45Y 73J
-                                    <br>England
-                                    <br>Great Britain</p>
+                                <p>'.$row['first_name'].' '.$row['last_name'].'
+                                    <br>'.$row['address'].'
+                                    <br>'.$row['city'].'
+                                    <br>'.$row['zip'].'
+                                    <br>'.$row['state'].'
+                                </p>
                             </div>
                             <div class="col-md-6">
                                 <h3 style="font-size: 1.7em; font-weight: 600;">Shipping address</h3>
-                                <p>John Brown
-                                    <br>13/25 New Avenue
-                                    <br>New Heaven
-                                    <br>45Y 73J
-                                    <br>England
-                                    <br>Great Britain</p>
+                                <p>'.$row['first_name'].' '.$row['last_name'].'
+                                    <br>'.$row['address'].'
+                                    <br>'.$row['city'].'
+                                    <br>'.$row['zip'].'
+                                    <br>'.$row['state'].'
+                                </p>
                             </div>
-                        </div>
-
+                        </div>';
+                        ?>
                     </div>
                     </div>
                 </div>
