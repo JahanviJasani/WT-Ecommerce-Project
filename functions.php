@@ -802,9 +802,9 @@ function addReview($conn) {
 		$sql = "INSERT INTO review (product_id, user_id, review_title, review, rating, rev_date) VALUES ('$pid', '$uid', '$title', '$review', '$rating', CURDATE())";
 		$result = mysqli_query($conn, $sql);
 		if ($result) {
-			header("Location: single.php?pid=".$pid."&add_review=true&add_review_success=true");
+			header("Location: single.php?pid=".$pid."&add_review=true&add_review_success=true&prod_id=".$pid);
 		} else {
-			echo "Hello".mysqli_error();
+			header("Location: single.php?pid=".$pid."&add_review=true&add_review_fail=true&prod_id=".$pid);
 		}
 	}
 }
@@ -856,12 +856,12 @@ function updatebag($conn) {
 		$bagSQL = "UPDATE bags SET bag_capacity='$capacity', length='$length', height='$height', width='$width', material='$material', stock='$stock' WHERE bags.product_id='$product_id'";
 		$bagResult = mysqli_query($conn, $bagSQL);
 		if ($bagResult) {
-			echo 'ho gaya';
+			header('Location: update_products.php?update_product=true&update_success=true');
 		} else {
-			echo 'bag me gadbad';
+			header('Location: update_products.php?update_product=true&update_fail=true&product_id='.$product_id);
 		}
 	} else {
-		echo 'prod me gadbad';
+		header('Location: update_products.php?update_product=true&update_fail=true&product_id='.$product_id);
 	}
 }
 
@@ -884,12 +884,12 @@ function updatewatch($conn) {
 		$watchSQL = "UPDATE watches SET clasp_type='$clasp_type', case_shape='$case_shape', display_type='$display_type', dial_colour='$dial_colour', case_material='$case_material', band_material='$band_material' WHERE watches.product_id='$product_id'";
 		$watchResult = mysqli_query($conn, $watchSQL);
 		if ($watchResult) {
-			echo 'ho gaya';
+			header('Location: update_products.php?update_product=true&update_success=true');
 		} else {
-			echo 'watch me gadbad';
+			header('Location: update_products.php?update_product=true&update_fail=true&product_id='.$product_id);
 		}
 	} else {
-		echo 'prod me gadbad';
+		header('Location: update_products.php?update_product=true&update_fail=true&product_id='.$product_id);
 	}
 }
 
@@ -907,11 +907,11 @@ function updatefoot($conn) {
 		$footwearSQL = "UPDATE footwear SET material='$material' WHERE footwear.product_id='$product_id'";
 		$footwearResult = mysqli_query($conn, $footwearSQL);
 		if ($footwearResult) {
-			echo 'ho gaya';
+			header('Location: update_products.php?update_product=true&update_success=true');
 		} else {
-			echo 'footwear me gadbad';
+			header('Location: update_products.php?update_product=true&update_fail=true&product_id='.$product_id);
 		}
 	} else {
-		echo 'prod me gadbad';
+		header('Location: update_products.php?update_product=true&update_fail=true&product_id='.$product_id);
 	}
 }

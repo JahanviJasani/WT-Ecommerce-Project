@@ -309,7 +309,7 @@ include('header.php');
 									<input type="hidden" name="currency_code" value="USD">
 									<input type="hidden" name="return" value=" ">
 									<input type="hidden" name="cancel_return" value=" ">
-									<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
+									<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\',\''.$row["footwear_size"].'\');" />
 								</fieldset>
 							</form>											
 					</div>
@@ -999,3 +999,15 @@ include('footer.php');
 		<label for="rating1">1</label>
 	</span>
  -->
+
+ <?php
+if (isset($_GET['add_review'])) {
+	echo '<script>
+	$(window).load(function(){
+        $("#myModal13").modal("show");
+    });
+	</script>';
+}
+
+?>
+ ?>

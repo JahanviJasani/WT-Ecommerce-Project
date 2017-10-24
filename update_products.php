@@ -174,6 +174,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </style>
 <body>
+<?php
+include('header.php');
+?>
 
 
 
@@ -499,3 +502,14 @@ include('footer.php');
 
 <!-- for bootstrap working -->
 <script type="text/javascript" src="js/bootstrap.js"></script>
+
+<?php
+if (isset($_GET['update_product'])) {
+    echo '<script>
+    $(window).load(function(){
+        $("#myModal12").modal("show");
+    });
+    </script>';
+}
+
+?>

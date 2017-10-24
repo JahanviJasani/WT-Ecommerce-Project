@@ -766,9 +766,9 @@
 										<input type="hidden" name="return" value=" " />
 										<input type="hidden" name="cancel_return" value=" " />';
 										if ($getSizeRow['stock']==0) {
-											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\');" disabled />';
+											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\',\''.$getSizeRow["footwear_size"].'\');" disabled />';
 										} elseif ($getSizeRow['stock']>0) {
-											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\'); removeParam(\'q7wgrzp84d\');" />';
+											echo '<input type="button" style="min-width: 50px;" name="footwearSize" value="'.$getSizeRow["footwear_size"].'" class="button" data-dismiss="modal" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\',\''.$getSizeRow["footwear_size"].'\'); removeParam(\'q7wgrzp84d\');" />';
 										}
 									echo '</fieldset>
 								</form>';
@@ -793,6 +793,66 @@
 
 				</div>
 				<div style="border: 1px solid #d1cfcf;" class="clearfix"></div>
+			</div>
+		</div>
+		<!-- //Modal content-->
+	</div>
+</div>
+
+
+<!-- Product Update successful/failed modal -->
+
+<div class="modal fade" id="myModal12" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" onclick="remove_queryString()">&times;</button>
+			</div>
+				<div class="modal-body modal-body-sub_agile" style="border: 1px solid #ccc; margin: 10px; border-radius: 5px; padding-bottom: 0px;">
+				<div class="col-md-12 modal_body_left modal_body_left1">
+					<?php
+						if (isset($_GET['update_success'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Product Update<span> Successful</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="update_products.php"> Click here </a><span> to continue</span></h3>';
+						} elseif (isset($_GET['update_fail'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Product Update<span> Failed</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="update_product.php?prod_id='.$_GET['product_id'].'"> Click Here </a><span> To Try Again</span></h3>';
+						}
+					?>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- //Modal content-->
+	</div>
+</div>
+
+
+<!-- Product Update successful/failed modal -->
+
+<div class="modal fade" id="myModal13" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" onclick="remove_queryString()">&times;</button>
+			</div>
+				<div class="modal-body modal-body-sub_agile" style="border: 1px solid #ccc; margin: 10px; border-radius: 5px; padding-bottom: 0px;">
+				<div class="col-md-12 modal_body_left modal_body_left1">
+					<?php
+						if (isset($_GET['add_review_success'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Review Posted<span> Successfully</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="single.php?pid='.$_GET['prod_id'].'"> Click here </a><span> to continue</span></h3>';
+						} elseif (isset($_GET['add_review_fail'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Sorry<span> We could not add your review</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="single.php?pid='.$_GET['prod_id'].'"> Click Here </a><span> To Try Again</span></h3>';
+						}
+					?>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
 			</div>
 		</div>
 		<!-- //Modal content-->
