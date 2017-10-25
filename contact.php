@@ -124,24 +124,24 @@ include('header.php');
 					</div>
 					<div class="col-md-6 contact-form">
 						<h4 class="white-w3ls">Contact <span>Form</span></h4>
-						<form action="#" method="post">
+						<form action="contact_request.php" method="POST">
 							<div class="styled-input agile-styled-input-top">
-								<input type="text" name="Name" required="">
+								<input type="text" name="name" required="">
 								<label>Name</label>
 								<span></span>
 							</div>
 							<div class="styled-input">
-								<input type="email" name="Email" required=""> 
+								<input type="email" name="email" required=""> 
 								<label>Email</label>
 								<span></span>
 							</div> 
 							<div class="styled-input">
-								<input type="text" name="Subject" required="">
+								<input type="text" name="subject" required="">
 								<label>Subject</label>
 								<span></span>
 							</div>
 							<div class="styled-input">
-								<textarea name="Message" required=""></textarea>
+								<textarea name="message" required=""></textarea>
 								<label>Message</label>
 								<span></span>
 							</div>	 
@@ -327,3 +327,12 @@ include('footer.php');
 <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 </html>
+<?php
+if (isset($_GET['contact_request'])) {
+  echo '<script>
+  $(window).load(function(){
+        $("#myModal14").modal("show");
+    });
+  </script>';
+}
+?>
