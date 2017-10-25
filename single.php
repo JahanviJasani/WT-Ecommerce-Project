@@ -190,7 +190,7 @@ include('header.php');
 								<li data-thumb="'.$imagerow['image_location'].'">
 									<div class="thumb-image"> <img src="'.$imagerow['image_location'].'" data-imagezoom="true" class="img-responsive"> </div>
 								</li>';
-								$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location NOT LIKE '%primary%'";
+								$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location NOT LIKE '%primary%' LIMIT 5";
 								$imageresult = mysqli_query($conn, $imagesql);
 								$count = 0;
 								while($imagerow = mysqli_fetch_assoc($imageresult)) {
@@ -664,16 +664,13 @@ include('header.php');
 						} 
 
 					}elseif($row['category'] == 'watch') {
-						$sql = "SELECT * FROM product WHERE product.category='watch' ORDER BY product_id DESC";
+						$sql = "SELECT * FROM product WHERE product.category='watch' ORDER BY product_id DESC LIMIT 4";
 						$result = mysqli_query($conn, $sql);
-						$count = 0;
-
 						$item_count = mysqli_num_rows($result);
-
 						if ($item_count==0) {
 							echo "<p style='text-align: center;'><b>No products to display</b></p>";
 						} else {
-							while (($row = mysqli_fetch_assoc($result)) && ($count<4) ) {
+							while (($row = mysqli_fetch_assoc($result))) {
 								$pid = $row['product_id'];
 								$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
 								$imageresult = mysqli_query($conn, $imagesql);
@@ -1010,4 +1007,3 @@ if (isset($_GET['add_review'])) {
 }
 
 ?>
- ?>

@@ -82,27 +82,22 @@
 				<div class="col-md-4 sign-gd flickr-post">
 					<h4>Our <span>Products</span></h4>
 					<ul>
-						<li><a href="single.php"><img class="resp" src="primary/pri_46.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_124.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_101.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_58.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_127.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_100.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_85.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_130.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_96.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_84.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_138.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_103.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_87.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_140.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_104.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_54.jpeg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_143.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_94.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_83.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.php"><img class="resp" src="primary/pri_122.jpg" alt=" " class="img-responsive" /></a></li>
-						
+					<?php
+						$sql = "SELECT * FROM product ORDER BY product_id DESC LIMIT 30";
+						$result = mysqli_query($conn, $sql);
+						$item_count = mysqli_num_rows($result);
+						if ($item_count==0) {
+							echo "<p style='text-align: center;'><b>No products to display</b></p>";
+						} else {
+							while (($row = mysqli_fetch_assoc($result))) {
+							$pid = $row['product_id'];
+							$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
+							$imageresult = mysqli_query($conn, $imagesql);
+							$imagerow = mysqli_fetch_assoc($imageresult);
+							echo'<li><a href="single.php?pid='.$pid.'"><img class="resp" src="'.$imagerow['image_location'].'" alt=" " class="img-responsive" /></a></li>';
+							}
+						}
+					?>
 					</ul>
 				</div>
 				<div class="clearfix"></div>
@@ -119,7 +114,6 @@
 	</div>
 </div>
 <!-- //footer -->
-
 
 <?php
 	if (isset($_GET['getsellerpage'])) {

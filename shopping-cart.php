@@ -32,15 +32,6 @@ include('header.php');
 
 <div class="shopping-cart-page">
   <h1 style="position: block;color: #000;font-size: 2.75em;">Shopping Cart</h1>
-  <div class="column-labels">
-  <label class="sc-product-image">Image</label>
-  <label class="sc-product-details">Product</label>
-  <label class="sc-product-price">Price</label>
-  <label class="sc-product-quantity">Quantity</label>
-  <label class="sc-product-removal">Remove</label>
-  <label class="sc-product-line-price">Total</label>
-  </div>
-  
 <?php
   if(isset($_SESSION['user_id']))
   {
@@ -49,9 +40,18 @@ include('header.php');
     $result=mysqli_query($conn, $sql);
     $item_count = mysqli_num_rows($result);
     if ($item_count==0) {
-      echo "<p style='text-align: center;'><b>No products in Cart!</b></p>";
+      echo "<hr style='height: 1px;'><p style='text-align: center; font-size: 1.2em;'><b>No products in Cart!</b></p>";
       $flag=0;
     } else {
+      echo'<div class="column-labels">
+            <label class="sc-product-image">Image</label>
+            <label class="sc-product-details">Product</label>
+            <label class="sc-product-price">Price</label>
+            <label class="sc-product-quantity">Quantity</label>
+            <label class="sc-product-removal">Remove</label>
+            <label class="sc-product-line-price">Total</label>
+          </div>';
+  
       $flag=1;
       while (($row = mysqli_fetch_assoc($result))){
         $pid = $row['product_id'];
