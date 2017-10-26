@@ -1,5 +1,8 @@
 <?php
 include('functions.php');
+if (!isset($_GET['pid'])) {
+	header('Location: index.php');
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,6 +27,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
 <script src="js/backend.js"></script>
+<script>
+	function footwearAddToCart(pid, userid){
+			console.log("aa gaya");
+			var s = document.getElementById("country1");
+			var sss = s.options[s.selectedIndex].innerHTML;
+			var sSize = sss.substring(9);
+			add_to_cart(pid, userid,sSize);
+	}
+</script>
 <style>
 	.rating {
 	  display: inline-block;
@@ -161,6 +173,7 @@ include('header.php');
 	</div>
 </div>
 <?php
+		$size= "NA";
 		$pid=$_GET['pid'];
 		$sql1="SELECT * FROM product WHERE product_id=$pid";
 		$result1 = mysqli_query($conn, $sql1);
@@ -230,7 +243,7 @@ include('header.php');
 					if ($row1['category']=='footwear') {	
 						echo '<div class="occasional">
 							<h4><b>Size :</b></h4>
-							<select id="country1" onchange="sizecheck()" class="frm-field sect">';
+							<select id="country1" onchange="sizecheck(this)" class="frm-field sect">';
 							echo '<option value="-1" name="-1">Select</option>';
 							while ($row=mysqli_fetch_assoc($result)) {
 								echo'<option value="'.$row["stock"].'" name="'.$row["footwear_size"].'"';
@@ -308,8 +321,13 @@ include('header.php');
 									<input type="hidden" name="discount_amount" value="1.00">
 									<input type="hidden" name="currency_code" value="USD">
 									<input type="hidden" name="return" value=" ">
-									<input type="hidden" name="cancel_return" value=" ">
-									<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\',\''.$row["footwear_size"].'\');" />
+									<input type="hidden" name="cancel_return" value=" ">';
+									if (($row1['category']=='footwear')) {
+										echo '<input type="button" name="submitFootwear" id="submitFootwear" value="Add to cart" class="button" onclick="footwearAddToCart(\''.$pid.'\',\''.$user_id.'\');" />';
+									} else {
+										echo '<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\',\''.$size.'\');" />';
+									}
+									echo '
 								</fieldset>
 							</form>											
 					</div>
@@ -950,36 +968,57 @@ include('footer.php');
 </body>
 </html>
 <script type="text/javascript">
-	function sizecheck() {
+	function sizecheck(s) {
 		var atc = document.getElementById("atc");
 		var bn = document.getElementById("bn");
 		var size = document.getElementById("country1").value;
 		var sizedisplay = document.getElementById("stockshow");
+		var cartButton = document.getElementById("submitFootwear");
 		sizedisplay.style.fontSize = "1em";
 		sizedisplay.style.lineHeight= "1.5em";
 		sizedisplay.style.fontWeight= "700";
 		if (size==0) {
 			sizedisplay.innerHTML = "Out of Stock";
 			sizedisplay.style.color = "#B12704";
+			cartButton.removeAttribute("disabled");
 		} else if (size==1) {
 			sizedisplay.innerHTML = "Only 1 left in Stock";
 			sizedisplay.style.color = "#008A00";
+			cartButton.removeAttribute("disabled");
 		} else if (size==2) {
 			sizedisplay.innerHTML = "Only 2 left in Stock";
 			sizedisplay.style.color = "#008A00";
+			cartButton.removeAttribute("disabled");
 		} else if (size>2) {
 			sizedisplay.innerHTML = "In Stock";
 			sizedisplay.style.color = "#008A00";
+			cartButton.removeAttribute("disabled");
 		}
 		if (size==-1) {
 			console.log("xyz");
+			document.getElementById("submitFootwear").disabled = true;
 		}
+			var sss = s.options[s.selectedIndex].innerHTML;
+			var selectedSize = sss.substring(9);
+			console.log(selectedSize);
+
+
 	}
+	var opt = document.getElementById("country1");
+	var optVal = opt.options[opt.selectedIndex].value;
+	if (optVal=="-1") {
+			console.log("should be disabled");
+			document.getElementById("submitFootwear").disabled = true;
+	}
+
+
+
 	function review_add() {
 		var rev = document.getElementById("addR");
 		var addrev = document.getElementById("addReview");
 		addrev.style.display="block";
 	}
+
 </script>
 <script type="text/javascript">
 	$(':radio').change(function() {
@@ -1032,5 +1071,11 @@ if (isset($_GET['add_review'])) {
     });
 	</script>';
 }
-
+if (isset($_GET['getsellerpage'])) {
+    echo '<script>
+    $(window).load(function(){
+        $("#myModal9").modal("show");
+    });
+    </script>';
+}
 ?>

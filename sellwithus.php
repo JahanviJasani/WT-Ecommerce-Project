@@ -195,4 +195,11 @@ if (isset($_GET['seller_reg'])) {
     });
   </script>';
 }
+if (isset($_GET['getsellerpage'])) {
+    echo '<script>
+    $(window).load(function(){
+        $("#myModal9").modal("show");
+    });
+    </script>';
+}
 ?>

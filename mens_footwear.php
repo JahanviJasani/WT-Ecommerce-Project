@@ -579,4 +579,11 @@ if (isset($_GET['q7wgrzp84d'])) {
     });
 	</script>';
 }
+if (isset($_GET['getsellerpage'])) {
+    echo '<script>
+    $(window).load(function(){
+        $("#myModal9").modal("show");
+    });
+    </script>';
+}
 ?>

@@ -361,3 +361,13 @@ include('footer.php');
 
 </body>
 </html>
+
+<?php
+if (isset($_GET['getsellerpage'])) {
+    echo '<script>
+    $(window).load(function(){
+        $("#myModal9").modal("show");
+    });
+    </script>';
+}
+?>

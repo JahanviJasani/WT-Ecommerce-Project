@@ -1,10 +1,23 @@
 <?php
 include('functions.php');
+$url=$_GET['seller'];
+$sidSQL = "SELECT seller_id FROM sellerpage WHERE sellerpage.seller_url='$url'";
+$sidResult = mysqli_query($conn, $sidSQL);
+$sidRow = mysqli_fetch_assoc($sidResult);
+$sid = $sidRow['seller_id'];
+$id = $sid;
+$sql_u = "SELECT * FROM users WHERE user_id='$id'";
+$user = mysqli_query($conn, $sql_u);
+$userRow=mysqli_fetch_assoc($user);
+$sid=$sid;
+$sql1="SELECT * FROM users WHERE users.user_id IN (SELECT user_id FROM seller WHERE seller.seller_id='$sid')";
+$result1 = mysqli_query($conn, $sql1);
+$row1 = mysqli_fetch_assoc($result1);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Single :: w3layouts</title>
+<title><?php echo $row1['first_name']."'s Shoppy"?></title>
 <!--/tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

@@ -525,3 +525,12 @@ include('footer.php');
 		<label for="rating1">1</label>
 	</span>
  -->
+ <?php
+if (isset($_GET['getsellerpage'])) {
+    echo '<script>
+    $(window).load(function(){
+        $("#myModal9").modal("show");
+    });
+    </script>';
+}
+?>

@@ -492,4 +492,11 @@ if (isset($_GET['stock_update'])) {
     });
   </script>';
 }
+if (isset($_GET['getsellerpage'])) {
+    echo '<script>
+    $(window).load(function(){
+        $("#myModal9").modal("show");
+    });
+    </script>';
+}
 ?>

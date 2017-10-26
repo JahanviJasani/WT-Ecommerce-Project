@@ -504,3 +504,12 @@ include('footer.php');
 <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 </html>
+<?php
+if (isset($_GET['getsellerpage'])) {
+    echo '<script>
+    $(window).load(function(){
+        $("#myModal9").modal("show");
+    });
+    </script>';
+}
+?>

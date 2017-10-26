@@ -234,4 +234,11 @@ include('footer.php');
 if (isset($_GET['change'])) {
     echo '<script> alert("Current Password incorrect"); </script>';  
 }
+if (isset($_GET['getsellerpage'])) {
+    echo '<script>
+    $(window).load(function(){
+        $("#myModal9").modal("show");
+    });
+    </script>';
+}
 ?>

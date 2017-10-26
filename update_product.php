@@ -320,4 +320,11 @@ echo '<script>
 		}
 	}
 </script>';
+if (isset($_GET['getsellerpage'])) {
+    echo '<script>
+    $(window).load(function(){
+        $("#myModal9").modal("show");
+    });
+    </script>';
+}
 ?>
