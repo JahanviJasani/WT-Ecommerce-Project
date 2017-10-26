@@ -53,6 +53,7 @@ include('header.php');
           </div>';
   
       $flag=1;
+      STATIC $count=0;
       while (($row = mysqli_fetch_assoc($result))){
         $pid = $row['product_id'];
         $imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
@@ -83,7 +84,7 @@ include('header.php');
                 $footresult2=mysqli_query($conn, $footsql2);
                 $footrow2 = mysqli_fetch_assoc($footresult2);
                 if ($footrow2['stock']==0) {
-                  $flag=0;
+                  $count+=1;
                 echo '<p style="margin: 0.5em 0 0;color: #B12704;font-size: 1em;line-height: 1.5em; font-weight: 700;">Out of Stock</p>';
                 } elseif ($footrow2['stock']==1) {
                 echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p>';
@@ -99,7 +100,7 @@ include('header.php');
                 $bagrow = mysqli_fetch_assoc($bagresult);
 
                 if ($bagrow['stock']==0) {
-                  $flag=0;
+                  $count++;
                 echo '<p style="margin: 0.5em 0 0;color: #B12704;font-size: 1em;line-height: 1.5em; font-weight: 700;">Out of Stock</p>';
                 } elseif ($bagrow['stock']==1) {
                 echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p>';
@@ -113,7 +114,7 @@ include('header.php');
                 $watchresult = mysqli_query($conn, $watchsql);
                 $watchrow = mysqli_fetch_assoc($watchresult);
                 if ($watchrow['stock']==0) {
-                  $flag=0;
+                  $count++;
                 echo '<p style="margin: 0.5em 0 0;color: #B12704;font-size: 1em;line-height: 1.5em; font-weight: 700;">Out of Stock</p>';
                 } elseif ($watchrow['stock']==1) {
                 echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p>';
@@ -131,14 +132,13 @@ include('header.php');
               <div class="sc-product-removal">
               <button class="remove-product" onclick="removeItem(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
               Remove
-              </button>
-              </div>
+              </button>';
+              echo'</div>
               <div class="sc-product-line-price">'.$total.'</div>
               </div>';}
     }
   }
 ?>
-
 <div class="pull-right">
 <?php
 if($flag==0)
@@ -174,8 +174,6 @@ include('footer.php');
   $('.sc-product-removal button').click( function() {
   removeItem(this);
   });*/
-
-
   /* Recalculate cart */
   function recalculateCart()
   {
@@ -209,6 +207,7 @@ include('footer.php');
   /* Update quantity */
   function updateQuantity(quantityInput,pid,user_id)
   {
+
   /* Calculate line price */
   var qty=quantityInput.value;
   var xhttp = new XMLHttpRequest();
@@ -242,6 +241,10 @@ include('footer.php');
   /* Remove item from cart */
   function removeItem(removeButton,pid,user_id)
   {
+    console.log("Hello");
+    console.log(<?php echo $count ?>);
+    <?php $count=$count-1; ?>
+    console.log(<?php echo $count ?>);
   /* Remove row from DOM and recalc cart total */
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
@@ -265,20 +268,6 @@ include('footer.php');
 <!-- //js -->
 <script src="js/modernizr.custom.js"></script>
   <!-- Custom-JavaScript-File-Links --> 
-  <!-- cart-js -->
-  <script src="js/minicart.min.js"></script>
-<script>
-  // Mini Cart
-  paypal.minicart.render({
-    action: '#'
-  });
-
-  if (~window.location.search.indexOf('reset=true')) {
-    paypal.minicart.reset();
-  }
-</script>
-
-  <!-- //cart-js --> 
 <!-- script for responsive tabs -->           
 <script src="js/easy-responsive-tabs.js"></script>
 <script>

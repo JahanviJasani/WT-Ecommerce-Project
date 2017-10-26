@@ -19,7 +19,6 @@
 				<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
 				<li><i class="fa fa-money"></i><a href="sellwithus.php">  Sell With Us</a></li>';
 		    } else {
-		    	echo '<li><i class="fa fa-user-circle-o" aria-hidden="true"></i> Welcome, '.$_SESSION['user_name'].'</li>';
 		    	$id = $_SESSION['user_id'];
 		    	$sql_u = "SELECT * FROM users WHERE user_id='$id'";
 		    	$user = mysqli_query($conn, $sql_u);
@@ -31,6 +30,7 @@
 	            }
 	            echo '<li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
 	            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
+            	<li><i class="fa fa-sign-out" aria-hidden="true"></i> <a href="customer_orders.php" name="user_logout.php">View your Customer Account</a></li>
             	<li><i class="fa fa-sign-out" aria-hidden="true"></i> <a href="functions.php?logout=true" name="user_logout.php">Logout</a></li>';
 		    }
 			?>
@@ -287,7 +287,7 @@
 <!-- //Modal1 -->
 <!-- Modal2 -->
 		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
+			<div class="modal-dialog1">
 				<!-- Modal content-->
 				<div class="modal-content">
 					<div class="modal-header">

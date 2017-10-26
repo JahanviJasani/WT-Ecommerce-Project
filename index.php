@@ -4,7 +4,7 @@ include('functions.php');
 <!DOCTYPE html>
 <html>
 <head>
-<title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>Elite Shoppy</title>
 <!--/tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -188,7 +188,7 @@ include('header.php');
 											<div class="col-md-3 product-men">
 												<div class="men-pro-item simpleCart_shelfItem">
 													<div class="men-thumb-item">
-														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front">
+														<a href="#"><img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front"></a>
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
 															<div class="men-cart-pro">
 																<div class="inner-men-cart-pro">
@@ -200,8 +200,7 @@ include('header.php');
 													</div>
 													<div class="item-info-product ">
 														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>
-														<div class="info-product-price">
-															<span class="item_price">&#8377;'.$row['price'].'</span>
+														<div class="info-product-price#<span class="item_price">&#8377;'.$row['price'].'</span>
 															
 														</div>
 														<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">

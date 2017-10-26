@@ -83,7 +83,7 @@
 					<h4>Our <span>Products</span></h4>
 					<ul>
 					<?php
-						$sql = "SELECT * FROM product ORDER BY product_id DESC LIMIT 30";
+						$sql = "SELECT * FROM product ORDER BY product_id DESC LIMIT 20";
 						$result = mysqli_query($conn, $sql);
 						$item_count = mysqli_num_rows($result);
 						if ($item_count==0) {
