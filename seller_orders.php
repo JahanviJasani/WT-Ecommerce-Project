@@ -102,71 +102,84 @@ _________________________________________________________ -->
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Order Id</th>
+                                <th>Order Id<br>#Suborder</th>
                                 <th>Date</th>
+                                <th>Product</th>
+                                <th>Customer Details</th>
                                 <th>Total</th>
+                                <th>Payment Status</th>
                                 <th>Status</th>
-                                <th>Action</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th># 1735</th>
-                                <td>22/06/2013</td>
-                                <td>$ 150.00</td>
-                                <td>
-                                        <select class="select">
-                                        <option value="Processing">Processing</option>
-                                        <option value="Shipped">Shipped</option>
-                                        <option value="Delivered">Delivered</option>
-                                        <option value="Cancelled">Cancelled</option>
-                                        </select>
-                                </td>
-                                <td>
-                                    <form action="" method="POST">
-                                        <input type="hidden" name="product_id" value="">
-                                        <a href="seller_order.php" class="btn btn-primary btn-sm">View</a>
-                                    </form>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th># 1735</th>
-                                <td>22/06/2013</td>
-                                <td>$ 150.00</td>
-                                <td>
-                                        <select class="select">
-                                        <option value="Processing">Processing</option>
-                                        <option value="Shipped">Shipped</option>
-                                        <option value="Delivered">Delivered</option>
-                                        <option value="Cancelled">Cancelled</option>
-                                        </select>
-                                </td>
-                                <td>
-                                    <form action="" method="POST">
-                                        <input type="hidden" name="product_id" value="">
-                                        <a href="seller_order.php" class="btn btn-primary btn-sm">View</a>
-                                    </form>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th># 1735</th>
-                                <td>22/06/2013</td>
-                                <td>$ 150.00</td>
-                                <td>
-                                        <select class="select">
-                                        <option value="Processing">Processing</option>
-                                        <option value="Shipped">Shipped</option>
-                                        <option value="Delivered">Delivered</option>
-                                        <option value="Cancelled">Cancelled</option>
-                                        </select>
-                                </td>
-                                <td>
-                                    <form action="" method="POST">
-                                        <input type="hidden" name="product_id" value="">
-                                        <a href="seller_order.php" class="btn btn-primary btn-sm">View</a>
-                                    </form>
-                                </td>
-                            </tr>
+                            <?php
+                            $user = $_SESSION['user_id'];
+                            $seller_sql = "SELECT * FROM seller WHERE seller.user_id='$user'";
+                            $seller_sql_result = mysqli_query($conn,$seller_sql);
+                            $seller_row = mysqli_fetch_assoc($seller_sql_result);
+                            $seller_id = $seller_row['seller_id'];
+                            $sql = "SELECT * FROM sub_order, product WHERE sub_order.product_id=product.product_id AND product.seller_id='$seller_id' ORDER BY FIELD(status,'Processing','Shipped','Delivered','Cancelled')";
+                            $result= mysqli_query($conn,$sql);
+                            while($row = mysqli_fetch_assoc($result))
+                            {
+                                $order_id = $row['order_id'];
+                                $order_sql = "SELECT * FROM orders WHERE orders.order_id='$order_id'";
+                                $order_sql_result = mysqli_query($conn,$order_sql);
+                                $order_sql_row = mysqli_fetch_assoc($order_sql_result); 
+                                echo mysqli_error($conn);
+                                echo '
+                                <tr>    
+                                    <th>'.$row['order_id'].' #'.$row['sub_order_id'].'</th>
+                                    <td>'.$order_sql_row['date'].'</td>
+                                    <td>'.$row['name'].'</td>
+                                    <td>
+                                    <p style="letter-spacing:0; font-size: 1em;">'.$order_sql_row['name'].'
+                                    <br>'.$order_sql_row['address'].'
+                                    <br>'.$order_sql_row['city'].' - '.$order_sql_row['zip'].'
+                                    <br>'.$order_sql_row['state'].'
+                                    <br>Mobile - '.$order_sql_row['mobile'].'
+                                    </p>
+                                    </td>
+                                    <td>'.$row['subtotal'].'</td>'
+                                    ; 
+                                    $payment = strtoupper($order_sql_row['payment_method']);
+                                    echo'
+                                    <td>'.$payment.'</td>
+                                    <td>
+                                            <select class="select" onchange="change_order_status(\''.$row['order_id'].'\',\''.$row['sub_order_id'].'\',this.value)">';
+                                            if($row['status']=='Processing')
+                                                echo'
+                                                <option value="Processing" selected>Processing</option>
+                                                <option value="Shipped">Shipped</option>
+                                                <option value="Delivered">Delivered</option>
+                                                <option value="Cancelled">Cancelled</option>';
+                                            else if($row['status']=='Shipped')
+                                                echo'
+                                                <option value="Processing">Processing</option>
+                                                <option value="Shipped" selected>Shipped</option>
+                                                <option value="Delivered">Delivered</option>
+                                                <option value="Cancelled">Cancelled</option>';
+                                            else if($row['status']=='Delivered')
+                                                echo'
+                                                <option value="Processing">Processing</option>
+                                                <option value="Shipped">Shipped</option>
+                                                <option value="Delivered" selected>Delivered</option>
+                                                <option value="Cancelled">Cancelled</option>';
+                                            else if($row['status']=='Cancelled')
+                                                echo'
+                                                <option value="Processing">Processing</option>
+                                                <option value="Shipped">Shipped</option>
+                                                <option value="Delivered">Delivered</option>
+                                                <option value="Cancelled" selected>Cancelled</option>';
+                                            echo '
+                                            </select>
+                                    </td>
+                                </tr>'
+                                ;   
+                            }
+  
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -249,6 +262,15 @@ include('footer.php');
             $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
         });
     });
+</script>
+<script type="text/javascript">
+    function change_order_status(order_id,sub_order_id,order_status)
+    {        
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "change_order_status.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("order_id="+order_id+"&sub_order_id="+sub_order_id+"&order_status="+order_status);
+    }
 </script>
 <!-- here stars scrolling icon -->
     <script type="text/javascript">
