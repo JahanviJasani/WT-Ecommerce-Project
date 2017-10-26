@@ -2067,13 +2067,7 @@ h3.tittle {
     outline: none;
     border: none;
 }
-.map {
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    filter: grayscale(100%);
-}
+
 .contact-grid-agile-w3 i {
     color: #fff;
     font-size: 33px;

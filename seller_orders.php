@@ -94,95 +94,316 @@ _________________________________________________________ -->
         </div>
 
         <div class="col-md-10" id="customer-orders">
-            <div class="box">
+        <div class="box">
                 <div style="display: block; padding: 5px 15px 1px 15px;"> 
                 <p class="lead">Pending Orders.</p>
-                <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Order Id<br>#Suborder</th>
-                                <th>Date</th>
-                                <th>Product</th>
-                                <th>Customer Details</th>
-                                <th>Total</th>
-                                <th>Payment Status</th>
-                                <th>Status</th>
+                <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>   
+                <div class=""> 
+                    <div class="container">
+                        
+                            <div id="horizontalTab">
+                                    <ul class="resp-tabs-list">
+                                        <li>Processing</li>
+                                        <li>Shipped</li>
+                                        <li>Delivered</li>
+                                        <li>Cancelled</li>
+                                    </ul>
+                                <div class="resp-tabs-container">
+                                <!--/tab_one-->
+                                    <div class="tab1">
+                                       <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order Id<br>#Suborder</th>
+                                                    <th>Date</th>
+                                                    <th>Product</th>
+                                                    <th>Customer Details</th>
+                                                    <th>Total</th>
+                                                    <th>Payment Method</th>
+                                                    <th>Status</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $user = $_SESSION['user_id'];
-                            $seller_sql = "SELECT * FROM seller WHERE seller.user_id='$user'";
-                            $seller_sql_result = mysqli_query($conn,$seller_sql);
-                            $seller_row = mysqli_fetch_assoc($seller_sql_result);
-                            $seller_id = $seller_row['seller_id'];
-                            $sql = "SELECT * FROM sub_order, product WHERE sub_order.product_id=product.product_id AND product.seller_id='$seller_id' ORDER BY FIELD(status,'Processing','Shipped','Delivered','Cancelled')";
-                            $result= mysqli_query($conn,$sql);
-                            while($row = mysqli_fetch_assoc($result))
-                            {
-                                $order_id = $row['order_id'];
-                                $order_sql = "SELECT * FROM orders WHERE orders.order_id='$order_id'";
-                                $order_sql_result = mysqli_query($conn,$order_sql);
-                                $order_sql_row = mysqli_fetch_assoc($order_sql_result); 
-                                echo mysqli_error($conn);
-                                echo '
-                                <tr>    
-                                    <th>'.$row['order_id'].' #'.$row['sub_order_id'].'</th>
-                                    <td>'.$order_sql_row['date'].'</td>
-                                    <td>'.$row['name'].'</td>
-                                    <td>
-                                    <p style="letter-spacing:0; font-size: 1em;">'.$order_sql_row['name'].'
-                                    <br>'.$order_sql_row['address'].'
-                                    <br>'.$order_sql_row['city'].' - '.$order_sql_row['zip'].'
-                                    <br>'.$order_sql_row['state'].'
-                                    <br>Mobile - '.$order_sql_row['mobile'].'
-                                    </p>
-                                    </td>
-                                    <td>'.$row['subtotal'].'</td>'
-                                    ; 
-                                    $payment = strtoupper($order_sql_row['payment_method']);
-                                    echo'
-                                    <td>'.$payment.'</td>
-                                    <td>
-                                            <select class="select" onchange="change_order_status(\''.$row['order_id'].'\',\''.$row['sub_order_id'].'\',this.value)">';
-                                            if($row['status']=='Processing')
-                                                echo'
-                                                <option value="Processing" selected>Processing</option>
-                                                <option value="Shipped">Shipped</option>
-                                                <option value="Delivered">Delivered</option>
-                                                <option value="Cancelled">Cancelled</option>';
-                                            else if($row['status']=='Shipped')
-                                                echo'
-                                                <option value="Processing">Processing</option>
-                                                <option value="Shipped" selected>Shipped</option>
-                                                <option value="Delivered">Delivered</option>
-                                                <option value="Cancelled">Cancelled</option>';
-                                            else if($row['status']=='Delivered')
-                                                echo'
-                                                <option value="Processing">Processing</option>
-                                                <option value="Shipped">Shipped</option>
-                                                <option value="Delivered" selected>Delivered</option>
-                                                <option value="Cancelled">Cancelled</option>';
-                                            else if($row['status']=='Cancelled')
-                                                echo'
-                                                <option value="Processing">Processing</option>
-                                                <option value="Shipped">Shipped</option>
-                                                <option value="Delivered">Delivered</option>
-                                                <option value="Cancelled" selected>Cancelled</option>';
-                                            echo '
-                                            </select>
-                                    </td>
-                                </tr>'
-                                ;   
-                            }
-  
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $user = $_SESSION['user_id'];
+                                                $seller_sql = "SELECT * FROM seller WHERE seller.user_id='$user'";
+                                                $seller_sql_result = mysqli_query($conn,$seller_sql);
+                                                $seller_row = mysqli_fetch_assoc($seller_sql_result);
+                                                $seller_id = $seller_row['seller_id'];
+                                                $sql = "SELECT * FROM sub_order, product WHERE sub_order.product_id=product.product_id AND product.seller_id='$seller_id' AND sub_order.status='Processing'";
+                                                $result= mysqli_query($conn,$sql);
+                                                while($row = mysqli_fetch_assoc($result))
+                                                {
+                                                    $order_id = $row['order_id'];
+                                                    $order_sql = "SELECT * FROM orders WHERE orders.order_id='$order_id'";
+                                                    $order_sql_result = mysqli_query($conn,$order_sql);
+                                                    $order_sql_row = mysqli_fetch_assoc($order_sql_result); 
+                                                    echo mysqli_error($conn);
+                                                    echo '
+                                                    <tr>    
+                                                        <th>'.$row['order_id'].' #'.$row['sub_order_id'].'</th>
+                                                        <td>'.$order_sql_row['date'].'</td>
+                                                        <td>'.$row['name'].'</td>
+                                                        <td>
+                                                        <p style="letter-spacing:0; font-size: 1em;">'.$order_sql_row['name'].'
+                                                        <br>'.$order_sql_row['address'].'
+                                                        <br>'.$order_sql_row['city'].' - '.$order_sql_row['zip'].'
+                                                        <br>'.$order_sql_row['state'].'
+                                                        <br>Mobile - '.$order_sql_row['mobile'].'
+                                                        </p>
+                                                        </td>
+                                                        <td>'.$row['subtotal'].'</td>'
+                                                        ; 
+                                                        $payment = strtoupper($order_sql_row['payment_method']);
+                                                        echo'
+                                                        <td>'.$payment.'</td>
+                                                        <td>
+                                                                <select class="select" onchange="change_order_status(\''.$row['order_id'].'\',\''.$row['sub_order_id'].'\',this.value)">
+                                                                    <option value="Processing" selected>Processing</option>
+                                                                    <option value="Shipped">Shipped</option>
+                                                                    <option value="Delivered">Delivered</option>
+                                                                    <option value="Cancelled">Cancelled</option>
+                                                                
+                                                                </select>
+                                                        </td>
+                                                    </tr>'
+                                                    ;   
+                                                }
+                      
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div> 
+
+                                       
+                                        
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <!--//tab_one-->
+                                    <!--/tab_two-->
+                                    <div class="tab2">
+                                       <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order Id<br>#Suborder</th>
+                                                    <th>Date</th>
+                                                    <th>Product</th>
+                                                    <th>Customer Details</th>
+                                                    <th>Total</th>
+                                                    <th>Payment Status</th>
+                                                    <th>Status</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $user = $_SESSION['user_id'];
+                                                $seller_sql = "SELECT * FROM seller WHERE seller.user_id='$user'";
+                                                $seller_sql_result = mysqli_query($conn,$seller_sql);
+                                                $seller_row = mysqli_fetch_assoc($seller_sql_result);
+                                                $seller_id = $seller_row['seller_id'];
+                                                $sql = "SELECT * FROM sub_order, product WHERE sub_order.product_id=product.product_id AND product.seller_id='$seller_id' AND sub_order.status='Shipped'";
+                                                $result= mysqli_query($conn,$sql);
+                                                while($row = mysqli_fetch_assoc($result))
+                                                {
+                                                    $order_id = $row['order_id'];
+                                                    $order_sql = "SELECT * FROM orders WHERE orders.order_id='$order_id'";
+                                                    $order_sql_result = mysqli_query($conn,$order_sql);
+                                                    $order_sql_row = mysqli_fetch_assoc($order_sql_result); 
+                                                    echo mysqli_error($conn);
+                                                    echo '
+                                                    <tr>    
+                                                        <th>'.$row['order_id'].' #'.$row['sub_order_id'].'</th>
+                                                        <td>'.$order_sql_row['date'].'</td>
+                                                        <td>'.$row['name'].'</td>
+                                                        <td>
+                                                        <p style="letter-spacing:0; font-size: 1em;">'.$order_sql_row['name'].'
+                                                        <br>'.$order_sql_row['address'].'
+                                                        <br>'.$order_sql_row['city'].' - '.$order_sql_row['zip'].'
+                                                        <br>'.$order_sql_row['state'].'
+                                                        <br>Mobile - '.$order_sql_row['mobile'].'
+                                                        </p>
+                                                        </td>
+                                                        <td>'.$row['subtotal'].'</td>'
+                                                        ; 
+                                                        $payment = strtoupper($order_sql_row['payment_method']);
+                                                        echo'
+                                                        <td>'.$payment.'</td>
+                                                        <td>
+                                                                <select class="select" onchange="change_order_status(\''.$row['order_id'].'\',\''.$row['sub_order_id'].'\',this.value)">
+                                                                    <option value="Processing" >Processing</option>
+                                                                    <option value="Shipped" selected>Shipped</option>
+                                                                    <option value="Delivered">Delivered</option>
+                                                                    <option value="Cancelled">Cancelled</option>
+                                                                
+                                                                </select>
+                                                        </td>
+                                                    </tr>'
+                                                    ;   
+                                                }
+                      
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div> 
+
+                                       
+                                        
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="tab3">
+                                       <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order Id<br>#Suborder</th>
+                                                    <th>Date</th>
+                                                    <th>Product</th>
+                                                    <th>Customer Details</th>
+                                                    <th>Total</th>
+                                                    <th>Payment Status</th>
+                                                    <th>Status</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $user = $_SESSION['user_id'];
+                                                $seller_sql = "SELECT * FROM seller WHERE seller.user_id='$user'";
+                                                $seller_sql_result = mysqli_query($conn,$seller_sql);
+                                                $seller_row = mysqli_fetch_assoc($seller_sql_result);
+                                                $seller_id = $seller_row['seller_id'];
+                                                $sql = "SELECT * FROM sub_order, product WHERE sub_order.product_id=product.product_id AND product.seller_id='$seller_id' AND sub_order.status='Delivered'";
+                                                $result= mysqli_query($conn,$sql);
+                                                while($row = mysqli_fetch_assoc($result))
+                                                {
+                                                    $order_id = $row['order_id'];
+                                                    $order_sql = "SELECT * FROM orders WHERE orders.order_id='$order_id'";
+                                                    $order_sql_result = mysqli_query($conn,$order_sql);
+                                                    $order_sql_row = mysqli_fetch_assoc($order_sql_result); 
+                                                    echo mysqli_error($conn);
+                                                    echo '
+                                                    <tr>    
+                                                        <th>'.$row['order_id'].' #'.$row['sub_order_id'].'</th>
+                                                        <td>'.$order_sql_row['date'].'</td>
+                                                        <td>'.$row['name'].'</td>
+                                                        <td>
+                                                        <p style="letter-spacing:0; font-size: 1em;">'.$order_sql_row['name'].'
+                                                        <br>'.$order_sql_row['address'].'
+                                                        <br>'.$order_sql_row['city'].' - '.$order_sql_row['zip'].'
+                                                        <br>'.$order_sql_row['state'].'
+                                                        <br>Mobile - '.$order_sql_row['mobile'].'
+                                                        </p>
+                                                        </td>
+                                                        <td>'.$row['subtotal'].'</td>'
+                                                        ; 
+                                                        $payment = strtoupper($order_sql_row['payment_method']);
+                                                        echo'
+                                                        <td>'.$payment.'</td>
+                                                        <td>
+                                                                <select class="select" onchange="change_order_status(\''.$row['order_id'].'\',\''.$row['sub_order_id'].'\',this.value)">
+                                                                    <option value="Processing" >Processing</option>
+                                                                    <option value="Shipped" >Shipped</option>
+                                                                    <option value="Delivered" selected>Delivered</option>
+                                                                    <option value="Cancelled">Cancelled</option>
+                                                                
+                                                                </select>
+                                                        </td>
+                                                    </tr>'
+                                                    ;   
+                                                }
+                      
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div> 
+
+                                       
+                                        
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="tab4">
+                                       <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order Id<br>#Suborder</th>
+                                                    <th>Date</th>
+                                                    <th>Product</th>
+                                                    <th>Customer Details</th>
+                                                    <th>Total</th>
+                                                    <th>Payment Status</th>
+                                                    <th>Status</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $user = $_SESSION['user_id'];
+                                                $seller_sql = "SELECT * FROM seller WHERE seller.user_id='$user'";
+                                                $seller_sql_result = mysqli_query($conn,$seller_sql);
+                                                $seller_row = mysqli_fetch_assoc($seller_sql_result);
+                                                $seller_id = $seller_row['seller_id'];
+                                                $sql = "SELECT * FROM sub_order, product WHERE sub_order.product_id=product.product_id AND product.seller_id='$seller_id' AND sub_order.status='Cancelled'";
+                                                $result= mysqli_query($conn,$sql);
+                                                while($row = mysqli_fetch_assoc($result))
+                                                {
+                                                    $order_id = $row['order_id'];
+                                                    $order_sql = "SELECT * FROM orders WHERE orders.order_id='$order_id'";
+                                                    $order_sql_result = mysqli_query($conn,$order_sql);
+                                                    $order_sql_row = mysqli_fetch_assoc($order_sql_result); 
+                                                    echo mysqli_error($conn);
+                                                    echo '
+                                                    <tr>    
+                                                        <th>'.$row['order_id'].' #'.$row['sub_order_id'].'</th>
+                                                        <td>'.$order_sql_row['date'].'</td>
+                                                        <td>'.$row['name'].'</td>
+                                                        <td>
+                                                        <p style="letter-spacing:0; font-size: 1em;">'.$order_sql_row['name'].'
+                                                        <br>'.$order_sql_row['address'].'
+                                                        <br>'.$order_sql_row['city'].' - '.$order_sql_row['zip'].'
+                                                        <br>'.$order_sql_row['state'].'
+                                                        <br>Mobile - '.$order_sql_row['mobile'].'
+                                                        </p>
+                                                        </td>
+                                                        <td>'.$row['subtotal'].'</td>'
+                                                        ; 
+                                                        $payment = strtoupper($order_sql_row['payment_method']);
+                                                        echo'
+                                                        <td>'.$payment.'</td>
+                                                        <td>
+                                                                <select class="select" onchange="change_order_status(\''.$row['order_id'].'\',\''.$row['sub_order_id'].'\',this.value)">
+                                                                    <option value="Processing" >Processing</option>
+                                                                    <option value="Shipped">Shipped</option>
+                                                                    <option value="Delivered">Delivered</option>
+                                                                    <option value="Cancelled" selected>Cancelled</option>
+                                                                
+                                                                </select>
+                                                        </td>
+                                                    </tr>'
+                                                    ;   
+                                                }
+                      
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div> 
+
+                                       
+                                        
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                
             </div>
         </div>
         </div>
@@ -270,6 +491,7 @@ include('footer.php');
         xhttp.open("POST", "change_order_status.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("order_id="+order_id+"&sub_order_id="+sub_order_id+"&order_status="+order_status);
+        // /window.location.reload();
     }
 </script>
 <!-- here stars scrolling icon -->
