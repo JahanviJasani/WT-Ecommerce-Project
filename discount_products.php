@@ -7,7 +7,7 @@ if (!(isset($_SESSION['user_id']) && $_SESSION['user_type']==1)) {
 <!DOCTYPE html>
 <html>
 <head>
-<title>Elite Shoppy</title>
+<title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
 <!--/tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -27,13 +27,110 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
 <script src="js/backend.js"></script>
+</head>
+
+
 <style type="text/css">
-    #after_delete {
-        display: none;
+
+    .class1:before, .class1:after{
+      content:"";
+      display:table;
     }
-    #button_delete {>
-        display: none;
+    
+    .class1:after{
+      clear:both;
+    }
+    
+    .form-wrapper {
+        width: 100%;
+        padding: 15px;
+        background: #444;
+        background: rgba(0,0,0,.2);
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        -moz-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+        box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+    }
+    
+    .form-wrapper input {
+        width: 85%;
+        height: 40px;
+        padding: 10px 5px;
+        float: left;    
+        border: 0;
+        background: #eee;
+        -moz-border-radius: 3px 0 0 3px;
+        -webkit-border-radius: 3px 0 0 3px;
+        border-radius: 3px 0 0 3px;      
+    }
+    
+    .form-wrapper input:focus {
+        outline: 0;
+        background: #fff;
+        -moz-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+        -webkit-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+        box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+    }
+    
+    .form-wrapper input::-webkit-input-placeholder,
+    .form-wrapper input:-moz-placeholder,
+    .form-wrapper input:-ms-input-placeholder
+     {
+       color: #999;
+       font-weight: normal;
+       font-style: italic;
+    }
+        
+    .form-wrapper button {
+        overflow: visible;
+        position: absolute;
         float: right;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        height: 40px;
+        width: 14%;
+        color: #fff;
+        text-transform: uppercase;
+        background: #2fdab8;
+        -moz-border-radius: 0 3px 3px 0;
+        -webkit-border-radius: 0 3px 3px 0;
+        border-radius: 0 3px 3px 0;      
+        text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+    }   
+      
+    .form-wrapper button:hover{     
+        background: #000;
+    }   
+      
+    .form-wrapper button:active,
+    .form-wrapper button:focus{   
+        background: #000;    
+    }
+    
+    .form-wrapper button:before {
+        content: '';
+        position: absolute;
+        border-width: 8px 8px 8px 0;
+        border-style: solid solid solid none;
+        border-color: transparent #2fdab8 transparent;
+        top: 12px;
+        left: -6px;
+    }
+    
+    .form-wrapper button:hover:before{
+        border-right-color: #000;
+    }
+    
+    .form-wrapper button:focus:before{
+        border-right-color: #000;
+    }    
+    
+    .form-wrapper button::-moz-focus-inner {
+        border: 0;
+        padding: 0;
     }
     .resp-tabs-list li {
         width: 33.33%;
@@ -74,44 +171,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         width: 173px;
         height: 52px;
     }
+
 </style>
-</head>
-
-
 <body>
 <?php
 include('header.php');
 ?>
 
-            <!-- /banner_bottom_agile_info -->
-            <div class="page-head_agile_info_w3l">
-            <div class="container">
-            <h3>My <span>Products </span></h3>
+<div class="page-head_agile_info_w3l">
+        <div class="container">
+            <h3>My <span>Discounts </span></h3>
             <!--/w3_short-->
-            <div class="services-breadcrumb">
-            <div class="agile_inner_breadcrumb">
+                 <div class="services-breadcrumb">
+                        <div class="agile_inner_breadcrumb">
 
-            <ul class="w3_short">
-            <li><a href="index.php">Home</a><i>|</i></li>
-            <li>My Products</li>
-            </ul>
-            </div>
-            </div>
-            <!--//w3_short-->
-            </div>
-            </div>
+                           <ul class="w3_short">
+                                <li><a href="index.php">Home</a><i>|</i></li>
+                                <li>My Discounts</li>
+                            </ul>
+                         </div>
+                </div>
+       <!--//w3_short-->
+    </div>
+</div>
 
-            <div id="customer">
-                <div class="container-fluid">
-                    <div class="col-md-2">
-                    <!-- *** SELLER MENU ***-->
-                    <div class="panel panel-default sidebar-menu">
 
-                    <div class="panel-heading">
+<div id="customer">
+    <div class="container-fluid">
+        
+            <div class="col-md-2">
+            <!-- *** SELLER MENU ***
+_________________________________________________________ -->
+            <div class="panel panel-default sidebar-menu">
+
+                <div class="panel-heading">
                     <h3 class="panel-title">Seller section</h3>
-                    </div>
+                </div>
 
-                    <div class="panel-body">
+                <div class="panel-body">
 
                     <ul class="nav nav-pills nav-stacked">
                     <li>
@@ -120,12 +217,13 @@ include('header.php');
                     <li>
                     <a href="seller_account.php"><i class="fa fa-user"></i> My account</a>
                     </li>
-                    <li class="active">
+                    <li>
                     <a href="products.php"><i class="fa fa-shopping-bag"></i> My products</a>
                     </li>
-                    <li>
+                    <li class="active">
                     <a href="discount_products.php"><i class="fa fa-tags"></i> My Discounts</a>
                     </li>
+                    <li>
                     <li>
                     <a href="update_products.php"><i class="fa fa-pencil-square-o"></i> Update products</a>
                     </li>
@@ -133,28 +231,25 @@ include('header.php');
                     <a href="functions.php?logout=true"><i class="fa fa-sign-out"></i> Logout</a>
                     </li>
                     </ul>
-                    </div>
+                </div>
 
-                     </div>
-                    <!-- /.col-md-3 -->
-                    <!-- *** SELLER MENU END *** -->
-                    </div>
+            </div>
+            <!-- /.col-md-3 -->
+            <!-- *** SELLER MENU END *** -->
+            </div>
 
-                    <div class="col-md-10" id="customer-orders">
-                    <div class="box" id="hidediv">
-                    <div style="display: block; padding: 5px 15px 1px 15px;"> 
-                        <p class="lead">Your Product List</p><hr>
-                        <p>Want to add a new product to your lineup?</p> <button style="float: right;padding-left: 15px;padding-right: 15px; margin-top: -1.7em;" class="btn btn-primary" onclick="additems()">Add</button><br><hr style="margin-top:">
-                        <p>Want to delete any existing product?</p><button style="float: right;padding-left: 15px;padding-right: 15px; margin-top: -1.7em;" class="btn btn-primary" onclick="deleteitems()">Delete</button><br>
-                    </div>
-                    </div>
-                <div class="box">
+            <div class="col-md-10">
+                <div class="box" style=" background: #555 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpi/P//PwM6YGLAAuCCmpqacC2MRGsHCDAA+fIHfeQbO8kAAAAASUVORK5CYII=);">
+                    <form class="form-wrapper class1">
+                        <input type="text" placeholder="Search here..." required />
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            
+                    <!-- 3 products categories tabs start -->
+                <div class="new_arrivals_agile_w3ls_info box" style="padding-top: 10px; padding-bottom: 0px;" id="productlisttabs"> 
                 <div style="display: block; padding: 5px 15px 1px 15px;"> 
-                <p class="lead">My products.</p>
-                <p class="text-muted"><b>The products listed for sale by you are displayed here.</b> In case of any questions <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>
-
-                <!-- 3 products categories tabs start -->
-                <div class="new_arrivals_agile_w3ls_info" style="padding-top: 10px; padding-bottom: 0px;" id="productlisttabs"> 
+                    <p class="lead">Give Discount</p><hr>
                     <div class="container-fluid">
                             <div id="horizontalTab" style="width: 100%;">
                                 <ul class="resp-tabs-list">
@@ -176,7 +271,7 @@ include('header.php');
                                                     <th id="brand">Brand</th>
                                                     <th id="name">Name</th>
                                                     <th id="price">Price</th>
-                                                    <th id="us">Update Stock</th>
+                                                    <th id="us">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -200,10 +295,9 @@ include('header.php');
                                                         $wresult = mysqli_query($conn, $wsql);
                                                         $wrow = mysqli_fetch_assoc($wresult);
                                                         echo '<td>
-                                                            <form action="functions.php" method="POST">
+                                                            <form action="update_product.php" method="GET">
                                                                 <input type="hidden" name="prod_id" value="'.$watchrow["product_id"].'">
-                                                                <input type="number" name="stock_quantity" style="width: 50px;" value="'.$wrow["stock"].'">
-                                                                <button type="submit" name="watch_stock_update" class="btn btn-primary btn-sm">Update</button>
+                                                                <button type="submit" class="btn btn-primary btn-sm">View or Edit</button>
                                                             </form>
                                                         </td>
                                                         </td>
@@ -233,7 +327,7 @@ include('header.php');
                                                     <th id="brand">Brand</th>
                                                     <th id="name">Name</th>
                                                     <th id="price">Price</th>
-                                                    <th id="us">Update Stock</th>
+                                                    <th id="us">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -257,10 +351,9 @@ include('header.php');
                                                         $bresult = mysqli_query($conn, $bsql);
                                                         $brow = mysqli_fetch_assoc($bresult);
                                                         echo '<td>
-                                                            <form action="functions.php" method="POST">
-                                                                <input type="hidden" name="prod_id" value="'.$pid,'">
-                                                                <input type="number" name="stock_quantity" style="width: 50px;" value="'.$brow["stock"].'">
-                                                                <button type="submit" name="bag_stock_update" class="btn btn-primary btn-sm">Update</button>
+                                                            <form action="update_product.php" method="GET">
+                                                                <input type="hidden" name="prod_id" value="'.$pid.'">
+                                                                <button type="submit" class="btn btn-primary btn-sm">View or Edit</button>
                                                             </form>
                                                         </td>
                                                         </td>
@@ -288,7 +381,7 @@ include('header.php');
                                                     <th id="brand">Brand</th>
                                                     <th id="name">Name</th>
                                                     <th id="price">Price</th>
-                                                    <th id="us">Update Stock</th>
+                                                    <th id="us">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -308,9 +401,9 @@ include('header.php');
                                                         <td>'.$footwearrow["name"].'</td>
                                                         <td>'.$footwearrow["price"].'</td>
                                                         <td>
-                                                            <form action="seller_products.php" method="GET">
-                                                                <input type="hidden" name="footwear_id_stock_update" value="'.$pid.'">
-                                                                <button type="submit" name="qty_change_submit" value="true" class="btn btn-primary btn-sm" style="display: block; margin: 0 auto;">Update</button>
+                                                            <form action="update_product.php" method="GET">
+                                                                <input type="hidden" name="prod_id" value="'.$pid.'">
+                                                                <button type="submit" class="btn btn-primary btn-sm">View or Edit</button>
                                                             </form>
                                                         </td>
                                                     </tr>';
@@ -331,58 +424,14 @@ include('header.php');
                 </div>
 
                 <!-- 3 products categories tabs end -->
-                <!-- start2 -->
-                <div class="table-responsive" id="after_delete">
-                    <form action="#" method="GET">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Product Id</th>
-                                    <th>Brand</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Qty. in Stock</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                    $uid = $_SESSION['user_id'];
-                                    $sql = "SELECT * FROM product WHERE product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
-                                    $result = mysqli_query($conn, $sql);
-                                    $count=10000;
-
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                echo '<tr>
-                                    <td>
-                                        <input id="'.$count.'" class="checkbox-custom" name="checkbox-2" type="checkbox">
-                                        <label for="'.$count.'" class="checkbox-custom-label"></label>
-                                    </td>
-                                    <th><a href="#">'.$row["product_id"].'</a></th>
-                                    <td>'.$row["brand"].'</td>
-                                    <td>'.$row["name"].'</td>
-                                    <td>'.$row["price"].'</td>
-                                    <td style="text-align: center;">20</td>
-                                </tr>';
-                                $count++;
-                                }  
-                                ?>
-                            </tbody>
-                        </table>
-                        <hr>
-                        <button id="button_delete" onclick="deletiondone()" class="btn btn-primary btn-sm" style="background-color: #2fdab8; border: #2fdab8; font-size: 1em; margin-right: 2em;">Delete</button>
-                    </form>
                 </div>
-                <!-- end2 -->
-                <!-- AFTER DELETE WALA LIST WITH ALL PRODUCTS |||||END||||| -->
             </div>
-            </div>
-            </div>
-            <!-- /.container -->
-            </div>
-            <!-- /#content -->
+ </div>
+    <!-- /.container -->
+</div>
+<!-- /#content -->
 
-<!-- php footer include -->
+
 <?php
 include('footer.php');
 ?>
@@ -475,21 +524,14 @@ include('footer.php');
 
 <!-- for bootstrap working -->
 <script type="text/javascript" src="js/bootstrap.js"></script>
-</body>
-</html>
+
 <?php
-if (isset($_GET['footwear_id_stock_update'], $_GET['qty_change_submit'])) {
+if (isset($_GET['update_product'])) {
     echo '<script>
     $(window).load(function(){
-        $("#myModal7").modal("show");
+        $("#myModal12").modal("show");
     });
     </script>';
 }
-if (isset($_GET['stock_update'])) {
-  echo '<script>
-  $(window).load(function(){
-        $("#myModal8").modal("show");
-    });
-  </script>';
-}
+
 ?>
