@@ -154,13 +154,14 @@ _________________________________________________________ -->
                         <!-- /.table-responsive -->
                         <?php
                         $uid=$_SESSION['user_id'];
-                        $sql="SELECT * FROM users where user_id='$uid'";
+                        $sql="SELECT * FROM orders where user_id='$uid' AND order_id='$order_id'";
                         $result = mysqli_query($conn,$sql);
+                        //echo mysqli_error($conn);
                         $row = mysqli_fetch_assoc($result);
                         echo '<div class="row addresses">
                             <div class="col-md-6">
                                 <h3 style="font-size: 1.4em; font-weight: 600;">Invoice address</h3>
-                                <p style="letter-spacing:0; font-size: 1em;">'.$row['first_name'].' '.$row['last_name'].'
+                                <p style="letter-spacing:0; font-size: 1em;">'.$row['name'].'
                                     <br>'.$row['address'].'
                                     <br>'.$row['city'].'-'.$row['zip'].'
                                     <br>'.$row['state'].'
@@ -168,10 +169,9 @@ _________________________________________________________ -->
                             </div>
                             <div class="col-md-6">
                                 <h3 style="font-size: 1.4em; font-weight: 600;">Shipping address</h3>
-                                <p style="letter-spacing:0; font-size: 1em;">'.$row['first_name'].' '.$row['last_name'].'
+                                <p style="letter-spacing:0; font-size: 1em;">'.$row['name'].'
                                     <br>'.$row['address'].'
-                                    <br>'.$row['city'].'
-                                    <br>'.$row['zip'].'
+                                    <br>'.$row['city'].'-'.$row['zip'].'
                                     <br>'.$row['state'].'
                                 </p>
                             </div>

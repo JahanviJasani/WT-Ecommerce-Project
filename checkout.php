@@ -23,7 +23,13 @@ function checkout($conn)
 	$total = mysqli_real_escape_string($conn,$_POST['total_amt']);
 	$user = $_SESSION['user_id'];
 	$date = date("d/m/Y");
-	$sql_insert = "INSERT INTO orders (user_id, date, total, payment_method) VALUES ('$user','$date','$total','$method')";
+	$name = $_SESSION['name'];
+	$mobile = $_SESSION['mobile'];
+	$address = $_SESSION['address'];
+	$zip = $_SESSION['zip'];
+	$city = $_SESSION['city'];
+	$state = $_SESSION['state'];
+	$sql_insert = "INSERT INTO orders (user_id, date, total, payment_method, name, mobile, address, zip, city, state) VALUES ('$user','$date','$total','$method','$name','$mobile','$address','$zip','$city','$state')";
 	$insert_result = mysqli_query($conn,$sql_insert);
 	$sql_insert = "SELECT * FROM orders ORDER BY order_id DESC LIMIT 1";
 	$insert_result = mysqli_query($conn,$sql_insert);

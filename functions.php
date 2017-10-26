@@ -695,15 +695,21 @@ function updateAddressDetails($conn) {
 	$city = mysqli_real_escape_string($conn,$_POST['city']);
 	$state = mysqli_real_escape_string($conn,$_POST['state']);
 	$user = $_SESSION['user_id'];
-    $sql = "UPDATE users SET first_name='$fname', last_name='$lname', email='$email', mobile='$mobile', address='$address', zip='$zip', city='$city', state='$state' WHERE users.user_id='$user'";
+	$_SESSION['name'] = $fname .' '. $lname;
+	$_SESSION['mobile']= $mobile;
+	$_SESSION['address']= $address;
+	$_SESSION['zip']= $zip;
+	$_SESSION['city']=$city;
+	$_SESSION['state']=$state;
+    /*$sql = "UPDATE users SET first_name='$fname', last_name='$lname', email='$email', mobile='$mobile', address='$address', zip='$zip', city='$city', state='$state' WHERE users.user_id='$user'";
     $result1 = mysqli_query($conn, $sql);
-    if($result1){
-        	header("Location: checkout2.php"); /* Redirect browser */
-			exit();
-        }
+    if($result1){*/
+	header("Location: checkout2.php"); /* Redirect browser */
+	exit();
+       /* }
         else{
         	echo "Failed";
-        }
+        }*/
 }
 
 function updateWatchStock($conn) {

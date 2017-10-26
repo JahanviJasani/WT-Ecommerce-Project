@@ -126,7 +126,7 @@ include('header.php');
                             <div class="col-sm-6">
                                     <div class="form-group">
                                         <label1 for="email">Email</label1>
-                                        <input type="text" class="form-control1" id="email" name="email" value="'.$user_row['email'].'" required="required" >
+                                        <input type="text" class="form-control1" id="email" name="email" value="'.$user_row['email'].'" required="required" readonly >
                                     </div>
                             </div>
                         </div>

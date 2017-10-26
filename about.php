@@ -59,8 +59,8 @@ include('header.php');
 				</div>
 				 <div class="col-md-6 ab_pic_w3ls_text_info">
 				    <h5>About Our Elite <span> Shoppy</span> </h5>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie blandit ipsum auctor. Mauris volutpat augue dolor..</p>
-					<p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore magna aliqua.</p>
+					<p>A lot of people use social media as a medium to market their products, which is an incorrect and inefficient use of the existing platforms. Having said this, we thought of building a dedicated product to serve such sellers as well as enabling our customers to enjoy the shopping experience in a truly immersive way.</p>
+					<p> Our product will be a completely new and self-contained product and will serve as a completely new platform for people who take help of social media to propagate their business sales. It will open up larger markets for such sellers, also helping them to increase their profits. The customers also get a benefit with access to products from markets all over the country.</p>
 				</div>
 				  <div class="clearfix"></div>
 			</div>    
