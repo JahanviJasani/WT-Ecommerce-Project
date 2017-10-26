@@ -3524,6 +3524,7 @@ p.w3ls_para {
 /*-- Ratings --*/
 .rating1 {
     direction:ltr;
+    margin-top: 1em;
 }
 .starRating:not(old) {
     display: inline-block;

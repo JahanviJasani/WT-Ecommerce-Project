@@ -148,6 +148,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  background-color: #2fdab8;
 	  border-radius: 3px;
 	}
+	.short_span {
+		margin-left: 6.5em;
+		margin-top: 2px;
+		color: #B12704;
+	}
 }
 </style>
 </head>
@@ -222,8 +227,27 @@ include('header.php');
 				</div>
 				<div class="col-md-8 single-right-left simpleCart_shelfItem">
 					<h4>'.$row1['brand'].'</h4>
-					<h3 style="width: 70%;">'.$row1['name'].'</h3>
-					<p><span class="item_price"><span style="font-family:Arial;">&#8377;</span>'.$row1['price'].'</span></p>
+					<h3 style="width: 70%;">'.$row1['name'].'</h3>';
+					if($row1['discount'] != NULL) {
+						$new_price=$row1['price'] - ($row1['discount']*$row1['price']);
+						$save=$row1['price']-$new_price;
+						$disc_per=$row1['discount']*100;
+						echo'<hr><span class="item_price"><h4 style="font-size: 1em;"><b>Original Price : </b><span style="font-family:Arial; font-weight: 200; color: #999;">&#8377;</span><del style="font-weight:400; margin-left: 4px;">'.$row1['price'].'</del></span></h4>
+							<span class="item_price"><h4 style="font-size: 1em; margin-bottom: 0px;"><b style="color: #008A00">Deal Price : </b><span style="font-weight: 600;"><span style="font-family:Arial; font-weight: 200;">&#8377;</span> '.$new_price.'</span></span></h4>
+
+							<div class="short_span">
+							<span>
+							<span style="font-size: 0.95em;">'.$disc_per.'<span>&#37</span></span> Off<br>
+							Save <span style="font-family:Arial; font-weight: 200; font-size: 0.95em;">&#8377;</span><span style="font-size: 0.95em;"> '.$save.'</span>
+							</span>
+							</div>';
+					}
+					else {
+						echo'<div class="info-product-price">
+							<span class="item_price">&#8377;'.$row1['price'].'</span>
+							</div>';
+					}
+					echo'
 					<div class="rating1">
 						<b>Average Customer Rating :&nbsp;&nbsp;&nbsp;</b><span class="stars" style="display:inline-block;">'.$str.'</span>
 						<span style="color: #000; font-weight:600;">('.$str.' out of 5 stars)</span>
