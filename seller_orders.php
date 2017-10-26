@@ -65,21 +65,25 @@ _________________________________________________________ -->
                 <div class="panel-body">
 
                     <ul class="nav nav-pills nav-stacked">
-                        <li>
-                            <a href="seller_orders.php"><i class="fa fa-list"></i> My orders</a>
-                        </li>
-                        <li>
-                            <a href="seller_account.php"><i class="fa fa-user"></i> My account</a>
-                        </li>
-                        <li>
-                            <a href="seller_products.php"><i class="fa fa-shopping-bag"></i> My products</a>
-                        </li>
-                        <li>
-                            <a href="update_products.php"><i class="fa fa-pencil-square-o"></i> Update products</a>
-                        </li>
-                        <li>
-                            <a href="functions.php?logout=true"><i class="fa fa-sign-out"></i> Logout</a>
-                        </li>
+                    <li class="active">
+                    <a href="seller_orders.php"><i class="fa fa-list"></i> My orders</a>
+                    </li>
+                    <li>
+                    <a href="seller_account.php"><i class="fa fa-user"></i> My account</a>
+                    </li>
+                    <li>
+                    <a href="seller_products.php"><i class="fa fa-shopping-bag"></i> My products</a>
+                    </li>
+                    <li>
+                    <a href="discount_products.php"><i class="fa fa-tags"></i> My Discounts</a>
+                    </li>
+                    <li>
+                    <li>
+                    <a href="update_products.php"><i class="fa fa-pencil-square-o"></i> Update products</a>
+                    </li>
+                    <li>
+                    <a href="functions.php?logout=true"><i class="fa fa-sign-out"></i> Logout</a>
+                    </li>
                     </ul>
                 </div>
 

@@ -834,6 +834,7 @@
 
 <!-- Product Update successful/failed modal -->
 
+<!-- Review -->
 <div class="modal fade" id="myModal13" tabindex="-1" role="dialog">
 	<div class="modal-dialog">
 		<!-- Modal content-->
@@ -860,7 +861,7 @@
 		<!-- //Modal content-->
 	</div>
 </div>
-
+<!-- Review -->
 
 <!-- Contact Me Request successful/failed modal -->
 
@@ -891,3 +892,38 @@
 		<!-- //Modal content-->
 	</div>
 </div>
+
+<!-- Contact Me Request successful/failed modal -->
+
+<!-- Discount Update successful/failed modal -->
+
+<div class="modal fade" id="myModal15" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" onclick="remove_queryString()">&times;</button>
+			</div>
+				<div class="modal-body modal-body-sub_agile" style="border: 1px solid #ccc; margin: 10px; border-radius: 5px; padding-bottom: 0px;">
+				<div class="col-md-12 modal_body_left modal_body_left1">
+					<?php
+						if (isset($_GET['discount_update_success'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Discount Update<span> Successful</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="discount_products.php"> Click here </a><span> to continue</span></h3>';
+						} elseif (isset($_GET['discount_update_fail'])) {
+							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Discount Update<span> Failed</span></h3><hr style="border-color: #2fdab8;">
+								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="discount_products.php?prod_id='.$_GET['product_id'].'"> Click Here </a><span> To Try Again</span></h3>';
+						}
+					?>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- //Modal content-->
+	</div>
+</div>
+
+
+<!-- Discount Update successful/failed modal -->
+

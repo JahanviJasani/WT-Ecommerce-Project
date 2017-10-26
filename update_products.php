@@ -202,7 +202,7 @@ _________________________________________________________ -->
                     <a href="seller_account.php"><i class="fa fa-user"></i> My account</a>
                     </li>
                     <li>
-                    <a href="products.php"><i class="fa fa-shopping-bag"></i> My products</a>
+                    <a href="seller_products.php"><i class="fa fa-shopping-bag"></i> My products</a>
                     </li>
                     <li>
                     <a href="discount_products.php"><i class="fa fa-tags"></i> My Discounts</a>

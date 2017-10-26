@@ -218,7 +218,7 @@ _________________________________________________________ -->
                     <a href="seller_account.php"><i class="fa fa-user"></i> My account</a>
                     </li>
                     <li>
-                    <a href="products.php"><i class="fa fa-shopping-bag"></i> My products</a>
+                    <a href="seller_products.php"><i class="fa fa-shopping-bag"></i> My products</a>
                     </li>
                     <li class="active">
                     <a href="discount_products.php"><i class="fa fa-tags"></i> My Discounts</a>
@@ -271,7 +271,7 @@ _________________________________________________________ -->
                                                     <th id="brand">Brand</th>
                                                     <th id="name">Name</th>
                                                     <th id="price">Price</th>
-                                                    <th id="us">Action</th>
+                                                    <th id="us">Give Discount</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -282,6 +282,7 @@ _________________________________________________________ -->
 
                                                 while ($watchrow = mysqli_fetch_assoc($watchresult)) {
                                                     $pid=$watchrow["product_id"];
+                                                    $discount=$watchrow["discount"]*100;
                                                     $imagesql = "SELECT * FROM images WHERE images.product_id=$pid AND images.image_location LIKE '%primary%'";
                                                     $imageresult = mysqli_query($conn, $imagesql);
                                                     $imagerow = mysqli_fetch_assoc($imageresult);
@@ -295,9 +296,10 @@ _________________________________________________________ -->
                                                         $wresult = mysqli_query($conn, $wsql);
                                                         $wrow = mysqli_fetch_assoc($wresult);
                                                         echo '<td>
-                                                            <form action="update_product.php" method="GET">
+                                                            <form action="functions.php" method="POST">
                                                                 <input type="hidden" name="prod_id" value="'.$watchrow["product_id"].'">
-                                                                <button type="submit" class="btn btn-primary btn-sm">View or Edit</button>
+                                                                <input type="number" name="discount" style="width: 50px;" value="'.$discount.'">
+                                                                <button type="submit" name="discount_au1" class="btn btn-primary btn-sm">Add/Update</button>
                                                             </form>
                                                         </td>
                                                         </td>
@@ -327,7 +329,7 @@ _________________________________________________________ -->
                                                     <th id="brand">Brand</th>
                                                     <th id="name">Name</th>
                                                     <th id="price">Price</th>
-                                                    <th id="us">Action</th>
+                                                    <th id="us">Update Stock</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -338,6 +340,7 @@ _________________________________________________________ -->
 
                                                 while ($bagrow = mysqli_fetch_assoc($bagresult)) {
                                                     $pid=$bagrow["product_id"];
+                                                    $discount=$bagrow["discount"]*100;
                                                     $imagesql = "SELECT * FROM images WHERE images.product_id=$pid AND images.image_location LIKE '%primary%'";
                                                     $imageresult = mysqli_query($conn, $imagesql);
                                                     $imagerow = mysqli_fetch_assoc($imageresult);
@@ -351,9 +354,10 @@ _________________________________________________________ -->
                                                         $bresult = mysqli_query($conn, $bsql);
                                                         $brow = mysqli_fetch_assoc($bresult);
                                                         echo '<td>
-                                                            <form action="update_product.php" method="GET">
-                                                                <input type="hidden" name="prod_id" value="'.$pid.'">
-                                                                <button type="submit" class="btn btn-primary btn-sm">View or Edit</button>
+                                                            <form action="functions.php" method="POST">
+                                                                <input type="hidden" name="prod_id" value="'.$pid,'">
+                                                                <input type="number" name="discount" style="width: 50px;" value="'.$discount.'">
+                                                                <button type="submit" name="discount_au2" class="btn btn-primary btn-sm">Add/Update</button>
                                                             </form>
                                                         </td>
                                                         </td>
@@ -381,7 +385,7 @@ _________________________________________________________ -->
                                                     <th id="brand">Brand</th>
                                                     <th id="name">Name</th>
                                                     <th id="price">Price</th>
-                                                    <th id="us">Action</th>
+                                                    <th id="us">Update Stock</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -392,6 +396,7 @@ _________________________________________________________ -->
                                                     
                                                 while ($footwearrow = mysqli_fetch_assoc($footwearresult)) {
                                                     $pid=$footwearrow["product_id"];
+                                                    $discount=$footwearrow["discount"]*100;
                                                     $imagesql = "SELECT * FROM images WHERE images.product_id=$pid AND images.image_location LIKE '%primary%'";
                                                     $imageresult = mysqli_query($conn, $imagesql);
                                                     $imagerow = mysqli_fetch_assoc($imageresult);
@@ -401,9 +406,10 @@ _________________________________________________________ -->
                                                         <td>'.$footwearrow["name"].'</td>
                                                         <td>'.$footwearrow["price"].'</td>
                                                         <td>
-                                                            <form action="update_product.php" method="GET">
-                                                                <input type="hidden" name="prod_id" value="'.$pid.'">
-                                                                <button type="submit" class="btn btn-primary btn-sm">View or Edit</button>
+                                                            <form action="functions.php" method="POST">
+                                                                <input type="hidden" name="prod_id" value="'.$pid,'">
+                                                                <input type="number" name="discount" style="width: 50px;" value="'.$discount.'">
+                                                                <button type="submit" name="discount_au2" class="btn btn-primary btn-sm">Add/Update</button>
                                                             </form>
                                                         </td>
                                                     </tr>';
@@ -422,7 +428,6 @@ _________________________________________________________ -->
                         </div>  
                     </div>
                 </div>
-
                 <!-- 3 products categories tabs end -->
                 </div>
             </div>
@@ -526,10 +531,10 @@ include('footer.php');
 <script type="text/javascript" src="js/bootstrap.js"></script>
 
 <?php
-if (isset($_GET['update_product'])) {
+if (isset($_GET['discount_update'])) {
     echo '<script>
     $(window).load(function(){
-        $("#myModal12").modal("show");
+        $("#myModal15").modal("show");
     });
     </script>';
 }

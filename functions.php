@@ -36,6 +36,8 @@ if (isset($_POST['signup_submit'])) {
 	updateBagStock($conn);
 } elseif (isset($_POST['footwear_stock_update'])) {
 	updateFootwearStock($conn);
+} elseif (isset($_POST['discount_au1']) || isset($_POST['discount_au2']) || isset($_POST['discount_au3'])) {
+	updateDiscount($conn);
 } elseif (isset($_POST['review_submit'])) {
 	addReview($conn);
 } elseif(isset($_POST['sellerpage_submit'])) {
@@ -783,6 +785,27 @@ function updateFootwearStock($conn) {
 	 	} else {
 	 		header('Location: seller_products.php?stock_update=true&stock_update_fail=true');
 	 	}
+	}
+}
+
+function updateDiscount($conn) {
+	$pid = $_POST['prod_id'];
+	$dis = $_POST['discount'];
+	$disc = $dis/100;
+	$sql2 = "SELECT * FROM product WHERE product.product_id='$pid'";
+	$result2 = mysqli_query($conn, $sql2);
+	$row2 = mysqli_fetch_assoc($result2);
+	$sid = $row2['seller_id'];
+	if ($_SESSION['seller_id']!=$sid) {
+		header('Location: seller_products.php?stock_update=true&invalid_seller=true');
+	} else {
+		$sql = "UPDATE product SET product.discount = '$disc' WHERE product.product_id = '$pid'";
+		$result = mysqli_query($conn, $sql);
+		if ($result) {
+			header('Location: discount_products.php?discount_update=true&discount_update_success=true');
+		} else {
+			header('Location: discount_products.php?discount_update=true&discount_update_fail=true');
+		}
 	}
 }
 
