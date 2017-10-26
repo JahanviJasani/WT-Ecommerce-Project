@@ -263,11 +263,20 @@ include('header.php');
 																
 														</div>
 														<div class="item-info-product ">
-															<h4><a href="single.php?pid='.$pid.'">'.$row1['name'].'</a></h4>
-															<div class="info-product-price">
+															<h4><a href="single.php?pid='.$pid.'">'.$row1['name'].'</a></h4>';
+														if($row1['discount'] != NULL) {
+															$new_price=$row1['price'] - ($row1['discount']*$row1['price']);
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$new_price.'</span>
+																<del>'.$row1['price'].'</del>
+																</div>';
+														}
+														else {
+															echo'<div class="info-product-price">
 																<span class="item_price">&#8377;'.$row1['price'].'</span>
-																
-															</div>
+																</div>';
+														}
+														echo'
 															<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
 																				<form action="#" method="GET">
 																					<fieldset>

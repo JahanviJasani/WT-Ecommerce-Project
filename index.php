@@ -199,10 +199,20 @@ include('header.php');
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>
-														<div class="info-product-price#<span class="item_price">&#8377;'.$row['price'].'</span>
-															
-														</div>
+														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>';
+														if($row['discount'] != NULL) {
+															$new_price=$row['price'] - ($row['discount']*$row['price']);
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$new_price.'</span>
+																<del>'.$row['price'].'</del>
+																</div>';
+														}
+														else {
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$row['price'].'</span>
+																</div>';
+														}
+														echo'
 														<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
 																			<form action="#" method="GET">
 																				<fieldset>
@@ -259,11 +269,20 @@ include('header.php');
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>
-														<div class="info-product-price">
-															<span class="item_price">&#8377;'.$row['price'].'</span>
-															
-														</div>
+														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>';
+														if($row['discount'] != NULL) {
+															$new_price=$row['price'] - ($row['discount']*$row['price']);
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$new_price.'</span>
+																<del>'.$row['price'].'</del>
+																</div>';
+														}
+														else {
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$row['price'].'</span>
+																</div>';
+														}
+														echo'
 														<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
 																			<form action="#" method="GET">
 																				<fieldset>
@@ -332,11 +351,20 @@ include('header.php');
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>
-														<div class="info-product-price">
-															<span class="item_price">&#8377;'.$row['price'].'</span>
-															
-														</div>
+														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>';
+														if($row['discount'] != NULL) {
+															$new_price=$row['price'] - ($row['discount']*$row['price']);
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$new_price.'</span>
+																<del>'.$row['price'].'</del>
+																</div>';
+														}
+														else {
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$row['price'].'</span>
+																</div>';
+														}
+														echo'
 														<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
 																			<form action="functions.php" method="GET">
 																				
@@ -395,11 +423,20 @@ include('header.php');
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>
-														<div class="info-product-price">
-															<span class="item_price">&#8377;'.$row['price'].'</span>
-															
-														</div>
+														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>';
+														if($row['discount'] != NULL) {
+															$new_price=$row['price'] - ($row['discount']*$row['price']);
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$new_price.'</span>
+																<del>'.$row['price'].'</del>
+																</div>';
+														}
+														else {
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$row['price'].'</span>
+																</div>';
+														}
+														echo'
 														<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
 																			<form action="#" method="GET">
 																				<fieldset>
@@ -465,11 +502,20 @@ include('header.php');
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.phppid='.$pid.'">'.$row['name'].'</a></h4>
-														<div class="info-product-price">
-															<span class="item_price">&#8377;'.$row['price'].'</span>
-															
-														</div>
+														<h4><a href="single.phppid='.$pid.'">'.$row['name'].'</a></h4>';
+														if($row['discount'] != NULL) {
+															$new_price=$row['price'] - ($row['discount']*$row['price']);
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$new_price.'</span>
+																<del>'.$row['price'].'</del>
+																</div>';
+														}
+														else {
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$row['price'].'</span>
+																</div>';
+														}
+														echo'
 														<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
 																			<form action="#" method="GET">
 																				<fieldset>
@@ -524,11 +570,20 @@ include('header.php');
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.phppid='.$pid.'">'.$row['name'].'</a></h4>
-														<div class="info-product-price">
-															<span class="item_price">&#8377;'.$row['price'].'</span>
-															
-														</div>
+														<h4><a href="single.phppid='.$pid.'">'.$row['name'].'</a></h4>';
+														if($row['discount'] != NULL) {
+															$new_price=$row['price'] - ($row['discount']*$row['price']);
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$new_price.'</span>
+																<del>'.$row['price'].'</del>
+																</div>';
+														}
+														else {
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$row['price'].'</span>
+																</div>';
+														}
+														echo'
 														<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
 																			<form action="#" method="GET">
 																				<fieldset>
@@ -592,11 +647,20 @@ include('header.php');
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>
-														<div class="info-product-price">
-															<span class="item_price">&#8377;'.$row['price'].'</span>
-															
-														</div>
+														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>';
+														if($row['discount'] != NULL) {
+															$new_price=$row['price'] - ($row['discount']*$row['price']);
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$new_price.'</span>
+																<del>'.$row['price'].'</del>
+																</div>';
+														}
+														else {
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$row['price'].'</span>
+																</div>';
+														}
+														echo'
 														<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
 																			<form action="#" method="GET">
 																				<fieldset>
@@ -651,11 +715,20 @@ include('header.php');
 															
 													</div>
 													<div class="item-info-product ">
-														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>
-														<div class="info-product-price">
-															<span class="item_price">&#8377;'.$row['price'].'</span>
-															
-														</div>
+														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>';
+														if($row['discount'] != NULL) {
+															$new_price=$row['price'] - ($row['discount']*$row['price']);
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$new_price.'</span>
+																<del>'.$row['price'].'</del>
+																</div>';
+														}
+														else {
+															echo'<div class="info-product-price">
+																<span class="item_price">&#8377;'.$row['price'].'</span>
+																</div>';
+														}
+														echo'
 														<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
 																			<form action="#" method="GET">
 																				<fieldset>
