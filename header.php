@@ -1,3 +1,5 @@
+<?php $curr=basename($_SERVER['PHP_SELF']); 
+?>
 <head>
 <style type="text/css">
 	.checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before { 
@@ -6,7 +8,7 @@
 	}
 </style>
 </head>
-<body>
+<body onload="getcurrpage()">
 <!-- header -->
 <div class="header" id="home">
 
@@ -24,13 +26,13 @@
 		    	$user = mysqli_query($conn, $sql_u);
 		    	$userRow=mysqli_fetch_assoc($user);
 	            if ($_SESSION['user_type']==0) {
-	            	echo " <li><i class='fa fa-shopping-cart' aria-hidden='true'></i><a href='customer_orders.php'> ".$userRow['first_name']."'s Shoppy</a></li>";
+	            	echo " <li><i class='fa fa-user-circle-o' aria-hidden='true'></i><a href='customer_orders.php'> ".$userRow['first_name']."'s Shoppy</a></li>";
 	            } elseif ($_SESSION['user_type']==1) {
-	            	echo " <li><i class='fa fa-user' aria-hidden='true'></i><a href='seller_orders.php'>  ".$userRow['first_name']."'s Shoppy</a></li>";
+	            	echo " <li><i class='fa fa-user-circle-o' aria-hidden='true'></i><a href='seller_orders.php'>  ".$userRow['first_name']."'s Shoppy</a></li>";
 	            }
 	            echo '<li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
 	            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
-            	<li><i class="fa fa-sign-out" aria-hidden="true"></i> <a href="customer_orders.php" name="user_logout.php">View your Customer Account</a></li>
+            	<li><i class="fa fa-user-circle" aria-hidden="true"></i> <a href="customer_orders.php">View your Customer Account</a></li>
             	<li><i class="fa fa-sign-out" aria-hidden="true"></i> <a href="functions.php?logout=true" name="user_logout.php">Logout</a></li>';
 		    }
 			?>
@@ -91,9 +93,9 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 				  <ul class="nav navbar-nav menu__list">
-					<li class="active menu__item menu__item--current"><a class="menu__link" href="index.php">Home <span class="sr-only">(current)</span></a></li>
-					<li class=" menu__item"><a class="menu__link" href="about.php">About</a></li>
-					<li class="dropdown menu__item">
+					<li id="home_nb" class="menu__item"><a class="menu__link" href="index.php">Home <span class="sr-only">(current)</span></a></li>
+					<li id="about_nb" class=" menu__item"><a class="menu__link" href="about.php">About</a></li>
+					<li id="footwear_nb" class="dropdown menu__item">
 						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Footwear <span class="caret"></span></a>
 							<ul class="dropdown-menu multi-column columns-3">
 								<div class="agile_inner_drop_nav_info">
@@ -137,7 +139,7 @@
 								</div>
 							</ul>
 					</li>
-					<li class="dropdown menu__item">
+					<li id="bag_nb" class="dropdown menu__item">
 						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bags <span class="caret"></span></a>
 							<ul class="dropdown-menu multi-column columns-3">
 								<div class="agile_inner_drop_nav_info">
@@ -173,14 +175,14 @@
 								</div>
 							</ul>
 					</li>
-					<li class="menu__item dropdown">
+					<li id="watch_nb" class="menu__item dropdown">
 					   <a class="menu__link" href="#" class="dropdown-toggle" data-toggle="dropdown">Watches <b class="caret"></b></a>
 								<ul class="dropdown-menu agile_short_dropdown">
 									<li><a id="33" href="#" onclick="addURL('Watch','Men',id)">Men's</a></li>
 									<li><a id="34" href="#" onclick="addURL('Watch','Women',id)">Women's</a></li>
 								</ul>
 					</li>
-					<li class=" menu__item"><a class="menu__link" href="contact.php">Contact</a></li>
+					<li id="contact_nb" class=" menu__item"><a class="menu__link" href="contact.php">Contact</a></li>
 				  </ul>
 				</div>
 			  </div>

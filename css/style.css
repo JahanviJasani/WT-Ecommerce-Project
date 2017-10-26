@@ -2010,13 +2010,13 @@ color: #545454;
 ul.w3_short li {
     display: inline-block;
     text-transform: uppercase;
-    color: #fff;
+    color: #2fdab8;
     font-size:0.9em;
     font-weight:600;
     letter-spacing:1px;
 }
 ul.w3_short li a {
-    color: #2fdab8;
+    color: #fff;
     text-decoration: none;
 }
 .services-breadcrumb {

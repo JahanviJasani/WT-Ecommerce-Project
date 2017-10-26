@@ -1,3 +1,39 @@
+function getcurrpage(curr) {
+	console.log("Hello");
+    var url = window.location.href.split('?')[0];
+    var fileName = url.split("/").slice(-1); 
+    console.log(fileName);
+    if(fileName=="index.php") {
+        var d = document.getElementById("home_nb");
+        console.log(d);
+        d.classList.add("menu__item--current", "active");
+    }
+    else if(fileName=="about.php") {
+        var d = document.getElementById("about_nb");
+        console.log(d);
+        d.classList.add("menu__item--current", "active");
+    }
+    else if(fileName=="contact.php") {
+        var d = document.getElementById("contact_nb");
+        console.log(d);
+        d.classList.add("menu__item--current", "active");
+    }
+    else if(fileName=="mens_footwear.php" || fileName=="womens_footwear.php") {
+        var d = document.getElementById("footwear_nb");
+        console.log(d);
+        d.classList.add("menu__item--current", "active");
+    }
+    else if(fileName=="mens_bags.php" || fileName=="womens_bags.php") {
+        var d = document.getElementById("bag_nb");
+        console.log(d);
+        d.classList.add("menu__item--current", "active");
+    }
+    else if(fileName=="mens_watches.php" || fileName=="womens_watches.php") {
+        var d = document.getElementById("watch_nb");
+        console.log(d);
+        d.classList.add("menu__item--current", "active");
+    }
+}
 function resetvalues1() {
     console.log("hello");
     document.getElementById("sign_in_form").reset();
