@@ -124,9 +124,6 @@ include('header.php');
                     <a href="seller_products.php"><i class="fa fa-shopping-bag"></i> My products</a>
                     </li>
                     <li>
-                    <a href="discount_products.php"><i class="fa fa-tags"></i> My Discounts</a>
-                    </li>
-                    <li>
                     <a href="update_products.php"><i class="fa fa-pencil-square-o"></i> Update products</a>
                     </li>
                     <li>
@@ -387,9 +384,6 @@ include('header.php');
 include('footer.php');
 ?>
 
-<script src="js/index.js"></script>
-<script src="js/Product.js"></script>
-
 <a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
 <!-- js -->
@@ -397,20 +391,6 @@ include('footer.php');
 <!-- //js -->
 <script src="js/modernizr.custom.js"></script>
     <!-- Custom-JavaScript-File-Links --> 
-    <!-- cart-js -->
-    <script src="js/minicart.min.js"></script>
-<script>
-    // Mini Cart
-    paypal.minicart.render({
-        action: '#'
-    });
-
-    if (~window.location.search.indexOf('reset=true')) {
-        paypal.minicart.reset();
-    }
-</script>
-
-    <!-- //cart-js --> 
 <!-- script for responsive tabs -->                     
 <script src="js/easy-responsive-tabs.js"></script>
 <script>
@@ -471,8 +451,6 @@ include('footer.php');
             });
     </script>
 <!-- //here ends scrolling icon -->
-
-
 <!-- for bootstrap working -->
 <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>

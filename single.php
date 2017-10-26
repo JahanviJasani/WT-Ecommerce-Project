@@ -178,6 +178,7 @@ include('header.php');
 	</div>
 </div>
 <?php
+		$flag=1;
 		$size= "NA";
 		$pid=$_GET['pid'];
 		$sql1="SELECT * FROM product WHERE product_id=$pid";
@@ -286,6 +287,7 @@ include('header.php');
 						$bagrow = mysqli_fetch_assoc($bagresult);
 						
 						if ($bagrow['stock']==0) {
+							$flag=0;
 							echo '<p style="margin: 0.5em 0 0;color: #B12704;font-size: 1em;line-height: 1.5em; font-weight: 700;">Out of Stock</p>';
 						} elseif ($bagrow['stock']==1) {
 							echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p>';
@@ -308,6 +310,7 @@ include('header.php');
 						$watchrow = mysqli_fetch_assoc($watchresult);
 						
 						if ($watchrow['stock']==0) {
+							$flag=0;
 							echo '<p style="margin: 0.5em 0 0;color: #B12704;font-size: 1em;line-height: 1.5em; font-weight: 700;">Out of Stock</p>';
 						} elseif ($watchrow['stock']==1) {
 							echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">Only 1 left in Stock</p>';
@@ -349,7 +352,12 @@ include('header.php');
 									if (($row1['category']=='footwear')) {
 										echo '<input type="button" name="submitFootwear" id="submitFootwear" value="Add to cart" class="button" onclick="footwearAddToCart(\''.$pid.'\',\''.$user_id.'\');" />';
 									} else {
-										echo '<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\',\''.$size.'\');" />';
+										if($flag==1){
+											echo '<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\',\''.$size.'\');" />';
+										}
+										else {
+											echo '<input type="button" name="submit" value="Add to cart" class="button" data-toggle="modal" data-target="#myModal10"';
+										}
 									}
 									echo '
 								</fieldset>

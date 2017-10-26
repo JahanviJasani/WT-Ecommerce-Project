@@ -704,18 +704,19 @@
 		<!-- //Modal content-->
 	</div>
 </div>
-<!-- No Checkout Modal -->
+
+<!-- Not allow customer to add out of stock products in the cart -->
 <div class="modal fade" id="myModal10" tabindex="-1" role="dialog">
 	<div class="modal-dialog">
 	<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" onclick="remove_queryString()">&times;</button>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
 			<div class="modal-body modal-body-sub_agile" style="border: 1px solid #ccc; margin: 10px; border-radius: 5px; padding-bottom: 0px;">
 				<div class="col-md-12 modal_body_left modal_body_left1">
 						<h3 class="agileinfo_sign" style="color: #fc636b; text-align: center; margin-bottom: 1em;">Oops!</h3><hr style="margin-top: 0;">
-						<h4 style="text-align: center; margin-bottom: 1em;">One or more products in your cart are not in stock currently. Please remove them to continue!</h4>
+						<h4 style="text-align: center; margin-bottom: 1em;">The product is not in stock currently!</h4>
 					<div class="clearfix"></div>
 				</div>
 			<div class="clearfix"></div>
@@ -724,7 +725,7 @@
 	<!-- //Modal content-->
 	</div>
 </div>
-
+<!-- Not allow customer to add out of stock products in the cart -->
 
 <!-- Footwear Size Modal -->
 <div class="modal fade" id="myModal11" tabindex="-1" role="dialog">
@@ -926,4 +927,3 @@
 
 
 <!-- Discount Update successful/failed modal -->
-

@@ -160,7 +160,7 @@ include('header.php');
 								<li><a id="pr4" href="#" onclick="getpricerange(id)"> &#8377 3,500 - &#8377 5,000</a></li>
 								<li><a id="pr5" href="#" onclick="getpricerange(id)"> &#8377 5,000 - &#8377 10,000</a></li><br>
 
-								<form method="get" action="#" id="min-max">
+								<!-- <form method="get" action="#" id="min-max">
 								<span class="a-color-base s-ref-small-padding-left s-ref-price-currency s-small-margin-left">₹</span>
 								<input type="text" maxlength="9" id="low-price" placeholder="Min" name="low-price" class="a-input-text a-spacing-top-mini s-ref-price-range s-ref-price-padding" aria-label="Min">
 								<span class="a-color-base s-ref-small-padding-left s-ref-price-currency s-small-margin-left">₹</span>
@@ -168,7 +168,7 @@ include('header.php');
 								<span style="margin-left: 4px;" class="a-button a-spacing-top-mini s-small-margin-left" id="a-autoid-20">
 								<span class="a-button-inner">
 								<span class="a-button-text" aria-hidden="true" id="a-autoid-20-announce"><input id="go_button" type="submit" name="go" onclick="getrange()" value="Go"></span></span></span></input>
-								</form>
+								</form> -->
 								
 							</ul>
 						</ul>
