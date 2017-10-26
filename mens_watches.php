@@ -174,7 +174,12 @@ include('header.php');
 
 
 					<?php
-					$category=$_GET['category'];
+
+					if (!isset($_GET['category'])) {
+						$category="Watch";
+					} else {
+						$category=$_GET['category'];
+					}
 					//$type = $_GET['type'];
 
 					$sortby = "ORDER BY product.product_id DESC";

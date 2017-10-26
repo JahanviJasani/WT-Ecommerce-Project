@@ -328,6 +328,7 @@
 							</div> 
 							<input type="submit" name="signup_submit" id="signup_submit" value="Sign Up">
 						</form>
+
 						  <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
 															<li><a href="#" class="facebook">
 																  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
@@ -343,13 +344,15 @@
 																  <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
 														</ul>
 														<div class="clearfix"></div>
-														<p><a href="#">By clicking register, I agree to your terms</a></p>
+														<!-- <p><a href="#">By clicking register, I agree to your terms</a></p> -->
+														<p><a href="#" data-toggle="modal" data-target="#myModal1" > Already have an account? Sign In here</a></p>
 
 						</div>
 						<div class="col-md-4 modal_body_right modal_body_right1">
 							<img src="images/log_pic.jpg" alt=" "/>
 						</div>
 						<div class="clearfix"></div>
+
 					</div>
 				</div>
 				<!-- //Modal content-->
@@ -515,7 +518,7 @@
 					<?php
 						if (isset($_GET['user_not_found'])) {
 							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Email id<span> not recognized</span></h3><hr style="border-color: #2fdab8;">
-								`';
+							<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal2" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Click here </a><span> to sign up</span></h3>';
 						} elseif (isset($_GET['login_error'])) {
 							echo '<h3 class="agileinfo_sign" style="margin-bottom: 5px; text-align: center;">Incorrect<span> Email or Password</span></h3><hr style="border-color: #2fdab8;">
 								<h3 class="agileinfo_sign" style="text-transform: capitalize; font-size: 18px; letter-spacing: 1px; font-weight: 600; margin-top: 36px; text-align: center;"><a href="#" data-toggle="modal" data-target="#myModal" data-dismiss="modal" onclick="resetvalues1();"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Click here </a><span> to try again</span></h3>';

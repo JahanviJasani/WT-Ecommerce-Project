@@ -35,9 +35,12 @@
 					<ul>
 						<li><a href="index.php">Home</a></li>
 						<li><a href="about.php">About</a></li>
-						<li><a href="mens.php">Watches</a></li>
-						<li><a href="womens.php">Footwear</a></li>
-						<li><a href="typography.php">Bags</a></li>
+						<li><a href="womens_footwear.php">Women's Footwear</a></li>
+						<li><a href="mens_footwear.php">Men's Footwear</a></li>
+						<li><a href="womens_watches.php">Women's Watches</a></li>
+						<li><a href="mens_watches.php">Men's Watches</a></li>
+						<li><a href="womens_bags.php">Women's Bags</a></li>
+						<li><a href="mens_bags.php">Men's Bags</a></li>
 						<li><a href="contact.php">Contact</a></li>
 					</ul>
 				</div>

@@ -174,8 +174,17 @@ include('header.php');
 
 
 					<?php
-					$category=$_GET['category'];
-					$type = $_GET['type'];
+					if (!isset($_GET['category'])) {
+						$category="Bag";
+					} else {
+						$category=$_GET['category'];
+					}
+
+					if (!isset($_GET['type'])) {
+						$type="All";
+					} else {
+						$type = $_GET['type'];
+					}
 
 					$sortby = "ORDER BY product.product_id DESC";
 
