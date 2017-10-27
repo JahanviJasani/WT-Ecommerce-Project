@@ -591,16 +591,14 @@ include('header.php');
 					$result = mysqli_query($conn, $sql);
 					$row = mysqli_fetch_assoc($result);
 				  	if($row['category'] == 'bag') {
-						$sql = "SELECT * FROM product WHERE product.category='bag' ORDER BY product_id DESC";
+						$sql = "SELECT * FROM product WHERE product.category='bag' AND product.product_id!=$pid ORDER BY product_id DESC LIMIT 4";
 						$result = mysqli_query($conn, $sql);
-						$count = 0;
-
 						$item_count = mysqli_num_rows($result);
 
 						if ($item_count==0) {
 							echo "<p style='text-align: center;'><b>No products to display</b></p>";
 						} else {
-							while (($row = mysqli_fetch_assoc($result)) && ($count<4) ) {
+							while (($row = mysqli_fetch_assoc($result))) {
 								$pid = $row['product_id'];
 								$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
 								$imageresult = mysqli_query($conn, $imagesql);
@@ -661,16 +659,14 @@ include('header.php');
 							}
 						}
 					} elseif($row['category'] == 'footwear') {
-						$sql = "SELECT * FROM product WHERE product.category='footwear' ORDER BY product_id DESC";
+						$sql = "SELECT * FROM product WHERE product.category='footwear' AND product.product_id!=$pid ORDER BY product_id DESC LIMIT 4";
 						$result = mysqli_query($conn, $sql);
-						$count = 0;
-
 						$item_count = mysqli_num_rows($result);
 
 						if ($item_count==0) {
 							echo "<p style='text-align: center;'><b>No products to display</b></p>";
 						} else {
-							while (($row = mysqli_fetch_assoc($result)) && ($count<4) ) {
+							while (($row = mysqli_fetch_assoc($result))) {
 								$pid = $row['product_id'];
 								$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
 								$imageresult = mysqli_query($conn, $imagesql);
@@ -732,7 +728,7 @@ include('header.php');
 						} 
 
 					}elseif($row['category'] == 'watch') {
-						$sql = "SELECT * FROM product WHERE product.category='watch' ORDER BY product_id DESC LIMIT 4";
+						$sql = "SELECT * FROM product WHERE product.category='watch' AND product.product_id!=$pid ORDER BY product_id DESC LIMIT 4";
 						$result = mysqli_query($conn, $sql);
 						$item_count = mysqli_num_rows($result);
 						if ($item_count==0) {

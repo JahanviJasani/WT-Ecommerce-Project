@@ -245,3 +245,6 @@ function removeParam(key) {
     }
     window.location = rtn;
 }
+function gotoprod(pid) {
+    window.location="single.php?pid="+pid;
+}

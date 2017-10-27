@@ -187,8 +187,8 @@ include('header.php');
 										echo '<!-- Item start -->
 											<div class="col-md-3 product-men">
 												<div class="men-pro-item simpleCart_shelfItem">
-													<div class="men-thumb-item">
-														<a href="#"><img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front"></a>
+													<div class="men-thumb-item" onclick="gotoprod('.$pid.');">
+														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
 															<div class="men-cart-pro">
 																<div class="inner-men-cart-pro">
@@ -257,7 +257,7 @@ include('header.php');
 										echo '<!-- Item start -->
 											<div class="col-md-3 product-men">
 												<div class="men-pro-item simpleCart_shelfItem">
-													<div class="men-thumb-item">
+													<div class="men-thumb-item" onclick="gotoprod('.$pid.');">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
 															<div class="men-cart-pro">
@@ -339,7 +339,7 @@ include('header.php');
 										echo '<!-- Item start -->
 											<div class="col-md-3 product-men">
 												<div class="men-pro-item simpleCart_shelfItem">
-													<div class="men-thumb-item">
+													<div class="men-thumb-item" onclick="gotoprod('.$pid.');">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
 															<div class="men-cart-pro">
@@ -411,7 +411,7 @@ include('header.php');
 										echo '<!-- Item start -->
 											<div class="col-md-3 product-men">
 												<div class="men-pro-item simpleCart_shelfItem">
-													<div class="men-thumb-item">
+													<div class="men-thumb-item" onclick="gotoprod('.$pid.');">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
 															<div class="men-cart-pro">
@@ -490,7 +490,7 @@ include('header.php');
 										echo '<!-- Item start -->
 											<div class="col-md-3 product-men">
 												<div class="men-pro-item simpleCart_shelfItem">
-													<div class="men-thumb-item">
+													<div class="men-thumb-item" onclick="gotoprod('.$pid.');">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
 															<div class="men-cart-pro">
@@ -558,7 +558,7 @@ include('header.php');
 										echo '<!-- Item start -->
 											<div class="col-md-3 product-men">
 												<div class="men-pro-item simpleCart_shelfItem">
-													<div class="men-thumb-item">
+													<div class="men-thumb-item" onclick="gotoprod('.$pid.');">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
 															<div class="men-cart-pro">
@@ -635,7 +635,7 @@ include('header.php');
 										echo '<!-- Item start -->
 											<div class="col-md-3 product-men">
 												<div class="men-pro-item simpleCart_shelfItem">
-													<div class="men-thumb-item">
+													<div class="men-thumb-item" onclick="gotoprod('.$pid.');">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
 															<div class="men-cart-pro">
@@ -703,7 +703,7 @@ include('header.php');
 										echo '<!-- Item start -->
 											<div class="col-md-3 product-men">
 												<div class="men-pro-item simpleCart_shelfItem">
-													<div class="men-thumb-item">
+													<div class="men-thumb-item" onclick="gotoprod('.$pid.');">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front">
 														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
 															<div class="men-cart-pro">
