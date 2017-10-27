@@ -72,6 +72,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <?php
 include('header.php');
+if (isset($_GET['category'])) {
+						$category=$_GET['category'];
+					} else {
+						$category = "footwear";
+					}
+					
+					
+					if (isset($_GET['type'])) {
+						$type = $_GET['type'];
+					} else {
+						$type="All";
+					}
+
 ?>
 		<div class="banner-bootom-w3-agileits">
 	<div class="container-fluid">
@@ -119,7 +132,7 @@ include('header.php');
 				<h4>Refine By </h4>
 				<div class="swit form">
 				<ul class="tree-list-pad">	
-					<li><label><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Sizes</label>
+					<li><input type="checkbox" id="item-2" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-2"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Sizes</label>
 					<ul class="sublist different">
 						<br>
 						<li style="font-size: 1em;"><input type="checkbox" id="item-2" checked="checked" /><label for="item-2" style="text-transform: none;"><i class="fa fa-caret-right" aria-hidden="true"></i> Standard (UK/India)</label><br><br>
@@ -148,9 +161,9 @@ include('header.php');
 						</li>
 					</ul>
 					</li><br>
-					<li><input type="checkbox" id="item-2" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-3"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Prices</label>
+					<li><input type="checkbox" id="item-3" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-3"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Prices</label>
 						<ul>
-							<ul class="sublist">
+							<ul class="sublist different">
 								<li><a id="pr1" href="#" onclick="getpricerange(id)"> Under &#8377 1,000</a></li>
 								<li><a id="pr2" href="#" onclick="getpricerange(id)"> &#8377 1,000 - &#8377 2,000</a></li>
 								<li><a id="pr3" href="#" onclick="getpricerange(id)"> &#8377 2,000 - &#8377 3,500</a></li>
@@ -167,6 +180,20 @@ include('header.php');
 								<span class="a-button-text" aria-hidden="true" id="a-autoid-20-announce"><input id="go_button" type="submit" name="go" onclick="getrange()" value="Go"></span></span></span></input>
 								</form> -->
 								
+							</ul>
+						</ul>
+					</li>
+					<li><input type="checkbox" id="item-4" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-4"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Discount</label>
+						<ul>
+						<?php 
+							$sql_dis = "SELECT DISTINCT discount FROM product WHERE product.category='$category' AND product.gender='women' AND product.discount != 'NULL'  ORDER by discount asc";
+							$res_dis=mysqli_query($conn, $sql_dis);
+							echo'<ul class="sublist">';
+								while ($res_row=mysqli_fetch_assoc($res_dis)) {
+									$res_dis_val=$res_row['discount']*100;
+									echo'<li><a href="#">'.$res_dis_val.'<span>&#37</span> Off or more</a></li>';
+								}
+							?>
 							</ul>
 						</ul>
 					</li>
@@ -211,19 +238,6 @@ include('header.php');
 
 
 					<?php
-					if (isset($_GET['category'])) {
-						$category=$_GET['category'];
-					} else {
-						$category = "footwear";
-					}
-					
-					
-					if (isset($_GET['type'])) {
-						$type = $_GET['type'];
-					} else {
-						$type="All";
-					}
-
 					$sortby = "ORDER BY product.product_id DESC";
 
 					if (isset($_GET['sortorder'])) {

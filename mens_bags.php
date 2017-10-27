@@ -72,6 +72,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <?php
 include('header.php');
+if (!isset($_GET['category'])) {
+								$category="Bag";
+							} else {
+								$category=$_GET['category'];
+							}
+							if (!isset($_GET['type'])) {
+								$type="All";
+							} else {
+								$type = $_GET['type'];
+							}
 ?>
 		<div class="banner-bootom-w3-agileits">
 	<div class="container-fluid">
@@ -111,14 +121,14 @@ include('header.php');
 				<h4>Refine By </h4>
 				<div class="swit form">
 				<ul class="tree-list-pad">	
-					<li><input type="checkbox" id="item-2" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-3"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Prices</label>
+					<li><input type="checkbox" id="item-2" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-2"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Prices</label>
 						<ul>
 							<ul class="sublist">
 								<li><a id="pr1" href="#" onclick="getpricerange(id)"> Under &#8377 1,000</a></li>
 								<li><a id="pr2" href="#" onclick="getpricerange(id)"> &#8377 1,000 - &#8377 2,000</a></li>
 								<li><a id="pr3" href="#" onclick="getpricerange(id)"> &#8377 2,000 - &#8377 3,500</a></li>
 								<li><a id="pr4" href="#" onclick="getpricerange(id)"> &#8377 3,500 - &#8377 5,000</a></li>
-								<li><a id="pr5" href="#" onclick="getpricerange(id)"> &#8377 5,000 - &#8377 10,000</a></li><br>
+								<li><a id="pr5" href="#" onclick="getpricerange(id)"> &#8377 5,000 - &#8377 10,000</a></li>
 
 								<!-- <form method="get" action="#" id="min-max">
 								<span class="a-color-base s-ref-small-padding-left s-ref-price-currency s-small-margin-left">₹</span>
@@ -128,6 +138,20 @@ include('header.php');
 								<span class="a-button-text" aria-hidden="true" id="a-autoid-20-announce">Go</span></span></span>
 								</form> -->
 								
+							</ul>
+						</ul>
+					</li>
+					<br><li><input type="checkbox" id="item-3" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-3"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Discount</label>
+						<ul>
+						<?php 
+							$sql_dis = "SELECT DISTINCT discount FROM product WHERE product.category='$category' AND product.gender='men' AND product.discount != 'NULL' ORDER by discount asc";
+							$res_dis=mysqli_query($conn, $sql_dis);
+							echo'<ul class="sublist">';
+								while ($res_row=mysqli_fetch_assoc($res_dis)) {
+									$res_dis_val=$res_row['discount']*100;
+									echo'<li><a href="#">'.$res_dis_val.'<span>&#37</span> Off or more</a></li>';
+								}
+							?>
 							</ul>
 						</ul>
 					</li>
@@ -143,7 +167,6 @@ include('header.php');
 					<h6>Sort By</h6>
 					<select id="order" onchange="change_sort_order(id)" class="frm-field required sect">
 						<?php
-
 						echo '<option value="default"'; if (!isset($_GET['sortorder'])) {echo 'selected';} echo '>Default</option>
 						<option value="name_asc"'; if (isset($_GET['sortorder']) && $_GET['sortorder']=="name_asc") { echo 'selected';} echo '>Name(A - Z)</option> 
 						<option value="name_desc"';  if (isset($_GET['sortorder']) && $_GET['sortorder']=="name_desc") { echo 'selected';} echo '>Name(Z - A)</option>
@@ -172,17 +195,6 @@ include('header.php');
 
 
 					<?php
-					if (!isset($_GET['category'])) {
-						$category="Bag";
-					} else {
-						$category=$_GET['category'];
-					}
-
-					if (!isset($_GET['type'])) {
-						$type="All";
-					} else {
-						$type = $_GET['type'];
-					}
 					
 					$sortby = "ORDER BY product.product_id DESC";
 
