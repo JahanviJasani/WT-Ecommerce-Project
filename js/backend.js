@@ -1,41 +1,32 @@
 function getcurrpage(curr) {
-	console.log("Hello");
     var url = window.location.href.split('?')[0];
     var fileName = url.split("/").slice(-1); 
-    console.log(fileName);
     if(fileName=="index.php") {
         var d = document.getElementById("home_nb");
-        console.log(d);
         d.classList.add("menu__item--current", "active");
     }
     else if(fileName=="about.php") {
         var d = document.getElementById("about_nb");
-        console.log(d);
         d.classList.add("menu__item--current", "active");
     }
     else if(fileName=="contact.php") {
         var d = document.getElementById("contact_nb");
-        console.log(d);
         d.classList.add("menu__item--current", "active");
     }
     else if(fileName=="mens_footwear.php" || fileName=="womens_footwear.php") {
         var d = document.getElementById("footwear_nb");
-        console.log(d);
         d.classList.add("menu__item--current", "active");
     }
     else if(fileName=="mens_bags.php" || fileName=="womens_bags.php") {
         var d = document.getElementById("bag_nb");
-        console.log(d);
         d.classList.add("menu__item--current", "active");
     }
     else if(fileName=="mens_watches.php" || fileName=="womens_watches.php") {
         var d = document.getElementById("watch_nb");
-        console.log(d);
         d.classList.add("menu__item--current", "active");
     }
 }
 function resetvalues1() {
-    console.log("hello");
     document.getElementById("sign_in_form").reset();
 }
 function resetvalues2() {
@@ -115,7 +106,6 @@ function gup(name)
     return results[1];
 }
 function getpricerange(id) {
-    console.log("hello");
     var anchor = document.getElementById(id);
     var url = window.location.href;
     var range=0;
@@ -147,9 +137,7 @@ function getrange() {
         var parameter1 = gup( 'min' );
         var parameter2 = gup( 'max' );
         var newUrl=url.replace(parameter1,min);
-        console.log(newUrl);
         var finalUrl=newUrl.replace(parameter2,min);
-        console.log(finalUrl);
         anchor.href=finalUrl;
     } 
     else {
@@ -181,7 +169,6 @@ function add_to_cart(pid,user_id,size)
 }
 
 function getdisplaytype(id) {
-    console.log("displaytype fnction k andar");
     var anchor = document.getElementById(id);
     var url = window.location.href;
     var displaytype = "";
@@ -196,21 +183,16 @@ function getdisplaytype(id) {
     }
 
     if (url.indexOf('&displaytype=') != -1) {
-        console.log("displaytype if andar");
         var parameter = gup( 'displaytype' );
-        console.log(parameter);
         var newUrl=url.replace(parameter,displaytype);
-        console.log(newUrl);
         anchor.href=newUrl;
     } 
     else {
-        console.log("displaytype else k andar");
         window.location=window.location.href+"&displaytype="+displaytype;
     }
 }
 
 function change_sort_order(id) {
-    console.log("change order fnction k andar");
     var anchor = document.getElementById(id);
     var url = window.location.href;
     var sortorder = "";
@@ -227,16 +209,11 @@ function change_sort_order(id) {
     }
 
     if (url.indexOf('&sortorder=') != -1) {
-        console.log("sortorder if andar");
         var parameter = gup( 'sortorder' );
-        console.log(parameter);
-        console.log(url);
         var newUrl=url.replace(parameter,sortorder);
-        console.log(newUrl);
         window.location=newUrl;
     } 
     else {
-        console.log("sortorder else k andar");
         window.location=window.location.href+"&sortorder="+sortorder;
     }
 }

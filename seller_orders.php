@@ -27,6 +27,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
 <script src="js/backend.js"></script>
+<style type="text/css">
+    .container {
+        width: 100%;
+    }
+</style>
 </head>
 <body>
 
@@ -98,7 +103,6 @@ _________________________________________________________ -->
                 <div style="display: block; padding: 5px 15px 1px 15px;"> 
                 <p class="lead">Pending Orders.</p>
                 <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p><br>   
-                <div class=""> 
                     <div class="container">
                         
                             <div id="horizontalTab">
@@ -401,7 +405,6 @@ _________________________________________________________ -->
                                 </div>
                             </div>
                         </div>
-                    </div>
 
                 
             </div>
