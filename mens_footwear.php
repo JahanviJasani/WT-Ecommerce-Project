@@ -237,11 +237,13 @@ if (isset($_GET['category'])) {
 				</div>
 				<div class="sorting">
 					<h6>Showing</h6>
-					<select id="country2" onchange="change_country(this.value)" class="frm-field required sect">
-						<option value="null">7</option>
-						<option value="null">14</option> 
-						<option value="null">28</option>					
-						<option value="null">35</option>								
+					<select id="showing" onchange="change_showing(id)" class="frm-field required sect">
+					<?php 
+						echo'<option value="7"'; if(!isset($_GET['show'])) {echo 'selected';}echo'>7</option>';
+						echo'<option value="14"'; if(isset($_GET['show']) && $_GET['show']=="show_b") {echo 'selected';}echo'>14</option>';
+						echo'<option value="28"'; if(isset($_GET['show']) && $_GET['show']=="show_c") {echo 'selected';}echo'>28</option>';
+						echo'<option value="35"'; if(isset($_GET['show']) && $_GET['show']=="show_d") {echo 'selected';}echo'>35</option>';
+					?>
 					</select>
 					<div class="clearfix"></div>
 				</div>

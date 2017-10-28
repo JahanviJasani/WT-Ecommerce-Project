@@ -318,7 +318,6 @@ include('header.php');
 						<!--//tab_one-->
 						<!--/tab_two-->
 						<div class="tab2">
-						<!-- idhar footwear ayega -->
 
 						<?php
 						if(isset($_SESSION['user_id'])) {
@@ -383,7 +382,6 @@ include('header.php');
 																				
 																			</form>
 																		</div>
-																							
 													</div>
 												</div>
 											</div>
