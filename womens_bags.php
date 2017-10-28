@@ -231,23 +231,23 @@ if (!isset($_GET['category'])) {
 					$maxprice=9999999;
 					if (isset($_GET['range'])) {
 						switch ($_GET['range']) {
-						    case 1:
+						    case 'pr1':
 						        $minprice=0;
 						        $maxprice=1000;
 						        break;
-						    case 2:
+						    case 'pr2':
 						        $minprice=1000;
 						        $maxprice=2000;
 						        break;
-						    case 3:
+						    case 'pr3':
 						        $minprice=2000;
 						        $maxprice=3500;
 						        break;
-						    case 4:
+						    case 'pr4':
 						        $minprice=3500;
 						        $maxprice=5000;
 						        break;
-						    case 5:
+						    case 'pr5':
 						        $minprice=5000;
 						        $maxprice=10000;
 						        break;
