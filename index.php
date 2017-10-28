@@ -623,72 +623,206 @@ include('header.php');
 					<div class="tab4">
 						<?php
 						if(isset($_SESSION['user_id'])) {
-								$sql = "SELECT * FROM product ORDER BY product_id DESC LIMIT 4";
+								$sql = "SELECT * FROM product ORDER BY product_id DESC";
 								$result = mysqli_query($conn, $sql);
+								$count=0;
 								$item_count = mysqli_num_rows($result);
 								if ($item_count==0) {
 									echo "<p style='text-align: center;'><b>No products to display</b></p>";
 								} else {
-									while (($row = mysqli_fetch_assoc($result))) {
+									while (($row = mysqli_fetch_assoc($result)) && ($count<4)) {
 										$pid = $row['product_id'];
-										$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
-										$imageresult = mysqli_query($conn, $imagesql);
-										$imagerow = mysqli_fetch_assoc($imageresult);
-										echo '<!-- Item start -->
-											<div class="col-md-3 product-men">
+										if($row['category'] == 'bag') {
+											$sql_bag = "SELECT * FROM bags WHERE bags.product_id='$pid'";
+											$result_bag = mysqli_query($conn, $sql_bag);
+											$result_row = mysqli_fetch_assoc($result_bag);
+											if($result_row['stock'] != 0) {
+												$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
+												$imageresult = mysqli_query($conn, $imagesql);
+												$imagerow = mysqli_fetch_assoc($imageresult);
+												echo '<!-- Item start -->
+												<div class="col-md-3 product-men">
 												<div class="men-pro-item simpleCart_shelfItem">
-													<div class="men-thumb-item" onclick="gotoprod('.$pid.');">
-														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front">
-														<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
-															<div class="men-cart-pro">
-																<div class="inner-men-cart-pro">
-																	<a href="single.php?pid='.$pid.'" class="link-product-add-cart">Quick View</a>
-																</div>
-															</div>
-															<span class="product-new-top">New</span>
-															
-													</div>
-													<div class="item-info-product ">
-														<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>';
-														if($row['discount'] != NULL) {
-															$new_price=$row['price'] - ($row['discount']*$row['price']);
-															echo'<div class="info-product-price">
-																<span class="item_price">&#8377;'.$new_price.'</span>
-																<del>'.$row['price'].'</del>
-																</div>';
-														}
-														else {
-															echo'<div class="info-product-price">
-																<span class="item_price">&#8377;'.$row['price'].'</span>
-																</div>';
-														}
-														echo'
-														<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-																			<form action="#" method="GET">
-																				<fieldset>
-																					<input type="hidden" name="cmd" value="_cart" />
-																					<input type="hidden" name="add" value="1" />
-																					<input type="hidden" name="business" value=" " />
-																					<input type="hidden" name="item_name" value="'.$row['brand'].' '.$row['name'].'" />
-																					<input type="hidden" name="product_id" value="'.$row['product_id'].'" />
-																					<input type="hidden" name="amount" value="'.$row['price'].'" />
-																					<input type="hidden" name="discount_amount" value="0.00" />
-																					<input type="hidden" name="currency_code" value="INR" />
-																					<input type="hidden" name="return" value="10" />
-																					<input type="hidden" name="cancel_return" value=" " />
-																					<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
-																				</fieldset>
-																			</form>
-																		</div>
-																							
-													</div>
+												<div class="men-thumb-item" onclick="gotoprod('.$pid.');">
+												<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front">
+												<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
+												<div class="men-cart-pro">
+												<div class="inner-men-cart-pro">
+												<a href="single.php?pid='.$pid.'" class="link-product-add-cart">Quick View</a>
 												</div>
+												</div>
+												<span class="product-new-top">New</span>
+
+												</div>
+												<div class="item-info-product ">
+												<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>';
+												if($row['discount'] != NULL) {
+												$new_price=$row['price'] - ($row['discount']*$row['price']);
+												echo'<div class="info-product-price">
+												<span class="item_price">&#8377;'.$new_price.'</span>
+												<del>'.$row['price'].'</del>
+												</div>';
+												}
+												else {
+												echo'<div class="info-product-price">
+												<span class="item_price">&#8377;'.$row['price'].'</span>
+												</div>';
+												}
+												echo'
+												<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+												<form action="#" method="GET">
+												<fieldset>
+												<input type="hidden" name="cmd" value="_cart" />
+												<input type="hidden" name="add" value="1" />
+												<input type="hidden" name="business" value=" " />
+												<input type="hidden" name="item_name" value="'.$row['brand'].' '.$row['name'].'" />
+												<input type="hidden" name="product_id" value="'.$row['product_id'].'" />
+												<input type="hidden" name="amount" value="'.$row['price'].'" />
+												<input type="hidden" name="discount_amount" value="0.00" />
+												<input type="hidden" name="currency_code" value="INR" />
+												<input type="hidden" name="return" value="10" />
+												<input type="hidden" name="cancel_return" value=" " />
+												<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
+												</fieldset>
+												</form>
+												</div>
+
+												</div>
+												</div>
+												</div>
+												<!-- Item end -->';
+
+												$count++;
+											}
+										}
+									else if ($row['category'] == 'watch') {
+										$sql_watch = "SELECT * FROM watches WHERE watches.product_id='$pid'";
+										$result_watch = mysqli_query($conn, $sql_watch);
+										$result_row = mysqli_fetch_assoc($result_watch);
+										if($result_row['stock'] != 0) {
+											$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
+											$imageresult = mysqli_query($conn, $imagesql);
+											$imagerow = mysqli_fetch_assoc($imageresult);
+											echo '<!-- Item start -->
+											<div class="col-md-3 product-men">
+											<div class="men-pro-item simpleCart_shelfItem">
+											<div class="men-thumb-item" onclick="gotoprod('.$pid.');">
+											<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front">
+											<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
+											<div class="men-cart-pro">
+											<div class="inner-men-cart-pro">
+											<a href="single.php?pid='.$pid.'" class="link-product-add-cart">Quick View</a>
+											</div>
+											</div>
+											<span class="product-new-top">New</span>
+
+											</div>
+											<div class="item-info-product ">
+											<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>';
+											if($row['discount'] != NULL) {
+											$new_price=$row['price'] - ($row['discount']*$row['price']);
+											echo'<div class="info-product-price">
+											<span class="item_price">&#8377;'.$new_price.'</span>
+											<del>'.$row['price'].'</del>
+											</div>';
+											}
+											else {
+											echo'<div class="info-product-price">
+											<span class="item_price">&#8377;'.$row['price'].'</span>
+											</div>';
+											}
+											echo'
+											<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+											<form action="#" method="GET">
+											<fieldset>
+											<input type="hidden" name="cmd" value="_cart" />
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="business" value=" " />
+											<input type="hidden" name="item_name" value="'.$row['brand'].' '.$row['name'].'" />
+											<input type="hidden" name="product_id" value="'.$row['product_id'].'" />
+											<input type="hidden" name="amount" value="'.$row['price'].'" />
+											<input type="hidden" name="discount_amount" value="0.00" />
+											<input type="hidden" name="currency_code" value="INR" />
+											<input type="hidden" name="return" value="10" />
+											<input type="hidden" name="cancel_return" value=" " />
+											<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
+											</fieldset>
+											</form>
+											</div>
+
+											</div>
+											</div>
 											</div>
 											<!-- Item end -->';
 
-										$count++;
+											$count++;
+										}
+									}
+									else if ($row['category'] == 'footwear') {
+										$sql_footwear = "SELECT * FROM footwear NATURAL JOIN footwear_size WHERE product_id='$pid'";
+										$result_footwear = mysqli_query($conn, $sql_footwear);
+										$result_row = mysqli_fetch_assoc($result_footwear);
+										if($result_row['stock'] != 0) {
+											$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
+											$imageresult = mysqli_query($conn, $imagesql);
+											$imagerow = mysqli_fetch_assoc($imageresult);
+											echo '<!-- Item start -->
+											<div class="col-md-3 product-men">
+											<div class="men-pro-item simpleCart_shelfItem">
+											<div class="men-thumb-item" onclick="gotoprod('.$pid.');">
+											<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-front">
+											<img src="'.$imagerow['image_location'].'" alt="" class="pro-image-back">
+											<div class="men-cart-pro">
+											<div class="inner-men-cart-pro">
+											<a href="single.php?pid='.$pid.'" class="link-product-add-cart">Quick View</a>
+											</div>
+											</div>
+											<span class="product-new-top">New</span>
+
+											</div>
+											<div class="item-info-product ">
+											<h4><a href="single.php?pid='.$pid.'">'.$row['name'].'</a></h4>';
+											if($row['discount'] != NULL) {
+											$new_price=$row['price'] - ($row['discount']*$row['price']);
+											echo'<div class="info-product-price">
+											<span class="item_price">&#8377;'.$new_price.'</span>
+											<del>'.$row['price'].'</del>
+											</div>';
+											}
+											else {
+											echo'<div class="info-product-price">
+											<span class="item_price">&#8377;'.$row['price'].'</span>
+											</div>';
+											}
+											echo'
+											<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+											<form action="#" method="GET">
+											<fieldset>
+											<input type="hidden" name="cmd" value="_cart" />
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="business" value=" " />
+											<input type="hidden" name="item_name" value="'.$row['brand'].' '.$row['name'].'" />
+											<input type="hidden" name="product_id" value="'.$row['product_id'].'" />
+											<input type="hidden" name="amount" value="'.$row['price'].'" />
+											<input type="hidden" name="discount_amount" value="0.00" />
+											<input type="hidden" name="currency_code" value="INR" />
+											<input type="hidden" name="return" value="10" />
+											<input type="hidden" name="cancel_return" value=" " />
+											<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
+											</fieldset>
+											</form>
+											</div>
+
+											</div>
+											</div>
+											</div>
+											<!-- Item end -->';
+
+											$count++;
+										}
 									}
 								}
+							}
 							}
 							else {
 								$sql = "SELECT * FROM product ORDER BY product_id DESC LIMIT 4";
