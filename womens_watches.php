@@ -145,8 +145,10 @@ if (!isset($_GET['category'])) {
 							$res_dis=mysqli_query($conn, $sql_dis);
 							echo'<ul class="sublist">';
 								while ($res_row=mysqli_fetch_assoc($res_dis)) {
+									$dis_string2=$dis_string1.$count;
 									$res_dis_val=$res_row['discount']*100;
-									echo'<li><a href="#">'.$res_dis_val.'<span>&#37</span> Off or more</a></li>';
+									echo'<li><a id="'.$dis_string2.'" href="#" onclick="getdiscount(id,'.$res_dis_val.')">'.$res_dis_val.'<span>&#37</span> Off or more</a></li>';
+									$count++;
 								}
 							?>
 							</ul>

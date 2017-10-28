@@ -129,6 +129,19 @@ function getpricerange(id) {
         window.location=window.location.href+"&range="+range;
     }
 }
+function getdiscount(id,disc) {
+    var anchor = document.getElementById(id);
+    var url = window.location.href;
+    var disrange=disc;
+    if (url.indexOf('&disc_range=') != -1) {
+        var parameter = gup( 'disc_range' );
+        var newUrl=url.replace(parameter,disrange);
+        anchor.href=newUrl;
+    } 
+    else {
+        window.location=window.location.href+"&disc_range="+disrange;
+    }
+}
 function getrange() {
     var min = document.getElementById("low-price").value;
     var max = document.getElementById("high-price").value;

@@ -477,11 +477,12 @@ include('header.php');
 						if(isset($_SESSION['user_id'])) {
 								$sql = "SELECT * FROM product NATURAL JOIN bags WHERE bags.stock !='0' ORDER BY product_id DESC";
 								$result = mysqli_query($conn, $sql);
+								$count = 0;
 								$item_count = mysqli_num_rows($result);
 								if ($item_count==0) {
 									echo "<p style='text-align: center;'><b>No products to display</b></p>";
 								} else {
-									while (($row = mysqli_fetch_assoc($result))) {
+									while (($row = mysqli_fetch_assoc($result)) && ($count<4)) {
 										$pid = $row['product_id'];
 										$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
 										$imageresult = mysqli_query($conn, $imagesql);
@@ -546,11 +547,12 @@ include('header.php');
 							else {
 								$sql = "SELECT * FROM product NATURAL JOIN bags WHERE bags.stock !='0' ORDER BY product_id DESC";
 								$result = mysqli_query($conn, $sql);
+								$count=0;
 								$item_count = mysqli_num_rows($result);
 								if ($item_count==0) {
 									echo "<p style='text-align: center;'><b>No products to display</b></p>";
 								} else {
-									while (($row = mysqli_fetch_assoc($result))) {
+									while (($row = mysqli_fetch_assoc($result)) && ($count<4)) {
 										$pid = $row['product_id'];
 										$imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
 										$imageresult = mysqli_query($conn, $imagesql);

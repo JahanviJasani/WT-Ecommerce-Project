@@ -146,10 +146,14 @@ if (!isset($_GET['category'])) {
 						<?php 
 							$sql_dis = "SELECT DISTINCT discount FROM product WHERE product.category='$category' AND product.gender='men' AND product.discount != 'NULL' ORDER by discount asc";
 							$res_dis=mysqli_query($conn, $sql_dis);
+							$dis_string1="dis";
+							$count=1;
 							echo'<ul class="sublist">';
 								while ($res_row=mysqli_fetch_assoc($res_dis)) {
+									$dis_string2=$dis_string1.$count;
 									$res_dis_val=$res_row['discount']*100;
-									echo'<li><a href="#">'.$res_dis_val.'<span>&#37</span> Off or more</a></li>';
+									echo'<li><a id="'.$dis_string2.'" href="#" onclick="getdiscount(id,'.$res_dis_val.')">'.$res_dis_val.'<span>&#37</span> Off or more</a></li>';
+									$count++;
 								}
 							?>
 							</ul>
