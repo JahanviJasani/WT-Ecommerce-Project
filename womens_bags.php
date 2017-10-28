@@ -102,7 +102,7 @@ if (!isset($_GET['category'])) {
 									<li><a id="71" href="#" onclick="addURL('Bag','Casual',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
 									<li><a id="125" href="#" onclick="addURL('Bag','Backpacks',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Backpacks</a></li>
 									<li><a id="72" href="#" onclick="addURL('Bag','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
-									<li><a id="all_wb" href="#" onclick="addURL('Bag','All',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> All</a></li>
+									<li><a id="all_wb1" href="#" onclick="addURL('Bag','All',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> All</a></li>
 								</ul>
 						</ul>
 					</li><br>
@@ -116,6 +116,7 @@ if (!isset($_GET['category'])) {
 								<li><a id="111" href="#" onclick="addURL('Bag','Casual',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Bags</a></li>
 								<li><a id="126" href="#" onclick="addURL('Bag','Backpacks',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Backpacks</a></li>
 								<li><a id="112" href="#" onclick="addURL('Bag','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
+								<li><a id="all_wb2" href="#" onclick="addURL('Bag','All',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> All</a></li>
 							</ul>
 						</ul>
 					</li>

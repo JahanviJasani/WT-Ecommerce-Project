@@ -62,22 +62,22 @@ function addURL(category,type,id) {
     if(id==34 || id==114 || id==116 || id==118 || id==120) {
         anchor.href="womens_watches.php?category="+category+"&type="+type;
     }
-    if(id=="all_mb"){
+    if(id=="all_mb1" || id=="all_mb2"){
         anchor.href="mens_bags.php?category="+category+"&type="+type;
     }
-    if(id=="all_wb"){
+    if(id=="all_wb1" || id=="all_wb2"){
         anchor.href="womens_bags.php?category="+category+"&type="+type;
     }
-    if(id=="all_mf"){
+    if(id=="all_mf1" || id=="all_mf2"){
         anchor.href="mens_footwear.php?category="+category+"&type="+type;
     }
-    if(id=="all_wf"){
+    if(id=="all_wf1" || id=="all_wf2"){
         anchor.href="womens_footwear.php?category="+category+"&type="+type;
     }
-    if(id=="all_mw"){
+    if(id=="all_mw1" || id=="all_mw2"){
         anchor.href="mens_watches.php?category="+category+"&type="+type;
     }
-    if(id=="all_ww"){
+    if(id=="all_ww1" || id=="all_ww2"){
         anchor.href="mens_watches.php?category="+category+"&type="+type;
     }
 }
@@ -88,6 +88,7 @@ function getSize(id) {
     if (url.indexOf('&size=') != -1) {
         var parameter = gup( 'size' );
         var newUrl=url.replace(parameter,size);
+        console.log(parameter);
         window.location=newUrl;
     } 
     else {
@@ -108,25 +109,14 @@ function gup(name)
 function getpricerange(id) {
     var anchor = document.getElementById(id);
     var url = window.location.href;
-    var range=0;
-    if(id=="pr1") {
-        range=1;
-    }else if(id=="pr2") {
-        range=2;
-    }else if(id=="pr3") {
-        range=3;
-    }else if(id=="pr4") {
-        range=4;
-    }else if(id=="pr5") {
-        range=5;
-    }
     if (url.indexOf('&range=') != -1) {
         var parameter = gup( 'range' );
-        var newUrl=url.replace(parameter,range);
+        console.log(parameter);
+        var newUrl=url.replace(parameter,id);
         anchor.href=newUrl;
     } 
     else {
-        window.location=window.location.href+"&range="+range;
+        window.location=window.location.href+"&range="+id;
     }
 }
 function getdiscount(id,disc) {

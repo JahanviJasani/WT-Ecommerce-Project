@@ -106,15 +106,15 @@ if (isset($_GET['category'])) {
 									<li><a id="58" href="#" onclick="addURL('Footwear','Pumps',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Pumps</a></li>
 									<li><a id="59" href="#" onclick="addURL('Footwear','Loafers',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Loafers</a></li>
 									<li><a id="60" href="#" onclick="addURL('Footwear','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
-									<li><a id="all_wf" href="#" onclick="addURL('Footwear','All',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> All</a></li>
+									<li><a id="all_wf1" href="#" onclick="addURL('Footwear','All',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> All</a></li>
 								</ul>
 						</ul>
 					</li><br>
 					<li><input type="checkbox" id="item-1" checked="checked" /><label for="item-1"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> New Arrivals</label>
 						<ul>
 							<ul class="sublist">
-								<li><a id="91" href="#" onclick="addURL('Footwear','Canvas',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Casual Shoes</a></li>
-								<li><a id="92" href="#" onclick="addURL('Footwear','Boots',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Boots Shoes</a></li>
+								<li><a id="91" href="#" onclick="addURL('Footwear','Canvas',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Canvas Shoes</a></li>
+								<li><a id="92" href="#" onclick="addURL('Footwear','Boots',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Boots</a></li>
 								<li><a id="93" href="#" onclick="addURL('Footwear','Kitten',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Kitten Heels</a></li>
 								<li><a id="94" href="#" onclick="addURL('Footwear','Gladiators',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Gladiators</a></li>
 								<li><a id="95" href="#" onclick="addURL('Footwear','FlipFlops',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Flip Flops</a></li>
@@ -123,6 +123,7 @@ if (isset($_GET['category'])) {
 								<li><a id="98" href="#" onclick="addURL('Footwear','Pumps',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Pumps</a></li>
 								<li><a id="99" href="#" onclick="addURL('Footwear','Loafers',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Loafers</a></li>
 								<li><a id="100" href="#" onclick="addURL('Footwear','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
+								<li><a id="all_wf2" href="#" onclick="addURL('Footwear','All',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> All</a></li>
 							</ul>
 						</ul>
 					</li>
@@ -139,22 +140,22 @@ if (isset($_GET['category'])) {
 						<ul class="size-boxes">
 							<ul>
 								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_3" class="a-button-input" type="submit" onclick="getSize(id)" value="3"><span class="a-button-text a-text-center" aria-hidden="true">3</span></span></span></span></span>
+									<input id="w_3" class="a-button-input" type="submit" onclick="getSize(id)" value="3"><span class="a-button-text a-text-center" aria-hidden="true">3</span></span></span></span></span>
 								</li>
 								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_4" class="a-button-input" type="submit" onclick="getSize(id)" value="4"><span class="a-button-text a-text-center" aria-hidden="true">4</span></span></span></span></span>
+									<input id="w_4" class="a-button-input" type="submit" onclick="getSize(id)" value="4"><span class="a-button-text a-text-center" aria-hidden="true">4</span></span></span></span></span>
 								</li>
 								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_5" class="a-button-input" type="submit" onclick="getSize(id)" value="5"><span class="a-button-text a-text-center" aria-hidden="true">5</span></span></span></span></span>
+									<input id="w_5" class="a-button-input" type="submit" onclick="getSize(id)" value="5"><span class="a-button-text a-text-center" aria-hidden="true">5</span></span></span></span></span>
 								</li>
 								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_6" class="a-button-input" type="submit" onclick="getSize(id)" value="6"><span class="a-button-text a-text-center" aria-hidden="true">6</span></span></span></span></span>
+									<input id="w_6" class="a-button-input" type="submit" onclick="getSize(id)" value="6"><span class="a-button-text a-text-center" aria-hidden="true">6</span></span></span></span></span>
 								</li>
 								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_7" class="a-button-input" type="submit" onclick="getSize(id)" value="7"><span class="a-button-text a-text-center" aria-hidden="true">7</span></span></span></span></span>
+									<input id="w_7" class="a-button-input" type="submit" onclick="getSize(id)" value="7"><span class="a-button-text a-text-center" aria-hidden="true">7</span></span></span></span></span>
 								</li>
 								<li class="s-sprite-grid aok-align-top"><span class="a-list-item"><span class="a-declarative"><span class="a-button a-button-toggle togglebutton-group"><span class="a-button-inner">
-									<input id="m_8" class="a-button-input" type="submit" onclick="getSize(id)" value="8"><span class="a-button-text a-text-center" aria-hidden="true">8</span></span></span></span></span>
+									<input id="w_8" class="a-button-input" type="submit" onclick="getSize(id)" value="8"><span class="a-button-text a-text-center" aria-hidden="true">8</span></span></span></span></span>
 								</li>
 							</ul>
 						</ul>
@@ -277,23 +278,23 @@ if (isset($_GET['category'])) {
 					$maxprice=9999999;
 					if (isset($_GET['range'])) {
 						switch ($_GET['range']) {
-						    case 1:
+						    case 'pr1':
 						        $minprice=0;
 						        $maxprice=1000;
 						        break;
-						    case 2:
+						    case 'pr2':
 						        $minprice=1000;
 						        $maxprice=2000;
 						        break;
-						    case 3:
+						    case 'pr3':
 						        $minprice=2000;
 						        $maxprice=3500;
 						        break;
-						    case 4:
+						    case 'pr4':
 						        $minprice=3500;
 						        $maxprice=5000;
 						        break;
-						    case 5:
+						    case 'pr5':
 						        $minprice=5000;
 						        $maxprice=10000;
 						        break;

@@ -105,7 +105,7 @@ if (isset($_GET['category'])) {
 									<li><a id="48" href="#" onclick="addURL('Footwear','Athletic',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Athletic Shoes</a></li>
 									<li><a id="49" href="#" onclick="addURL('Footwear','Running',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Running Shoes</a></li>
 									<li><a id="50" href="#" onclick="addURL('Footwear','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
-									<li><a id="all_mf" href="#" onclick="addURL('Footwear','All',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> All</a></li>
+									<li><a id="all_mf1" href="#" onclick="addURL('Footwear','All',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> All</a></li>
 								</ul>
 						</ul>
 					</li><br>
@@ -122,6 +122,7 @@ if (isset($_GET['category'])) {
 								<li><a id="88" href="#" onclick="addURL('Footwear','Athletic',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Athletic Shoes</a></li>
 								<li><a id="89" href="#" onclick="addURL('Footwear','Running',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Running Shoes</a></li>
 								<li><a id="90" href="#" onclick="addURL('Footwear','Others',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> Others</a></li>
+								<li><a id="all_mf2" href="#" onclick="addURL('Footwear','All',id)"><i class="fa fa-caret-right" aria-hidden="true"></i> All</a></li>
 							</ul>
 						</ul>
 					</li>
@@ -282,23 +283,23 @@ if (isset($_GET['category'])) {
 					$maxprice=9999999;
 					if (isset($_GET['range'])) {
 						switch ($_GET['range']) {
-						    case 1:
+						    case 'pr1':
 						        $minprice=0;
 						        $maxprice=1000;
 						        break;
-						    case 2:
+						    case 'pr2':
 						        $minprice=1000;
 						        $maxprice=2000;
 						        break;
-						    case 3:
+						    case 'pr3':
 						        $minprice=2000;
 						        $maxprice=3500;
 						        break;
-						    case 4:
+						    case 'pr4':
 						        $minprice=3500;
 						        $maxprice=5000;
 						        break;
-						    case 5:
+						    case 'pr5':
 						        $minprice=5000;
 						        $maxprice=10000;
 						        break;

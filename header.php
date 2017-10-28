@@ -217,7 +217,7 @@
 							<input type="hidden" name="display" value="1">
 							
 								<button class="w3view-cart" type="button" id="cart"><a href="shopping-cart.php" style="color:black"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></button> 
-								<span id="cart_count"></span>
+								<span><span id="cart_count" class="badge badge-notify">0</span></span>
 							</form>  
 	  
 							</div>
