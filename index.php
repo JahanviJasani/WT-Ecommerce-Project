@@ -169,7 +169,7 @@ include('header.php');
 
 							<?php
 							if(isset($_SESSION['user_id'])) {
-								$sql = "SELECT * FROM product WHERE product.category='watch' ORDER BY product_id DESC";
+								$sql = "SELECT * FROM product NATURAL JOIN watches WHERE watches.stock !='0' ORDER BY product_id DESC";
 								$result = mysqli_query($conn, $sql);
 								$count = 0;
 
@@ -240,7 +240,7 @@ include('header.php');
 								}
 							}
 							else {
-								$sql = "SELECT * FROM product WHERE product.category='watch' ORDER BY product_id DESC";
+								$sql = "SELECT * FROM product NATURAL JOIN watches WHERE watches.stock !='0' ORDER BY product_id DESC";
 								$result = mysqli_query($conn, $sql);
 								$count = 0;
 
@@ -322,7 +322,7 @@ include('header.php');
 
 						<?php
 						if(isset($_SESSION['user_id'])) {
-								$sql = "SELECT * FROM product WHERE product.category='footwear' ORDER BY product_id DESC";
+								$sql = "SELECT DISTINCT product_id,name,price,discount,brand FROM product NATURAL JOIN footwear NATURAL JOIN footwear_size WHERE footwear_size.stock !='0' ORDER BY product_id DESC";
 								$result = mysqli_query($conn, $sql);
 								$count = 0;
 
@@ -394,7 +394,7 @@ include('header.php');
 								}
 							}
 							else {
-								$sql = "SELECT * FROM product WHERE product.category='footwear' ORDER BY product_id DESC";
+								$sql = "SELECT DISTINCT product_id,name,price,discount,brand FROM product NATURAL JOIN footwear NATURAL JOIN footwear_size WHERE footwear_size.stock !='0' ORDER BY product_id DESC";
 								$result = mysqli_query($conn, $sql);
 								$count = 0;
 
@@ -475,7 +475,7 @@ include('header.php');
 					
 						<?php
 						if(isset($_SESSION['user_id'])) {
-								$sql = "SELECT * FROM product WHERE product.category='bag' ORDER BY product_id DESC LIMIT 4";
+								$sql = "SELECT * FROM product NATURAL JOIN bags WHERE bags.stock !='0' ORDER BY product_id DESC";
 								$result = mysqli_query($conn, $sql);
 								$item_count = mysqli_num_rows($result);
 								if ($item_count==0) {
@@ -544,7 +544,7 @@ include('header.php');
 								}
 							}
 							else {
-								$sql = "SELECT * FROM product WHERE product.category='bag' ORDER BY product_id DESC LIMIT 4";
+								$sql = "SELECT * FROM product NATURAL JOIN bags WHERE bags.stock !='0' ORDER BY product_id DESC";
 								$result = mysqli_query($conn, $sql);
 								$item_count = mysqli_num_rows($result);
 								if ($item_count==0) {

@@ -591,7 +591,7 @@ include('header.php');
 					$result = mysqli_query($conn, $sql);
 					$row = mysqli_fetch_assoc($result);
 				  	if($row['category'] == 'bag') {
-						$sql = "SELECT * FROM product WHERE product.category='bag' AND product.product_id!=$pid ORDER BY product_id DESC LIMIT 4";
+						$sql = "SELECT * FROM product NATURAL JOIN bags WHERE product_id != '$pid' AND bags.stock !='0' ORDER BY product_id DESC LIMIT 4";
 						$result = mysqli_query($conn, $sql);
 						$item_count = mysqli_num_rows($result);
 
@@ -659,7 +659,7 @@ include('header.php');
 							}
 						}
 					} elseif($row['category'] == 'footwear') {
-						$sql = "SELECT * FROM product WHERE product.category='footwear' AND product.product_id!=$pid ORDER BY product_id DESC LIMIT 4";
+						$sql = "SELECT DISTINCT product_id,name,price,discount,brand FROM product NATURAL JOIN footwear NATURAL JOIN footwear_size WHERE product_id != '$pid' AND footwear_size.stock !='0' ORDER BY product_id DESC LIMIT 4";
 						$result = mysqli_query($conn, $sql);
 						$item_count = mysqli_num_rows($result);
 
@@ -728,7 +728,7 @@ include('header.php');
 						} 
 
 					}elseif($row['category'] == 'watch') {
-						$sql = "SELECT * FROM product WHERE product.category='watch' AND product.product_id!=$pid ORDER BY product_id DESC LIMIT 4";
+						$sql = "SELECT * FROM product NATURAL JOIN watches WHERE product.product_id!=$pid AND watches.stock !='0' ORDER BY product_id DESC LIMIT 4";
 						$result = mysqli_query($conn, $sql);
 						$item_count = mysqli_num_rows($result);
 						if ($item_count==0) {
