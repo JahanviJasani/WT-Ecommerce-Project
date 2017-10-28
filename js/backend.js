@@ -62,22 +62,22 @@ function addURL(category,type,id) {
     if(id==34 || id==114 || id==116 || id==118 || id==120) {
         anchor.href="womens_watches.php?category="+category+"&type="+type;
     }
-    if(id=="all_mb1" || id=="all_mb2"){
+    if(id=="all_mb1" || id=="all_mb2" || id=="all_mb"){
         anchor.href="mens_bags.php?category="+category+"&type="+type;
     }
-    if(id=="all_wb1" || id=="all_wb2"){
+    if(id=="all_wb1" || id=="all_wb2" || id=="all_wb"){
         anchor.href="womens_bags.php?category="+category+"&type="+type;
     }
-    if(id=="all_mf1" || id=="all_mf2"){
+    if(id=="all_mf1" || id=="all_mf2" || id=="all_mf"){
         anchor.href="mens_footwear.php?category="+category+"&type="+type;
     }
-    if(id=="all_wf1" || id=="all_wf2"){
+    if(id=="all_wf1" || id=="all_wf2" || id=="all_wf"){
         anchor.href="womens_footwear.php?category="+category+"&type="+type;
     }
-    if(id=="all_mw1" || id=="all_mw2"){
+    if(id=="all_mw1" || id=="all_mw2" || id=="all_mw"){
         anchor.href="mens_watches.php?category="+category+"&type="+type;
     }
-    if(id=="all_ww1" || id=="all_ww2"){
+    if(id=="all_ww1" || id=="all_ww2" || id=="all_ww"){
         anchor.href="mens_watches.php?category="+category+"&type="+type;
     }
 }
@@ -220,6 +220,30 @@ function change_sort_order(id) {
         window.location=window.location.href+"&sortorder="+sortorder;
     }
 }
+
+function change_showing(id) {
+    console.log("hie");
+    var anchor = document.getElementById(id);
+    var url = window.location.href;
+    if (anchor.value==7) {
+        shownum = "show_a";
+    } else if (anchor.value==14) {
+        shownum = "show_b";
+    } else if (anchor.value==28) {
+        shownum = "show_c";
+    } else if (anchor.value==35) {
+        shownum = "show_d";
+    }
+    if (url.indexOf('&show=') != -1) {
+        var parameter = gup( 'show' );
+        var newUrl=url.replace(parameter,shownum);
+        window.location=newUrl;
+    } 
+    else {
+        window.location=window.location.href+"&show="+shownum;
+    }
+}
+
 
 function showSellerPageModal() {
     var currUrl = window.location.href;
