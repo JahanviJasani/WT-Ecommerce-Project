@@ -438,6 +438,12 @@ a.bg-primary:hover {
 
 /* Apply clearfix in a few places */
 /* Apply dollar signs */
+.sc-product .sc-product-price:before, .sc-product .sc-product-line-price:before, .totals-value:before {
+  
+ }
+.sc-product-price del:before {
+  content: '₹';
+}
 .sc-product del {
   color: #908e8e;
   letter-spacing: 1px;

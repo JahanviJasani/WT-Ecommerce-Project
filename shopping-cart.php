@@ -124,17 +124,12 @@ include('header.php');
               } 
               echo'</div>';
               if($productrow['discount'] != NULL) {
-                  $new_price=$productrow['price'] - ($productrow['discount']*$productrow['price']);
-                  echo'<div class="sc-product-price">
-                    <del>&#8377;'.$productrow['price'].'</del>
-                    <span style="display: block; color: #000; font-size: 1em; font-weight: 600; letter-spacing: 1px;">&#8377;'.$new_price.'</span>
-                  </div>';
-                  }
-                  else {
-                  echo'<div class="sc-product-price">
-                    <span style="display: block; color: #000; font-size: 1em; font-weight: 600; letter-spacing: 1px;">&#8377;'.$new_price.'</span>
-                  </div>';
+                $new_price=$productrow['price'] - ($productrow['discount']*$productrow['price']);
+                echo'<div class="sc-product-price"><del> '.$productrow['price'].'</del><br>₹ '.$new_price.'</div>';
               }
+                else {
+                    echo'<div class="sc-product-price">'.$productrow['price'].'</div>';
+                }
              if ($productrow['category'] == 'bag') { 
                 echo'<div class="sc-product-quantity">
                 <input type="number" min="1" max="'.$bagrow['stock'].'" value="'.$sql_cart_product_result_row['qty'].'" onchange="updateQuantity(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
