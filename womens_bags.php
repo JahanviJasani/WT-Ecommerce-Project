@@ -84,6 +84,13 @@ if (!isset($_GET['category'])) {
 						$type = $_GET['type'];
 					}
 
+					if (isset($_GET['disc_range'])) {
+						$disc_range = $_GET['disc_range'];
+						$disc_range = $disc_range / 100;
+					} else {
+						$disc_range="0";
+					}
+
 ?>
 		<div class="banner-bootom-w3-agileits">
 	<div class="container-fluid">
@@ -149,6 +156,8 @@ if (!isset($_GET['category'])) {
 					<li><input type="checkbox" id="item-3" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-3"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Discount</label>
 						<ul>
 						<?php 
+						$count=1;
+							$dis_string1 = "dis";
 							$sql_dis = "SELECT DISTINCT discount FROM product WHERE product.category='$category' AND product.gender='women' AND product.discount != 'NULL' ORDER by discount asc";
 							$res_dis=mysqli_query($conn, $sql_dis);
 							echo'<ul class="sublist">';
@@ -219,12 +228,23 @@ if (!isset($_GET['category'])) {
 							$sortby = "ORDER BY product.price DESC";
 						}
 					}
-					if($type=="All") {
-						$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND product.gender='women'"." ".$sortby;	
+					if (isset($_GET['disc_range'])) {
+						if($type=="All") {
+							$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND product.discount >= '$disc_range' AND product.gender='women'"." ".$sortby;	
+						}
+						else {
+							$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND product.discount >= '$disc_range' AND bags.subcategory='$type' AND product.gender='women'"." ".$sortby;
+						}
+					} else {
+						if($type=="All") {
+							$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND product.gender='women'"." ".$sortby;	
+						}
+						else {
+							$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND bags.subcategory='$type' AND product.gender='women'"." ".$sortby;
+						}
 					}
-					else {
-						$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND bags.subcategory='$type' AND product.gender='women'"." ".$sortby;
-					}
+
+
 					$res1 = mysqli_query($conn, $sql1);
 					
 					$minprice=0;

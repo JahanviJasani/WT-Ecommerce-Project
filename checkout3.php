@@ -65,7 +65,7 @@ include('header.php');
 
                                     <h4>Cash on delivery</h4>
 
-                                    <p>You pay when you get it.</p>
+                                    <p>Pay by cash or card on delivery.</p>
 
                                     <div class="box-footer text-center">
 
@@ -79,7 +79,7 @@ include('header.php');
 
                                     <h4>Credit/Debit Card</h4>
 
-                                    <p>Convenience in your hands.</p>
+                                    <p>Pay easily by your Visa/MasterCard.</p>
 
                                     <div class="box-footer text-center">
 
@@ -93,7 +93,7 @@ include('header.php');
 
                                     <h4>Wallet</h4>
 
-                                    <p>Convenience in your hands.</p>
+                                    <p>Pay by convenient e-wallets.</p>
 
                                     <div class="box-footer text-center">
 
@@ -107,7 +107,7 @@ include('header.php');
 
                                     <h4>Netbanking</h4>
 
-                                    <p>Convenience in your hands.</p>
+                                    <p>Pay right through your bank account.</p>
 
                                     <div class="box-footer text-center">
 
@@ -121,7 +121,7 @@ include('header.php');
 
                                     <h4>UPI</h4>
 
-                                    <p>Convenience in your hands.</p>
+                                    <p>Pay rapidly through UPI.</p>
 
                                     <div class="box-footer text-center">
 

@@ -77,10 +77,18 @@ if (!isset($_GET['category'])) {
 							} else {
 								$category=$_GET['category'];
 							}
+							
 							if (!isset($_GET['type'])) {
 								$type="All";
 							} else {
 								$type = $_GET['type'];
+							}
+
+							if (isset($_GET['disc_range'])) {
+								$disc_range = $_GET['disc_range'];
+								$disc_range = $disc_range / 100;
+							} else {
+								$disc_range="0";
 							}
 ?>
 		<div class="banner-bootom-w3-agileits">
@@ -217,12 +225,23 @@ if (!isset($_GET['category'])) {
 						}
 					}
 
-					if($type=="All") {
-						$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND product.gender='men'"." ".$sortby;	
+					if (isset($_GET['disc_range'])) {
+						if($type=="All") {
+							$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND product.discount >= '$disc_range' AND product.gender='men'"." ".$sortby;	
+						}
+						else {
+							$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND product.discount >= '$disc_range' AND bags.subcategory='$type' AND product.gender='men'"." ".$sortby;
+						}
+					} else {
+						if($type=="All") {
+							$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND product.gender='men'"." ".$sortby;	
+						}
+						else {
+							$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND bags.subcategory='$type' AND product.gender='men'"." ".$sortby;
+						}
 					}
-					else {
-						$sql1="SELECT * FROM product,bags WHERE product.product_id=bags.product_id AND product.category='$category' AND bags.subcategory='$type' AND product.gender='men'"." ".$sortby;
-					}
+
+					
 					$res1 = mysqli_query($conn, $sql1);
 					$minprice=0;
 					$maxprice=9999999;

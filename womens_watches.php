@@ -77,6 +77,13 @@ if (!isset($_GET['category'])) {
 					} else {
 						$category=$_GET['category'];
 					}
+
+					if (isset($_GET['disc_range'])) {
+						$disc_range = $_GET['disc_range'];
+						$disc_range = $disc_range / 100;
+					} else {
+						$disc_range="0";
+					}
 ?>
 		<div class="banner-bootom-w3-agileits">
 	<div class="container-fluid">
@@ -140,7 +147,9 @@ if (!isset($_GET['category'])) {
 					</li>
 					<li><input type="checkbox" id="item-4" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-4"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Discount</label>
 						<ul>
-						<?php 
+						<?php
+						$count=1;
+							$dis_string1 = "dis";
 							$sql_dis = "SELECT DISTINCT discount FROM product WHERE product.category='$category' AND product.gender='women' AND product.discount != 'NULL' ORDER by discount asc";
 							$res_dis=mysqli_query($conn, $sql_dis);
 							echo'<ul class="sublist">';
@@ -214,11 +223,20 @@ if (!isset($_GET['category'])) {
 						}
 					}
 
-					if (isset($_GET['displaytype'])) {
-						$display_type = $_GET['displaytype'];
-						$sql1 = "SELECT * FROM product,watches WHERE product.product_id=watches.product_id AND product.category='$category' AND watches.display_type='$display_type' AND product.gender='women'"." ".$sortby;
+					if (isset($_GET['disc_range'])) {
+						if (isset($_GET['displaytype'])) {
+							$display_type = $_GET['displaytype'];
+							$sql1 = "SELECT * FROM product,watches WHERE product.product_id=watches.product_id AND product.category='$category' AND product.discount >= '$disc_range' AND watches.display_type='$display_type' AND product.gender='women'"." ".$sortby;
+						} else {
+							$sql1 = "SELECT * FROM product,watches WHERE product.product_id=watches.product_id AND product.category='$category' AND product.discount >= '$disc_range' AND product.gender='women'"." ".$sortby;
+						}
 					} else {
-						$sql1 = "SELECT * FROM product,watches WHERE product.product_id=watches.product_id AND product.category='$category' AND product.gender='women'"." ".$sortby;
+						if (isset($_GET['displaytype'])) {
+							$display_type = $_GET['displaytype'];
+							$sql1 = "SELECT * FROM product,watches WHERE product.product_id=watches.product_id AND product.category='$category' AND watches.display_type='$display_type' AND product.gender='women'"." ".$sortby;
+						} else {
+							$sql1 = "SELECT * FROM product,watches WHERE product.product_id=watches.product_id AND product.category='$category' AND product.gender='women'"." ".$sortby;
+						}
 					}
 
 

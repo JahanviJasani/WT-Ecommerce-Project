@@ -84,6 +84,13 @@ if (isset($_GET['category'])) {
 					} else {
 						$type="All";
 					}
+
+					if (isset($_GET['disc_range'])) {
+						$disc_range = $_GET['disc_range'];
+						$disc_range = $disc_range / 100;
+					} else {
+						$disc_range="0";
+					}
 ?>
 		<div class="banner-bootom-w3-agileits">
 	<div class="container-fluid">
@@ -190,6 +197,8 @@ if (isset($_GET['category'])) {
 					<li><input type="checkbox" id="item-4" style="position: absolute; opacity: 0;" checked="checked" /><label for="item-4"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Discount</label>
 						<ul>
 						<?php 
+							$count=1;
+							$dis_string1 = "dis";
 							$sql_dis = "SELECT DISTINCT discount FROM product WHERE product.category='$category' AND product.gender='men' AND product.discount != 'NULL'  ORDER by discount asc";
 							$res_dis=mysqli_query($conn, $sql_dis);
 							echo'<ul class="sublist">';
@@ -262,22 +271,44 @@ if (isset($_GET['category'])) {
 						}
 					}
 
-					if (isset($_GET['size'])) {
-						$size = $_GET['size'];
-						if($type=="All") {
-							$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND product.gender='men' AND product.product_id IN (SELECT product_id FROM footwear WHERE footwear.footwear_id IN (SELECT footwear_id FROM footwear_size WHERE footwear_size.footwear_size LIKE '$size' AND footwear_size.stock>0))"." ".$sortby;
-						}
-						else {
-							$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='men' AND product.product_id IN (SELECT product_id FROM footwear WHERE footwear.footwear_id IN (SELECT footwear_id FROM footwear_size WHERE footwear_size.footwear_size LIKE '$size' AND footwear_size.stock>0))"." ".$sortby;
+					
+					if (isset($_GET['disc_range'])) {
+						if (isset($_GET['size'])) {
+							$size = $_GET['size'];
+							if($type=="All") {
+								$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND product.discount >= '$disc_range' AND product.gender='men' AND product.product_id IN (SELECT product_id FROM footwear WHERE footwear.footwear_id IN (SELECT footwear_id FROM footwear_size WHERE footwear_size.footwear_size LIKE '$size' AND footwear_size.stock>0))"." ".$sortby;
+							}
+							else {
+								$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND product.discount >= '$disc_range' AND footwear.subcategory='$type' AND product.gender='men' AND product.product_id IN (SELECT product_id FROM footwear WHERE footwear.footwear_id IN (SELECT footwear_id FROM footwear_size WHERE footwear_size.footwear_size LIKE '$size' AND footwear_size.stock>0))"." ".$sortby;
+							}
+						} else {
+							if($type=="All") {
+								$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND product.discount >= '$disc_range' AND product.gender='men'"." ".$sortby;
+							}
+							else {
+								$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND product.discount >= '$disc_range' AND footwear.subcategory='$type' AND product.gender='men'"." ".$sortby;
+							}
 						}
 					} else {
-						if($type=="All") {
-							$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND product.gender='men'"." ".$sortby;
-						}
-						else {
-							$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='men'"." ".$sortby;
+						if (isset($_GET['size'])) {
+							$size = $_GET['size'];
+							if($type=="All") {
+								$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND product.gender='men' AND product.product_id IN (SELECT product_id FROM footwear WHERE footwear.footwear_id IN (SELECT footwear_id FROM footwear_size WHERE footwear_size.footwear_size LIKE '$size' AND footwear_size.stock>0))"." ".$sortby;
+							}
+							else {
+								$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='men' AND product.product_id IN (SELECT product_id FROM footwear WHERE footwear.footwear_id IN (SELECT footwear_id FROM footwear_size WHERE footwear_size.footwear_size LIKE '$size' AND footwear_size.stock>0))"." ".$sortby;
+							}
+						} else {
+							if($type=="All") {
+								$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND product.gender='men'"." ".$sortby;
+							}
+							else {
+								$sql1="SELECT DISTINCT * FROM product,footwear WHERE product.product_id=footwear.product_id AND product.category='$category' AND footwear.subcategory='$type' AND product.gender='men'"." ".$sortby;
+							}
 						}
 					}
+
+					
 
 					$minprice=0;
 					$maxprice=9999999;
