@@ -438,10 +438,10 @@ a.bg-primary:hover {
 
 /* Apply clearfix in a few places */
 /* Apply dollar signs */
-.sc-product .sc-product-price:before, .sc-product .sc-product-line-price:before, .totals-value:before {
-  content: '₹';
+.sc-product del {
+  color: #908e8e;
+  letter-spacing: 1px;
 }
-
 .shopping-cart-page {
   margin: 2em 2em 0em 2em;
   padding: 2em 2em 2em 2em;
@@ -469,7 +469,7 @@ a.bg-primary:hover {
 .sc-product .sc-product-image img {
   width: 100px;
   height: auto;
-  max-height: 200px;
+  max-height: 150px;
 }
 .sc-product .sc-product-details .sc-product-title a {
   text-transform: capitalize;

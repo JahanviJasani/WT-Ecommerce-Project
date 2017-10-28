@@ -122,8 +122,19 @@ include('header.php');
                 echo '<p style="margin: 0.5em 0 0;color: #008A00;font-size: 1em;line-height: 1.5em; font-weight: 700;">In Stock</p>';
                 }
               } 
-              echo'</div>
-              <div class="sc-product-price">'.$productrow['price'].'</div>';
+              echo'</div>';
+              if($productrow['discount'] != NULL) {
+                  $new_price=$productrow['price'] - ($productrow['discount']*$productrow['price']);
+                  echo'<div class="sc-product-price">
+                    <del>&#8377;'.$productrow['price'].'</del>
+                    <span style="display: block; color: #000; font-size: 1em; font-weight: 600; letter-spacing: 1px;">&#8377;'.$new_price.'</span>
+                  </div>';
+                  }
+                  else {
+                  echo'<div class="sc-product-price">
+                    <span style="display: block; color: #000; font-size: 1em; font-weight: 600; letter-spacing: 1px;">&#8377;'.$new_price.'</span>
+                  </div>';
+              }
              if ($productrow['category'] == 'bag') { 
                 echo'<div class="sc-product-quantity">
                 <input type="number" min="1" max="'.$bagrow['stock'].'" value="'.$sql_cart_product_result_row['qty'].'" onchange="updateQuantity(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
