@@ -41,7 +41,6 @@ include('header.php');
     $item_count = mysqli_num_rows($result);
     if ($item_count==0) {
       echo "<hr style='height: 1px;'><p style='text-align: center; font-size: 1.2em;'><b>No products in Cart!</b></p>";
-      $flag=0;
     } else {
       echo'<div class="column-labels">
             <label class="sc-product-image">Image</label>
@@ -52,8 +51,7 @@ include('header.php');
             <label class="sc-product-line-price">Total</label>
           </div>';
   
-      $flag=1;
-      STATIC $count=0;
+       $count=0;
       while (($row = mysqli_fetch_assoc($result))){
         $pid = $row['product_id'];
         $imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
@@ -125,11 +123,23 @@ include('header.php');
                 }
               } 
               echo'</div>
-              <div class="sc-product-price">'.$productrow['price'].'</div>
-              <div class="sc-product-quantity">
-              <input type="number" value="'.$sql_cart_product_result_row['qty'].'" onchange="updateQuantity(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
-              </div>
-              <div class="sc-product-removal">
+              <div class="sc-product-price">'.$productrow['price'].'</div>';
+             if ($productrow['category'] == 'bag') { 
+                echo'<div class="sc-product-quantity">
+                <input type="number" min="1" max="'.$bagrow['stock'].'" value="'.$sql_cart_product_result_row['qty'].'" onchange="updateQuantity(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
+                </div>';
+              }
+              else if($productrow['category'] == 'watch') {
+                echo'<div class="sc-product-quantity">
+                <input type="number" min="1" max="'.$watchrow['stock'].'" value="'.$sql_cart_product_result_row['qty'].'" onchange="updateQuantity(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
+                </div>';
+              }
+              else if ($productrow['category']) {
+                echo'<div class="sc-product-quantity">
+                <input type="number" min="1" max="'.$footrow2['stock'].'" value="'.$sql_cart_product_result_row['qty'].'" onchange="updateQuantity(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
+                </div>';
+              }
+              echo'<div class="sc-product-removal">
               <button class="remove-product" onclick="removeItem(this,\''.$pid.'\',\''.$_SESSION['user_id'].'\');">
               Remove
               </button>';
@@ -141,13 +151,7 @@ include('header.php');
 ?>
 <div class="pull-right">
 <?php
-if($flag==0)
-{
-  echo'<a href="#" data-toggle="modal" data-target="#myModal10" onclick="no_checkout();" class="btn btn-primary">Proceed to Checkout <i class="fa fa-chevron-right"></i>';
-}
-else {
   echo'<a href="checkout1.php" class="btn btn-primary">Proceed to Checkout <i class="fa fa-chevron-right"></i>';
-}
 ?>
 </a>
 </div>
