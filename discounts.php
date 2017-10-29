@@ -56,12 +56,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 #min-max .s-ref-price-range {
     width: 75px;
 }
-#min-max .a-input-text, input[type=text], input[type=search], input[type=number], input[type=tel], input[type=password], input[type=date] {
+#min-max .a-input-text, input[type=text],input[type=number], input[type=tel], input[type=password], input[type=date] {
     background-color: #fff;
     height: 31px;
     line-height: normal;
 }
-#min-max .a-input-text, input[type=text], input[type=search], input[type=number], input[type=tel], input[type=password], select.a-select-multiple, textarea {
+#min-max .a-input-text, input[type=text],input[type=number], input[type=tel], input[type=password], select.a-select-multiple, textarea {
     border: 1px solid #a6a6a6;
     border-top-color: #949494;
     border-radius: 3px;

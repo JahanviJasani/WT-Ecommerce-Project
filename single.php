@@ -363,11 +363,11 @@ include('header.php');
 								</fieldset>
 							</form>											
 					</div>
-					<div class="snipcart-details top_brand_home_details hvr-outline-out" style="margin: -0.2em 2em 1em;">
+					<!--<div class="snipcart-details top_brand_home_details hvr-outline-out" style="margin: -0.2em 2em 1em;">
 							<form action="checkout1.php" method="post">
 									<input type="submit" value="Buy Now" id="bn" class="button" disabled>
 							</form>											
-					</div>
+					</div>-->
                 </div>
             	</div>
 				</div>
