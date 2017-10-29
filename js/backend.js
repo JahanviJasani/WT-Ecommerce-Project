@@ -80,6 +80,12 @@ function addURL(category,type,id) {
     if(id=="all_ww1" || id=="all_ww2" || id=="all_ww"){
         anchor.href="mens_watches.php?category="+category+"&type="+type;
     }
+    if (id=="discountedfootwear" || id=="discountedbags" || id=="discountedwatches") {
+        anchor.href="discounts.php?category="+category+"&disc_range=10";
+    }
+    if (id=="discountedall") {
+        anchor.href="discounts.php?disc_range=10";
+    }
 }
 
 function getSize(id) {
@@ -123,13 +129,25 @@ function getdiscount(id,disc) {
     var anchor = document.getElementById(id);
     var url = window.location.href;
     var disrange=disc;
-    if (url.indexOf('&disc_range=') != -1) {
+    if (url.indexOf('disc_range=') != -1) {
         var parameter = gup( 'disc_range' );
         var newUrl=url.replace(parameter,disrange);
         anchor.href=newUrl;
     } 
     else {
         window.location=window.location.href+"&disc_range="+disrange;
+    }
+}
+function changeCategory(id,category, disc) {
+    var anchor = document.getElementById(id);
+    var url = window.location.href;
+    if (url.indexOf('category=') != -1) {
+        var parameter = gup( 'category' );
+        var newUrl=url.replace(parameter,category);
+        anchor.href=newUrl;
+    } 
+    else {
+        window.location="discounts.php?category="+category+"disc_range="+disc;
     }
 }
 function getrange() {

@@ -52,8 +52,9 @@ if (isset($_POST['signup_submit'])) {
 	getFootwearSizes2($conn);
 } elseif (isset($_POST['add_to_cart_footwear_category_womens'])) {
 	getFootwearSizes3($conn);
+} elseif (isset($_POST['add_to_cart_discount'])) {
+	getFootwearSizes4($conn);
 }
-
 function usersignup($conn) {
 	if (isset($_POST['signup_submit'])) {
 		
@@ -569,6 +570,17 @@ function getFootwearSizes3($conn) {
 	$type = $_POST['type'];
 	$url = 'Location: womens_footwear.php?category=Footwear&type='.$type.'&q7wgrzp84d='.$pid;
 	header($url);
+}
+
+function getFootwearSizes4($conn) {
+	$pid = $_POST['pid'];
+	$disc_range = $_POST['disc']*100;
+	$category = $_POST['category'];
+	if ($category=="All") {
+		header('Location: discounts.php?disc_range='.$disc_range.'&q7wgrzp84d='.$pid);
+	} else {
+		header('Location: discounts.php?category='.$category.'&disc_range='.$disc_range.'&q7wgrzp84d='.$pid);
+	}
 }
 
 function addimages($conn,$pid) 

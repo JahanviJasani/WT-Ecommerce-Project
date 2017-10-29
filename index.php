@@ -50,44 +50,44 @@ include('header.php');
 				<div class="container">
 					<div class="carousel-caption">
 						<h3>The Biggest <span>Sale</span></h3>
-						<p>Special for today</p>
-						<a class="hvr-outline-out button2" href="mens.php">Shop Now </a>
+						<p>Great discounts on all products</p>
+						<a class="hvr-outline-out button2" href="discounts.php?disc_range=50">Shop Now </a>
 					</div>
 				</div>
 			</div>
 			<div class="item item2"> 
 				<div class="container">
 					<div class="carousel-caption">
-						<h3>Summer <span>Collection</span></h3>
-						<p>New Arrivals On Sale</p>
-						<a class="hvr-outline-out button2" href="mens.php">Shop Now </a>
+						<h3>Get Your Own <span>Seller PAge</span></h3>
+						<p>Your entire collection at 1 place</p>
+						<a class="hvr-outline-out button2" href="#" onclick="showSellerPageModal()">Get Started </a>
 					</div>
 				</div>
 			</div>
 			<div class="item item3"> 
 				<div class="container">
 					<div class="carousel-caption">
-						<h3>The Biggest <span>Sale</span></h3>
-						<p>Special for today</p>
-						<a class="hvr-outline-out button2" href="mens.php">Shop Now </a>
+						<h3>Sale on <span>Footwear</span></h3>
+						<p>Latest trends at lowest prices</p>
+						<a class="hvr-outline-out button2" href="discounts.php?category=Footwear&disc_range=50">Shop Now </a>
 					</div>
 				</div>
 			</div>
 			<div class="item item4"> 
 				<div class="container">
 					<div class="carousel-caption">
-						<h3>Summer <span>Collection</span></h3>
-						<p>New Arrivals On Sale</p>
-						<a class="hvr-outline-out button2" href="mens.php">Shop Now </a>
+						<h3>Sale on <span>Watches</span></h3>
+						<p>View our finest time pieces</p>
+						<a class="hvr-outline-out button2" href="discounts.php?category=Watch&disc_range=50">Shop Now </a>
 					</div>
 				</div>
 			</div>
 			<div class="item item5"> 
 				<div class="container">
 					<div class="carousel-caption">
-						<h3>The Biggest <span>Sale</span></h3>
-						<p>Special for today</p>
-						<a class="hvr-outline-out button2" href="mens.php">Shop Now </a>
+						<h3>Sale on <span>Bags</span></h3>
+						<p>Buy trendy bags at lowest prices</p>
+						<a class="hvr-outline-out button2" href="discounts.php?category=Bag&disc_range=50">Shop Now </a>
 					</div>
 				</div>
 			</div> 
