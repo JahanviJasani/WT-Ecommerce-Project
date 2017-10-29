@@ -54,6 +54,8 @@ if (isset($_POST['signup_submit'])) {
 	getFootwearSizes3($conn);
 } elseif (isset($_POST['add_to_cart_discount'])) {
 	getFootwearSizes4($conn);
+} elseif (isset($_POST['add_to_cart_single'])) {
+	getFootwearSizes5($conn);
 }
 function usersignup($conn) {
 	if (isset($_POST['signup_submit'])) {
@@ -581,6 +583,13 @@ function getFootwearSizes4($conn) {
 	} else {
 		header('Location: discounts.php?category='.$category.'&disc_range='.$disc_range.'&q7wgrzp84d='.$pid);
 	}
+}
+
+function getFootwearSizes5($conn) {
+	$pid = $_POST['pid'];
+	$opid = $_POST['opid'];
+	$url = 'Location: single.php?pid='.$opid.'&q7wgrzp84d='.$pid;
+	header($url);
 }
 
 function addimages($conn,$pid) 

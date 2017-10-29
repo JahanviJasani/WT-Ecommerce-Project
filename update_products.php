@@ -176,6 +176,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <?php
 include('header.php');
+if (isset($_GET['search'])) {
+    $search = $_GET['search'];
+}
 ?>
 
 
@@ -223,8 +226,8 @@ _________________________________________________________ -->
 
             <div class="col-md-10">
                 <div class="box" style=" background: #555 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpi/P//PwM6YGLAAuCCmpqacC2MRGsHCDAA+fIHfeQbO8kAAAAASUVORK5CYII=);">
-                    <form class="form-wrapper class1">
-                        <input type="text" placeholder="Search here..." required />
+                    <form class="form-wrapper class1" action="update_products.php" method="GET">
+                        <input type="text" placeholder="Search here..." name="search" required />
                         <button type="submit">Search</button>
                     </form>
                 </div>
@@ -260,7 +263,11 @@ _________________________________________________________ -->
                                             <tbody>
                                                 <?php
                                                     $uid = $_SESSION['user_id'];
-                                                    $watchsql = "SELECT * FROM product WHERE product.category='watch' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    if (isset($_GET['search'])) {
+                                                        $watchsql = "SELECT * FROM product WHERE product.category='watch' AND product.name LIKE '%".$search."%' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    } else {
+                                                        $watchsql = "SELECT * FROM product WHERE product.category='watch' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    }
                                                     $watchresult = mysqli_query($conn, $watchsql);
 
                                                 while ($watchrow = mysqli_fetch_assoc($watchresult)) {
@@ -316,7 +323,11 @@ _________________________________________________________ -->
                                             <tbody>
                                                 <?php
                                                     $uid = $_SESSION['user_id'];
-                                                    $bagsql = "SELECT * FROM product WHERE product.category='bag' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    if (isset($_GET['search'])) {
+                                                        $bagsql = "SELECT * FROM product WHERE product.category='bag' AND product.name LIKE '%".$search."%' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    } else {
+                                                        $bagsql = "SELECT * FROM product WHERE product.category='bag' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    }
                                                     $bagresult = mysqli_query($conn, $bagsql);
 
                                                 while ($bagrow = mysqli_fetch_assoc($bagresult)) {
@@ -370,7 +381,11 @@ _________________________________________________________ -->
                                             <tbody>
                                                 <?php
                                                     $uid = $_SESSION['user_id'];
-                                                    $footwearsql = "SELECT * FROM product WHERE product.category='footwear' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    if (isset($_GET['search'])) {
+                                                        $footwearsql = "SELECT * FROM product WHERE product.category='footwear' AND product.name LIKE '%".$search."%' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    } else {
+                                                        $footwearsql = "SELECT * FROM product WHERE product.category='footwear' AND product.seller_id IN (SELECT seller_id FROM seller WHERE seller.user_id='$uid')";
+                                                    }
                                                     $footwearresult = mysqli_query($conn, $footwearsql);
                                                     
                                                 while ($footwearrow = mysqli_fetch_assoc($footwearresult)) {

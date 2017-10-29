@@ -591,6 +591,7 @@ include('header.php');
 					$result = mysqli_query($conn, $sql);
 					$row = mysqli_fetch_assoc($result);
 				  	if($row['category'] == 'bag') {
+				  		$size="NA";
 						$sql = "SELECT * FROM product NATURAL JOIN bags WHERE product_id != '$pid' AND bags.stock !='0' ORDER BY product_id DESC LIMIT 4";
 						$result = mysqli_query($conn, $sql);
 						$item_count = mysqli_num_rows($result);
@@ -645,7 +646,7 @@ include('header.php');
 																			<input type="hidden" name="currency_code" value="INR" />
 																			<input type="hidden" name="return" value=" " />
 																			<input type="hidden" name="cancel_return" value=" " />
-																			<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
+																			<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',\''.$size.'\');" />
 																		</fieldset>
 																	</form>
 																</div>
@@ -662,6 +663,8 @@ include('header.php');
 						$sql = "SELECT DISTINCT product_id,name,price,discount,brand FROM product NATURAL JOIN footwear NATURAL JOIN footwear_size WHERE product_id != '$pid' AND footwear_size.stock !='0' ORDER BY product_id DESC LIMIT 4";
 						$result = mysqli_query($conn, $sql);
 						$item_count = mysqli_num_rows($result);
+
+						$opid = $_GET['pid'];
 
 						if ($item_count==0) {
 							echo "<p style='text-align: center;'><b>No products to display</b></p>";
@@ -701,19 +704,12 @@ include('header.php');
 														}
 														echo'
 												<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-																	<form action="#" method="GET">
+																	<form action="functions.php" method="POST">
 																		<fieldset>
 																			<input type="hidden" name="cmd" value="_cart" />
-																			<input type="hidden" name="add" value="1" />
-																			<input type="hidden" name="business" value=" " />
-																			<input type="hidden" name="item_name" value="'.$row['brand'].' '.$row['name'].'" />
-																			<input type="hidden" name="product_id" value="'.$row['product_id'].'" />
-																			<input type="hidden" name="amount" value="'.$row['price'].'" />
-																			<input type="hidden" name="discount_amount" value="0.00" />
-																			<input type="hidden" name="currency_code" value="INR" />
-																			<input type="hidden" name="return" value=" " />
-																			<input type="hidden" name="cancel_return" value=" " />
-																			<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
+																			<input type="hidden" name="pid" value="'.$pid.'">
+																			<input type="hidden" name="opid" value="'.$opid.'">
+																			<input type="submit" name="add_to_cart_single" value="Add to cart" class="button" />
 																		</fieldset>
 																	</form>
 																</div>
@@ -728,6 +724,7 @@ include('header.php');
 						} 
 
 					}elseif($row['category'] == 'watch') {
+						$size="NA";
 						$sql = "SELECT * FROM product NATURAL JOIN watches WHERE product.product_id!=$pid AND watches.stock !='0' ORDER BY product_id DESC LIMIT 4";
 						$result = mysqli_query($conn, $sql);
 						$item_count = mysqli_num_rows($result);
@@ -781,7 +778,7 @@ include('header.php');
 																			<input type="hidden" name="currency_code" value="INR" />
 																			<input type="hidden" name="return" value=" " />
 																			<input type="hidden" name="cancel_return" value=" " />
-																			<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
+																			<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',\''.$size.'\');" />
 																		</fieldset>
 																	</form>
 																</div>
@@ -805,48 +802,47 @@ include('header.php');
 <!--//single_page-->
 <!--/grids-->
 <div class="coupons">
-		<div class="coupons-grids text-center">
-			<div class="w3layouts_mail_grid">
-				<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-truck" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>FREE SHIPPING</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
+	<div class="coupons-grids text-center">
+		<div class="w3layouts_mail_grid">
+			<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-truck" aria-hidden="true"></i>
 				</div>
-				<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-headphones" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>24/7 SUPPORT</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>FREE SHIPPING</h3>
+					<p>Fast and quick delivery at your doorstep.</p>
 				</div>
-				<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-shopping-bag" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>MONEY BACK GUARANTEE</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
-				</div>
-					<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-gift" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>FREE GIFT COUPONS</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
 			</div>
-
+			<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-headphones" aria-hidden="true"></i>
+				</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>24/7 SUPPORT</h3>
+					<p>Always there to lend a hand.</p>
+				</div>
+			</div>
+			<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-shopping-bag" aria-hidden="true"></i>
+				</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>MONEY BACK GUARANTEE</h3>
+					<p>Complete peace of mind. And wallet.</p>
+				</div>
+			</div>
+				<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-gift" aria-hidden="true"></i>
+				</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>FREE GIFT COUPONS</h3>
+					<p>Shop more to save more. Doesn't get better.</p>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
 		</div>
+	</div>
 </div>
 <!--grids-->
 <?php
@@ -1105,5 +1101,12 @@ if (isset($_GET['getsellerpage'])) {
         $("#myModal9").modal("show");
     });
     </script>';
+}
+if (isset($_GET['q7wgrzp84d'])) {
+	echo '<script>
+	$(window).load(function(){
+        $("#myModal11").modal("show");
+    });
+	</script>';
 }
 ?>
