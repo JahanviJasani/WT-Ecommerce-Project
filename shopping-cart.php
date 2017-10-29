@@ -48,7 +48,7 @@ include('header.php');
             <label class="sc-product-price">Price</label>
             <label class="sc-product-quantity">Quantity</label>
             <label class="sc-product-removal">Remove</label>
-            <label class="sc-product-line-price">Total</label>
+            <label class="sc-product-line-price">SubTotal</label>
           </div>';
   
        $count=0;
@@ -63,8 +63,8 @@ include('header.php');
         $sql_cart_product="SELECT * FROM cart WHERE cart.user_id='$uid' AND cart.product_id='$pid'";
         $sql_cart_product_result=mysqli_query($conn, $sql_cart_product);
         $sql_cart_product_result_row = mysqli_fetch_assoc($sql_cart_product_result);
-        $total = $sql_cart_product_result_row['qty']*$productrow['price'];
-        echo '<div class="sc-product">
+        $total = $sql_cart_product_result_row['qty']*$productrow['price'] - $sql_cart_product_result_row['qty']*$productrow['price']*$productrow['discount'];
+        echo '<div class="sc-product"> 
               <div class="sc-product-image">
               <img src="'.$imagerow['image_location'].'" alt="" >
               </div>

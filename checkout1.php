@@ -172,7 +172,8 @@ include('header.php');
       echo "<p style='text-align: center;'><b>No products in Cart!</b></p>";
     } else {
         $total = 0;
-        
+        $discounts=0;
+        $total_discounts=0;
       while (($row = mysqli_fetch_assoc($result))){
         $pid = $row['product_id'];
         $imagesql = "SELECT * FROM images WHERE images.product_id='$pid' AND images.image_location LIKE '%primary%'";
@@ -185,9 +186,9 @@ include('header.php');
         $sql_cart_product_result=mysqli_query($conn, $sql_cart_product);
         $sql_cart_product_result_row = mysqli_fetch_assoc($sql_cart_product_result);
         $total = $total + $sql_cart_product_result_row['qty']*$productrow['price'];
-        
+        $discounts = $discounts + $sql_cart_product_result_row['qty']*$productrow['price']*$productrow['discount'];   
     }
-
+        $total_discounts = $total_discounts + $total - $discounts;
         echo'<p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
                 <div class="table-responsive">
                     <table class="table">
@@ -204,9 +205,14 @@ include('header.php');
                         <td>Tax</td>
                         <th>₹0.00</th>
                         </tr>
+                        <tr>
+                        <td>Discounts</td>
+                        <th>₹'.$discounts.'</th>
+                        </tr>
+                        <tr>
                         <tr class="total">
                         <td>Total</td>
-                        <th>₹'.$total.'</th>
+                        <th>₹'.$total_discounts.'</th>
                         </tr>
                         </tbody>
                     </table>

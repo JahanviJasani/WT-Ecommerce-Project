@@ -106,7 +106,7 @@ _________________________________________________________ -->
                                         <th>Quantity</th>
                                         <th>Unit price</th>
                                         <th>Status</th>
-                                        <th>Sub-Total</th>
+                                        <th>Subtotal</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -128,10 +128,11 @@ _________________________________________________________ -->
                                         $sql_product = "SELECT * FROM product WHERE product_id='$pid'";
                                         $productresult = mysqli_query($conn, $sql_product);
                                         $productrow = mysqli_fetch_assoc($productresult);
+                                        $total = $productrow['price'] - $productrow['price']*$productrow['discount'];   
                                         echo '
                                         <tr>
-                                            <td>'.$row['sub_order_id'].'</td>
-                                            <td>
+                                            <td class="col-md-2">'.$row['sub_order_id'].'</td>
+                                            <td> 
                                                 <a href="single.php?pid='.$pid.'">
                                                     <img src="'.$imagerow['image_location'].'">
                                                 </a>
@@ -139,10 +140,10 @@ _________________________________________________________ -->
                                             <td><a href="single.php?pid='.$pid.'">'.$productrow['name'].'</a>
                                             </td>
                                             <td>'.$row['quantity'].'</td>
-                                            <td>₹ '.$productrow['price'].'</td>
+                                            <td class="col-md-2">₹ <del> '.$productrow['price'].'</del><br>₹ '.$total.'</td>
                                             <td><span class="label label-info">'.$row['status'].'</span>
                                             </td>
-                                            <td>₹ '.$row['subtotal'].'</td>
+                                            <td >₹'.$row['subtotal'].'</td>
                                         </tr>';
                                         }
                                     }
