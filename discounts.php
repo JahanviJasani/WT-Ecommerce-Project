@@ -126,7 +126,7 @@ include('header.php');
 			<div class="clearfix"></div>
 		</div>
 		<div class="col-md-9 products-right">
-			<h5><span>The</span> Biggest Sale</h5>
+			<h5 style="font-size: 2.5em;"><span>The</span> Biggest Sale</h5>
 			<div class="sort-grid">
 				<div class="sorting">
 					<h6>Sort By</h6>

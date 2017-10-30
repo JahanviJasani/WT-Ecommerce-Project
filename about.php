@@ -221,10 +221,10 @@ include('header.php');
 	     <h3 class="wthree_text_info">What's <span>Trending</span></h3>
 	
 		<div class="col-md-5 bb-grids bb-left-agileits-w3layouts">
-			<a href="women.php">
+			<a href="discounts.php?category=Bag&disc_range=50">
 			   <div class="bb-left-agileits-w3layouts-inner grid">
 					<figure class="effect-roxy">
-							<img src="images/bb1.jpg" alt=" " class="img-responsive" />
+							<img src="images/banner_bags_a.jpg" alt=" " class="img-responsive" />
 							<figcaption>
 								<h3><span>S</span>ale </h3>
 								<p>Upto 55%</p>
@@ -234,18 +234,21 @@ include('header.php');
 			</a>
 		</div>
 		<div class="col-md-7 bb-grids bb-middle-agileits-w3layouts">
+		<a href="discounts.php?category=Watch&disc_range=50">
 		       <div class="bb-middle-agileits-w3layouts grid">
 			           <figure class="effect-roxy">
-							<img src="images/bottom3.jpg" alt=" " class="img-responsive" />
+							<img src="images/banner_watch_a.jpg" alt=" " class="img-responsive" />
 							<figcaption>
 								<h3><span>S</span>ale </h3>
 								<p>Upto 55%</p>
 							</figcaption>			
 						</figure>
 		        </div>
+		       </a>
+		       <a href="discounts.php?category=Footwear&disc_range=50">
 		      <div class="bb-middle-agileits-w3layouts forth grid">
 						<figure class="effect-roxy">
-							<img src="images/bottom4.jpg" alt=" " class="img-responsive">
+							<img src="images/banner_foot.jpg" alt=" " class="img-responsive">
 							<figcaption>
 								<h3><span>S</span>ale </h3>
 								<p>Upto 65%</p>

@@ -357,11 +357,6 @@ label1 {
   }
 }
 /* type */
-ul,
-ol {
-  margin: 0 0 20px;
-}
-
 .text-small {
   font-size: 12px;
 }
