@@ -112,6 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	}
 	#addReview {
 		display: none;
+		margin-top: 30px;
 	}
 	#meters li {
 		list-style: none;
@@ -435,7 +436,7 @@ include('header.php');
 							</div>
 						</div>
 						<!--//tab-three-->
-						<div class="tab3">
+						<div class="tab3" id="rev_tab">
 							
 							<div class="single_page_agile_its_w3ls" style="padding-top: 0px !important;">
 								<div class="bootstrap-tab-text-grids">
@@ -445,7 +446,7 @@ include('header.php');
 									<span style="color: #000; font-weight:600;">('.$str.' out of 5 stars)</span>
 									<br>';
 									if($numprintRow['number'] == 0) {
-										echo'<a href="#addR" onclick="review_add()">Be the first to write a review</a>';
+										echo'<a id="btf" href="#addR" onclick="review_add()">Be the first to write a review</a>';
 									} else {
 										echo'<a href="reviews.php?pid='.$pid.'">See all '.$numprintRow['number'].' customer reviews <i class="fa fa-arrow-right" aria-hidden="true"></i></a>';
 									}
@@ -1035,12 +1036,18 @@ include('footer.php');
 			document.getElementById("submitFootwear").disabled = true;
 	}
 
-
-
 	function review_add() {
 		var rev = document.getElementById("addR");
 		var addrev = document.getElementById("addReview");
 		addrev.style.display="block";
+		$("ul.resp-tabs-list > li").removeClass("resp-tab-active");     
+		$("div.resp-tabs-container > h2").removeClass("resp-tab-active");     
+		$("div.resp-tabs-container > div").removeClass("resp-tab-content-active");    
+		$("div.resp-tabs-container > div").hide();
+		$('ul.resp-tabs-list > li[aria-controls="tab_item-2"]').addClass("resp-tab-active");     
+		$('div.resp-tabs-container > h2[aria-controls="tab_item-2"]').addClass("resp-tab-active");     
+		$('div.resp-tabs-container > div[aria-labelledby="tab_item-2"]').addClass("resp-tab-content-active");    
+		$('div.resp-tabs-container > div[aria-labelledby="tab_item-2"]').show();
 	}
 
 </script>
