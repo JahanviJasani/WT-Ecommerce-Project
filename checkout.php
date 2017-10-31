@@ -111,6 +111,9 @@ function checkout($conn)
 				$suborder = $suborder + 1;
 			}
 		}
+		$message = urlencode("Your order for ".$productrow['name']." has been received and is under Processing. You shall recieve an alert once it is shipped. Team EliteShoppy.");
+		$url = "https://control.msg91.com/api/sendhttp.php?authkey=132727AshR9z6QU9Dg58416307&mobiles=".$mobile."&message=".$message."&sender=ELTSPY&route=4";
+		file_get_contents($url);
 		header("Location: customer_orders.php"); /* Redirect browser */
 		exit();
 	}

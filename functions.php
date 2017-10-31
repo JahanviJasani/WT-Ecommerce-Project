@@ -215,6 +215,9 @@ function profileupdate($conn) {
         $sql = "SELECT * FROM users WHERE users.user_id='$user'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
+        $message = urlencode("Your profile has been updated. Team EliteShoppy.");
+		$url = "https://control.msg91.com/api/sendhttp.php?authkey=132727AshR9z6QU9Dg58416307&mobiles=".$mobile."&message=".$message."&sender=ELTSPY&route=4";
+		file_get_contents($url);
         if($row['user_type']==1){
         	$accno=mysqli_real_escape_string($conn, $_POST['accountnumber']);
 			$bankname=mysqli_real_escape_string($conn, $_POST['bankname']);
@@ -245,12 +248,17 @@ function changepassword($conn) {
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result);
 		$hashedPwdCheck = password_verify($password_old, $row['password']);
+
 		if($hashedPwdCheck==true)
 		{
 			$password=mysqli_real_escape_string($conn, password_hash($password1, PASSWORD_DEFAULT));
 			$sql = "UPDATE users SET password='$password' WHERE users.user_id='$user'";
 			$result = mysqli_query($conn, $sql);	
 			if($result){
+				$mobile = $row['mobile'];
+				$message = urlencode("Your password has been successfully changed. Team EliteShoppy.");
+				$url = "https://control.msg91.com/api/sendhttp.php?authkey=132727AshR9z6QU9Dg58416307&mobiles=".$mobile."&message=".$message."&sender=ELTSPY&route=4";
+				file_get_contents($url);
 				if($row['user_type']==1)
 				{
 					header("Location: seller_account.php"); /* Redirect browser */

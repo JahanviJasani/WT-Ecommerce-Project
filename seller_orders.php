@@ -149,7 +149,12 @@ _________________________________________________________ -->
                                                     <tr>    
                                                         <th>'.$row['order_id'].' #'.$row['sub_order_id'].'</th>
                                                         <td>'.$order_sql_row['date'].'</td>
-                                                        <td>'.$row['name'].'</td>
+                                                        <td>'.$row['name'].' ';
+                                                        if($row['size'])
+                                                            echo '<br>Size: '.$row['size'].'';
+
+                                                        echo'
+                                                        </td>
                                                         <td>
                                                         <p style="letter-spacing:0; font-size: 1em;">'.$order_sql_row['name'].'
                                                         <br>'.$order_sql_row['address'].'
@@ -158,7 +163,7 @@ _________________________________________________________ -->
                                                         <br>Mobile - '.$order_sql_row['mobile'].'
                                                         </p>
                                                         </td>
-                                                        <td>'.$row['subtotal'].'</td>'
+                                                        <td>₹'.$row['subtotal'].'</td>'
                                                         ; 
                                                         $payment = strtoupper($order_sql_row['payment_method']);
                                                         echo'
@@ -491,6 +496,7 @@ include('footer.php');
     function change_order_status(order_id,sub_order_id,order_status)
     {        
         var xhttp = new XMLHttpRequest();
+        //xhttp.onreadystatechange = function() {
         xhttp.open("POST", "change_order_status.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("order_id="+order_id+"&sub_order_id="+sub_order_id+"&order_status="+order_status);

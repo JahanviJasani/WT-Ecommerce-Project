@@ -117,12 +117,17 @@ include('header.php');
                                     <div class="col-sm-6">
                                         <div class="sc-product-title"><a href="single.php?pid='.$pid.'">'.$productrow['brand'].'</a></div>
                                         
-                                        <p><span style="font-family:Arial;"></span>'.$productrow['name'].'</p>
-
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <p><span style="font-family:Arial;">&#8377;</span><del> '.$productrow['price'].'</del><br>₹ '.$total.'</p>
-                                    </div>
+                                        <p><span style="font-family:Arial;"></span>'.$productrow['name'].'</p>';
+                                        if($productrow['category']=='footwear')
+                                            echo 'Size: '.$sql_cart_product_result_row['size'].'';
+                                    echo
+                                    '</div>  
+                                    <div class="col-sm-2">';
+                                        if($productrow['discount'])
+                                        echo '<p><span style="font-family:Arial;">&#8377;</span><del> '.$productrow['price'].'</del><br>₹ '.$total.'</p>';
+                                        else
+                                            echo '<p><span style="font-family:Arial;"></span>₹ '.$total.'</p>';
+                                    echo '</div>
                                     <div class="col-sm-2">
                                         <p><span style="font-family:Arial;"></span>'.$sql_cart_product_result_row['qty'].'</p>
                                     </div>
