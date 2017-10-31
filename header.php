@@ -27,7 +27,7 @@
 		    	$userRow=mysqli_fetch_assoc($user);
 	            if ($_SESSION['user_type']==0) {
 	            	echo " 
-	            	<li><i class='fa fa-user-circle-o' aria-hidden='true'></i><a href='customer_orders.php'>Welcome, ".$_SESSION['user_name']."</a></li>
+	            	<li><i class='fa fa-user-circle-o' aria-hidden='true'></i><a href='customer_orders.php'> Welcome, ".$_SESSION['user_name']."</a></li>
 	            	<li><i class='fa fa-user-circle-o' aria-hidden='true'></i><a href='customer_orders.php'> ".$userRow['first_name']."'s Shoppy</a></li>";
 	            } elseif ($_SESSION['user_type']==1) {
 	            	echo " <li><i class='fa fa-user-circle-o' aria-hidden='true'></i><a href='seller_orders.php'>  ".$userRow['first_name']."'s Shoppy</a></li>";

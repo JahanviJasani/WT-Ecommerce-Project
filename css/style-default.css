@@ -357,11 +357,6 @@ label1 {
   }
 }
 /* type */
-ul,
-ol {
-  margin: 0 0 20px;
-}
-
 .text-small {
   font-size: 12px;
 }
@@ -439,7 +434,7 @@ a.bg-primary:hover {
 /* Apply clearfix in a few places */
 /* Apply dollar signs */
 .sc-product .sc-product-price:before, .sc-product .sc-product-line-price:before, .totals-value:before {
-  
+  content: '₹'; 
  }
 .sc-product-price del:before {
   content: '₹';

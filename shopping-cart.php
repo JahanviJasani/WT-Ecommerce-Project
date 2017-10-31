@@ -125,7 +125,9 @@ include('header.php');
               echo'</div>';
               if($productrow['discount'] != NULL) {
                 $new_price=$productrow['price'] - ($productrow['discount']*$productrow['price']);
-                echo'<div class="sc-product-price"><del> '.$productrow['price'].'</del><br>₹ '.$new_price.'</div>';
+                echo'<div class="sc-product-price">'.$new_price.'
+                <br><del> '.$productrow['price'].'</del>
+                </div>';
               }
                 else {
                     echo'<div class="sc-product-price">'.$productrow['price'].'</div>';

@@ -81,10 +81,10 @@ function addURL(category,type,id) {
         anchor.href="mens_watches.php?category="+category+"&type="+type;
     }
     if (id=="discountedfootwear" || id=="discountedbags" || id=="discountedwatches") {
-        anchor.href="discounts.php?category="+category+"&disc_range=10";
+        anchor.href="discounts.php?category="+category+"&disc_range=50";
     }
     if (id=="discountedall") {
-        anchor.href="discounts.php?disc_range=10";
+        anchor.href="discounts.php?disc_range=50";
     }
 }
 
@@ -266,7 +266,7 @@ function change_showing(id) {
 function showSellerPageModal() {
     var currUrl = window.location.href;
     if (currUrl.indexOf('?')>(-1)) {
-        window.location=currUrl+"&sellerpage=true";
+        window.location=currUrl+"&getsellerpage=true";
     } else {
         window.location=currUrl+"?getsellerpage=true";
     }

@@ -112,6 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	}
 	#addReview {
 		display: none;
+		margin-top: 30px;
 	}
 	#meters li {
 		list-style: none;
@@ -363,11 +364,11 @@ include('header.php');
 								</fieldset>
 							</form>											
 					</div>
-					<div class="snipcart-details top_brand_home_details hvr-outline-out" style="margin: -0.2em 2em 1em;">
+					<!--<div class="snipcart-details top_brand_home_details hvr-outline-out" style="margin: -0.2em 2em 1em;">
 							<form action="checkout1.php" method="post">
 									<input type="submit" value="Buy Now" id="bn" class="button" disabled>
 							</form>											
-					</div>
+					</div>-->
                 </div>
             	</div>
 				</div>
@@ -435,7 +436,7 @@ include('header.php');
 							</div>
 						</div>
 						<!--//tab-three-->
-						<div class="tab3">
+						<div class="tab3" id="rev_tab">
 							
 							<div class="single_page_agile_its_w3ls" style="padding-top: 0px !important;">
 								<div class="bootstrap-tab-text-grids">
@@ -445,7 +446,7 @@ include('header.php');
 									<span style="color: #000; font-weight:600;">('.$str.' out of 5 stars)</span>
 									<br>';
 									if($numprintRow['number'] == 0) {
-										echo'<a href="#addR" onclick="review_add()">Be the first to write a review</a>';
+										echo'<a id="btf" href="#addR" onclick="review_add()">Be the first to write a review</a>';
 									} else {
 										echo'<a href="reviews.php?pid='.$pid.'">See all '.$numprintRow['number'].' customer reviews <i class="fa fa-arrow-right" aria-hidden="true"></i></a>';
 									}
@@ -591,6 +592,7 @@ include('header.php');
 					$result = mysqli_query($conn, $sql);
 					$row = mysqli_fetch_assoc($result);
 				  	if($row['category'] == 'bag') {
+				  		$size="NA";
 						$sql = "SELECT * FROM product NATURAL JOIN bags WHERE product_id != '$pid' AND bags.stock !='0' ORDER BY product_id DESC LIMIT 4";
 						$result = mysqli_query($conn, $sql);
 						$item_count = mysqli_num_rows($result);
@@ -645,7 +647,7 @@ include('header.php');
 																			<input type="hidden" name="currency_code" value="INR" />
 																			<input type="hidden" name="return" value=" " />
 																			<input type="hidden" name="cancel_return" value=" " />
-																			<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
+																			<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',\''.$size.'\');" />
 																		</fieldset>
 																	</form>
 																</div>
@@ -662,6 +664,8 @@ include('header.php');
 						$sql = "SELECT DISTINCT product_id,name,price,discount,brand FROM product NATURAL JOIN footwear NATURAL JOIN footwear_size WHERE product_id != '$pid' AND footwear_size.stock !='0' ORDER BY product_id DESC LIMIT 4";
 						$result = mysqli_query($conn, $sql);
 						$item_count = mysqli_num_rows($result);
+
+						$opid = $_GET['pid'];
 
 						if ($item_count==0) {
 							echo "<p style='text-align: center;'><b>No products to display</b></p>";
@@ -701,19 +705,12 @@ include('header.php');
 														}
 														echo'
 												<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-																	<form action="#" method="GET">
+																	<form action="functions.php" method="POST">
 																		<fieldset>
 																			<input type="hidden" name="cmd" value="_cart" />
-																			<input type="hidden" name="add" value="1" />
-																			<input type="hidden" name="business" value=" " />
-																			<input type="hidden" name="item_name" value="'.$row['brand'].' '.$row['name'].'" />
-																			<input type="hidden" name="product_id" value="'.$row['product_id'].'" />
-																			<input type="hidden" name="amount" value="'.$row['price'].'" />
-																			<input type="hidden" name="discount_amount" value="0.00" />
-																			<input type="hidden" name="currency_code" value="INR" />
-																			<input type="hidden" name="return" value=" " />
-																			<input type="hidden" name="cancel_return" value=" " />
-																			<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
+																			<input type="hidden" name="pid" value="'.$pid.'">
+																			<input type="hidden" name="opid" value="'.$opid.'">
+																			<input type="submit" name="add_to_cart_single" value="Add to cart" class="button" />
 																		</fieldset>
 																	</form>
 																</div>
@@ -728,6 +725,7 @@ include('header.php');
 						} 
 
 					}elseif($row['category'] == 'watch') {
+						$size="NA";
 						$sql = "SELECT * FROM product NATURAL JOIN watches WHERE product.product_id!=$pid AND watches.stock !='0' ORDER BY product_id DESC LIMIT 4";
 						$result = mysqli_query($conn, $sql);
 						$item_count = mysqli_num_rows($result);
@@ -781,7 +779,7 @@ include('header.php');
 																			<input type="hidden" name="currency_code" value="INR" />
 																			<input type="hidden" name="return" value=" " />
 																			<input type="hidden" name="cancel_return" value=" " />
-																			<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\');" />
+																			<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',\''.$size.'\');" />
 																		</fieldset>
 																	</form>
 																</div>
@@ -805,48 +803,47 @@ include('header.php');
 <!--//single_page-->
 <!--/grids-->
 <div class="coupons">
-		<div class="coupons-grids text-center">
-			<div class="w3layouts_mail_grid">
-				<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-truck" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>FREE SHIPPING</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
+	<div class="coupons-grids text-center">
+		<div class="w3layouts_mail_grid">
+			<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-truck" aria-hidden="true"></i>
 				</div>
-				<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-headphones" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>24/7 SUPPORT</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>FREE SHIPPING</h3>
+					<p>Fast and quick delivery at your doorstep.</p>
 				</div>
-				<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-shopping-bag" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>MONEY BACK GUARANTEE</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
-				</div>
-					<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-gift" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>FREE GIFT COUPONS</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
 			</div>
-
+			<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-headphones" aria-hidden="true"></i>
+				</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>24/7 SUPPORT</h3>
+					<p>Always there to lend a hand.</p>
+				</div>
+			</div>
+			<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-shopping-bag" aria-hidden="true"></i>
+				</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>MONEY BACK GUARANTEE</h3>
+					<p>Complete peace of mind. And wallet.</p>
+				</div>
+			</div>
+				<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-gift" aria-hidden="true"></i>
+				</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>FREE GIFT COUPONS</h3>
+					<p>Shop more to save more. Doesn't get better.</p>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
 		</div>
+	</div>
 </div>
 <!--grids-->
 <?php
@@ -1039,12 +1036,18 @@ include('footer.php');
 			document.getElementById("submitFootwear").disabled = true;
 	}
 
-
-
 	function review_add() {
 		var rev = document.getElementById("addR");
 		var addrev = document.getElementById("addReview");
 		addrev.style.display="block";
+		$("ul.resp-tabs-list > li").removeClass("resp-tab-active");     
+		$("div.resp-tabs-container > h2").removeClass("resp-tab-active");     
+		$("div.resp-tabs-container > div").removeClass("resp-tab-content-active");    
+		$("div.resp-tabs-container > div").hide();
+		$('ul.resp-tabs-list > li[aria-controls="tab_item-2"]').addClass("resp-tab-active");     
+		$('div.resp-tabs-container > h2[aria-controls="tab_item-2"]').addClass("resp-tab-active");     
+		$('div.resp-tabs-container > div[aria-labelledby="tab_item-2"]').addClass("resp-tab-content-active");    
+		$('div.resp-tabs-container > div[aria-labelledby="tab_item-2"]').show();
 	}
 
 </script>
@@ -1105,5 +1108,12 @@ if (isset($_GET['getsellerpage'])) {
         $("#myModal9").modal("show");
     });
     </script>';
+}
+if (isset($_GET['q7wgrzp84d'])) {
+	echo '<script>
+	$(window).load(function(){
+        $("#myModal11").modal("show");
+    });
+	</script>';
 }
 ?>

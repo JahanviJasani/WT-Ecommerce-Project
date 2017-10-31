@@ -67,13 +67,22 @@ include('header.php');
 			<div class="item item3"> 
 				<div class="container">
 					<div class="carousel-caption">
+						<h3>Sale on <span>Bags</span></h3>
+						<p>Buy trendy bags at lowest prices</p>
+						<a class="hvr-outline-out button2" href="discounts.php?category=Bag&disc_range=50">Shop Now </a>
+					</div>
+				</div>
+			</div> 
+			<div class="item item4"> 
+				<div class="container">
+					<div class="carousel-caption">
 						<h3>Sale on <span>Footwear</span></h3>
 						<p>Latest trends at lowest prices</p>
 						<a class="hvr-outline-out button2" href="discounts.php?category=Footwear&disc_range=50">Shop Now </a>
 					</div>
 				</div>
 			</div>
-			<div class="item item4"> 
+			<div class="item item5"> 
 				<div class="container">
 					<div class="carousel-caption">
 						<h3>Sale on <span>Watches</span></h3>
@@ -82,15 +91,6 @@ include('header.php');
 					</div>
 				</div>
 			</div>
-			<div class="item item5"> 
-				<div class="container">
-					<div class="carousel-caption">
-						<h3>Sale on <span>Bags</span></h3>
-						<p>Buy trendy bags at lowest prices</p>
-						<a class="hvr-outline-out button2" href="discounts.php?category=Bag&disc_range=50">Shop Now </a>
-					</div>
-				</div>
-			</div> 
 		</div>
 		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
 			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -109,10 +109,10 @@ include('header.php');
 		<h3 class="wthree_text_info">What's <span>Trending</span></h3>
 	
 		<div class="col-md-5 bb-grids bb-left-agileits-w3layouts">
-			<a href="womens.php">
+			<a href="discounts.php?category=Bag&disc_range=50">
 			   <div class="bb-left-agileits-w3layouts-inner grid">
 					<figure class="effect-roxy">
-							<img src="images/bb1.jpg" alt=" " class="img-responsive" />
+							<img src="images/banner_bags.jpg" alt=" " class="img-responsive" />
 							<figcaption>
 								<h3><span>S</span>ale </h3>
 								<p>Upto 55%</p>
@@ -122,10 +122,10 @@ include('header.php');
 			</a>
 		</div>
 		<div class="col-md-7 bb-grids bb-middle-agileits-w3layouts">
-		      <a href="mens.php">
+		      <a href="discounts.php?category=Watch&disc_range=50">
 		       <div class="bb-middle-agileits-w3layouts grid">
 			           <figure class="effect-roxy">
-							<img src="images/bottom3.jpg" alt=" " class="img-responsive" />
+							<img src="images/banner_watch.jpg" alt=" " class="img-responsive" />
 							<figcaption>
 								<h3><span>S</span>ale </h3>
 								<p>Upto 55%</p>
@@ -133,7 +133,7 @@ include('header.php');
 						</figure>
 		        </div>
 				</a>
-				<a href="mens.php">
+				<a href="discounts.php?category=Footwear&disc_range=50">
 		      <div class="bb-middle-agileits-w3layouts forth grid">
 						<figure class="effect-roxy">
 							<img src="images/bottom4.jpg" alt=" " class="img-responsive">
@@ -905,54 +905,53 @@ include('header.php');
 			<div class="container">
 				<h6>We Offer Flat <span>40%</span> Discount</h6>
  
-				<a class="hvr-outline-out button2" href="single.php">Shop Now </a>
+				<a class="hvr-outline-out button2" href="discounts.php?disc_range=40">Shop Now </a>
 			</div>
 		</div>
 	<!-- //we-offer -->
 <!--/grids-->
 <div class="coupons">
-		<div class="coupons-grids text-center">
-			<div class="w3layouts_mail_grid">
-				<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-truck" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>FREE SHIPPING</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
+	<div class="coupons-grids text-center">
+		<div class="w3layouts_mail_grid">
+			<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-truck" aria-hidden="true"></i>
 				</div>
-				<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-headphones" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>24/7 SUPPORT</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>FREE SHIPPING</h3>
+					<p>Fast and quick delivery at your doorstep.</p>
 				</div>
-				<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-shopping-bag" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>MONEY BACK GUARANTEE</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
-				</div>
-					<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-gift" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>FREE GIFT COUPONS</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
 			</div>
-
+			<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-headphones" aria-hidden="true"></i>
+				</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>24/7 SUPPORT</h3>
+					<p>Always there to lend a hand.</p>
+				</div>
+			</div>
+			<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-shopping-bag" aria-hidden="true"></i>
+				</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>MONEY BACK GUARANTEE</h3>
+					<p>Complete peace of mind. And wallet.</p>
+				</div>
+			</div>
+				<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-gift" aria-hidden="true"></i>
+				</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>FREE GIFT COUPONS</h3>
+					<p>Shop more to save more. Doesn't get better.</p>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
 		</div>
+	</div>
 </div>
 <!--grids-->
 
