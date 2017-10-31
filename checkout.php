@@ -104,7 +104,7 @@ function checkout($conn)
 				$sql_update = "UPDATE footwear_size SET stock='$stock' WHERE footwear_id='$footwear_id ' AND footwear_size='$size'";
 				$result_update = mysqli_query($conn,$sql_update);
 				$sub_total = (int)$qty*(int)$productrow['price']-(int)$qty*(int)$productrow['price']*$productrow['discount'];
-				$sql_suborder = "INSERT INTO sub_order (order_id, product_id, sub_order_id, status, quantity, subtotal) VALUES ('$order_id', '$pid', '$suborder','Processing','$qty','$sub_total')";
+				$sql_suborder = "INSERT INTO sub_order (order_id, product_id, sub_order_id, status, quantity, subtotal, size) VALUES ('$order_id', '$pid', '$suborder','Processing','$qty', '$sub_total', '$size')";
 				$suborder_result = mysqli_query($conn, $sql_suborder);
 				$sql_delete = "DELETE FROM cart WHERE user_id='$user' AND product_id='$pid' AND size='$size'";
 				$delete_result = mysqli_query($conn,$sql_delete);

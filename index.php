@@ -274,7 +274,7 @@ include('header.php');
 															$new_price=$row['price'] - ($row['discount']*$row['price']);
 															echo'<div class="info-product-price">
 																<span class="item_price">&#8377;'.$new_price.'</span>
-																<del>'.$row['price'].'</del>
+																<del>₹ '.$row['price'].'</del>
 																</div>';
 														}
 														else {
@@ -355,7 +355,7 @@ include('header.php');
 															$new_price=$row['price'] - ($row['discount']*$row['price']);
 															echo'<div class="info-product-price">
 																<span class="item_price">&#8377;'.$new_price.'</span>
-																<del>'.$row['price'].'</del>
+																<del>₹ '.$row['price'].'</del>
 																</div>';
 														}
 														else {
@@ -426,7 +426,7 @@ include('header.php');
 															$new_price=$row['price'] - ($row['discount']*$row['price']);
 															echo'<div class="info-product-price">
 																<span class="item_price">&#8377;'.$new_price.'</span>
-																<del>'.$row['price'].'</del>
+																<del>₹ '.$row['price'].'</del>
 																</div>';
 														}
 														else {
@@ -506,7 +506,7 @@ include('header.php');
 															$new_price=$row['price'] - ($row['discount']*$row['price']);
 															echo'<div class="info-product-price">
 																<span class="item_price">&#8377;'.$new_price.'</span>
-																<del>'.$row['price'].'</del>
+																<del>₹ '.$row['price'].'</del>
 																</div>';
 														}
 														else {

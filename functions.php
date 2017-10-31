@@ -54,7 +54,10 @@ if (isset($_POST['signup_submit'])) {
 	getFootwearSizes3($conn);
 } elseif (isset($_POST['add_to_cart_discount'])) {
 	getFootwearSizes4($conn);
+} elseif (isset($_POST['cancel_order']))  {
+	cancel_order($conn);
 }
+
 function usersignup($conn) {
 	if (isset($_POST['signup_submit'])) {
 		
@@ -956,3 +959,71 @@ function updatefoot($conn) {
 		header('Location: update_products.php?update_product=true&update_fail=true&product_id='.$product_id);
 	}
 }
+
+
+
+function cancel_order($conn)
+{
+	$order_id=mysqli_real_escape_string($conn, $_POST['order_id']);
+	$sub_order_id = mysqli_real_escape_string($conn, $_POST['sub_order_id']);
+	$sql_1 = "SELECT * FROM sub_order WHERE order_id='$order_id' AND sub_order_id='$sub_order_id'";
+	$result_1 = mysqli_query($conn,$sql_1);
+	$row_1 = mysqli_fetch_assoc($result_1);
+	$pid = $row_1['product_id'];
+	$sql_product = "SELECT * FROM product WHERE product_id='$pid'";
+	$productresult = mysqli_query($conn, $sql_product);
+	$productrow = mysqli_fetch_assoc($productresult);
+	$category = $productrow['category'];
+	$qty = $row_1['quantity'];
+	if($category=='bag')
+	{
+		$sql_bag = "SELECT * FROM bags WHERE product_id='$pid'";
+		$result_bag = mysqli_query($conn,$sql_bag);
+		$row_bag = mysqli_fetch_assoc($result_bag);
+		$stock = $row_bag['stock'] + $qty;
+		$sql_update = "UPDATE bags SET stock='$stock' WHERE product_id='$pid'";
+		$result_update = mysqli_query($conn,$sql_update);
+	}
+	else if($category=='watch')
+	{
+		$sql_watch = "SELECT * FROM watches WHERE product_id='$pid'";
+		$result_watch = mysqli_query($conn,$sql_watch);
+		$row_watch = mysqli_fetch_assoc($result_watch);
+		$stock = $row_watch['stock'] + $qty;
+		$sql_update = "UPDATE watches SET stock='$stock' WHERE product_id='$pid'";
+		$result_update = mysqli_query($conn,$sql_update);
+	}
+	else if($category=='footwear')
+	{
+		$sql_footwear = "SELECT * FROM footwear WHERE product_id='$pid'";
+		$result_footwear = mysqli_query($conn,$sql_footwear);
+		$row_footwear = mysqli_fetch_assoc($result_footwear);
+		$footwear_id = $row_footwear['footwear_id'];
+		$size = $row_1['size'];
+		$footwear_size_sql = "SELECT * FROM footwear_size WHERE footwear_id='$footwear_id' AND footwear_size='$size'";
+		$footwear_size_sql_result = mysqli_query($conn,$footwear_size_sql);
+		echo mysqli_error($conn);
+		$footwear_size_sql_row = mysqli_fetch_assoc($footwear_size_sql_result);
+		$stock = $footwear_size_sql_row['stock'] + $qty;
+		$sql_update = "UPDATE footwear_size SET stock='$stock' WHERE footwear_id='$footwear_id ' AND footwear_size='$size'";
+		$result_update = mysqli_query($conn,$sql_update);
+	}
+	$suborder_sql = "UPDATE sub_order SET status='Cancelled' WHERE order_id='$order_id' AND sub_order_id='$sub_order_id'";
+	$suborder_result = mysqli_query($conn,$suborder_sql);
+	/*header('Location: customer_order.php');
+	exit();
+	$url = 'http://localhost:8080/EliteShoppy/customer_order.php';
+	$myvars = 'order_id=' . $order_id;
+
+	$ch = curl_init( $url );
+	curl_setopt( $ch, CURLOPT_POST, 1);
+	curl_setopt( $ch, CURLOPT_POSTFIELDS, $myvars);
+	curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+	curl_setopt( $ch, CURLOPT_HEADER, 0);
+	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+
+	$response = curl_exec( $ch );
+	echo $response;*/
+}
+
+?>

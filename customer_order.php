@@ -107,6 +107,7 @@ _________________________________________________________ -->
                                         <th>Unit price</th>
                                         <th>Status</th>
                                         <th>Subtotal</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -131,20 +132,35 @@ _________________________________________________________ -->
                                         $total = $productrow['price'] - $productrow['price']*$productrow['discount'];   
                                         echo '
                                         <tr>
-                                            <td class="col-md-2">'.$row['sub_order_id'].'</td>
+                                            <td class="col-md">'.$row['sub_order_id'].'</td>
                                             <td> 
                                                 <a href="single.php?pid='.$pid.'">
                                                     <img src="'.$imagerow['image_location'].'">
                                                 </a>
                                             </td>
-                                            <td><a href="single.php?pid='.$pid.'">'.$productrow['name'].'</a>
-                                            </td>
-                                            <td>'.$row['quantity'].'</td>
-                                            <td class="col-md-2">₹ <del> '.$productrow['price'].'</del><br>₹ '.$total.'</td>
-                                            <td><span class="label label-info">'.$row['status'].'</span>
+                                            <td><a href="single.php?pid='.$pid.'">'.$productrow['name'].'</a>';
+                                            if ($row['size'])
+                                                echo '<br>Size: '.$row['size'].'';
+                                            echo'</td>
+                                            <td>'.$row['quantity'].'</td>';
+                                            if($productrow['discount'])
+                                                echo '<td class="col-md-1">₹<del>'.$productrow['price'].'</del><br>₹'.$total.'</td>';  
+                                            else
+                                                echo '<td class="col-md-2">₹'.$total.'</td>';
+                                            echo '<td><span class="label label-info">'.$row['status'].'</span>
                                             </td>
                                             <td >₹'.$row['subtotal'].'</td>
-                                        </tr>';
+                                        ';
+                                        if($row['status']=='Processing')
+                                            echo '<td>
+                                                    <form action=functions.php method="POST">
+                                                        <input type="hidden" value="'.$order_id.'" name="order_id">
+                                                        <input type="hidden" value="'.$row['sub_order_id'].'" name="sub_order_id">
+                                                        <input type="button" class="btn btn-primary" value="Cancel" name="cancel_order" onclick="confirmCancel(\''.$order_id.'\',\''.$row['sub_order_id'].'\');"> 
+                                                    </form>
+                                                </td></tr>';
+                                        else
+                                            echo '<td> <input type="button" class="btn btn-submit" value="Cancel" disabled="disabled"> </td></tr>';
                                         }
                                     }
                                     ?>
@@ -257,6 +273,28 @@ include('footer.php');
     </script>
 <!-- //here ends scrolling icon -->
 <!-- for bootstrap working -->
+<script type="text/javascript">
+    function confirmCancel(order_id,sub_order_id)
+    {
+        var confirm_response = confirm("Are you sure you want to cancel this order?");
+        if(confirm_response==true) {
+            //this.form.submit();
+            var cancel_order=true;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              //document.getElementById('cart_count').innerHTML=this.responseText;
+                  window.location.reload();
+                }
+            };
+            xhttp.open("POST", "functions.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("order_id="+order_id+"&sub_order_id="+sub_order_id+"&cancel_order="+cancel_order);
+        }
+        else
+            event.preventDefault();
+    }
+</script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 </html>
