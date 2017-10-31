@@ -1035,20 +1035,13 @@ function cancel_order($conn)
 	}
 	$suborder_sql = "UPDATE sub_order SET status='Cancelled' WHERE order_id='$order_id' AND sub_order_id='$sub_order_id'";
 	$suborder_result = mysqli_query($conn,$suborder_sql);
-	/*header('Location: customer_order.php');
-	exit();
-	$url = 'http://localhost:8080/EliteShoppy/customer_order.php';
-	$myvars = 'order_id=' . $order_id;
-
-	$ch = curl_init( $url );
-	curl_setopt( $ch, CURLOPT_POST, 1);
-	curl_setopt( $ch, CURLOPT_POSTFIELDS, $myvars);
-	curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
-	curl_setopt( $ch, CURLOPT_HEADER, 0);
-	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
-
-	$response = curl_exec( $ch );
-	echo $response;*/
+	$user = "SELECT * FROM orders WHERE order_id='$order_id'";
+	$user_result= mysqli_query($conn,$user);
+	$user_row = mysqli_fetch_assoc($user_result);
+	$mobile=$user_row['mobile'];
+	$message = urlencode("Your order for ".$productrow['name']." has been Cancelled. Keep shopping with us.\nTeam EliteShoppy.");
+	$url = "https://control.msg91.com/api/sendhttp.php?authkey=132727AshR9z6QU9Dg58416307&mobiles=".$mobile."&message=".$message."&sender=ELTSPY&route=4";
+	file_get_contents($url);
 }
 
 ?>
