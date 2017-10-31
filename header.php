@@ -316,6 +316,11 @@
 								<span></span>
 							</div>
 							<div class="styled-input">
+								<input type="text" name="mobile" required="required"> 
+								<label>Mobile</label>
+								<span></span>
+							</div> 
+							<div class="styled-input">
 								<input type="email" name="Email" required=""> 
 								<label>Email</label>
 								<span></span>
@@ -348,8 +353,7 @@
 																  <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
 														</ul>
 														<div class="clearfix"></div>
-														<!-- <p><a href="#">By clicking register, I agree to your terms</a></p> -->
-														<p><a href="#" data-toggle="modal" data-target="#myModal1" > Already have an account? Sign In here</a></p>
+														<p><a href="#" data-toggle="modal" data-target="#myModal" >Already have an account? Sign In here.</a></p>
 
 						</div>
 						<div class="col-md-4 modal_body_right modal_body_right1">

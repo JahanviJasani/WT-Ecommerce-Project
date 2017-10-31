@@ -81,6 +81,8 @@ include('header.php');
     <form action="functions.php" method="POST">
       <?php $date = date('Y-m-d');?>
       <input type="hidden" name="currDate" value="<?php echo $date;?>">
+      
+      <div class="">
       <div class="form-group">
         <label for="name">First Name</label>
         <input class="form-control" type="text" name="fname" id="fname" placeholder="John" required />
@@ -89,9 +91,14 @@ include('header.php');
         <label for="name">Last Name</label>
         <input class="form-control" type="text" name="lname" id="lname" placeholder="Doe" required />
       </div>
+    </div>
       <div class="form-group">
         <label for="email">Email (This will be your username) </label>
         <input class="form-control" type="email" name="email" id="email" placeholder="john.doe@example.com" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Mobile</label>
+        <input class="form-control" type="text" name="mobile" id="mobile" placeholder="9167608794" required />
       </div>
       <div class="form-group">
         <label for="email">Bank Account Number</label>

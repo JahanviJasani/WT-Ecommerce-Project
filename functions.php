@@ -68,14 +68,18 @@ function usersignup($conn) {
 		$email=mysqli_real_escape_string($conn, $_POST['Email']);
 		$currDate=mysqli_real_escape_string($conn, $_POST['currDate']);
 		$password=mysqli_real_escape_string($conn, password_hash($_POST['password'], PASSWORD_DEFAULT));
+		$mobile = mysqli_real_escape_string($conn,$_POST['mobile']);
 		$sql="SELECT * FROM users WHERE users.email='$email'";
 		$result=mysqli_query($conn, $sql);
 		if($result) {
 			$num_row= mysqli_num_rows($result);
 			if ($num_row==0) {
-				$sql="INSERT INTO users (first_name, last_name,email,password,user_type, register_date) VALUES ('$fname','$lname','$email','$password',0,'$currDate')";
+				$sql="INSERT INTO users (first_name, last_name,email,password,user_type, register_date, mobile) VALUES ('$fname','$lname','$email','$password',0,'$currDate','$mobile')";
 				$result2 = mysqli_query($conn, $sql);
 				if ($result2) {
+					$message = urlencode("We welcome you to EliteShoppy. We hope you enjoy the shopping experience in a truly immersive way. Team EliteShoppy.");
+					$url = "https://control.msg91.com/api/sendhttp.php?authkey=132727AshR9z6QU9Dg58416307&mobiles=".$mobile."&message=".$message."&sender=ELTSPY&route=4";
+					file_get_contents($url);
 					header('Location: index.php?customer_reg=true&customer_reg_success=true');
 				} elseif (!$result2) {
 					header('Location: index.php?customer_reg=true&customer_reg_fail=true');
@@ -166,6 +170,7 @@ function register_seller($conn) {
 		$email=mysqli_real_escape_string($conn, $_POST['email']);
 		$accno=mysqli_real_escape_string($conn, $_POST['account_num']);
 		$bankname=mysqli_real_escape_string($conn, $_POST['bank']);
+		$mobile = mysqli_real_escape_string($conn,$_POST['mobile']);
 		$ifsc=mysqli_real_escape_string($conn, $_POST['ifsc']);
 		$currDate=mysqli_real_escape_string($conn, $_POST['currDate']);
 		$password=mysqli_real_escape_string($conn, password_hash($_POST['password'], PASSWORD_DEFAULT));
@@ -174,7 +179,7 @@ function register_seller($conn) {
 		if($result) {
 			$num_row= mysqli_num_rows($result);
 			if ($num_row==0) {
-				$sql="INSERT INTO users (first_name, last_name,email,password,user_type,register_date) VALUES ('$fname','$lname','$email','$password',1,'$currDate')";
+				$sql="INSERT INTO users (first_name, last_name,email,password,user_type,register_date,mobile) VALUES ('$fname','$lname','$email','$password',1,'$currDate','$mobile')";
 				$result2 = mysqli_query($conn, $sql);
 				$sql="SELECT * FROM users WHERE users.email='$email' AND users.user_type=1";
 				$result3 = mysqli_query($conn, $sql);
@@ -183,6 +188,9 @@ function register_seller($conn) {
 				$sql="INSERT INTO seller (user_id, account_num, bank_name, ifsc) VALUES ('$uid','$accno','$bankname','$ifsc')";
 				$result4 = mysqli_query($conn, $sql);
 				if ($result2 && $result4) {
+					$message = urlencode("We welcome you to EliteShoppy. We hope you enjoy the selling experience in a truly immersive way. Team EliteShoppy.");
+					$url = "https://control.msg91.com/api/sendhttp.php?authkey=132727AshR9z6QU9Dg58416307&mobiles=".$mobile."&message=".$message."&sender=ELTSPY&route=4";
+					file_get_contents($url);
 					header('Location: sellwithus.php?seller_reg=true&seller_reg_success=true');
 				} else {
 					header('Location: sellwithus.php?seller_reg=true&seller_reg_fail=true');
