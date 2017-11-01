@@ -1,5 +1,6 @@
 <?php
 include('functions.php');
+error_reporting(0);
 $url=$_GET['seller'];
 $sidSQL = "SELECT seller_id FROM sellerpage WHERE sellerpage.seller_url='$url'";
 $sidResult = mysqli_query($conn, $sidSQL);

@@ -1,6 +1,8 @@
 <?php
 include('functions.php');
-?><!DOCTYPE html>
+error_reporting(0);
+?>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>

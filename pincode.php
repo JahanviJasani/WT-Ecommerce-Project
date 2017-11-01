@@ -1,6 +1,6 @@
 <?php 
 echo pincode_api();
-
+error_reporting(0);
 function pincode_api(){	
  		$pincode = $_POST['pincode'];
  		$url = 'http://postalpincode.in/api/pincode/';

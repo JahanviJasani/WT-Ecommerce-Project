@@ -1,5 +1,6 @@
 <?php
 include('functions.php');
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -395,8 +396,13 @@ include('header.php');
 																						<input type="hidden" name="return" value=" " />
 																						<input type="hidden" name="cancel_return" value=" " />
 																						<input type="hidden" name="type" value="'.$type.'" />
-																						<input type="hidden" name="pid" value="'.$pid.'" />
-																						<input type="submit" name="add_to_cart_footwear_category_womens" value="Add to cart" class="button" />
+																						<input type="hidden" name="pid" value="'.$pid.'" />';
+																						if (isset($_SESSION['user_id'])) {
+																							echo '<input type="submit" name="add_to_cart_footwear_category_womens" value="Add to cart" class="button" />';
+																						} else {
+																							echo '<input type="button" name="submit" value="Add to cart" class="button" data-toggle="modal" data-target="#myModal2"/>';
+																						}
+																						echo '
 																					</fieldset>
 																				</form>
 																			</div>

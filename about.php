@@ -1,5 +1,6 @@
 <?php
 include('functions.php');
+error_reporting(0);
 ?><!--
 Author: W3layouts
 Author URL: http://w3layouts.com

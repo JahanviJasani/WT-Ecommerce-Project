@@ -1,5 +1,6 @@
 <?php
 include('functions.php');
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -328,8 +329,13 @@ if (!isset($_GET['category'])) {
 																						<input type="hidden" name="discount_amount" value="0.00" />
 																						<input type="hidden" name="currency_code" value="INR" />
 																						<input type="hidden" name="return" value=" " />
-																						<input type="hidden" name="cancel_return" value=" " />
-																						<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',\''.$size.'\');" />
+																						<input type="hidden" name="cancel_return" value=" " />';
+																						if (isset($_SESSION['user_id'])) {
+																							echo '<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',\''.$size.'\');" />';
+																						} else {
+																							echo '<input type="button" name="submit" value="Add to cart" class="button" data-toggle="modal" data-target="#myModal2"/>';
+																						}
+																						echo '
 																					</fieldset>
 																				</form>
 																			</div>

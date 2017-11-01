@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 //phpinfo();
 $dbServername = "sehatjaanch.com:3306";
 $dbUsername = "EliteShoppy";

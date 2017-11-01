@@ -1,5 +1,6 @@
 <?php
 include('functions.php');
+error_reporting(0);
 if ((!isset($_GET['disc_range'])) && (isset($_GET['category']))) {
 	header('Location: discounts.php?category='.$_GET['category'].'&disc_range=50');
 } elseif (!isset($_GET['disc_range'])) {
@@ -269,9 +270,13 @@ include('header.php');
 																		<input type="hidden" name="amount" value="'.$row1['price'].'" />
 																		<input type="hidden" name="category" value="'.$category.'">
 																		<input type="hidden" name="disc" value="'.$disc_range.'">
-																		<input type="hidden" name="pid" value="'.$pid.'" />
-																		<input type="submit" name="add_to_cart_discount" value="Add to cart" class="button" />
-																	
+																		<input type="hidden" name="pid" value="'.$pid.'" />';
+																		if (isset($_SESSION['user_id'])) {
+																			echo '<input type="submit" name="add_to_cart_discount" value="Add to cart" class="button" />';
+																		} else {
+																			echo '<input type="button" name="submit" value="Add to cart" class="button" data-toggle="modal" data-target="#myModal2"/>';
+																		}
+																	echo '
 																</form>
 															</div>';
 														} else {
@@ -289,8 +294,13 @@ include('header.php');
 																		<input type="hidden" name="discount_amount" value="0.00" />
 																		<input type="hidden" name="currency_code" value="INR" />
 																		<input type="hidden" name="return" value=" " />
-																		<input type="hidden" name="cancel_return" value=" " />
-																		<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',\''.$size.'\');" />
+																		<input type="hidden" name="cancel_return" value=" " />';
+																		if (isset($_SESSION['user_id'])) {
+																							echo '<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',\''.$size.'\');" />';
+																						} else {
+																							echo '<input type="button" name="submit" value="Add to cart" class="button" data-toggle="modal" data-target="#myModal2"/>';
+																						}
+																						echo '
 																	</fieldset>
 																</form>
 															</div>';

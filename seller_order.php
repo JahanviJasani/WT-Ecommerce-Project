@@ -1,6 +1,6 @@
 <?php
-
 include('functions.php');
+error_reporting(0);
 if (!(isset($_SESSION['user_id']) && $_SESSION['user_type']==1)) {
     header('Location: index.php');
 }

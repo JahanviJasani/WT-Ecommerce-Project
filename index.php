@@ -1,5 +1,6 @@
 <?php
 include('functions.php');
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html>

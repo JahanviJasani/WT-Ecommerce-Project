@@ -1,5 +1,6 @@
 <?php
 include('functions.php');
+error_reporting(0);
 if (!isset($_GET['pid'])) {
 	header('Location: index.php');
 }
@@ -351,10 +352,19 @@ include('header.php');
 									<input type="hidden" name="return" value=" ">
 									<input type="hidden" name="cancel_return" value=" ">';
 									if (($row1['category']=='footwear')) {
-										echo '<input type="button" name="submitFootwear" id="submitFootwear" value="Add to cart" class="button" onclick="footwearAddToCart(\''.$pid.'\',\''.$user_id.'\');" />';
+										if (isset($_SESSION['user_id'])) {
+											echo '<input type="button" name="submitFootwear" id="submitFootwear" value="Add to cart" class="button" onclick="footwearAddToCart(\''.$pid.'\',\''.$user_id.'\');" />';
+										} else {
+											echo '<input type="button" name="submit" value="Add to cart" class="button" data-toggle="modal" data-target="#myModal2"/>';
+										}
+											
 									} else {
 										if($flag==1){
-											echo '<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$user_id.'\',\''.$size.'\');" />';
+											if (isset($_SESSION['user_id'])) {
+												echo '<input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(\''.$pid.'\',\''.$_SESSION['user_id'].'\',\''.$size.'\');" />';
+											} else {
+												echo '<input type="button" name="submit" value="Add to cart" class="button" data-toggle="modal" data-target="#myModal2"/>';
+											}
 										}
 										else {
 											echo '<input type="button" name="submit" value="Add to cart" class="button" data-toggle="modal" data-target="#myModal10"';
