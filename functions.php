@@ -744,6 +744,14 @@ function updateAddressDetails($conn) {
     /*$sql = "UPDATE users SET first_name='$fname', last_name='$lname', email='$email', mobile='$mobile', address='$address', zip='$zip', city='$city', state='$state' WHERE users.user_id='$user'";
     $result1 = mysqli_query($conn, $sql);
     if($result1){*/
+    $sql = "SELECT * FROM users WHERE user_id='$user'";
+    $result = mysqli_query($conn,$sql);
+    $row=mysqli_fetch_assoc($result);
+    if(!$row['address'])
+    {
+    	$sql_1 = "UPDATE users SET address='$address', zip='$zip', city='$city', state='$state' WHERE users.user_id='$user'";
+    	$result1 = mysqli_query($conn, $sql_1);
+    }
 	header("Location: checkout2.php"); /* Redirect browser */
 	exit();
        /* }
