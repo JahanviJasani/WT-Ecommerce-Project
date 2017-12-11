@@ -59,7 +59,7 @@ include('header.php');
 			<div class="item item2"> 
 				<div class="container">
 					<div class="carousel-caption">
-						<h3>Get Your Own <span>Seller PAge</span></h3>
+						<h3>Own a <span>Seller Page ?</span></h3>
 						<p>Your entire collection at 1 place</p>
 						<a class="hvr-outline-out button2" href="#" onclick="showSellerPageModal()">Get Started </a>
 					</div>

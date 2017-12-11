@@ -5137,8 +5137,8 @@ p.w3ls_para {
         top: 46%;
     }
     .flickr-post ul li {
-        margin: 0% 0% 3%;
-        width: 19%;
+        margin: 0% 0% 1%;
+        width: 15%;
     }
     .css-treeview {
         float: none;
@@ -5529,7 +5529,7 @@ p.w3ls_para {
         padding-top: 4em;
     }
     .carousel-indicators {
-        bottom: 2%;
+        bottom: -10%;
     }
     .wthree_banner_bottom_grid_three_left1.grid figure.effect-roxy h3 {
         padding: 1.2em 0 .5em;
