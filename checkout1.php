@@ -71,24 +71,24 @@ include('header.php');
 
                     echo '
                     <div style="margin-top: 2em;">
-                        <div class="row">
+                        <div class="row" style="border-bottom: none;">
                             <div class="col-sm-6">
-                                <div class="form-group">
+                                <div class="form-group" style="margin: 0;">
                                     <labe1 for="firstname">First Name</label1>
                                     <input type="text" class="form-control1" id="firstname" name="firstname" value="'.$user_row['first_name'].'" required="required">
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="form-group">
+                                <div class="form-group" style="margin: 0;">
                                     <label1 for="lastname">Last Name</label1>
                                     <input type="text" class="form-control1" id="lastname" name="lastname" value="'.$user_row['last_name'].'" required="required">
                                 </div>
                             </div>
                         </div>
                     <!-- /.row -->
-                        <div class="row">
+                        <div class="row" style="border-bottom: none;">
                             <div class="col-sm-12">
-                                <div class="form-group">
+                                <div class="form-group" style="margin: 0;">
                                     <label1 for="address">Address</label1>
                                     <input type="text" class="form-control1" id="address" name="address" value="'.$user_row['address'].'" required="required">
                                 </div>
@@ -96,9 +96,9 @@ include('header.php');
                             
                         </div>
                     <!-- /.row -->
-                        <div class="row">
+                        <div class="row" style="border-bottom: none;">
                             <div class="col-sm-6 col-md-4">
-                                <div class="form-group">
+                                <div class="form-group" style="margin: 0;">
                                     <label1 for="zip">ZIP</label1>
                                     <input type="text" class="form-control1" id="zip" name="zip" value="'.$user_row['zip'].'"required="required" onkeyup="apicaller();" minlength="6" maxlength="6">
                                 </div>

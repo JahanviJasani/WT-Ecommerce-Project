@@ -26,43 +26,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="js/Product.js"></script>
 <script src="js/backend.js"></script>
-<style type="text/css">
-	select {
-		display: inline-block;
-	}
-	form p {
-		padding: 10px;
-	}
-	h3 {
-		color: #000;
-		padding-left: 10px;
-	}
-	.form-name {
-		display: inline-block;
-		width: 150px;
-		font-size: 1.1em;
-	}
-	textarea {
-		display: inline-block;
-	}
-	.checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before {
-	    content: '';
-	    background: #fff;
-	    border: 2px solid #ddd;
-	    display: inline-block;
-	    vertical-align: middle;
-	    width: 20px;
-	    height: 20px;
-	    margin-left: -1.2em;
-	    margin-top: -0.2em;
-	    text-align: center;
-	}
-	/*.men_size {
-		display: none;
-	}
-	.women_size {
-		display: none;
-	}*/
+<link rel="stylesheet" type="text/css" href="style_new.css">
 </style>
 </head>
 <body>
@@ -98,7 +62,7 @@ include('header.php');
 					</div>
 				</form>
 				<div id="footwear-div">
-					<h3>Add Footwear</h3>
+					<h3 style="color: #000; padding-left: 10px;">Add Footwear</h3>
 					<form action="functions.php" method="POST" enctype="multipart/form-data">
 						<p><span class="form-name">Sub-category:<span class="required">*</span></p> 
 						<select id="footwear-men" name="footwear-men" style="margin-left: 10px;">
@@ -200,7 +164,7 @@ include('header.php');
 					</form>
 				</div>
 				<div id="bag-div">
-					<h3>Add Bag</h3>
+					<h3 style="color: #000; padding-left: 10px;">Add Bag</h3>
 					<form action="functions.php" method="POST" enctype="multipart/form-data">
 					<p><span class="form-name">Sub-category:<span class="required">*</span></span> 
 						<select id="bag-men" name="bag-men">
@@ -229,7 +193,7 @@ include('header.php');
 						<p><span class="form-name">Name:<span class="required">*</span></span> <input type="text" name="name" maxlength="56" required></p>
 						<p><span class="form-name">Price(in &#8377;):<span class="required">*</span></span> <input type="number" step="0.01" min="0" name="price" required></p>
 						<p><span class="form-name">Colour:</span> <input type="text" name="colour"></p>
-						<p><span class="form-name">Description:</span> <br><textarea name="description"></textarea></p>
+						<p><span class="form-name">Description:</span> <textarea name="description"></textarea></p>
 						<p><span class="form-name">Material:</span> <input type="text" name="material"></p>
 						<p><span class="form-name">Length(in cm):</span> <input type="number" step="0.01" min="0" name="length"></p>
 						<p><span class="form-name">Height(in cm):</span> <input type="number" step="0.01" min="0" name="height"></p>
@@ -244,7 +208,7 @@ include('header.php');
 					</form>
 				</div>
 				<div id="watch-div">
-					<h3>Add Watch</h3>
+					<h3 style="color: #000; padding-left: 10px;">Add Watch</h3>
 					<form action="functions.php" method="POST" enctype="multipart/form-data">
 						<input type="hidden" name="category" value="watch">
 						<input type="hidden" name="gender" id="gender-watch" value="">
@@ -253,7 +217,7 @@ include('header.php');
 						<p><span class="form-name">Price(in &#8377;):<span class="required">*</span></span> <input type="number" min="0" step="0.01" name="price" required></p>
 						<p><span class="form-name">Colour:</span> <input type="text" name="colour"></p>
 						<p><span class="form-name">Dial Colour:</span> <input type="text" name="dial_colour"></p>
-						<p><span class="form-name">Description:</span> <br><textarea name="description"></textarea></p>
+						<p><span class="form-name">Description:</span> <textarea name="description"></textarea></p>
 						<p><span class="form-name">Case Shape:</span> <input type="text" name="case_shape"></p>
 						<p><span class="form-name">Clasp Type:</span> <input type="text" name="clasp_type"></p>
 						<p><span class="form-name">Display Type:</span> <input type="text" name="display_type"></p>

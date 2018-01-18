@@ -26,6 +26,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //for bootstrap working -->
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="style_new.css">
 <script src="js/backend.js"></script>
 </head>
 <body>
@@ -178,7 +179,7 @@ _________________________________________________________ -->
                         $row = mysqli_fetch_assoc($result);
                         echo '<div class="row addresses">
                             <div class="col-md-6">
-                                <h3 style="font-size: 1.4em; font-weight: 600;">Invoice address</h3>
+                                <h3 class="address">Invoice address</h3>
                                 <p style="letter-spacing:0; font-size: 1em;">'.$row['name'].'
                                     <br>'.$row['address'].'
                                     <br>'.$row['city'].'-'.$row['zip'].'
@@ -186,7 +187,7 @@ _________________________________________________________ -->
                                 </p>
                             </div>
                             <div class="col-md-6">
-                                <h3 style="font-size: 1.4em; font-weight: 600;">Shipping address</h3>
+                                <h3 class="address">Shipping address</h3>
                                 <p style="letter-spacing:0; font-size: 1em;">'.$row['name'].'
                                     <br>'.$row['address'].'
                                     <br>'.$row['city'].'-'.$row['zip'].'

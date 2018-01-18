@@ -1,11 +1,6 @@
+
 <head>
-<style type="text/css">
-.resp{
-    display: block;
-    width: 53.23px;
-    height: 53.23px;
-}
-</style>
+	<link rel="stylesheet" type="text/css" href="style_new.css">
 </head>
 <!-- footer -->
 <div class="footer">
